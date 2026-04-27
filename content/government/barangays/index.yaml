@@ -1,8 +1,8 @@
 # Barangay Pages
 # This file contains all Aparri barangay pages available under the Barangays category.
 layout: grid
-title: 'Barangays of Aparri'
-description: 'Browse barangay profiles, elected officials, and available contact information for each barangay in Aparri, Cagayan.'
+title: 'Barangays'
+description: 'Browse barangay profiles, elected officials, and available contact information for each barangay.'
 pages:
   - name: 'Barangay Backiling'
     slug: 'backiling'

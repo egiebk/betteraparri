@@ -2,11 +2,19 @@
   "site_name": "BetterAparri.org",
   "site_description": "Your gateway to information and services.",
   "hero": {
-    "title": "Welcome to BetterAparri.org",
-    "subtitle": "Access information, services, and resources for the Municipality of Aparri, Cagayan Valley.",
+    "welcome": "Welcome to BetterAparri.org",
+    "title": "BetterAparri.org",
+    "subtitle": "Access official government information and services quickly and easily.",
+    "browseServices": "Browse Services",
+    "contactUs": "Contact Us",
+    "findService": "Find a Service",
+    "searchPlaceholder": "e.g., birth certificate, business permit",
+    "popular": "Popular:",
     "nationalId": "National ID",
     "birthCertificate": "Birth Certificate",
-    "businessRegistration": "Business Registration"
+    "businessPermit": "Business Permit",
+    "businessRegistration": "Business Registration",
+    "realPropertyTax": "Real Property Tax"
   },
   "services": {
     "title": "Services & Information",

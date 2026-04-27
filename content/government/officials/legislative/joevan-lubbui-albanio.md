@@ -1,6 +1,6 @@
 # Joevan Lubbui Albanio
 
-Sanguniang Bayan Member of Aparri, Cagayan
+Sanguniang Bayan Member
 
 ---
 

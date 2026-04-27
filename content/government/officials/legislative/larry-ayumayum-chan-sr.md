@@ -1,6 +1,6 @@
 # Larry Ayumayum Chan Sr.
 
-Sanguniang Bayan Member of Aparri, Cagayan
+Sanguniang Bayan Member
 
 ---
 

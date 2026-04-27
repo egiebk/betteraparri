@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-  CheckCircle2,
-} from 'lucide-react';
 import { footerNavigation } from '../../data/navigation';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -17,13 +10,13 @@ const Footer: React.FC = () => {
   const getSocialIcon = (label: string) => {
     switch (label) {
       case 'Facebook':
-        return <Facebook className="h-5 w-5" />;
+        return <i className="ri-facebook-fill h-5 w-5" />;
       case 'Twitter':
-        return <Twitter className="h-5 w-5" />;
+        return <i className="ri-twitter-x-line h-5 w-5" />;
       case 'Instagram':
-        return <Instagram className="h-5 w-5" />;
+        return <i className="ri-instagram-line h-5 w-5" />;
       case 'YouTube':
-        return <Youtube className="h-5 w-5" />;
+        return <i className="ri-youtube-line h-5 w-5" />;
       default:
         return null;
     }
@@ -35,7 +28,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <CheckCircle2 className="h-12 w-12 mr-3" />
+              <i className="ri-shield-checkmark-line text-3xl mr-3 text-primary-600" />
               {/* <img
                 src="/ph-logo.webp"
                 alt="Philippines Coat of Arms"
@@ -44,7 +37,6 @@ const Footer: React.FC = () => {
 
               <div>
                 <div className="font-bold">{t('site_name')}</div>
-                <div className="text-xs text-gray-400">BetterGov.ph Portal</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-4">
@@ -109,7 +101,7 @@ const Footer: React.FC = () => {
                 Terms of Use
               </a> */}
               <Link
-                to="https://github.com/bettergovph/bettergov"
+                to="https://github.com/egiebk/betteraparri"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Contribute at GitHub

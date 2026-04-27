@@ -23,6 +23,8 @@ import {
   type CategoryIndex,
 } from '../data/yamlLoader';
 import SEO from '../components/SEO';
+import OfficialsDirectoryCards from '../components/officials/OfficialsDirectoryCards';
+import ExecutiveOfficialsCards from '../components/officials/ExecutiveOfficialsCards';
 
 interface DocumentProps {
   theme?: string;
@@ -142,6 +144,31 @@ export default function Document({
 
   if (nestedIndex) {
     const nestedPages: Subcategory[] = nestedIndex.pages;
+
+    if (
+      categoryType === 'government' &&
+      category === 'officials' &&
+      documentSlug === 'legislative'
+    ) {
+      return (
+        <>
+          <SEO
+            title={nestedIndex.title || documentSlug}
+            description={nestedIndex.description}
+            keywords={`${documentSlug}, government services, local government`}
+          />
+          <Section className="p-3 mb-12">
+            <Breadcrumbs className="mb-8" items={breadcrumbs} />
+            <OfficialsDirectoryCards
+              title={nestedIndex.title}
+              description={nestedIndex.description}
+              pages={nestedPages}
+            />
+          </Section>
+        </>
+      );
+    }
+
     return (
       <>
         <SEO
@@ -214,19 +241,29 @@ export default function Document({
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" items={breadcrumbs} />
-        <Card className="mb-8 markdown-content">
-          <CardHeader>
-            {markdownContent.description && (
-              <CardContent>{markdownContent.description}</CardContent>
-            )}
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              components={markdownComponents}
-            >
-              {markdownContent.content}
-            </ReactMarkdown>
-          </CardHeader>
-        </Card>
+        {categoryType === 'government' &&
+        category === 'officials' &&
+        documentSlug === 'executive' ? (
+          <ExecutiveOfficialsCards
+            title={markdownContent.title}
+            description={markdownContent.description}
+            data={markdownContent.data}
+          />
+        ) : (
+          <Card className="mb-8 markdown-content">
+            <CardHeader>
+              {markdownContent.description && (
+                <CardContent>{markdownContent.description}</CardContent>
+              )}
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={markdownComponents}
+              >
+                {markdownContent.content}
+              </ReactMarkdown>
+            </CardHeader>
+          </Card>
+        )}
       </Section>
     </>
   );

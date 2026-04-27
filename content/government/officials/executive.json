@@ -1,9 +1,11 @@
 {
   "GOVERNMENT_NAME": "Municipality of Aparri",
   "MAYOR": "Dominador Jaramillo Dayag",
+  "MAYOR_EMAIL": "",
+  "MAYOR_ADDRESS": "",
   "MAYOR_HE_SHE": "he",
   "HONORIFIC_TITLE": "Honorable",
-  "VICE_MAYOR": "Bryan Dale Gorospe Chan",
-  "VICE_MAYOR_HE_SHE": "he",
-  "YEAR_ELECTED": "2025"
+  "YEAR_ELECTED": "2025",
+  "OFFICE_EMAIL": "",
+  "OFFICE_ADDRESS": ""
 }

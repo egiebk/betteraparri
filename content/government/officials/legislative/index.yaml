@@ -1,10 +1,13 @@
-# Legislative Department Pages
-# This file contains all the pages/governments/departments/legislative available under the Department
+# Sangguniang Bayan Pages
+# This file contains all the pages/governments/officials/legislative available under the Officials section
 #
-layout: grid
-title: 'Legislative Department'
-description: 'Meet the members of the Sangguniang Bayan of Aparri, Cagayan'
+layout: list
+title: 'Legislative Officials'
+description: 'Meet the Vice Mayor and members of the Sangguniang Bayan of Aparri, Cagayan'
 pages:
+  - name: 'Bryan Dale Gorospe Chan'
+    slug: 'bryan-dale-gorospe-chan'
+    description: 'Municipal Vice Mayor'
   - name: 'Ronald Marasigan Labbao'
     slug: 'ronald-marasigan-labbao'
     description: 'Sanguniang Bayan Member'

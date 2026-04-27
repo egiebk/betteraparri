@@ -1,7 +1,5 @@
 # Alex Villanueva Agbanglo
 
-Sanguniang Bayan Member of Aparri, Cagayan
-
 ---
 
 ## About Councilor Alex Villanueva Agbanglo

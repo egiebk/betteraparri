@@ -30,15 +30,15 @@ export const mainNavigation: NavigationItem[] = [
   },
   {
     label: 'Government',
-    href: '/government/departments',
+    href: '/government/officials',
     children: [
+      {
+        label: 'Officials',
+        href: '/government/officials',
+      },
       {
         label: 'Barangays',
         href: '/government/barangays',
-      },
-      {
-        label: 'Departments',
-        href: '/government/departments',
       },
     ],
   },
@@ -80,7 +80,7 @@ export const footerNavigation = {
         // { label: 'Terms of Use', href: '/terms' },
         { label: 'Accessibility', href: '/accessibility' },
         { label: 'Contact Us', href: '/about' },
-        { label: 'Community Discord', href: '/discord' },
+        // { label: 'Community Discord', href: '/discord' },
       ],
     },
     {

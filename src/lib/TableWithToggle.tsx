@@ -9,7 +9,6 @@ import {
   useMemo,
   useEffect,
 } from 'react';
-import { Table, List } from 'lucide-react';
 import { type TypographyTheme } from './typographyThemes';
 
 // Helper functions to extract text from React children
@@ -214,7 +213,7 @@ export const TableWithToggle = ({
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}
         >
-          <Table size={16} />
+          <i className="ri-table-2 text-base" />
           Table
         </button>
         <button
@@ -225,7 +224,7 @@ export const TableWithToggle = ({
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}
         >
-          <List size={16} />
+          <i className="ri-list-unordered text-base" />
           List
         </button>
       </div>

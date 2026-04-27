@@ -1,6 +1,6 @@
 # Ronald Marasigan Labbao
 
-Sanguniang Bayan Member of Aparri, Cagayan
+Sanguniang Bayan Member
 
 ---
 

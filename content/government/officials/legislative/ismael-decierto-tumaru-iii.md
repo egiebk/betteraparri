@@ -1,6 +1,6 @@
 # Ismael Decierto Tumaru III
 
-Sanguniang Bayan Member of Aparri, Cagayan
+Sanguniang Bayan Member
 
 ---
 

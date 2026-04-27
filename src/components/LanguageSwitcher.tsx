@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Globe } from 'lucide-react';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -16,7 +15,7 @@ export default function LanguageSwitcher() {
   return (
     <div className="relative group">
       <button className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors">
-        <Globe size={16} />
+        <i className="ri-global-line h-4 w-4" />
         <span>{languages.find(lang => lang.code === i18n.language)?.flag}</span>
         <span className="hidden sm:inline">
           {languages.find(lang => lang.code === i18n.language)?.name}
