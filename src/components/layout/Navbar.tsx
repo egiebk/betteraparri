@@ -8,7 +8,7 @@ import { LANGUAGES } from '../../i18n/languages';
 const emergencyHotlines = [
   { label: 'MDRRMO:', number: '09566542894', icon: 'ri-alarm-warning-line' },
   { label: 'PCG:', number: '09568301802', icon: 'ri-ship-2-line' },
-  { label: 'PNP:', number: '09172032003', icon: 'ri-police-badge-line' },
+  { label: 'PNP:', number: '911', icon: 'ri-police-badge-line' },
   { label: 'BFP:', number: '09164910946', icon: 'ri-fire-line' },
   { label: 'Hospital:', number: '09363748430', icon: 'ri-hospital-line' },
   {
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       {/* Top bar with emergency contacts and language switcher */}
-      <div className="border-b border-gray-200 bg-red-800/90 text-white">
+      <div className="border-b border-gray-200 bg-red-800 text-white">
         <div className="container mx-auto px-4 py-1.5">
           <div className="flex flex-col gap-1.5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-2.5">
@@ -89,7 +89,9 @@ const Navbar: React.FC = () => {
                 className="h-12 w-12 mr-3"
               /> */}
               <div>
-                <div className="text-gray-800 font-extrabold">{t('site_name')}</div>
+                <div className="text-gray-800 font-extrabold">
+                  {t('site_name')}
+                </div>
                 <div className="text-xs text-gray-700">
                   {t('site_description')}
                 </div>
@@ -103,11 +105,11 @@ const Navbar: React.FC = () => {
               <div key={item.label} className="relative group">
                 <Link
                   to={item.href}
-                  className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="flex h-10 items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
                 >
                   {item.label}
                   {item.children && (
-                    <i className="ri-arrow-down-s-line ml-1 h-4 w-4 text-gray-800 group-hover:text-primary-600 transition-colors" />
+                    <i className="ri-arrow-down-s-line ml-1 inline-flex h-4 w-4 items-center justify-center text-gray-800 leading-none transition-colors group-hover:text-primary-600" />
                   )}
                 </Link>
                 {item.children && (

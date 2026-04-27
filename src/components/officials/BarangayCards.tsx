@@ -94,13 +94,13 @@ export default function BarangayCards({
               hoverable
               className="overflow-hidden rounded-xl shadow-sm"
             >
-              <CardHeader className="p-4 sm:px-4 bg-stone-100">
-                <h3 className="text-lg font-medium text-slate-900 sm:text-xl">
+              <CardHeader className="bg-stone-100">
+                <h4 className="text-md font-medium text-slate-900 sm:text-lg">
                   {page.name}
-                </h3>
+                </h4>
               </CardHeader>
-              <CardContent className="space-y-3 p-4 sm:px-6">
-                <div className="rounded-xl px-4 py-3">
+              <CardContent className="space-y-4">
+                <div className="rounded-xl">
                   <div className="flex items-center gap-3">
                     <i className="ri-user-3-line h-4 w-4 text-primary-700" />
                     <div>
@@ -115,7 +115,7 @@ export default function BarangayCards({
                 </div>
 
                 {telephone && (
-                  <div className="rounded-xl px-4 py-3">
+                  <div className="rounded-xl">
                     <div className="flex items-center gap-3">
                       <i className="ri-phone-line h-4 w-4 text-primary-700" />
                       <div>
@@ -133,9 +133,9 @@ export default function BarangayCards({
               <CardFooter className="flex items-center justify-center px-5 pb-5 pt-0 sm:px-6">
                 <Button
                   type="button"
-                  size="md"
+                  size="sm"
                   fullWidth
-                  className="flex items-center justify-center gap-2 rounded-full"
+                  className="flex items-center py-6 hover:bg-primary-700 justify-center gap-2 rounded-full"
                   onClick={() => {
                     navigate(`/government/barangays/${page.slug}`);
                   }}

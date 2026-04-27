@@ -73,7 +73,7 @@ export default function OfficialsDirectoryCards({
   return (
     <div className="pb-4">
       {title && (
-        <h2 className="text-2xl font-semibold text-slate-900">{title}</h2>
+        <h1 className="text-3xl font-semibold text-slate-900">{title}</h1>
       )}
       {description && (
         <p className="mt-2 max-w-3xl text-base text-slate-600">{description}</p>
@@ -92,20 +92,20 @@ export default function OfficialsDirectoryCards({
               hoverable
               className="overflow-hidden rounded-xl shadow-sm"
             >
-              <CardHeader className="p-4 sm:px-4 bg-stone-100">
-                <h3 className="text-lg font-medium text-slate-900 sm:text-xl">
+              <CardHeader className="p-4 sm:px-4 bg-gray-50">
+                <h4 className="text-md font-medium text-slate-900 sm:text-lg">
                   {page.name}
-                </h3>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full bg-gray-200 px-3 py-1.5 text-sm text-primary-800 sm:text-sm">
+                </h4>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1.5 text-sm text-primary-800 sm:text-sm">
                     <i className="ri-building-line mr-2 h-4 w-4" />
                     {position}
                   </span>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-3  px-5 py-5 sm:px-6">
-                <div className="rounded-xl px-4 py-3">
-                  <div className="flex items-start gap-3">
+                <div className="rounded-xl">
+                  <div className="flex items-center gap-3">
                     <i className="ri-map-pin-line mt-0.5 h-4 w-4 text-primary-700" />
                     <div>
                       <p className="text-[11px] font-light uppercase text-slate-500">
@@ -118,7 +118,7 @@ export default function OfficialsDirectoryCards({
                   </div>
                 </div>
 
-                <div className="rounded-xl px-4 py-3">
+                <div className="rounded-xl">
                   <div className="flex items-start gap-3">
                     <i className="ri-mail-line mt-0.5 h-4 w-4 text-primary-700" />
                     <div>
