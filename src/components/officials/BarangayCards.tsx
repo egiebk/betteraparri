@@ -100,7 +100,7 @@ export default function BarangayCards({
                 </h3>
               </CardHeader>
               <CardContent className="space-y-3 p-4 sm:px-6">
-                <div className="rounded-xl bg-slate-50 px-4 py-3">
+                <div className="rounded-xl px-4 py-3">
                   <div className="flex items-center gap-3">
                     <i className="ri-user-3-line h-4 w-4 text-primary-700" />
                     <div>
@@ -115,11 +115,11 @@ export default function BarangayCards({
                 </div>
 
                 {telephone && (
-                  <div className="rounded-xl bg-slate-50 px-4 py-3">
+                  <div className="rounded-xl px-4 py-3">
                     <div className="flex items-center gap-3">
                       <i className="ri-phone-line h-4 w-4 text-primary-700" />
                       <div>
-                        <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
+                        <p className="text-[11px] font-light uppercase text-slate-500">
                           Telephone
                         </p>
                         <p className="mt-1 break-all text-sm text-slate-800 sm:text-base">

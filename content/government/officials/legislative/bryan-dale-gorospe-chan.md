@@ -15,3 +15,5 @@ As Municipal Vice Mayor, Vice Mayor Chan helps ensure that legislative sessions 
 ### Contact Information
 
 For inquiries or to reach out to Vice Mayor Chan, please contact the Legislative Building at Quezon St, Centro 1, Aparri, Cagayan.
+
+Email: sbaparri2023@gmail.com
