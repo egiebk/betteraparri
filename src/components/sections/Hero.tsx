@@ -29,8 +29,11 @@ export default function Hero() {
       <div className="relative container mx-auto px-4 py-12 md:py-16 lg:py-18">
         <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <div className="max-w-3xl">
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {t('hero.welcome')}
+            <p className="text-md font-light tracking-tight text-white lg:text-lg">
+              Welcome to
+            </p>
+            <h1 className="text-xl font-semibold tracking-tight text-white sm:text-4xl lg:text-4xl">
+              {t('hero.title')}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-8 text-blue-50 sm:text-lg">
               {t('hero.subtitle')}
@@ -39,7 +42,7 @@ export default function Hero() {
               <Button
                 type="button"
                 size="lg"
-                className="justify-center bg-primary-600 text-white-50 hover:bg-primary-700 rounded-2xl px-6 py-3.5 text-base font-semibold shadow-xl"
+                className="justify-center bg-emerald-600 text-white-50 hover:bg-primary-700 rounded-2xl px-6 py-3.5 text-base font-semibold shadow-xl"
                 onClick={() => navigate('/services')}
               >
                 <i className="ri-arrow-right-line mr-2" />
@@ -63,7 +66,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <Card className="rounded-[1.75rem] border-0 bg-white text-slate-900 shadow-[0_28px_80px_rgba(4,16,48,0.28)]">
+          {/* <Card className="rounded-[1.75rem] border-0 bg-white text-slate-900 shadow-[0_28px_80px_rgba(4,16,48,0.28)]">
             <CardContent className="p-5 sm:p-6">
               <div className="flex items-center gap-3 text-xl font-semibold text-slate-900">
                 <i className="ri-search-line h-5 w-5 text-[#1849b2]" />
@@ -113,7 +116,7 @@ export default function Hero() {
                 ))}
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </section>

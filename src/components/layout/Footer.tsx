@@ -85,7 +85,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              {t('footer.copyright')}
+              {t('footer.copyright')} <br/>
+              <span className="text-xs text-extralight text-gray-600">{t('footer.cc')}</span>
             </p>
             <div className="flex space-x-6">
               {/* <a

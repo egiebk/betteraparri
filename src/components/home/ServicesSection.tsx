@@ -43,12 +43,12 @@ export default function ServicesSection({
         {description || t('services.description')}
       </Text>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedCategories.map(category => (
           <Card
             key={category.slug}
             hoverable
-            className="border-t-4 border-primary-500"
+            className="border-primary-100 hover:bg-blue-50"
           >
             <Link
               to={`/services/${category.slug}`}
@@ -56,15 +56,15 @@ export default function ServicesSection({
             >
               <CardContent className="flex flex-col h-full p-6">
                 <div className="flex gap-2">
-                  <div className="bg-primary-100 text-primary-600 p-3 rounded-md mb-4 self-start">
-                    <RemixIcon iconClass={category.icon} className="h-6 w-6" />
+                  <div className="bg-primary-100 text-primary-600 px-3 py-2 rounded-full mb-4 self-start">
+                    <RemixIcon iconClass={category.icon} className="text-xl" />
                   </div>
 
-                  <h3 className="text-lg font-semibold mb-4 text-gray-900 self-center">
+                  <h2 className="text-md font-semibold mb-4 text-gray-900 self-center">
                     {category.category}
-                  </h3>
+                  </h2>
                 </div>
-                <Text className="text-gray-800">{category.description}</Text>
+                <Text className="text-gray-800 text-sm">{category.description}</Text>
               </CardContent>
             </Link>
           </Card>

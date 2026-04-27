@@ -37,7 +37,8 @@
     "title": "Latest News & Updates"
   },
   "footer": {
-    "copyright": "© 2026 BetterAparri.org MIT | CC BY 4.0 All public information sourced from official government portals."
+    "copyright": "© 2026 BetterAparri.org ",
+    "cc": "MIT | CC BY 4.0 All public information sourced from official government portals."
   },
   "navbar": {
     "government": "Government",

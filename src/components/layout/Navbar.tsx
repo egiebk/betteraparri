@@ -6,18 +6,18 @@ import { useTranslation } from 'react-i18next';
 import { LANGUAGES } from '../../i18n/languages';
 
 const emergencyHotlines = [
-  { label: 'MDRRMO:', number: '09566542894', icon: 'ri-shake-hands-line' },
+  { label: 'MDRRMO:', number: '09566542894', icon: 'ri-alarm-warning-line' },
   { label: 'PCG:', number: '09568301802', icon: 'ri-ship-2-line' },
-  { label: 'Police:', number: '09172032003', icon: 'ri-shield-line' },
-  { label: 'Fire:', number: '09164910946', icon: 'ri-fire-line' },
+  { label: 'PNP:', number: '09172032003', icon: 'ri-police-badge-line' },
+  { label: 'BFP:', number: '09164910946', icon: 'ri-fire-line' },
   { label: 'Hospital:', number: '09363748430', icon: 'ri-hospital-line' },
   {
-    label: 'RHU - East:',
+    label: 'RHU-East:',
     number: '09531908364',
     icon: 'ri-first-aid-kit-line',
   },
   {
-    label: 'RHU - West:',
+    label: 'RHU-West:',
     number: '09359519786',
     icon: 'ri-first-aid-kit-line',
   },
@@ -82,15 +82,15 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <i className="ri-shield-checkmark-line text-3xl mr-3 text-primary-600" />
+              <i className="ri-shield-line text-3xl mr-3 text-primary-600" />
               {/* <img
                 src="/ph-logo.webp"
                 alt="Philippines Coat of Arms"
                 className="h-12 w-12 mr-3"
               /> */}
               <div>
-                <div className="text-black font-bold">{t('site_name')}</div>
-                <div className="text-xs text-gray-800">
+                <div className="text-gray-800 font-extrabold">{t('site_name')}</div>
+                <div className="text-xs text-gray-700">
                   {t('site_description')}
                 </div>
               </div>
@@ -133,13 +133,13 @@ const Navbar: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="hidden lg:flex items-center space-x-6">
-            {/* <Link
+          {/* <div className="hidden lg:flex items-center space-x-6">
+            <Link
               to="/about"
               className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
             >
               About
-            </Link> */}
+            </Link> 
             <Link
               to="/search"
               className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
@@ -147,13 +147,13 @@ const Navbar: React.FC = () => {
               <i className="ri-search-line h-4 w-4 mr-1" />
               Search
             </Link>
-            {/* <Link
+            <Link
               to="/sitemap"
               className="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors"
             >
               Sitemap
-            </Link> */}
-          </div>
+            </Link>
+          </div> */}
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">

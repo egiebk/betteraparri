@@ -16,10 +16,10 @@ interface Category {
 }
 
 export const mainNavigation: NavigationItem[] = [
-  {
-    label: 'Home',
-    href: '/',
-  },
+  // {
+  //   label: 'Home',
+  //   href: '/',
+  // },
   {
     label: 'Services',
     href: '/services',
