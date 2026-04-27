@@ -1,9 +1,31 @@
-# legislative Department Pages
+# Legislative Department Pages
 # This file contains all the pages/governments/departments/legislative available under the Department
 #
 layout: grid
 title: 'Legislative Department'
-description: 'Page Description'
+description: 'Meet the members of the Sangguniang Bayan of Aparri, Cagayan'
 pages:
-  - name: 'Councilor A'
-    description: 'Description'
+  - name: 'Ronald Marasigan Labbao'
+    slug: 'ronald-marasigan-labbao'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Ismael Decierto Tumaru III'
+    slug: 'ismael-decierto-tumaru-iii'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Joylyn Florida Eslabon'
+    slug: 'joylyn-florida-eslabon'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Julie Ann Decierto Alameda'
+    slug: 'julie-ann-decierto-alameda'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Dian Jaycerett Alzaga Dayag'
+    slug: 'dian-jaycerett-alzaga-dayag'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Joevan Lubbui Albanio'
+    slug: 'joevan-lubbui-albanio'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Alex Villanueva Agbanglo'
+    slug: 'alex-villanueva-agbanglo'
+    description: 'Sanguniang Bayan Member'
+  - name: 'Larry Ayumayum Chan Sr.'
+    slug: 'larry-ayumayum-chan-sr'
+    description: 'Sanguniang Bayan Member'

@@ -9,6 +9,7 @@ import {
 import { footerNavigation } from '../../data/navigation';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import packageJson from '../../../package.json';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation('common');
@@ -47,9 +48,14 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-4">
-              A community portal providing Philippine citizens, businesses, and
-              visitors with information and services.
+              {t('site_description')}
             </p>
+            <div className="space-y-1 mb-4 text-sm">
+              <p className="text-gray-300">Version {packageJson.version}</p>
+              <p className="text-emerald-300">
+                Cost to the People of Aparri = ₱0
+              </p>
+            </div>
             <div className="flex space-x-4">
               {footerNavigation.socialLinks.map(link => (
                 <Link

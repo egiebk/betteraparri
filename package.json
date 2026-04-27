@@ -13,6 +13,7 @@
     "preview": "vite preview",
     "prepare": "husky",
     "convert-yaml": "node scripts/yaml-to-json.js",
+    "import:barangays": "node scripts/import-barangays.js",
     "dev:yaml": "npm run convert-yaml && npm run dev",
     "setup": "node scripts/setup-starter-kit.js"
   },

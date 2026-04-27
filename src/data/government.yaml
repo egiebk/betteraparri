@@ -3,6 +3,13 @@
 # Non-technical users can easily edit this file to add, remove, or modify local government activity
 
 categories:
+  - category: 'Barangays'
+    slug: 'barangays'
+    description: 'Browse Aparri barangays, their elected officials, and barangay contact information.'
+    icon: 'MapPinned'
+    subcategories:
+      - name: 'Barangays'
+        slug: 'barangays'
   - category: 'Departments'
     slug: 'departments'
     description: 'Explore local government departments, agencies, and offices with their mandates, services, and contact details.'
