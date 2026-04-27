@@ -1,0 +1,10 @@
+# Officials Pages
+# This file contains all the pages/governments available under the Officials section
+
+pages:
+  - name: 'Executive'
+    slug: 'executive'
+    description: 'Find out about the Mayor, including leadership roles, programs, and how to contact the Office of the Mayor.'
+  - name: 'Legislative'
+    slug: 'legislative'
+    description: 'Meet the Vice Mayor and members of the Sangguniang Bayan, the local legislative body that helps govern Aparri.'

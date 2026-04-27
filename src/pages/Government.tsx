@@ -8,13 +8,18 @@ import {
   type Subcategory,
   type CategoryIndex,
 } from '../data/yamlLoader';
-import * as LucideIcons from 'lucide-react';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import GovernmentActivitySection from '../components/home/GovernmentActivitySection';
 import SEO from '../components/SEO';
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Banner } from '@bettergov/kapwa/banner';
 import { useState, useEffect } from 'react';
+import BarangayCards from '../components/officials/BarangayCards';
+
+const RemixIcon: React.FC<{ iconClass: string; className?: string }> = ({
+  iconClass,
+  className = 'h-8 w-8',
+}) => <i className={`${iconClass} ${className}`} />;
 
 const Government: React.FC = () => {
   const { category } = useParams();
@@ -30,9 +35,9 @@ const Government: React.FC = () => {
   };
 
   const categoryData = getCategory();
-  const Icon = LucideIcons[
-    categoryData?.icon as keyof typeof LucideIcons
-  ] as React.ComponentType<{ className?: string }>;
+  const pageTitle = categoryIndex.title || categoryData?.category || category;
+  const pageDescription =
+    categoryIndex.description || categoryData?.description || '';
 
   useEffect(() => {
     if (category && categoryData) {
@@ -76,30 +81,33 @@ const Government: React.FC = () => {
   return (
     <>
       <SEO
-        title={categoryData.category || category}
-        description={categoryData.description}
+        title={pageTitle}
+        description={pageDescription}
         keywords={`${categoryData.category}, government services, public services, local government`}
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" />
-        <Icon className="h-8 w-8 mb-4 text-primary-600 rounded-md" />
-        <Heading>{categoryData.category || category}</Heading>
-        <Text className="text-gray-600 mb-6">{categoryData.description}</Text>
+        {categoryData?.icon && (
+          <RemixIcon
+            iconClass={categoryData.icon}
+            className="h-8 w-8 mb-4 text-primary-600"
+          />
+        )}
+        <Heading>{pageTitle}</Heading>
+        <Text className="text-gray-600 mb-6">{pageDescription}</Text>
 
         {loading ? (
           <div className="flex justify-center items-center p-8">
             <Text>Loading services...</Text>
           </div>
+        ) : category === 'barangays' ? (
+          <BarangayCards
+            title={categoryIndex.title}
+            description={categoryIndex.description}
+            pages={subcategories}
+          />
         ) : (
           <>
-            {categoryIndex.title && (
-              <Heading level={3}>{categoryIndex.title}</Heading>
-            )}
-            {categoryIndex.description && (
-              <Text className="text-gray-600 mb-4">
-                {categoryIndex.description}
-              </Text>
-            )}
             {categoryIndex.layout === 'grid' ? (
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {subcategories.map(subcategory => (

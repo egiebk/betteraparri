@@ -1,12 +1,20 @@
 {
-  "site_name": "Lapu Lapu City Portal",
-  "site_description": "A community-run portal for the Lapu Lapu City",
+  "site_name": "BetterAparri.org",
+  "site_description": "Your gateway to information and services.",
   "hero": {
-    "title": "Welcome to BetterGov.ph",
-    "subtitle": "A community-run portal to find information of the Lapu Lapu City Government",
+    "welcome": "Welcome to BetterAparri.org",
+    "title": "BetterAparri.org",
+    "subtitle": "Access official government information and services quickly and easily.",
+    "browseServices": "Browse Services",
+    "contactUs": "Contact Us",
+    "findService": "Find a Service",
+    "searchPlaceholder": "e.g., birth certificate, business permit",
+    "popular": "Popular:",
     "nationalId": "National ID",
     "birthCertificate": "Birth Certificate",
-    "businessRegistration": "Business Registration"
+    "businessPermit": "Business Permit",
+    "businessRegistration": "Business Registration",
+    "realPropertyTax": "Real Property Tax"
   },
   "services": {
     "title": "Services & Information",
@@ -29,7 +37,7 @@
     "title": "Latest News & Updates"
   },
   "footer": {
-    "copyright": "© 2025 BetterGov. All content is public domain unless otherwise specified."
+    "copyright": "© 2026 BetterAparri.org MIT | CC BY 4.0 All public information sourced from official government portals."
   },
   "navbar": {
     "government": "Government",

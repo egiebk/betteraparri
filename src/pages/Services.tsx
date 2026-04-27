@@ -8,13 +8,17 @@ import {
   type Subcategory,
   type CategoryIndex,
 } from '../data/yamlLoader';
-import * as LucideIcons from 'lucide-react';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import ServicesSection from '../components/home/ServicesSection';
 import SEO from '../components/SEO';
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Banner } from '@bettergov/kapwa/banner';
 import { useState, useEffect } from 'react';
+
+const RemixIcon: React.FC<{ iconClass: string; className?: string }> = ({
+  iconClass,
+  className = 'h-8 w-8',
+}) => <i className={`${iconClass} ${className}`} />;
 
 const Services: React.FC = () => {
   const { category } = useParams();
@@ -30,9 +34,6 @@ const Services: React.FC = () => {
   };
 
   const categoryData = getCategory();
-  const Icon = LucideIcons[
-    categoryData?.icon as keyof typeof LucideIcons
-  ] as React.ComponentType<{ className?: string }>;
 
   useEffect(() => {
     if (category && categoryData) {
@@ -82,7 +83,12 @@ const Services: React.FC = () => {
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" />
-        <Icon className="h-8 w-8 mb-4 text-primary-600 rounded-md" />
+        {categoryData?.icon && (
+          <RemixIcon
+            iconClass={categoryData.icon}
+            className="h-8 w-8 mb-4 text-primary-600"
+          />
+        )}
         <Heading>{categoryData.category || category}</Heading>
         <Text className="text-gray-600 mb-6">{categoryData.description}</Text>
 
