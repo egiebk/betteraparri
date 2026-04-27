@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto px-4 py-1.5">
           <div className="flex flex-col gap-1.5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-2.5">
-              <div className="flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+              <div className="flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-amber-400">
                 <i className="ri-phone-line text-sm" />
                 <span>Emergency Hotlines</span>
               </div>

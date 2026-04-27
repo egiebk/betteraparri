@@ -37,7 +37,7 @@ export default function ServicesSection({
   const displayedCategories = serviceCategories.categories as Category[];
 
   return (
-    <Section>
+    <Section className="max-w-7xl mx-auto">
       <Heading level={2}>{title || t('services.title')}</Heading>
       <Text className="text-gray-600 mb-6">
         {description || t('services.description')}
@@ -60,11 +60,11 @@ export default function ServicesSection({
                     <RemixIcon iconClass={category.icon} className="text-xl" />
                   </div>
 
-                  <h2 className="text-md font-semibold mb-4 text-gray-900 self-center">
+                  <h2 className="text-md font-medium mb-4 text-gray-900 self-center">
                     {category.category}
                   </h2>
                 </div>
-                <Text className="text-gray-800 text-sm">{category.description}</Text>
+                <Text className="text-gray-800 text-sm font-light">{category.description}</Text>
               </CardContent>
             </Link>
           </Card>
