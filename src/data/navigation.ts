@@ -100,12 +100,20 @@ export const footerNavigation = {
     {
       title: 'Government',
       links: [
-        { label: 'Official Gazette', href: 'https://www.officialgazette.gov.ph', },
+        {
+          label: 'Official Gazette',
+          href: 'https://www.officialgazette.gov.ph',
+        },
         { label: 'Open Data', href: 'https://data.gov.ph' },
         { label: 'Freedom of Information', href: 'https://www.foi.gov.ph' },
-        { label: 'Contact Center', href: 'https://contactcenterngbayan.gov.ph', },
+        {
+          label: 'Contact Center',
+          href: 'https://contactcenterngbayan.gov.ph',
+        },
       ],
     },
   ],
-  socialLinks: [{ label: 'Facebook', href: 'https://facebook.com/govph' }],
+  socialLinks: [
+    { label: 'Facebook', href: 'https://facebook.com/betteraparri.org' },
+  ],
 };

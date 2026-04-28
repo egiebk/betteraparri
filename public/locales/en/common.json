@@ -38,7 +38,8 @@
   },
   "footer": {
     "copyright": "© 2026 BetterAparri.org ",
-    "cc": "MIT | CC BY 4.0 All public information sourced from official government portals."
+    "cc": "MIT | CC BY 4.0 All public information sourced from official government portals.",
+    "cc2": "This website is a volunteer-led initiative and not an official website of the Municipality of Aparri."
   },
   "navbar": {
     "government": "Government",
