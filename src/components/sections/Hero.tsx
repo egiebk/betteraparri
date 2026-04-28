@@ -1,27 +1,15 @@
-import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@bettergov/kapwa/button';
-import { Card, CardContent } from '@bettergov/kapwa/card';
-import { Input } from '@bettergov/kapwa/input';
-import { Label } from '@bettergov/kapwa/label';
-
-const popularServices = ['birthCertificate', 'businessPermit'] as const;
 
 export default function Hero() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [query, setQuery] = useState('');
 
   const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim();
   const contactHref = contactEmail
     ? `mailto:${contactEmail}`
     : '/government/officials';
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    navigate('/services');
-  };
 
   return (
     <section className="relative overflow-hidden bg-[#0f47b8] text-white">
