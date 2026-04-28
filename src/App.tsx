@@ -1,4 +1,5 @@
 import { NuqsAdapter } from 'nuqs/adapters/react';
+import { Analytics } from '@vercel/analytics/react';
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -35,6 +36,7 @@ function App() {
               <Route path="/:documentSlug" element={<Document />} />
             </Routes>
             <Footer />
+            <Analytics />
           </div>
         </NuqsAdapter>
       </Router>

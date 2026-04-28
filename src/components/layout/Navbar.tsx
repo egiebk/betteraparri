@@ -4,6 +4,7 @@ import type { LanguageType } from '../../types/index';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LANGUAGES } from '../../i18n/languages';
+import betterAparriLogo from '../../assets/betteraparri.webp';
 
 const emergencyHotlines = [
   { label: 'MDRRMO:', number: '09566542894', icon: 'ri-alarm-warning-line' },
@@ -82,14 +83,13 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <i className="ri-shield-line text-3xl mr-3 text-primary-600" />
-              {/* <img
-                src="/ph-logo.webp"
-                alt="Philippines Coat of Arms"
-                className="h-12 w-12 mr-3"
-              /> */}
+              <img
+                src={betterAparriLogo}
+                alt="BetterAparri.org logo"
+                className="mr-3 h-20 w-20 object-cover"
+              />
               <div>
-                <div className="text-gray-800 font-extrabold">
+                <div className="text-gray-700 font-extrabold text-xl">
                   {t('site_name')}
                 </div>
                 <div className="text-xs text-gray-700">
