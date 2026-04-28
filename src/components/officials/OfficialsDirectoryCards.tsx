@@ -1,10 +1,4 @@
-import { Button } from '@bettergov/kapwa/button';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@bettergov/kapwa/card';
+import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import type { Subcategory } from '../../data/yamlLoader';
 import alexVillanuevaAgbangloContent from '../../../content/government/officials/legislative/alex-villanueva-agbanglo.md?raw';
 import bryanDaleGorospeChanContent from '../../../content/government/officials/legislative/bryan-dale-gorospe-chan.md?raw';
@@ -126,7 +120,10 @@ export default function OfficialsDirectoryCards({
                         Email Address
                       </p>
                       <p className="mt-1 break-all text-sm text-slate-800 sm:text-base">
-                        <a href={`mailto:${email}`} className="text-primary-600 hover:underline">
+                        <a
+                          href={`mailto:${email}`}
+                          className="text-primary-600 hover:underline"
+                        >
                           {email || 'Email not yet available'}
                         </a>
                       </p>
