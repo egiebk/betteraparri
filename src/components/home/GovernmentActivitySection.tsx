@@ -39,18 +39,18 @@ export default function GovernmentActivitySection({
   const displayedCategories = governmentCategories.categories as Category[];
 
   return (
-    <Section id="#government">
-      <Heading level={2}>{title || t('title')}</Heading>
+    <Section id="#government" className="max-w-7xl mx-auto">
+      <Heading level={2}>{title || t('governmentActivity.title')}</Heading>
       <Text className="text-gray-600 mb-6">
         {description || t('governmentActivity.description')}
       </Text>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedCategories.map(category => (
           <Card
             key={category.slug}
             hoverable
-            className="border-t-4 border-primary-500"
+            className="border-primary-100 hover:bg-blue-50"
           >
             <Link
               to={`/government/${category.slug}`}
@@ -58,7 +58,7 @@ export default function GovernmentActivitySection({
             >
               <CardContent className="flex flex-col h-full p-6">
                 <div className="flex gap-2">
-                  <div className="bg-primary-100 text-primary-600 p-3 rounded-md mb-4 self-start">
+                  <div className="bg-primary-100 text-primary-600 px-3 py-2 rounded-full mb-4 self-start">
                     <RemixIcon iconClass={category.icon} className="h-6 w-6" />
                   </div>
 
@@ -66,7 +66,7 @@ export default function GovernmentActivitySection({
                     {category.category}
                   </h3>
                 </div>
-                <Text className="text-gray-800">{category.description}</Text>
+                <Text className="text-gray-800 text-sm font-light">{category.description}</Text>
               </CardContent>
             </Link>
           </Card>

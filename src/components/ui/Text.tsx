@@ -16,7 +16,7 @@ export function Text({
   };
   return (
     <p
-      className={`text-${size} mb-2 max-w-lg ${transformClasses[transform]} ${className}`}
+      className={`text-${size} mb-2 max-w ${transformClasses[transform]} ${className}`}
     >
       {children}
     </p>

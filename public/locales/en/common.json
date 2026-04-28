@@ -17,14 +17,14 @@
     "realPropertyTax": "Real Property Tax"
   },
   "services": {
-    "title": "Services & Information",
+    "title": "Services",
     "governmentServices": "Government Services",
     "description": "Access official government services quickly and easily. Find what you need for citizenship, business, education, and more.",
     "viewAll": "View All Services",
     "viewAllCategory": "View All"
   },
   "governmentActivity": {
-    "title": "Government Activity",
+    "title": "Government",
     "description": "Stay updated with the latest government activities and announcements."
   },
   "weather": {
@@ -37,7 +37,8 @@
     "title": "Latest News & Updates"
   },
   "footer": {
-    "copyright": "© 2026 BetterAparri.org MIT | CC BY 4.0 All public information sourced from official government portals."
+    "copyright": "© 2026 BetterAparri.org ",
+    "cc": "MIT | CC BY 4.0 All public information sourced from official government portals."
   },
   "navbar": {
     "government": "Government",

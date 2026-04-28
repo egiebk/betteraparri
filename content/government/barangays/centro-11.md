@@ -5,7 +5,7 @@
 - **Barangay:** Centro 11
 - **Municipality:** Aparri
 - **Term Covered by Import:** 2023 - 2026
-- **Barangay Telephone:** 00000000000
+- **Barangay Telephone:** Not available
 
 ## Punong Barangay
 

@@ -5,7 +5,7 @@
 - **Barangay:** Bisagu
 - **Municipality:** Aparri
 - **Term Covered by Import:** 2023 - 2026
-- **Barangay Telephone:** 0
+- **Barangay Telephone:** Not available
 
 ## Punong Barangay
 

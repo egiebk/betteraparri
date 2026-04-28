@@ -24,11 +24,16 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
+      <div className="max-w bg-green-600 mx-auto px-4 py-6">
+        <p className="text-center text-sm font-semibold">
+          This project costs ₱0 to Aparianos.
+        </p>
+      </div>
       <div className="container mx-auto px-4 pt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <i className="ri-shield-checkmark-line text-3xl mr-3 text-primary-600" />
+              <i className="ri-shield-line text-3xl mr-3 text-primary-600" />
               {/* <img
                 src="/ph-logo.webp"
                 alt="Philippines Coat of Arms"
@@ -36,18 +41,12 @@ const Footer: React.FC = () => {
               /> */}
 
               <div>
-                <div className="font-bold">{t('site_name')}</div>
+                <div className="font-bold">{t('site_name')} <span className="text-xs text-gray-600">v.{packageJson.version}</span></div>
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-4">
               {t('site_description')}
             </p>
-            <div className="space-y-1 mb-4 text-sm">
-              <p className="text-gray-300">Version {packageJson.version}</p>
-              <p className="text-emerald-300">
-                Cost to the People of Aparri = ₱0
-              </p>
-            </div>
             <div className="flex space-x-4">
               {footerNavigation.socialLinks.map(link => (
                 <Link
@@ -85,7 +84,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              {t('footer.copyright')}
+              {t('footer.copyright')} <br/>
+              <span className="text-xs text-extralight text-gray-600">{t('footer.cc')}</span>
             </p>
             <div className="flex space-x-6">
               {/* <a

@@ -5,7 +5,7 @@
 - **Barangay:** Binalan
 - **Municipality:** Aparri
 - **Term Covered by Import:** 2023 - 2026
-- **Barangay Telephone:** N/A
+- **Barangay Telephone:** Not available
 
 ## Punong Barangay
 

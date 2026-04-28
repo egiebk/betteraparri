@@ -16,10 +16,10 @@ interface Category {
 }
 
 export const mainNavigation: NavigationItem[] = [
-  {
-    label: 'Home',
-    href: '/',
-  },
+  // {
+  //   label: 'Home',
+  //   href: '/',
+  // },
   {
     label: 'Services',
     href: '/services',
@@ -79,37 +79,31 @@ export const footerNavigation = {
         // { label: 'Privacy Policy', href: '/privacy' },
         // { label: 'Terms of Use', href: '/terms' },
         { label: 'Accessibility', href: '/accessibility' },
-        { label: 'Contact Us', href: '/about' },
+        { label: 'Feedback', href: '' },
         // { label: 'Community Discord', href: '/discord' },
       ],
     },
-    {
-      title: 'Services',
-      links: [
-        { label: 'All Services', href: '/services' },
-        ...(servicesData.categories as Category[])
-          .slice(0, 6)
-          .map(category => ({
-            label: category.category,
-            href: `/services/${category.slug}`,
-          })),
-        { label: 'Hotlines', href: '/philippines/hotlines' },
-        { label: 'Holidays', href: '/philippines/holidays' },
-      ],
-    },
+    // {
+    //   title: 'Services',
+    //   links: [
+    //     { label: 'All Services', href: '/services' },
+    //     ...(servicesData.categories as Category[])
+    //       .slice(0, 6)
+    //       .map(category => ({
+    //         label: category.category,
+    //         href: `/services/${category.slug}`,
+    //       })),
+    //     { label: 'Hotlines', href: '/philippines/hotlines' },
+    //     { label: 'Holidays', href: '/philippines/holidays' },
+    //   ],
+    // },
     {
       title: 'Government',
       links: [
-        {
-          label: 'Official Gazette',
-          href: 'https://www.officialgazette.gov.ph',
-        },
+        { label: 'Official Gazette', href: 'https://www.officialgazette.gov.ph', },
         { label: 'Open Data', href: 'https://data.gov.ph' },
         { label: 'Freedom of Information', href: 'https://www.foi.gov.ph' },
-        {
-          label: 'Contact Center',
-          href: 'https://contactcenterngbayan.gov.ph',
-        },
+        { label: 'Contact Center', href: 'https://contactcenterngbayan.gov.ph', },
       ],
     },
   ],

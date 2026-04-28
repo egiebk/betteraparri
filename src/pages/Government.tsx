@@ -18,7 +18,7 @@ import BarangayCards from '../components/officials/BarangayCards';
 
 const RemixIcon: React.FC<{ iconClass: string; className?: string }> = ({
   iconClass,
-  className = 'h-8 w-8',
+  className = 'h-12 w-12',
 }) => <i className={`${iconClass} ${className}`} />;
 
 const Government: React.FC = () => {
@@ -87,13 +87,15 @@ const Government: React.FC = () => {
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" />
-        {categoryData?.icon && (
-          <RemixIcon
-            iconClass={categoryData.icon}
-            className="h-8 w-8 mb-4 text-primary-600"
-          />
-        )}
-        <Heading>{pageTitle}</Heading>
+        <Heading className="mb-2 flex items-center gap-3">
+          {categoryData?.icon && (
+            <RemixIcon
+              iconClass={categoryData.icon}
+              className="md:text-5xl text-sm text-sky-600"
+            />
+          )}
+          {pageTitle}          
+        </Heading>
         <Text className="text-gray-600 mb-6">{pageDescription}</Text>
 
         {loading ? (

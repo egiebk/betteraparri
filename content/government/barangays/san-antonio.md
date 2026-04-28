@@ -5,7 +5,7 @@
 - **Barangay:** San Antonio
 - **Municipality:** Aparri
 - **Term Covered by Import:** 2023 - 2026
-- **Barangay Telephone:** 377-9278
+- **Barangay Telephone:** 078-377-9278
 
 ## Punong Barangay
 

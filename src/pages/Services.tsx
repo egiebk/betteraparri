@@ -83,13 +83,15 @@ const Services: React.FC = () => {
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" />
-        {categoryData?.icon && (
-          <RemixIcon
-            iconClass={categoryData.icon}
-            className="h-8 w-8 mb-4 text-primary-600"
-          />
-        )}
-        <Heading>{categoryData.category || category}</Heading>
+        <Heading className="mb-2 flex items-center gap-3">
+          {categoryData?.icon && (
+            <RemixIcon
+              iconClass={categoryData.icon}
+              className="md:text-5xl text-sm text-sky-600"
+            />
+          )}          
+          {categoryData.category || category}
+        </Heading>
         <Text className="text-gray-600 mb-6">{categoryData.description}</Text>
 
         {loading ? (
