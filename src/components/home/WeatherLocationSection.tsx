@@ -84,7 +84,6 @@ type MarineSnapshot = {
   time: string;
   waveHeight: NullableNumber;
   wavePeriod: NullableNumber;
-  seaSurfaceTemperature: NullableNumber;
   waveHeightMax: NullableNumber;
   wavePeriodMax: NullableNumber;
 };
@@ -213,17 +212,6 @@ const formatUpdatedAt = (time: string | null | undefined) => {
   }).format(new Date(time));
 };
 
-const getDayLabel = (date: string, index: number) => {
-  if (!date) return index === 0 ? 'Today' : `Day ${index + 1}`;
-  if (index === 0) return 'Today';
-
-  return new Intl.DateTimeFormat('en-PH', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  }).format(new Date(date));
-};
-
 const getWeatherApiUrl = () => {
   const params = new URLSearchParams({
     latitude: LOCATION.latitude.toString(),
@@ -276,11 +264,11 @@ const buildDailyOutlook = (daily: OpenMeteoDaily | undefined) => {
 };
 
 const getHeatLevel = (apparentTemperature: NullableNumber) => {
-  if (typeof apparentTemperature !== 'number') return 'Monitor';
-  if (apparentTemperature >= 40) return 'Very hot';
-  if (apparentTemperature >= 33) return 'Hot';
+  if (typeof apparentTemperature !== 'number') return 'Check again later';
+  if (apparentTemperature >= 40) return 'Very hot outside';
+  if (apparentTemperature >= 33) return 'Hot outside';
 
-  return 'Comfortable';
+  return 'Comfortable weather';
 };
 
 const getRainLevel = (
@@ -292,7 +280,7 @@ const getRainLevel = (
       precipitationProbability >= 70) ||
     (typeof precipitation === 'number' && precipitation >= 20)
   ) {
-    return 'Rain likely';
+    return 'Bring an umbrella';
   }
 
   if (
@@ -300,10 +288,10 @@ const getRainLevel = (
       precipitationProbability >= 40) ||
     (typeof precipitation === 'number' && precipitation >= 5)
   ) {
-    return 'Rain possible';
+    return 'Possible rain today';
   }
 
-  return 'Little rain expected';
+  return 'Low chance of rain';
 };
 
 const getSeaLevel = (waveHeight: NullableNumber, windGusts: NullableNumber) => {
@@ -311,17 +299,17 @@ const getSeaLevel = (waveHeight: NullableNumber, windGusts: NullableNumber) => {
     (typeof waveHeight === 'number' && waveHeight >= 2.5) ||
     (typeof windGusts === 'number' && windGusts >= 45)
   ) {
-    return 'Avoid small boats if advised';
+    return 'Avoid small boats';
   }
 
   if (
     (typeof waveHeight === 'number' && waveHeight >= 1.5) ||
     (typeof windGusts === 'number' && windGusts >= 30)
   ) {
-    return 'Be extra careful at sea';
+    return 'Take extra care at sea';
   }
 
-  return 'Generally okay for short trips';
+  return 'Sea looks manageable';
 };
 
 const getFarmLevel = (
@@ -329,14 +317,14 @@ const getFarmLevel = (
   evapotranspiration: NullableNumber
 ) => {
   if (typeof rainChance === 'number' && rainChance >= 70) {
-    return 'Not ideal for drying harvest';
+    return 'Not good for drying crops';
   }
 
   if (typeof evapotranspiration === 'number' && evapotranspiration >= 5) {
     return 'Crops may need more water';
   }
 
-  return 'Good for routine farm work';
+  return 'Good day for regular farm work';
 };
 
 const buildAdvisories = (
@@ -388,14 +376,14 @@ const buildAdvisories = (
     {
       audience: 'General Public',
       icon: 'ri-community-line',
-      status: `${heatLevel}; ${rainLevel.toLowerCase()}`,
+      status: `${heatLevel}. ${rainLevel}.`,
       tone:
-        heatLevel === 'Very hot' || rainLevel === 'Rain likely'
+        heatLevel === 'Very hot outside' || rainLevel === 'Bring an umbrella'
           ? 'border-amber-200 bg-amber-50'
           : 'border-slate-200 bg-white',
       details: [
-        `It may feel like ${formatNumber(snapshot.weather.apparentTemperature)}°C outside.`,
-        `Bring water, use shade when possible, and prepare for ${formatNumber(today?.precipitationProbability)}% chance of rain.`,
+        `It may feel like ${formatNumber(snapshot.weather.apparentTemperature)}°C when you are outside.`,
+        `Bring water and stay in the shade when possible. Rain chance is ${formatNumber(today?.precipitationProbability)}%.`,
       ],
     },
     {
@@ -403,12 +391,12 @@ const buildAdvisories = (
       icon: 'ri-ship-2-line',
       status: seaLevel,
       tone:
-        seaLevel === 'Avoid small boats if advised'
+        seaLevel === 'Avoid small boats'
           ? 'border-rose-200 bg-rose-50'
           : 'border-slate-200 bg-white',
       details: [
-        `Waves may reach about ${formatDecimal(snapshot.marine.waveHeightMax)} meters today.`,
-        `Wind gusts may reach ${formatNumber(snapshot.weather.windGusts)} km/h, so check the coast and local advisories before leaving shore.`,
+        `Waves may reach around ${formatDecimal(snapshot.marine.waveHeightMax)} meters today.`,
+        `Strong wind is possible. Check the shore and local announcements before going out to sea.`,
       ],
     },
     {
@@ -420,8 +408,8 @@ const buildAdvisories = (
           ? 'border-yellow-200 bg-yellow-50'
           : 'border-slate-200 bg-white',
       details: [
-        `There is a ${formatNumber(today?.precipitationProbability)}% chance of rain today.`,
-        `If the soil is dry, crops may lose around ${formatDecimal(today?.evapotranspiration)} mm of water from heat and sunlight.`,
+        `Rain chance today is ${formatNumber(today?.precipitationProbability)}%.`,
+        `If the soil is dry, check if plants need watering, especially during hot hours.`,
       ],
     },
   ];
@@ -431,10 +419,12 @@ function ClimateMetric({
   icon,
   label,
   value,
+  helper,
 }: {
   icon: string;
   label: string;
   value: string;
+  helper?: string;
 }) {
   return (
     <div className="rounded-xl border border-white/15 bg-white/10 p-4">
@@ -444,6 +434,7 @@ function ClimateMetric({
       />
       <p className="mt-3 text-sm text-blue-100">{label}</p>
       <p className="mt-1 text-lg font-semibold text-white">{value}</p>
+      {helper && <p className="mt-1 text-xs text-blue-100">{helper}</p>}
     </div>
   );
 }
@@ -471,35 +462,6 @@ function AdvisoryCard({ advisory }: { advisory: Advisory }) {
         {advisory.details.map(detail => (
           <p key={detail}>{detail}</p>
         ))}
-      </div>
-    </article>
-  );
-}
-
-function OutlookCard({ day, index }: { day: DailyOutlook; index: number }) {
-  const condition = getWeatherInfo(day.weatherCode);
-
-  return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
-            {getDayLabel(day.date, index)}
-          </h3>
-          <p className="mt-2 text-base font-semibold text-slate-900">
-            {condition.label}
-          </p>
-        </div>
-        <i
-          className={`${condition.icon} inline-flex h-10 w-10 items-center justify-center text-4xl text-primary-700 leading-none`}
-          aria-hidden="true"
-        />
-      </div>
-      <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-slate-700">
-        <span>High {formatNumber(day.temperatureMax)}°C</span>
-        <span>Low {formatNumber(day.temperatureMin)}°C</span>
-        <span>Rain {formatNumber(day.precipitationProbability)}%</span>
-        <span>Wind {formatNumber(day.windSpeed)} km/h</span>
       </div>
     </article>
   );
@@ -553,9 +515,6 @@ export default function WeatherLocationSection() {
             time: marineData.current?.time ?? '',
             waveHeight: readNumber(marineData.current?.wave_height),
             wavePeriod: readNumber(marineData.current?.wave_period),
-            seaSurfaceTemperature: readNumber(
-              marineData.current?.sea_surface_temperature
-            ),
             waveHeightMax: firstValue(marineData.daily?.wave_height_max),
             wavePeriodMax: firstValue(marineData.daily?.wave_period_max),
           },
@@ -589,19 +548,17 @@ export default function WeatherLocationSection() {
     <section className="border-y border-slate-200 bg-slate-100 py-12 sm:py-16">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="mb-8 max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-primary-700">
-            Climate Information Service
-          </p>
           <h2 className="mt-2 text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">
-            Weather Advisory for Aparri, Cagayan
+            Weather Advisory
           </h2>
           <p className="mt-3 text-base leading-7 text-slate-600">
-            Practical weather conditions for daily planning.
+            A quick guide to help residents, fisherfolk, and farmers decide what
+            to prepare for today.
           </p>
         </div>
 
         <div className="rounded-3xl bg-primary-700 p-6 text-white shadow-sm sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-3">
             <div>
               <p className="text-lg font-semibold text-blue-100">
                 {LOCATION.name}
@@ -623,20 +580,19 @@ export default function WeatherLocationSection() {
                   <p className="text-xl font-semibold text-white">
                     {hasError ? 'Climate data unavailable' : condition.label}
                   </p>
-                  <p className="mt-1 text-sm text-blue-100">
+                  <p className="mt-1 text-xs text-blue-100">
                     {hasError
                       ? 'Please check again shortly.'
-                      : `Updated ${formatUpdatedAt(weather?.time)}`}
+                      : `as of ${formatUpdatedAt(weather?.time)}`}
                   </p>
                 </div>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/20 pt-5 text-sm text-blue-100">
-                <span>Cloud cover {formatNumber(weather?.cloudCover)}%</span>
-                <span>Pressure {formatNumber(weather?.pressure)} hPa</span>
-                <span>Wind {formatNumber(weather?.windDirection)}° direction</span>
+                <span>Clouds: {formatNumber(weather?.cloudCover)}%</span>
+                <span>Humidity: {formatNumber(weather?.humidity)}%</span>
                 <span>
-                  Sea surface {formatNumber(marine?.seaSurfaceTemperature)}°C
+                  Rain now: {formatDecimal(weather?.precipitation)} mm
                 </span>
               </div>
 
@@ -647,40 +603,47 @@ export default function WeatherLocationSection() {
               )}
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              <ClimateMetric
-                icon="ri-temp-hot-line"
-                label="Feels like"
-                value={`${formatNumber(weather?.apparentTemperature)}°C`}
-              />
-              <ClimateMetric
-                icon="ri-rainy-line"
-                label="Rain chance today"
-                value={`${formatNumber(today?.precipitationProbability)}%`}
-              />
-              <ClimateMetric
-                icon="ri-windy-line"
-                label="Wind gusts"
-                value={`${formatNumber(weather?.windGusts)} km/h`}
-              />
-              <ClimateMetric
-                icon="ri-ship-2-line"
-                label="Wave height"
-                value={`${formatDecimal(marine?.waveHeightMax)} m max`}
-              />
-              <ClimateMetric
-                icon="ri-sun-line"
-                label="UV index"
-                value={formatDecimal(today?.uvIndex)}
-              />
-              <ClimateMetric
-                icon="ri-water-percent-line"
-                label="Humidity"
-                value={`${formatNumber(weather?.humidity)}%`}
-              />
+            <div className="lg:col-span-2">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                <ClimateMetric
+                  icon="ri-temp-hot-line"
+                  label="How hot it feels"
+                  value={`${formatNumber(weather?.apparentTemperature)}°C`}
+                  helper="Use this for outdoor errands."
+                />
+                <ClimateMetric
+                  icon="ri-rainy-line"
+                  label="Chance of rain"
+                  value={`${formatNumber(today?.precipitationProbability)}%`}
+                  helper="Higher means bring rain gear."
+                />
+                <ClimateMetric
+                  icon="ri-windy-line"
+                  label="Strongest wind"
+                  value={`${formatNumber(weather?.windGusts)} km/h`}
+                  helper="Useful for boats and outdoor work."
+                />
+                <ClimateMetric
+                  icon="ri-ship-2-line"
+                  label="Possible waves"
+                  value={`${formatDecimal(marine?.waveHeightMax)} m`}
+                  helper="For fisherfolk and coastal trips."
+                />
+                <ClimateMetric
+                  icon="ri-sun-line"
+                  label="UV index"
+                  value={formatDecimal(today?.uvIndex)}
+                  helper="Use shade when this is high."
+                />
+                <ClimateMetric
+                  icon="ri-water-percent-line"
+                  label="Humidity"
+                  value={`${formatNumber(weather?.humidity)}%`}
+                  helper="High humidity makes heat feel heavier."
+                />
+              </div>
             </div>
           </div>
-
         </div>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-3">
@@ -689,17 +652,19 @@ export default function WeatherLocationSection() {
           ))}
         </div>
 
-        {snapshot && snapshot.outlook.length > 0 && (
-          <div className="mt-6 grid gap-4 lg:grid-cols-3">
-            {snapshot.outlook.map((day, index) => (
-              <OutlookCard key={day.date} day={day} index={index} />
-            ))}
-          </div>
-        )}
-
         <div className="mt-6 flex flex-col gap-2 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            Advisories are meant to help you plan ahead. Always check local conditions and official announcements before going out, sailing, or working on the farm.
+            Data provided by{' '}
+            <a
+              href="https://open-meteo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary-700 underline"
+            >
+              Open-Meteo
+            </a>
+            . For official updates and warnings, please refer to local and
+            national government announcements.
           </p>
         </div>
       </div>
