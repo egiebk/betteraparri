@@ -177,25 +177,6 @@ const Navbar: React.FC = () => {
       {/* Mobile menu */}
       <div className={`lg:hidden ${isOpen ? 'block' : 'hidden'}`}>
         <div className="container mx-auto px-2 pt-2 pb-4 space-y-1 border-t border-gray-200 bg-white">
-          <div className="mx-2 mb-3 rounded-2xl bg-slate-950 px-4 py-3 text-white">
-            <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300">
-              <i className="ri-phone-line text-xs" />
-              <span>Emergency Hotlines</span>
-            </div>
-            <div className="mt-2.5 flex flex-wrap gap-1.5">
-              {emergencyHotlines.map(item => (
-                <a
-                  key={item.label}
-                  href={`tel:${item.number}`}
-                  className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-2.5 py-0.5 text-[11px] leading-5 text-white/90 gap-1.5"
-                >
-                  <i className={`${item.icon} text-xs`} />
-                  <span className="font-medium text-white">{item.label}</span>
-                  <span className="ml-0.5 text-white/75">{item.number}</span>
-                </a>
-              ))}
-            </div>
-          </div>
           {mainNavigation.map(item => (
             <div key={item.label}>
               {item.children ? (

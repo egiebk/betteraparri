@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w bg-green-600 mx-auto px-4 py-6">
         <p className="text-center text-sm font-semibold">
-          This project costs ₱0 to Aparianos.
+          This project costs ₱0 to Aparrianos.
         </p>
       </div>
       <div className="container mx-auto px-4 pt-12 pb-8">
