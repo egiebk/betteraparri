@@ -43,14 +43,13 @@ import environmentIndex from '../../content/services/environment/index.yaml?raw'
 import disasterPreparednessIndex from '../../content/services/disaster-preparedness/index.yaml?raw';
 import housingLandUseIndex from '../../content/services/housing-land-use/index.yaml?raw';
 import governmentBarangaysIndex from '../../content/government/barangays/index.yaml?raw';
-import governmentOfficialsIndex from '../../content/government/officials/index.yaml?raw';
-import governmentOfficialsLegislativeIndex from '../../content/government/officials/legislative/index.yaml?raw';
-import governmentTransparencyIndex from '../../content/government/transparency/index.yaml?raw';
-import governmentTransparencyIncomeAndDependencyIndex from '../../content/government/transparency/income-and-dependency/index.yaml?raw';
-import governmentTransparencyLocalFinancialDataIndex from '../../content/government/transparency/local-financial-data/index.yaml?raw';
-import governmentStatisticsIndex from '../../content/government/statistics/index.yaml?raw';
-import governmentStatisticsDemographicsIndex from '../../content/government/statistics/demographics/index.yaml?raw';
-import governmentStatisticsCompetitivenessIndex from '../../content/government/statistics/competitiveness/index.yaml?raw';
+import governmentLeadershipLegislativeIndex from '../../content/government/leadership/legislative/index.yaml?raw';
+import transparencyIndex from '../../content/transparency/index.yaml?raw';
+import transparencyIncomeAndDependencyIndex from '../../content/transparency/income-and-dependency/index.yaml?raw';
+import transparencyLocalFinancialDataIndex from '../../content/transparency/local-financial-data/index.yaml?raw';
+import statisticsIndex from '../../content/statistics/index.yaml?raw';
+import statisticsDemographicsIndex from '../../content/statistics/demographics/index.yaml?raw';
+import statisticsCompetitivenessIndex from '../../content/statistics/competitiveness/index.yaml?raw';
 
 // Create a mapping of category slugs to their YAML content
 const categoryIndexMap: { [key: string]: string } = {
@@ -65,14 +64,13 @@ const categoryIndexMap: { [key: string]: string } = {
   'disaster-preparedness': disasterPreparednessIndex,
   'housing-land-use': housingLandUseIndex,
   barangays: governmentBarangaysIndex,
-  officials: governmentOfficialsIndex,
-  legislative: governmentOfficialsLegislativeIndex,
-  transparency: governmentTransparencyIndex,
-  'income-and-dependency': governmentTransparencyIncomeAndDependencyIndex,
-  'local-financial-data': governmentTransparencyLocalFinancialDataIndex,
-  statistics: governmentStatisticsIndex,
-  demographics: governmentStatisticsDemographicsIndex,
-  competitiveness: governmentStatisticsCompetitivenessIndex,
+  legislative: governmentLeadershipLegislativeIndex,
+  transparency: transparencyIndex,
+  'income-and-dependency': transparencyIncomeAndDependencyIndex,
+  'local-financial-data': transparencyLocalFinancialDataIndex,
+  statistics: statisticsIndex,
+  demographics: statisticsDemographicsIndex,
+  competitiveness: statisticsCompetitivenessIndex,
 };
 
 // Parse the YAML content

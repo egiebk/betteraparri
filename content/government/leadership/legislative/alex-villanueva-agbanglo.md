@@ -1,7 +1,6 @@
 # Alex Villanueva Agbanglo
 
-Sanguniang Bayan Member
----
+## Sanguniang Bayan Member
 
 ## About Councilor Alex Villanueva Agbanglo
 

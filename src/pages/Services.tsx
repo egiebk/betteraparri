@@ -7,9 +7,9 @@ import {
   getCategorySubcategories,
   type Subcategory,
   type CategoryIndex,
+  type Category,
 } from '../data/yamlLoader';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
-import ServicesSection from '../components/home/ServicesSection';
 import SEO from '../components/SEO';
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Banner } from '@bettergov/kapwa/banner';
@@ -34,6 +34,13 @@ const Services: React.FC = () => {
   };
 
   const categoryData = getCategory();
+  const servicePages: Subcategory[] = serviceCategories.categories.map(
+    (serviceCategory: Category) => ({
+      name: serviceCategory.category,
+      slug: serviceCategory.slug,
+      description: serviceCategory.description,
+    })
+  );
 
   useEffect(() => {
     if (category && categoryData) {
@@ -53,10 +60,46 @@ const Services: React.FC = () => {
           description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
           keywords="government services, public services, local government, civic services"
         />
-        <ServicesSection
-          title={`All local government services`}
-          description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
-        />
+        <Section className="p-3 mb-12">
+          <Breadcrumbs className="mb-8" />
+          <Heading className="mb-2 flex items-center gap-3">
+            <RemixIcon
+              iconClass="ri-gallery-view-2"
+              className="md:text-5xl text-sm text-sky-600"
+            />
+            Services
+          </Heading>
+          <Text className="text-gray-600 mb-6">
+            All services provided by the {import.meta.env.VITE_GOVERNMENT_NAME}{' '}
+            government. Find what you need for citizenship, business, education,
+            and more.
+          </Text>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {servicePages.map(service => (
+              <Link key={service.slug} to={`/services/${service.slug}`}>
+                <Card
+                  hoverable
+                  className="h-full border-t-4 border-primary-500"
+                >
+                  <CardContent>
+                    <h4 className="text-lg font-medium text-gray-900">
+                      {service.name}
+                    </h4>
+                    {service.description && (
+                      <p className="mt-2 text-sm text-gray-600">
+                        {service.description}
+                      </p>
+                    )}
+                    <span className="inline-block px-2 py-1 mt-2 text-xs font-medium rounded-sm bg-gray-100 text-gray-800">
+                      Services
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </Section>
       </>
     );
   }
@@ -89,7 +132,7 @@ const Services: React.FC = () => {
               iconClass={categoryData.icon}
               className="md:text-5xl text-sm text-sky-600"
             />
-          )}          
+          )}
           {categoryData.category || category}
         </Heading>
         <Text className="text-gray-600 mb-6">{categoryData.description}</Text>

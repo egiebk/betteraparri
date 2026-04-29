@@ -1,8 +1,5 @@
 import type { NavigationItem } from '../types';
-import {
-  serviceCategories as servicesData,
-  governmentCategories,
-} from './yamlLoader';
+import { serviceCategories as servicesData } from './yamlLoader';
 
 interface Subcategory {
   name: string;
@@ -30,11 +27,11 @@ export const mainNavigation: NavigationItem[] = [
   },
   {
     label: 'Government',
-    href: '/government/officials',
+    href: '/government',
     children: [
       {
-        label: 'Officials',
-        href: '/government/officials',
+        label: 'Leadership',
+        href: '/government/leadership',
       },
       {
         label: 'Barangays',
@@ -44,45 +41,29 @@ export const mainNavigation: NavigationItem[] = [
   },
   {
     label: 'Transparency',
-    href: '/government/transparency',
+    href: '/transparency',
     children: [
       {
-        label: 'Transparency Documents',
-        href: '/government/transparency-documents',
-      },
-      {
-        label: 'Guides and Regulations',
-        href: '/government/guides-and-regulations',
-      },
-      // {
-      //   label: 'Reports',
-      //   href: '/government/reports',
-      // },
-      {
         label: 'Income and Dependency',
-        href: '/government/transparency/income-and-dependency',
+        href: '/transparency/income-and-dependency',
       },
       {
         label: 'Local Financial Data',
-        href: '/government/transparency/local-financial-data',
+        href: '/transparency/local-financial-data',
       },
     ],
   },
   {
     label: 'Statistics',
-    href: governmentCategories.categories.find(
-      category => category.slug === 'statistics'
-    )?.slug
-      ? '/government/statistics'
-      : '/government',
+    href: '/statistics',
     children: [
       {
         label: 'Demographics',
-        href: '/government/statistics/demographics',
+        href: '/statistics/demographics',
       },
       {
         label: 'Competitiveness',
-        href: '/government/statistics/competitiveness',
+        href: '/statistics/competitiveness',
       },
     ],
   },

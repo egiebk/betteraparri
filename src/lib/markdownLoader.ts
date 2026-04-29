@@ -34,10 +34,15 @@ export interface MarkdownContent {
 export async function loadMarkdownContent(
   documentSlug: string,
   categorySlug: string,
-  categoryType: 'service' | 'government'
+  categoryType: 'service' | 'government' | 'transparency' | 'statistics'
 ): Promise<MarkdownContent> {
   try {
-    const dir = categoryType === 'government' ? 'government' : 'services';
+    const dir =
+      categoryType === 'service'
+        ? 'services'
+        : categoryType === 'government'
+          ? 'government'
+          : categoryType;
 
     // Try to load companion JSON for template data
     let data: Record<string, unknown> = {};

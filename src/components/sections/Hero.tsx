@@ -9,7 +9,7 @@ export default function Hero() {
   const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim();
   const contactHref = contactEmail
     ? `mailto:${contactEmail}`
-    : '/government/officials';
+    : '/government/leadership';
 
   return (
     <section className="relative overflow-hidden bg-[#0f47b8] text-white">
@@ -46,7 +46,7 @@ export default function Hero() {
                     window.location.href = contactHref;
                     return;
                   }
-                  navigate('/government/officials');
+                  navigate('/government/leadership');
                 }}
               >
                 {t('hero.contactUs')}

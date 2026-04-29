@@ -3,7 +3,7 @@
 
 title: 'Statistics'
 description: 'Explore demographic data and competitiveness indicators for informed decision-making.'
-layout: 'list'
+layout: 'grid'
 pages:
   - name: 'Demographics'
     slug: 'demographics'

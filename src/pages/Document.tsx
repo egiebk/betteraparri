@@ -23,8 +23,6 @@ import {
   type CategoryIndex,
 } from '../data/yamlLoader';
 import SEO from '../components/SEO';
-import OfficialsDirectoryCards from '../components/officials/OfficialsDirectoryCards';
-import ExecutiveOfficialsCards from '../components/officials/ExecutiveOfficialsCards';
 import {
   CompetitivenessDashboard,
   DemographicsDashboard,
@@ -36,7 +34,7 @@ import {
 
 interface DocumentProps {
   theme?: string;
-  categoryType?: 'service' | 'government';
+  categoryType?: 'service' | 'government' | 'transparency' | 'statistics';
 }
 
 type DashboardDocument =
@@ -52,24 +50,56 @@ const dashboardTitles: Record<DashboardDocument, string> = {
   'local-financial-data': 'Local Financial Data',
 };
 
+function buildDocumentBreadcrumbs({
+  sectionLabel,
+  sectionHref,
+  category,
+  categoryLabel,
+  documentLabel,
+  documentHref,
+}: {
+  sectionLabel: string;
+  sectionHref: string;
+  category?: string;
+  categoryLabel?: string;
+  documentLabel: string;
+  documentHref: string;
+}) {
+  const items = [
+    { label: 'Home', href: '/' },
+    { label: sectionLabel, href: sectionHref },
+  ];
+
+  if (category) {
+    items.push({
+      label: categoryLabel ?? category,
+      href: `${sectionHref}/${category}`,
+    });
+  }
+
+  items.push({ label: documentLabel, href: documentHref });
+
+  return items;
+}
+
 function getDashboardDocument(
   categoryType: DocumentProps['categoryType'],
   category: string | undefined,
   documentSlug: string | undefined
 ): DashboardDocument | null {
-  if (categoryType !== 'government' || !category || !documentSlug) {
+  if (!categoryType || !documentSlug) {
     return null;
   }
 
   if (
-    category === 'statistics' &&
+    (categoryType === 'statistics' || category === 'statistics') &&
     (documentSlug === 'demographics' || documentSlug === 'competitiveness')
   ) {
     return documentSlug;
   }
 
   if (
-    category === 'transparency' &&
+    (categoryType === 'transparency' || category === 'transparency') &&
     (documentSlug === 'income-and-dependency' ||
       documentSlug === 'local-financial-data')
   ) {
@@ -116,7 +146,7 @@ export default function Document({
   ]);
 
   useEffect(() => {
-    if (!documentSlug || !category || !categoryType) {
+    if (!documentSlug || !categoryType) {
       setError('No document specified');
       setLoading(false);
       return;
@@ -127,35 +157,50 @@ export default function Document({
         setLoading(true);
         setError(null);
 
-        const isGovernment = categoryType === 'government';
-        const categories = isGovernment
+        const isGovernmentSection = categoryType === 'government';
+        const categories = isGovernmentSection
           ? governmentCategories.categories
           : serviceCategories.categories;
-        const sectionLabel = isGovernment ? 'Government' : 'Services';
-        const sectionHref = isGovernment ? '/government' : '/services';
+        const sectionLabel =
+          categoryType === 'service'
+            ? 'Services'
+            : categoryType === 'government'
+              ? 'Government'
+              : categoryType === 'transparency'
+                ? 'Transparency'
+                : 'Statistics';
+        const sectionHref =
+          categoryType === 'service'
+            ? '/services'
+            : categoryType === 'government'
+              ? '/government'
+              : `/${categoryType}`;
+        const categorySlug = category ?? categoryType;
         const categoryData = categories.find(c => c.slug === category);
         const dashboard = getDashboardDocument(
           categoryType,
-          category,
+          categorySlug,
           documentSlug
         );
 
         if (dashboard) {
+          const documentHref = category
+            ? `${sectionHref}/${category}/${documentSlug}`
+            : `${sectionHref}/${documentSlug}`;
+
           setDashboardDocument(dashboard);
           setNestedIndex(null);
           setMarkdownContent(null);
-          setBreadcrumbs([
-            { label: 'Home', href: '/' },
-            { label: sectionLabel, href: sectionHref },
-            {
-              label: categoryData?.category ?? category,
-              href: `${sectionHref}/${category}`,
-            },
-            {
-              label: dashboardTitles[dashboard],
-              href: `${sectionHref}/${category}/${documentSlug}`,
-            },
-          ]);
+          setBreadcrumbs(
+            buildDocumentBreadcrumbs({
+              sectionLabel,
+              sectionHref,
+              category,
+              categoryLabel: categoryData?.category,
+              documentLabel: dashboardTitles[dashboard],
+              documentHref,
+            })
+          );
           return;
         }
 
@@ -164,41 +209,43 @@ export default function Document({
         // If the slug maps to its own index, render it as a nested listing
         if (isNestedCategory(documentSlug)) {
           const index = await getCategorySubcategories(documentSlug);
+          const documentHref = category
+            ? `${sectionHref}/${category}/${documentSlug}`
+            : `${sectionHref}/${documentSlug}`;
+
           setNestedIndex(index);
-          setBreadcrumbs([
-            { label: 'Home', href: '/' },
-            { label: sectionLabel, href: sectionHref },
-            {
-              label: categoryData?.category ?? category,
-              href: `${sectionHref}/${category}`,
-            },
-            {
-              label: documentSlug,
-              href: `${sectionHref}/${category}/${documentSlug}`,
-            },
-          ]);
+          setBreadcrumbs(
+            buildDocumentBreadcrumbs({
+              sectionLabel,
+              sectionHref,
+              category,
+              categoryLabel: categoryData?.category,
+              documentLabel: documentSlug,
+              documentHref,
+            })
+          );
           return;
         }
 
         const content = await loadMarkdownContent(
           documentSlug,
-          category,
+          categorySlug,
           categoryType
         );
         setMarkdownContent(content);
 
-        setBreadcrumbs([
-          { label: 'Home', href: '/' },
-          { label: sectionLabel, href: sectionHref },
-          {
-            label: categoryData?.category ?? category,
-            href: `${sectionHref}/${category}`,
-          },
-          {
-            label: content.title ?? documentSlug,
-            href: `${sectionHref}/${category}/${documentSlug}`,
-          },
-        ]);
+        setBreadcrumbs(
+          buildDocumentBreadcrumbs({
+            sectionLabel,
+            sectionHref,
+            category,
+            categoryLabel: categoryData?.category,
+            documentLabel: content.title ?? documentSlug,
+            documentHref: category
+              ? `${sectionHref}/${category}/${documentSlug}`
+              : `${sectionHref}/${documentSlug}`,
+          })
+        );
       } catch (err) {
         setError(
           err instanceof Error ? err.message : 'Failed to load document'
@@ -235,30 +282,6 @@ export default function Document({
 
   if (nestedIndex) {
     const nestedPages: Subcategory[] = nestedIndex.pages;
-
-    if (
-      categoryType === 'government' &&
-      category === 'officials' &&
-      documentSlug === 'legislative'
-    ) {
-      return (
-        <>
-          <SEO
-            title={nestedIndex.title || documentSlug}
-            description={nestedIndex.description}
-            keywords={`${documentSlug}, government services, local government`}
-          />
-          <Section className="p-3 mb-12">
-            <Breadcrumbs className="mb-8" items={breadcrumbs} />
-            <OfficialsDirectoryCards
-              title={nestedIndex.title}
-              description={nestedIndex.description}
-              pages={nestedPages}
-            />
-          </Section>
-        </>
-      );
-    }
 
     return (
       <>
@@ -347,29 +370,19 @@ export default function Document({
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" items={breadcrumbs} />
-        {categoryType === 'government' &&
-        category === 'officials' &&
-        documentSlug === 'executive' ? (
-          <ExecutiveOfficialsCards
-            title={markdownContent.title}
-            description={markdownContent.description}
-            data={markdownContent.data}
-          />
-        ) : (
-          <Card className="mb-8 markdown-content">
-            <CardHeader>
-              {markdownContent.description && (
-                <CardContent>{markdownContent.description}</CardContent>
-              )}
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={markdownComponents}
-              >
-                {markdownContent.content}
-              </ReactMarkdown>
-            </CardHeader>
-          </Card>
-        )}
+        <Card className="mb-8 markdown-content">
+          <CardHeader>
+            {markdownContent.description && (
+              <CardContent>{markdownContent.description}</CardContent>
+            )}
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={markdownComponents}
+            >
+              {markdownContent.content}
+            </ReactMarkdown>
+          </CardHeader>
+        </Card>
       </Section>
     </>
   );
