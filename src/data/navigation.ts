@@ -1,7 +1,7 @@
 import type { NavigationItem } from '../types';
 import {
   serviceCategories as servicesData,
-  // governmentCategories,
+  governmentCategories,
 } from './yamlLoader';
 
 interface Subcategory {
@@ -68,24 +68,24 @@ export const mainNavigation: NavigationItem[] = [
       },
     ],
   },
-  // {
-  //   label: 'Statistics',
-  //   href: governmentCategories.categories.find(
-  //     category => category.slug === 'statistics'
-  //   )?.slug
-  //     ? '/government/statistics'
-  //     : '/government',
-  //   children: [
-  //     {
-  //       label: 'Demographics',
-  //       href: '/government/statistics/demographics',
-  //     },
-  //     {
-  //       label: 'Competitiveness',
-  //       href: '/government/statistics/competitiveness',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'Statistics',
+    href: governmentCategories.categories.find(
+      category => category.slug === 'statistics'
+    )?.slug
+      ? '/government/statistics'
+      : '/government',
+    children: [
+      {
+        label: 'Demographics',
+        href: '/government/statistics/demographics',
+      },
+      {
+        label: 'Competitiveness',
+        href: '/government/statistics/competitiveness',
+      },
+    ],
+  },
 ];
 
 export const footerNavigation = {
