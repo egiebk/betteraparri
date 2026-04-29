@@ -38,6 +38,7 @@ type OfficialProfile = {
 
 interface LeadershipOfficialsCardsProps {
   title?: string;
+  description?: string;
   data?: Record<string, unknown>;
 }
 
