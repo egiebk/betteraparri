@@ -20,37 +20,44 @@
       "pillar": "Economic Dynamism",
       "rank": "103rd",
       "score": 3.9471,
-      "tone": "bg-primary-500"
+      "tone": "bg-primary-500",
+      "description": "Economic performance and business environment"
     },
     {
       "pillar": "Government Efficiency",
       "rank": "362nd",
       "score": 7.8808,
-      "tone": "bg-success-500"
+      "description": "Quality of governance and public services"
     },
     {
       "pillar": "Infrastructure",
       "rank": "147th",
       "score": 2.6046,
-      "tone": "bg-accent-500"
+      "description": "Physical and digital infrastructure quality"
     },
     {
       "pillar": "Resiliency",
       "rank": "369th",
       "score": 11.2245,
-      "tone": "bg-secondary-500"
+      "description": "Disaster preparedness and adaptive capacity"
     },
     {
       "pillar": "Innovation",
       "rank": "379th",
       "score": 3.7663,
-      "tone": "bg-gray-700"
+      "description": "Adoption of new technologies and practices"
     }
   ],
   "overallRank": "322nd",
   "overallScore": 29.4233,
-  "municipalityClass": "First Class Municipality",
+  "municipalityClass": "First Class",
   "cmciPopulationBasis": 68839,
+  "cmciProfile": {
+    "rank": 108,
+    "lgu": "Aparri",
+    "ranking2023": 333,
+    "improvement": 11
+  },
   "sourceLinks": [
     {
       "label": "CMCI Aparri profile",

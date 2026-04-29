@@ -182,30 +182,6 @@ function GuidanceCard({
   );
 }
 
-function Bar({
-  value,
-  max,
-  className,
-  minWidth = 2,
-}: {
-  value: number;
-  max: number;
-  className: string;
-  minWidth?: number;
-}) {
-  const width =
-    max > 0 && value > 0 ? Math.max((value / max) * 100, minWidth) : 0;
-
-  return (
-    <div className="h-2 overflow-hidden rounded-sm bg-gray-100">
-      <div
-        className={cn('h-full rounded-sm', className)}
-        style={{ width: `${Math.min(width, 100)}%` }}
-      />
-    </div>
-  );
-}
-
 function PopulationTrendChart({
   populationTrend,
   content,
@@ -396,37 +372,131 @@ function CmciPillarChart({
     return null;
   }
 
-  const maxPillarScore = Math.max(...cmciPillars.map(item => item.score));
-
   return (
-    <Card className="h-full border-primary-100">
-      <CardHeader className="bg-stone-100">
-        <h3 className="text-lg font-semibold text-gray-900">{content.title}</h3>
-        {content.description && (
-          <p className="mt-1 text-sm text-gray-600">{content.description}</p>
-        )}
+    <Card className="h-full overflow-hidden border-primary-100">
+      <CardHeader className="border-b border-primary-100 bg-white">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              {content.title}
+            </h3>
+            {content.description && (
+              <p className="mt-1 text-sm text-gray-600">
+                {content.description}
+              </p>
+            )}
+          </div>
+          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">
+            <i className="ri-bar-chart-grouped-line text-xl" />
+          </span>
+        </div>
       </CardHeader>
-      <CardContent className="space-y-5 p-6">
+      <CardContent className="grid gap-4 p-6 md:grid-cols-2">
         {cmciPillars.map(item => (
-          <div key={item.pillar} className="space-y-2">
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="font-medium text-gray-900">{item.pillar}</p>
-                <p className="text-sm text-gray-600">Rank {item.rank}</p>
-              </div>
-              <p className="font-semibold text-gray-900">
+          <div
+            key={item.pillar}
+            className="flex min-h-[156px] flex-col rounded-lg border border-primary-100 bg-white p-5"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <p className="max-w-[12rem] font-semibold leading-snug text-gray-900">
+                {item.pillar}
+              </p>
+              <span className="rounded-sm bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-700">
                 {formatScore(item.score)}
+              </span>
+            </div>
+
+            <div className="mt-auto pt-6">
+              <p className="mb-3 text-3xl font-bold leading-none text-gray-900">
+                {item.rank}
+              </p>
+              <p className="mb-2 text-sm font-medium text-gray-600">
+                {item.description}
               </p>
             </div>
-            <Bar
-              value={item.score}
-              max={maxPillarScore}
-              className={item.tone}
-            />
           </div>
         ))}
       </CardContent>
     </Card>
+  );
+}
+
+function MetricTile({
+  label,
+  value,
+  icon,
+}: {
+  label: string;
+  value: string;
+  icon: string;
+}) {
+  return (
+    <div className="rounded-lg border border-primary-100 bg-white p-4">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-medium text-gray-600">{label}</p>
+          <p className="mt-2 text-xl font-medium leading-tight text-gray-900">
+            {value}
+          </p>
+        </div>
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">
+          <i className={`${icon} text-lg`} />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function CmciProfileGrid({ data }: { data: StatisticsData }) {
+  const profile = data.cmciProfile;
+
+  if (!profile) {
+    return null;
+  }
+
+  const fields = [
+    { label: '2023 Ranking', value: formatNumber(profile.ranking2023) },
+    {
+      label: 'Improvement',
+      value:
+        profile.improvement > 0
+          ? `+${formatNumber(profile.improvement)}`
+          : formatNumber(profile.improvement),
+      valueClassName:
+        profile.improvement > 0 ? 'text-success-700' : 'text-gray-900',
+    },
+  ];
+
+  return (
+    <div className="mt-5 rounded-lg border border-primary-100 bg-white p-4">
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <div>
+          <p className="text-sm font-medium tracking-normal text-gray-600">
+            YoY Comparison
+          </p>
+        </div>
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">
+          <i className="ri-table-line text-lg" />
+        </span>
+      </div>
+      <dl className="grid gap-3 sm:grid-cols-2">
+        {fields.map(field => (
+          <div key={field.label} className="rounded-md">
+            <dt className="text-xs font-semibold uppercase tracking-normal text-gray-600">
+              {field.label}
+            </dt>
+            <dd
+              className={cn(
+                'mt-1 text-sm font-semibold text-gray-900',
+                field.valueClassName
+              )}
+            >
+              {field.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
   );
 }
 
@@ -438,39 +508,61 @@ function CmciRankChart({
   content: CardContentText;
 }) {
   return (
-    <Card className="h-full border-primary-100">
-      <CardHeader className="bg-stone-100">
+    <Card className="h-full overflow-hidden border-primary-100 bg-gray-50">
+      <CardHeader className="border-b border-primary-100 bg-white">
         <h3 className="text-lg font-semibold text-gray-900">{content.title}</h3>
         {content.description && (
           <p className="mt-1 text-sm text-gray-600">{content.description}</p>
         )}
       </CardHeader>
-      <CardContent className="grid gap-4 p-6 sm:grid-cols-2">
-        <div className="rounded-xl bg-primary-50 p-5">
-          <p className="text-sm font-medium text-primary-700">Overall Rank</p>
-          <p className="mt-2 text-4xl font-bold text-gray-900">
+      <CardContent className="p-6">
+        <div className="rounded-xl bg-primary-700 p-6 text-white">
+          <p className="text-sm font-semibold uppercase tracking-normal text-primary-100">
+            Overall Rank
+          </p>
+          <p className="mt-3 text-5xl font-bold leading-none">
             {data.overallRank}
           </p>
-          <p className="mt-3 text-sm text-gray-600">
+          <p className="mt-3 text-sm text-primary-100">
             Overall score {formatScore(data.overallScore ?? 0)}
           </p>
         </div>
-        <div className="space-y-4">
-          <div>
-            <p className="text-sm text-gray-600">Municipality class</p>
-            <p className="mt-1 text-lg font-semibold text-gray-900">
-              {data.municipalityClass}
-            </p>
-          </div>
-          <div>
-            <p className="text-sm text-gray-600">CMCI population basis</p>
-            <p className="mt-1 text-lg font-semibold text-gray-900">
-              {formatNumber(data.cmciPopulationBasis ?? 0)}
-            </p>
-          </div>
+
+        <div className="mt-5 grid gap-4">
+          <MetricTile
+            icon="ri-building-4-line"
+            label="Classification"
+            value={data.municipalityClass || 'Not available'}
+          />
+          <MetricTile
+            icon="ri-team-line"
+            label="Population Basis"
+            value={formatNumber(data.cmciPopulationBasis ?? 0)}
+          />
         </div>
+
+        <CmciProfileGrid data={data} />
       </CardContent>
     </Card>
+  );
+}
+
+function CmciPerformanceCards({
+  data,
+  rankContent,
+  pillarContent,
+  cmciPillars,
+}: {
+  data: StatisticsData;
+  rankContent: CardContentText;
+  pillarContent: CardContentText;
+  cmciPillars: PillarScore[];
+}) {
+  return (
+    <div className="grid gap-5 lg:grid-cols-[480px_1fr]">
+      <CmciRankChart data={data} content={rankContent} />
+      <CmciPillarChart cmciPillars={cmciPillars} content={pillarContent} />
+    </div>
   );
 }
 
@@ -778,13 +870,12 @@ export function CompetitivenessDashboard() {
           description={content.sections.cmciPerformance.description}
         />
 
-        <div className="grid grid-cols-1 gap-6 xl:grid-cols-[0.8fr_1.2fr]">
-          <CmciRankChart content={content.cards.rankProfile} data={data} />
-          <CmciPillarChart
-            cmciPillars={cmciPillars}
-            content={content.cards.pillarScores}
-          />
-        </div>
+        <CmciPerformanceCards
+          data={data}
+          rankContent={content.cards.rankProfile}
+          pillarContent={content.cards.pillarScores}
+          cmciPillars={cmciPillars}
+        />
       </section>
 
       <TermsCard terms={content.terms} />

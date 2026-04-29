@@ -106,7 +106,7 @@ export default function BarangayCards({
         {pages.map(page => {
           const profile = barangayData[page.slug] ?? {};
           const punongBarangay =
-            profile.punongBarangay || 'Information not yet available';
+            profile.punongBarangay || 'Waiting for data...';
           const telephone = profile.telephone;
 
           return (
@@ -165,7 +165,7 @@ export default function BarangayCards({
                     className="ri-information-line inline-flex h-6 w-6 items-center justify-center"
                     aria-hidden="true"
                   />
-                  View Profile
+                  View Barangay Profile
                 </Button>
               </CardFooter>
             </Card>

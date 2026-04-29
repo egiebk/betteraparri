@@ -23,6 +23,7 @@ type LeadershipData = {
   MAYOR_ADDRESS?: string;
   VICE_MAYOR?: string;
   OFFICE_EMAIL?: string;
+  OFFICE_PHONE?: string;
   OFFICE_ADDRESS?: string;
   LEGISLATIVE_OFFICE_EMAIL?: string;
   LEGISLATIVE_OFFICE_ADDRESS?: string;
@@ -37,7 +38,6 @@ type OfficialProfile = {
 
 interface LeadershipOfficialsCardsProps {
   title?: string;
-  description?: string;
   data?: Record<string, unknown>;
 }
 
@@ -87,23 +87,21 @@ const profileMap: Record<string, OfficialProfile> = {
 function LeadOfficialCard({
   name,
   position,
-  office,
   address,
   email,
+  phone,
 }: {
   name: string;
   position: string;
   office: string;
   address?: string;
   email?: string;
+  phone?: string;
 }) {
   return (
     <Card hoverable className="h-full border-primary-100 hover:bg-blue-50">
       <CardContent className="flex h-full flex-col gap-5 p-6">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-normal text-primary-700">
-            {office}
-          </p>
           <h2 className="mt-2 text-2xl font-bold leading-tight text-gray-900">
             {name}
           </h2>
@@ -120,6 +118,12 @@ function LeadOfficialCard({
             icon="ri-mail-line"
             label="Email Address"
             value={email || 'Email not yet available'}
+          />
+          <ContactRow
+            href={phone ? `tel:${phone}` : undefined}
+            icon="ri-phone-line"
+            label="Phone Number"
+            value={phone || 'Phone not yet available'}
           />
         </div>
       </CardContent>
@@ -198,7 +202,6 @@ function ContactRow({
 
 export default function LeadershipOfficialsCards({
   title,
-  description,
   data,
 }: LeadershipOfficialsCardsProps) {
   const leadership = (data ?? {}) as LeadershipData;
@@ -217,22 +220,22 @@ export default function LeadershipOfficialsCards({
     <div className="pb-4">
       <div className="mb-8 max-w-3xl">
         <p className="mb-2 text-sm font-semibold uppercase tracking-normal text-primary-700">
-          Elected Officials
+          Executive
         </p>
         <Heading level={1} className="mb-2 text-3xl md:text-4xl">
           {title || 'Leadership'}
         </Heading>
-        {description && <Text className="text-gray-600">{description}</Text>}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.52fr)]">
+      <div className="grid gap-6">
         <div className="grid gap-5 md:grid-cols-2">
           <LeadOfficialCard
             address={leadership.MAYOR_ADDRESS || leadership.OFFICE_ADDRESS}
             email={leadership.MAYOR_EMAIL || leadership.OFFICE_EMAIL}
             name={mayorName}
-            office="Office of the Municipal Mayor"
+            phone={leadership.OFFICE_PHONE}
             position="Municipal Mayor"
+            office={''}
           />
           <LeadOfficialCard
             address={
@@ -242,8 +245,8 @@ export default function LeadershipOfficialsCards({
               viceMayorProfile.email || leadership.LEGISLATIVE_OFFICE_EMAIL
             }
             name={leadership.VICE_MAYOR || viceMayor?.name || 'Vice Mayor'}
-            office="Office of the Municipal Vice Mayor"
             position="Municipal Vice Mayor"
+            office={''}
           />
         </div>
       </div>
@@ -257,8 +260,7 @@ export default function LeadershipOfficialsCards({
             Sangguniang Bayan Members
           </Heading>
           <Text className="text-gray-600">
-            Councilors are listed in a three-column directory with available
-            contact details from the legislative office records.
+            Below are the elected councilors serving in the Sangguniang Bayan.
           </Text>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

@@ -11,6 +11,7 @@ export interface StatisticsData {
   overallScore?: number;
   municipalityClass?: string;
   cmciPopulationBasis?: number;
+  cmciProfile?: CmciProfile;
   sourceLinks?: SourceLink[];
 }
 
@@ -54,7 +55,18 @@ export interface PillarScore {
   pillar: string;
   rank: string;
   score: number;
-  tone: string;
+  tone?: string;
+  description?: string;
+}
+
+export interface CmciProfile {
+  rank: number;
+  lgu: string;
+  province?: string;
+  region?: string;
+  ranking2024?: number;
+  ranking2023: number;
+  improvement: number;
 }
 
 export interface SourceLink {
