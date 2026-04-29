@@ -1,0 +1,59 @@
+{
+  "highlightStats": [
+    {
+      "label": "Population",
+      "value": "68,368",
+      "detail": "2024 POPCEN official count",
+      "icon": "ri-group-line",
+      "tone": "primary"
+    },
+    {
+      "label": "Annualized Growth",
+      "value": "-0.16%",
+      "detail": "Computed from 2020 to 2024 PSA counts",
+      "icon": "ri-line-chart-line",
+      "tone": "success"
+    }
+  ],
+  "populationTrend": [
+    {
+      "year": "2015",
+      "label": "2015 POPCEN",
+      "population": 65649
+    },
+    {
+      "year": "2020",
+      "label": "2020 CPH",
+      "population": 68839
+    },
+    {
+      "year": "2024",
+      "label": "2024 POPCEN",
+      "population": 68368
+    }
+  ],
+  "growthIntervals": [
+    {
+      "label": "2015 to 2020",
+      "value": 4.9,
+      "detail": "+3,190 residents",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "2020 to 2024",
+      "value": -0.7,
+      "detail": "-471 residents",
+      "tone": "bg-secondary-500"
+    }
+  ],
+  "sourceLinks": [
+    {
+      "label": "PSA PSGC Aparri 2024 POPCEN",
+      "href": "https://psa.gov.ph/classification/psgc/barangays/0201505000"
+    },
+    {
+      "label": "PSA 2010-2015-2020 population density table",
+      "href": "https://psa.gov.ph/system/files/phcd/2022-12/2010-2015-2020%2520Population%2520Density_Table%2520A_Using%25202013%2520Land%2520Areas_12%2520July%25202021.pdf"
+    }
+  ]
+}

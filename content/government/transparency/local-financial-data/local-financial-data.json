@@ -1,0 +1,233 @@
+{
+  "highlightStats": [
+    {
+      "label": "Operating Income",
+      "value": "PHP 110.1M",
+      "detail": "Q1 2025 current operating income",
+      "icon": "ri-arrow-down-circle-line",
+      "tone": "primary"
+    },
+    {
+      "label": "Operating Expenditures",
+      "value": "PHP 49.19M",
+      "detail": "Q1 2025 current operating expenditures",
+      "icon": "ri-arrow-up-circle-line",
+      "tone": "success"
+    },
+    {
+      "label": "Net Operating Income",
+      "value": "PHP 60.91M",
+      "detail": "Income less operating expenditures",
+      "icon": "ri-line-chart-line",
+      "tone": "accent"
+    },
+    {
+      "label": "Ending Cash Balance",
+      "value": "PHP 359.87M",
+      "detail": "Q1 ending fund/cash balance",
+      "icon": "ri-safe-2-line",
+      "tone": "secondary"
+    }
+  ],
+  "q1IncomeSources": [
+    {
+      "label": "Local sources",
+      "value": 27.27,
+      "percent": 24.8,
+      "tone": "bg-primary-500",
+      "color": "#0066eb"
+    },
+    {
+      "label": "External sources",
+      "value": 82.83,
+      "percent": 75.2,
+      "tone": "bg-success-500",
+      "color": "#00af5f"
+    }
+  ],
+  "q1ExpenditureSources": [
+    {
+      "label": "General public services",
+      "value": 32.59,
+      "percent": 66.3,
+      "tone": "bg-primary-500",
+      "color": "#0066eb"
+    },
+    {
+      "label": "Social services",
+      "value": 10.66,
+      "percent": 21.7,
+      "tone": "bg-success-500",
+      "color": "#00af5f"
+    },
+    {
+      "label": "Economic services",
+      "value": 5.94,
+      "percent": 12.1,
+      "tone": "bg-accent-500",
+      "color": "#f58900"
+    }
+  ],
+  "q1FundPosition": [
+    {
+      "label": "Current operating income",
+      "value": 110.1,
+      "detail": "Q1 2025 total current operating income",
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "Current operating expenditures",
+      "value": 49.19,
+      "detail": "Q1 2025 total current operating expenditures",
+      "tone": "bg-secondary-500"
+    },
+    {
+      "label": "Net operating income",
+      "value": 60.91,
+      "detail": "Operating income less operating expenditures",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "Fund/cash balance, end",
+      "value": 359.87,
+      "detail": "After prior-year payables and continuing appropriation",
+      "tone": "bg-accent-500"
+    }
+  ],
+  "q1LocalSourceBreakdown": [
+    {
+      "label": "Tax revenue",
+      "value": 18.25,
+      "detail": "Includes business taxes, RPT, and other taxes",
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "Non-tax revenue",
+      "value": 9.02,
+      "detail": "Fees, charges, economic enterprises, and other receipts",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "National Tax Allotment",
+      "value": 82.83,
+      "detail": "Only reported external source in the Q1 2025 SRE row",
+      "tone": "bg-accent-500"
+    }
+  ],
+  "q1SocialServicesBreakdown": [
+    {
+      "label": "Health, nutrition, and population control",
+      "value": 5.81,
+      "detail": "Largest social services expenditure item in Q1",
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "Social services and social welfare",
+      "value": 4.63,
+      "detail": "Direct social welfare spending",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "Housing and community development",
+      "value": 0.22,
+      "detail": "Reported housing and community development spending",
+      "tone": "bg-accent-500"
+    }
+  ],
+  "ldrrmfSources": [
+    {
+      "label": "70% LDRRMF",
+      "appropriation": 62700950,
+      "expenditure": 11336144,
+      "utilization": 18.1,
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "30% Quick Response Fund",
+      "appropriation": 4772400,
+      "expenditure": 0,
+      "utilization": 0,
+      "tone": "bg-accent-500"
+    }
+  ],
+  "sourceLinks": [
+    {
+      "label": "BLGF LGU Fiscal Data",
+      "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    }
+  ],
+  "content": {
+    "hero": {
+      "eyebrow": "Transparency",
+      "title": "Local Financial Data",
+      "description": "The latest financial data for your local government, including income, expenditures, and disaster fund utilization."
+    },
+    "guidance": {
+      "title": "What You Need to Know",
+      "description": "A plain-language summary of the financial report shown below."
+    },
+    "sections": {
+      "receiptsAndExpenditures": {
+        "eyebrow": "Receipts and Expenditures",
+        "title": "Financial Position (FY 2025 Q1)",
+        "description": "These charts show the quarter's income sources, spending categories, and operating result."
+      },
+      "disasterRiskReduction": {
+        "eyebrow": "Disaster Risk Reduction",
+        "title": "LDRRMF Utilization (FY 2024)",
+        "description": "The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response."
+      }
+    },
+    "cards": {
+      "operatingPosition": {
+        "title": "Operating Position",
+        "description": "Income, expenditures, and net operating income"
+      },
+      "incomeSources": {
+        "title": "Income Sources",
+        "description": "Share of Q1 current operating income",
+        "chartLabel": "Q1 Income"
+      },
+      "operatingExpenditures": {
+        "title": "Operating Expenditures",
+        "description": "Share of Q1 current operating expenditures"
+      },
+      "q1IncomeDetails": {
+        "title": "Q1 Income Details"
+      },
+      "socialServicesDetails": {
+        "title": "Social Services Details",
+        "description": "Breakdown of the social services expenditure line"
+      },
+      "totalUtilization": {
+        "title": "Total Utilization",
+        "description": "Expenditure against total appropriation",
+        "appropriationLabel": "Total appropriation",
+        "expenditureLabel": "Total expenditures"
+      },
+      "fundComponents": {
+        "title": "Fund Components",
+        "description": "Utilization by LDRRMF component"
+      }
+    },
+    "terms": [
+      {
+        "term": "Statement of Receipts and Expenditures",
+        "description": "A BLGF report showing how much the local government received, spent, and retained during a reporting period."
+      },
+      {
+        "term": "Current Operating Income",
+        "description": "Income for regular operations, including local sources and external sources such as the National Tax Allotment."
+      },
+      {
+        "term": "Current Operating Expenditures",
+        "description": "Regular spending for public services, including general public services, social services, and economic services."
+      },
+      {
+        "term": "LDRRMF",
+        "description": "The local disaster fund. The 70% portion supports preparedness and prevention, while the 30% Quick Response Fund supports urgent response needs."
+      }
+    ],
+    "sourceNote": "Quarterly and LDRRMF figures are based on BLGF fiscal data files. Values should be reviewed against the latest BLGF release before formal citation."
+  }
+}
