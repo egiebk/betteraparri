@@ -9,9 +9,10 @@ This guide will help you edit and manage content for the Better Local Government
 3. [Editing Content Files](#editing-content-files)
 4. [Adding New Services](#adding-new-services)
 5. [Adding Government Department Pages](#adding-government-department-pages)
-6. [Markdown Formatting Guide](#markdown-formatting-guide)
-7. [Best Practices](#best-practices)
-8. [Troubleshooting](#troubleshooting)
+6. [Updating Statistics and Transparency Dashboards](#updating-statistics-and-transparency-dashboards)
+7. [Markdown Formatting Guide](#markdown-formatting-guide)
+8. [Best Practices](#best-practices)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -58,6 +59,9 @@ content/
 1. **Index Files** (`index.yaml`) — List all the pages in a category
 2. **Content Files** (`.md` files) — The actual page content written in Markdown
 3. **Data Files** (`.json` files) — Optional companion files that supply dynamic values (names, titles, dates) into the matching `.md` file using `{PLACEHOLDER}` tokens
+
+Statistics and transparency dashboards also use `.json` files for chart data,
+summary cards, source links, and editable page copy.
 
 ---
 
@@ -201,6 +205,44 @@ Department pages support `{PLACEHOLDER}` tokens that are automatically replaced 
 To update official names or titles, **edit only the JSON file** — the markdown content updates automatically. If no JSON file exists, placeholders fall back to environment variables (`VITE_MAYOR`, etc.) or are left as-is.
 
 > **Note:** Adding a brand-new government _category_ (e.g., a section alongside `departments`) requires a developer to register it in `src/data/government.yaml` and `src/data/yamlLoader.ts`.
+
+---
+
+## Updating Statistics and Transparency Dashboards
+
+Statistics and transparency dashboard pages are managed through JSON files in
+`content/government/`. These pages do not use Markdown for the main charts.
+
+### Dashboard Data Files
+
+Current dashboard data files:
+
+```text
+content/government/statistics/demographics/demographics.json
+content/government/statistics/competitiveness/competitiveness.json
+content/government/transparency/income-and-dependency/income-and-dependency.json
+content/government/transparency/local-financial-data/local-financial-data.json
+```
+
+### What You Can Edit
+
+Use the JSON file to update:
+
+- `highlightStats` — the summary cards at the top of the page
+- Chart data arrays, such as `populationTrend`, `growthIntervals`, `cmciPillars`, `q1IncomeSources`, and similar sections
+- `sourceLinks` — source labels and URLs
+- `content.hero` — page eyebrow, title, and description
+- `content.guidance` — the "What You Need to Know" card
+- `content.sections` and `content.cards` — section headings and chart card labels
+- `content.terms` — short explanations in the "How to Read This Page" section
+- `content.sourceNote` — source and update guidance at the bottom of the page
+
+### Editing Tips
+
+- Keep JSON punctuation exact: every item except the last one in a list needs a comma.
+- Keep keys unchanged, such as `highlightStats`, `content`, `hero`, and `sourceLinks`.
+- Use plain numbers for chart values and formatted text only for display values like `"68,368"` or `"PHP 110.1M"`.
+- Update source links whenever figures are refreshed from PSA, CMCI, BLGF, or another official dataset.
 
 ---
 

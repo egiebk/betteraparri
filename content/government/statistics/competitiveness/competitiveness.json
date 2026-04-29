@@ -56,5 +56,44 @@
       "label": "CMCI Aparri profile",
       "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri"
     }
-  ]
+  ],
+  "content": {
+    "hero": {
+      "eyebrow": "Statistics",
+      "title": "Competitiveness",
+      "description": "Aparri's Cities and Municipalities Competitiveness Index results, including overall placement and pillar performance."
+    },
+    "guidance": {
+      "title": "What You Need to Know",
+      "description": "A plain-language summary of the competitiveness indicators below."
+    },
+    "sections": {
+      "cmciPerformance": {
+        "eyebrow": "Competitiveness",
+        "title": "CMCI 2024 Performance",
+        "description": "The Cities and Municipalities Competitiveness Index scores LGUs across economic dynamism, government efficiency, infrastructure, resiliency, and innovation."
+      }
+    },
+    "cards": {
+      "rankProfile": {
+        "title": "Rank Profile",
+        "description": "Lower CMCI rank numbers indicate stronger relative placement"
+      },
+      "pillarScores": {
+        "title": "Pillar Scores",
+        "description": "CMCI 2024 score and rank by pillar"
+      }
+    },
+    "terms": [
+      {
+        "term": "CMCI",
+        "description": "The Cities and Municipalities Competitiveness Index is a DTI-led ranking that compares local economies across several pillars."
+      },
+      {
+        "term": "Pillar Score",
+        "description": "A score for one CMCI dimension, such as economic dynamism, government efficiency, infrastructure, resiliency, or innovation."
+      }
+    ],
+    "sourceNote": "CMCI figures are based on the latest source file included in this page. Update this JSON data file when DTI publishes a new profile."
+  }
 }

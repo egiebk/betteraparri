@@ -55,5 +55,44 @@
       "label": "PSA 2010-2015-2020 population density table",
       "href": "https://psa.gov.ph/system/files/phcd/2022-12/2010-2015-2020%2520Population%2520Density_Table%2520A_Using%25202013%2520Land%2520Areas_12%2520July%25202021.pdf"
     }
-  ]
+  ],
+  "content": {
+    "hero": {
+      "eyebrow": "Statistics",
+      "title": "Demographics",
+      "description": "Aparri population counts from PSA datasets, including recent census movement and growth indicators."
+    },
+    "guidance": {
+      "title": "What You Need to Know",
+      "description": "A plain-language summary of the demographic figures below."
+    },
+    "sections": {
+      "populationAndGrowth": {
+        "eyebrow": "Population and Growth",
+        "title": "Population Trend and Count Changes",
+        "description": "Aparri's latest PSA population count is shown alongside recent census points and count-to-count movement."
+      }
+    },
+    "cards": {
+      "populationTrend": {
+        "title": "Population Trend",
+        "description": "Census counts from PSA datasets"
+      },
+      "countChanges": {
+        "title": "Change Between Counts",
+        "description": "Percent change between PSA population counts"
+      }
+    },
+    "terms": [
+      {
+        "term": "POPCEN",
+        "description": "The Census of Population conducted by the Philippine Statistics Authority to count residents and update population benchmarks."
+      },
+      {
+        "term": "Annualized Growth",
+        "description": "The average yearly rate of population change between two PSA population counts."
+      }
+    ],
+    "sourceNote": "Population figures are based on PSA published datasets. Update this JSON data file when PSA releases new counts or corrected tables."
+  }
 }
