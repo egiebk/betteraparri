@@ -1,0 +1,60 @@
+{
+  "highlightStats": [
+    {
+      "label": "CMCI Overall",
+      "value": "29.4233",
+      "detail": "322nd in 2024 CMCI rankings",
+      "icon": "ri-trophy-line",
+      "tone": "accent"
+    },
+    {
+      "label": "Best CMCI Rank",
+      "value": "103rd",
+      "detail": "Economic Dynamism pillar",
+      "icon": "ri-rocket-line",
+      "tone": "secondary"
+    }
+  ],
+  "cmciPillars": [
+    {
+      "pillar": "Economic Dynamism",
+      "rank": "103rd",
+      "score": 3.9471,
+      "tone": "bg-primary-500"
+    },
+    {
+      "pillar": "Government Efficiency",
+      "rank": "362nd",
+      "score": 7.8808,
+      "tone": "bg-success-500"
+    },
+    {
+      "pillar": "Infrastructure",
+      "rank": "147th",
+      "score": 2.6046,
+      "tone": "bg-accent-500"
+    },
+    {
+      "pillar": "Resiliency",
+      "rank": "369th",
+      "score": 11.2245,
+      "tone": "bg-secondary-500"
+    },
+    {
+      "pillar": "Innovation",
+      "rank": "379th",
+      "score": 3.7663,
+      "tone": "bg-gray-700"
+    }
+  ],
+  "overallRank": "322nd",
+  "overallScore": 29.4233,
+  "municipalityClass": "First Class Municipality",
+  "cmciPopulationBasis": 68839,
+  "sourceLinks": [
+    {
+      "label": "CMCI Aparri profile",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri"
+    }
+  ]
+}

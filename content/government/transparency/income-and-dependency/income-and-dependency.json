@@ -1,0 +1,114 @@
+{
+  "highlightStats": [
+    {
+      "label": "Annual Regular Income",
+      "value": "PHP 326.24M",
+      "detail": "FY 2024 preliminary annual regular income",
+      "icon": "ri-funds-line",
+      "tone": "primary"
+    },
+    {
+      "label": "NTA Dependency",
+      "value": "85.5%",
+      "detail": "National Tax Allotment as share of regular income",
+      "icon": "ri-government-line",
+      "tone": "success"
+    },
+    {
+      "label": "LSR Dependency",
+      "value": "14.4%",
+      "detail": "Local revenue as share of regular income",
+      "icon": "ri-store-2-line",
+      "tone": "accent"
+    }
+  ],
+  "revenueSources": [
+    {
+      "label": "Locally Sourced Revenue",
+      "value": 46.96,
+      "percent": 14.4,
+      "tone": "bg-primary-500",
+      "color": "#0066eb"
+    },
+    {
+      "label": "National Tax Allotment",
+      "value": 279.08,
+      "percent": 85.5,
+      "tone": "bg-success-500",
+      "color": "#00af5f"
+    },
+    {
+      "label": "Other National Tax Shares",
+      "value": 0.2,
+      "percent": 0.06,
+      "tone": "bg-accent-500",
+      "color": "#f58900"
+    }
+  ],
+  "localRevenueBreakdown": [
+    {
+      "label": "Tax revenue",
+      "value": 30.67,
+      "detail": "Real property, business, and other local taxes",
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "Non-tax revenue",
+      "value": 16.28,
+      "detail": "Fees, charges, and economic enterprises",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "Interest income",
+      "value": 0,
+      "detail": "Reported as zero in the FY 2024 preliminary data",
+      "tone": "bg-gray-500"
+    }
+  ],
+  "taxRevenueLines": [
+    {
+      "label": "Business taxes",
+      "value": 24.15,
+      "detail": "Largest local tax revenue item",
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "Real property tax",
+      "value": 4.97,
+      "detail": "General fund RPT",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "Other taxes",
+      "value": 1.55,
+      "detail": "Other tax revenue",
+      "tone": "bg-accent-500"
+    }
+  ],
+  "nonTaxRevenueLines": [
+    {
+      "label": "Economic enterprises",
+      "value": 8.36,
+      "detail": "Receipts from economic enterprises",
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "Regulatory fees",
+      "value": 6.69,
+      "detail": "Permits, licenses, and similar fees",
+      "tone": "bg-success-500"
+    },
+    {
+      "label": "Service/user charges",
+      "value": 1.24,
+      "detail": "Service and user charge collections",
+      "tone": "bg-accent-500"
+    }
+  ],
+  "sourceLinks": [
+    {
+      "label": "BLGF LGU Fiscal Data",
+      "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Statistics
+# Explore demographic data and competitiveness indicators for informed decision-making.
+
+title: 'Statistics'
+description: 'Explore demographic data and competitiveness indicators for informed decision-making.'
+layout: 'list'
+pages:
+  - name: 'Demographics'
+    slug: 'demographics'
+    description: 'Population, age distribution, and other demographic data.'
+  - name: 'Competitiveness'
+    slug: 'competitiveness'
+    description: 'Local competitiveness indicators and rankings.'

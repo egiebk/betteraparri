@@ -25,10 +25,73 @@ import {
 import SEO from '../components/SEO';
 import OfficialsDirectoryCards from '../components/officials/OfficialsDirectoryCards';
 import ExecutiveOfficialsCards from '../components/officials/ExecutiveOfficialsCards';
+import {
+  CompetitivenessDashboard,
+  DemographicsDashboard,
+} from '../components/statistics/StatisticsDashboard';
+import {
+  IncomeDependencyDashboard,
+  LocalFinancialDataDashboard,
+} from '../components/statistics/FiscalTransparencyPages';
 
 interface DocumentProps {
   theme?: string;
   categoryType?: 'service' | 'government';
+}
+
+type DashboardDocument =
+  | 'demographics'
+  | 'competitiveness'
+  | 'income-and-dependency'
+  | 'local-financial-data';
+
+const dashboardTitles: Record<DashboardDocument, string> = {
+  demographics: 'Demographics',
+  competitiveness: 'Competitiveness',
+  'income-and-dependency': 'Income and Dependency',
+  'local-financial-data': 'Local Financial Data',
+};
+
+function getDashboardDocument(
+  categoryType: DocumentProps['categoryType'],
+  category: string | undefined,
+  documentSlug: string | undefined
+): DashboardDocument | null {
+  if (categoryType !== 'government' || !category || !documentSlug) {
+    return null;
+  }
+
+  if (
+    category === 'statistics' &&
+    (documentSlug === 'demographics' || documentSlug === 'competitiveness')
+  ) {
+    return documentSlug;
+  }
+
+  if (
+    category === 'transparency' &&
+    (documentSlug === 'income-and-dependency' ||
+      documentSlug === 'local-financial-data')
+  ) {
+    return documentSlug;
+  }
+
+  return null;
+}
+
+function DashboardContent({ dashboard }: { dashboard: DashboardDocument }) {
+  switch (dashboard) {
+    case 'demographics':
+      return <DemographicsDashboard />;
+    case 'competitiveness':
+      return <CompetitivenessDashboard />;
+    case 'income-and-dependency':
+      return <IncomeDependencyDashboard />;
+    case 'local-financial-data':
+      return <LocalFinancialDataDashboard />;
+    default:
+      return null;
+  }
 }
 
 export default function Document({
@@ -39,6 +102,8 @@ export default function Document({
   const [markdownContent, setMarkdownContent] =
     useState<MarkdownContent | null>(null);
   const [nestedIndex, setNestedIndex] = useState<CategoryIndex | null>(null);
+  const [dashboardDocument, setDashboardDocument] =
+    useState<DashboardDocument | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -69,6 +134,32 @@ export default function Document({
         const sectionLabel = isGovernment ? 'Government' : 'Services';
         const sectionHref = isGovernment ? '/government' : '/services';
         const categoryData = categories.find(c => c.slug === category);
+        const dashboard = getDashboardDocument(
+          categoryType,
+          category,
+          documentSlug
+        );
+
+        if (dashboard) {
+          setDashboardDocument(dashboard);
+          setNestedIndex(null);
+          setMarkdownContent(null);
+          setBreadcrumbs([
+            { label: 'Home', href: '/' },
+            { label: sectionLabel, href: sectionHref },
+            {
+              label: categoryData?.category ?? category,
+              href: `${sectionHref}/${category}`,
+            },
+            {
+              label: dashboardTitles[dashboard],
+              href: `${sectionHref}/${category}/${documentSlug}`,
+            },
+          ]);
+          return;
+        }
+
+        setDashboardDocument(null);
 
         // If the slug maps to its own index, render it as a nested listing
         if (isNestedCategory(documentSlug)) {
@@ -220,6 +311,21 @@ export default function Document({
               ))}
             </div>
           )}
+        </Section>
+      </>
+    );
+  }
+
+  if (dashboardDocument) {
+    return (
+      <>
+        <SEO
+          title={dashboardTitles[dashboardDocument]}
+          keywords={`${dashboardTitles[dashboardDocument]}, statistics, transparency, local government`}
+        />
+        <Section className="p-3 mb-12">
+          <Breadcrumbs className="mb-8" items={breadcrumbs} />
+          <DashboardContent dashboard={dashboardDocument} />
         </Section>
       </>
     );

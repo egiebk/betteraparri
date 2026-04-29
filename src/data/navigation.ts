@@ -44,7 +44,7 @@ export const mainNavigation: NavigationItem[] = [
   },
   {
     label: 'Transparency',
-    href: '/government/transparency-documents',
+    href: '/government/transparency',
     children: [
       {
         label: 'Transparency Documents',
@@ -54,19 +54,37 @@ export const mainNavigation: NavigationItem[] = [
         label: 'Guides and Regulations',
         href: '/government/guides-and-regulations',
       },
+      // {
+      //   label: 'Reports',
+      //   href: '/government/reports',
+      // },
       {
-        label: 'Reports',
-        href: '/government/reports-and-statistics',
+        label: 'Income and Dependency',
+        href: '/government/transparency/income-and-dependency',
+      },
+      {
+        label: 'Local Financial Data',
+        href: '/government/transparency/local-financial-data',
       },
     ],
   },
   {
     label: 'Statistics',
     href: governmentCategories.categories.find(
-      category => category.slug === 'reports-and-statistics'
+      category => category.slug === 'statistics'
     )?.slug
-      ? '/government/reports-and-statistics'
+      ? '/government/statistics'
       : '/government',
+    children: [
+      {
+        label: 'Demographics',
+        href: '/government/statistics/demographics',
+      },
+      {
+        label: 'Competitiveness',
+        href: '/government/statistics/competitiveness',
+      },
+    ],
   },
 ];
 

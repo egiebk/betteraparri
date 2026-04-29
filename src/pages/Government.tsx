@@ -94,7 +94,7 @@ const Government: React.FC = () => {
               className="md:text-5xl text-sm text-sky-600"
             />
           )}
-          {pageTitle}          
+          {pageTitle}
         </Heading>
         <Text className="text-gray-600 mb-6">{pageDescription}</Text>
 
