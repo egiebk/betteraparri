@@ -26,6 +26,22 @@ function App() {
                 path="/services/:category/:documentSlug"
                 element={<Document categoryType="service" />}
               />
+              <Route
+                path="/transparency"
+                element={<Government sectionType="transparency" />}
+              />
+              <Route
+                path="/transparency/:documentSlug"
+                element={<Document categoryType="transparency" />}
+              />
+              <Route
+                path="/statistics"
+                element={<Government sectionType="statistics" />}
+              />
+              <Route
+                path="/statistics/:documentSlug"
+                element={<Document categoryType="statistics" />}
+              />
               <Route path="/government/:category" element={<Government />} />
               <Route path="/government" element={<Government />} />
               <Route

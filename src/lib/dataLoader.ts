@@ -91,7 +91,7 @@ export interface DisasterFund {
 export async function loadDemographicsData(): Promise<StatisticsData> {
   try {
     const module =
-      await import('../../content/government/statistics/demographics/demographics.json');
+      await import('../../content/statistics/demographics/demographics.json');
     return module.default;
   } catch (error) {
     console.error('Failed to load demographics data:', error);
@@ -105,7 +105,7 @@ export async function loadDemographicsData(): Promise<StatisticsData> {
 export async function loadCompetitivenessData(): Promise<StatisticsData> {
   try {
     const module =
-      await import('../../content/government/statistics/competitiveness/competitiveness.json');
+      await import('../../content/statistics/competitiveness/competitiveness.json');
     return module.default;
   } catch (error) {
     console.error('Failed to load competitiveness data:', error);
@@ -119,7 +119,7 @@ export async function loadCompetitivenessData(): Promise<StatisticsData> {
 export async function loadIncomeDependencyData(): Promise<TransparencyData> {
   try {
     const module =
-      await import('../../content/government/transparency/income-and-dependency/income-and-dependency.json');
+      await import('../../content/transparency/income-and-dependency/income-and-dependency.json');
     return module.default;
   } catch (error) {
     console.error('Failed to load income dependency data:', error);
@@ -133,7 +133,7 @@ export async function loadIncomeDependencyData(): Promise<TransparencyData> {
 export async function loadLocalFinancialData(): Promise<TransparencyData> {
   try {
     const module =
-      await import('../../content/government/transparency/local-financial-data/local-financial-data.json');
+      await import('../../content/transparency/local-financial-data/local-financial-data.json');
     return module.default;
   } catch (error) {
     console.error('Failed to load local financial data:', error);

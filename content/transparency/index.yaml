@@ -3,9 +3,9 @@
 
 title: 'Transparency'
 description: 'Access fiscal transparency data, income reports, and financial documents.'
-layout: 'list'
+layout: 'grid'
 pages:
-  - name: 'Income and Dependency (2024)'
+  - name: 'Income and Dependency'
     slug: 'income-and-dependency'
     description: 'Review annual regular income, locally sourced revenue, and national transfer dependency based on BLGF fiscal data.'
   - name: 'Local Financial Data'

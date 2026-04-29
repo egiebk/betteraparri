@@ -18,6 +18,8 @@ interface BarangayCardsProps {
   title?: string;
   description?: string;
   pages: Subcategory[];
+  showHeading?: boolean;
+  source?: string;
 }
 
 const extractBarangayProfile = (content: string): BarangayProfile | null => {
@@ -38,7 +40,11 @@ const extractBarangayProfile = (content: string): BarangayProfile | null => {
 };
 
 export default function BarangayCards({
+  title,
+  description,
   pages,
+  showHeading = false,
+  source,
 }: BarangayCardsProps) {
   const navigate = useNavigate();
   const [barangayData, setBarangayData] = useState<
@@ -56,9 +62,7 @@ export default function BarangayCards({
             `../../../content/government/barangays/${page.slug}.md?raw`
           );
           const content = module.default;
-          console.log('Loading barangay:', page.slug, 'content length:', content?.length);
           const profile = extractBarangayProfile(content);
-          console.log('Profile for', page.slug, ':', profile);
           if (profile) {
             data[page.slug] = profile;
           }
@@ -80,6 +84,23 @@ export default function BarangayCards({
 
   return (
     <div className="pb-4">
+      {showHeading && (
+        <div className="mb-8 max-w-3xl">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-normal text-primary-700">
+            Barangay Officials
+          </p>
+          {title && (
+            <h1 className="text-3xl font-semibold text-slate-900 md:text-4xl">
+              {title}
+            </h1>
+          )}
+          {description && (
+            <p className="mt-2 text-base leading-relaxed text-slate-600">
+              {description}
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-3">
         {pages.map(page => {
@@ -92,7 +113,7 @@ export default function BarangayCards({
             <Card
               key={page.slug}
               hoverable
-              className="overflow-hidden rounded-xl shadow-sm"
+              className="h-full overflow-hidden border-primary-100 shadow-sm hover:bg-blue-50"
             >
               <CardHeader className="bg-stone-100">
                 <h4 className="text-md font-medium text-slate-900 sm:text-lg">
@@ -151,6 +172,16 @@ export default function BarangayCards({
           );
         })}
       </div>
+      {source && (
+        <Card className="mt-8 border-primary-100 bg-gray-50">
+          <CardHeader className="bg-stone-100">
+            <h3 className="text-lg font-semibold text-gray-900">Source</h3>
+          </CardHeader>
+          <CardContent className="p-5">
+            <p className="text-sm leading-relaxed text-gray-600">{source}</p>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

@@ -35,12 +35,15 @@ This guide will help you edit and manage content for the Better Local Government
 
 ## Understanding the Content Structure
 
-The website content is organized in two main sections under the `content` folder at the root level of the repository (not inside the `src` folder):
+The website content is organized under the `content` folder at the root level of the repository (not inside the `src` folder):
 
 ```
 content/
 ├── government/
-│   └── departments/         # Executive, legislative, and other department pages
+│   ├── leadership/          # Mayor, Vice Mayor, and council members
+│   └── barangays/           # Barangay profiles and officials
+├── statistics/              # Demographics and competitiveness dashboards
+├── transparency/            # Income and local financial dashboards
 └── services/
     ├── agriculture-fisheries/
     ├── business/
@@ -71,8 +74,8 @@ summary cards, source links, and editable page copy.
 
 1. Go to the GitHub repository in your web browser
 2. Click on the `content` folder (at the root level)
-3. Click on `services` for service pages, or `government` for department/office pages
-4. Choose the category folder (e.g., `education` or `departments`)
+3. Click on `services` for service pages, or `government` for leadership and barangay pages
+4. Choose the category folder (e.g., `education`, `leadership`, or `barangays`)
 5. Click on the file you want to edit (e.g., `apply-for-local-scholarships.md` or `executive.md`)
 
 ### Step 2: Edit the File
@@ -150,45 +153,51 @@ Follow the same process as Method 1 to add individual service files.
 
 ---
 
-## Adding Government Department Pages
+## Updating Government Pages
 
-Government department pages live under `content/government/` and follow the same two-file pattern as services.
+Government pages live under `content/government/`.
 
-### Editing an Existing Department Page
+### Editing Leadership
 
-1. Navigate to `content/government/departments/`
-2. Click on the department file you want to edit (e.g., `executive.md`)
+1. Navigate to `content/government/leadership/`
+2. Edit `index.md` for intro copy or `index.json` for names, contact details, and source notes
 3. Click the pencil icon, make your changes, and commit
 
-### Adding a New Department Page
+### Editing Barangays
+
+1. Navigate to `content/government/barangays/`
+2. Click on the barangay file you want to edit
+3. Click the pencil icon, make your changes, and commit
+
+### Adding a New Barangay Page
 
 #### Step 1: Create the Content File
 
-1. Navigate to `content/government/departments/`
+1. Navigate to `content/government/barangays/`
 2. Click **"Add file"** → **"Create new file"**
-3. Name the file: `your-department-name.md`
-4. Add your content following the department page template (see Content Guide)
+3. Name the file: `your-barangay-name.md`
+4. Add your content following the existing barangay page format
 5. Click **"Commit new file"**
 
 #### Step 2: Update the Index File
 
-1. Go back to `content/government/departments/`
+1. Go back to `content/government/barangays/`
 2. Click on `index.yaml`
 3. Click the pencil icon to edit
-4. Add your new department to the list:
+4. Add your new barangay to the list:
 
 ```yaml
 pages:
-  - name: 'Your Department Name'
-    slug: 'your-department-name'
-    description: 'Brief description of the department.'
+  - name: 'Barangay Your Name'
+    slug: 'your-barangay-name'
+    description: 'Punong Barangay: Full Name'
 ```
 
 5. Save the changes
 
-### Using Dynamic Data in Department Pages
+### Using Dynamic Data in Leadership
 
-Department pages support `{PLACEHOLDER}` tokens that are automatically replaced with values from a companion JSON file of the same name. For example, `executive.md` can reference `{MAYOR}` and `{GOVERNMENT_NAME}`, which are defined in `executive.json`:
+The leadership page supports `{PLACEHOLDER}` tokens that are automatically replaced with values from `content/government/leadership/index.json`. For example, `index.md` can reference `{MAYOR}` and `{GOVERNMENT_NAME}`:
 
 ```json
 {
@@ -202,26 +211,27 @@ Department pages support `{PLACEHOLDER}` tokens that are automatically replaced 
 }
 ```
 
-To update official names or titles, **edit only the JSON file** — the markdown content updates automatically. If no JSON file exists, placeholders fall back to environment variables (`VITE_MAYOR`, etc.) or are left as-is.
+To update official names or titles, **edit only the JSON file** — the page updates automatically. If no JSON file exists, placeholders fall back to environment variables (`VITE_MAYOR`, etc.) or are left as-is.
 
-> **Note:** Adding a brand-new government _category_ (e.g., a section alongside `departments`) requires a developer to register it in `src/data/government.yaml` and `src/data/yamlLoader.ts`.
+> **Note:** Adding a brand-new government _category_ requires a developer to register it in `src/data/government.yaml` and `src/data/yamlLoader.ts`.
 
 ---
 
 ## Updating Statistics and Transparency Dashboards
 
 Statistics and transparency dashboard pages are managed through JSON files in
-`content/government/`. These pages do not use Markdown for the main charts.
+`content/statistics/` and `content/transparency/`. These pages do not use
+Markdown for the main charts.
 
 ### Dashboard Data Files
 
 Current dashboard data files:
 
 ```text
-content/government/statistics/demographics/demographics.json
-content/government/statistics/competitiveness/competitiveness.json
-content/government/transparency/income-and-dependency/income-and-dependency.json
-content/government/transparency/local-financial-data/local-financial-data.json
+content/statistics/demographics/demographics.json
+content/statistics/competitiveness/competitiveness.json
+content/transparency/income-and-dependency/income-and-dependency.json
+content/transparency/local-financial-data/local-financial-data.json
 ```
 
 ### What You Can Edit
@@ -515,7 +525,8 @@ If you're still having trouble:
 - Education services: `content/services/education/`
 - Health services: `content/services/health-services/`
 - Business services: `content/services/business/`
-- Government departments: `content/government/departments/`
+- Government leadership: `content/government/leadership/`
+- Barangays: `content/government/barangays/`
 
 **Note:** The `content` folder is located at the root level of the repository, not inside the `src` folder.
 
