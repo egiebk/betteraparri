@@ -23,6 +23,76 @@ type Term = {
   description: string;
 };
 
+type PageHeroContent = {
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
+type PageGuidanceContent = {
+  title: string;
+  description: string;
+};
+
+type SectionContent = {
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
+type CardContentText = {
+  title: string;
+  description?: string;
+  chartLabel?: string;
+  appropriationLabel?: string;
+  expenditureLabel?: string;
+};
+
+type IncomeDependencyContent = {
+  hero: PageHeroContent;
+  guidance: PageGuidanceContent;
+  sections: {
+    revenueComposition: SectionContent;
+    localCollections: SectionContent;
+  };
+  cards: {
+    annualRegularIncome: CardContentText;
+    localRevenueMix: CardContentText;
+    taxRevenue: CardContentText;
+    nonTaxRevenue: CardContentText;
+  };
+  terms: Term[];
+  sourceNote: string;
+};
+
+type LocalFinancialContent = {
+  hero: PageHeroContent;
+  guidance: PageGuidanceContent;
+  sections: {
+    receiptsAndExpenditures: SectionContent;
+    disasterRiskReduction: SectionContent;
+  };
+  cards: {
+    operatingPosition: CardContentText;
+    incomeSources: CardContentText;
+    operatingExpenditures: CardContentText;
+    q1IncomeDetails: CardContentText;
+    socialServicesDetails: CardContentText;
+    totalUtilization: CardContentText;
+    fundComponents: CardContentText;
+  };
+  terms: Term[];
+  sourceNote: string;
+};
+
+type IncomeDependencyData = TransparencyData & {
+  content?: IncomeDependencyContent;
+};
+
+type LocalFinancialData = TransparencyData & {
+  content?: LocalFinancialContent;
+};
+
 function formatPhpMillions(value: number) {
   return `PHP ${value.toLocaleString('en-PH', {
     minimumFractionDigits: 2,
@@ -287,18 +357,21 @@ function DonutChart({
 
 function BarList({
   items,
-  max,
   valueFormatter = formatPhpMillions,
 }: {
   items: RevenueLine[];
   max: number;
   valueFormatter?: (value: number) => string;
 }) {
+  const total = items.reduce((sum, item) => sum + item.value, 0);
+
   return (
     <div className="space-y-5">
       {items.map(item => {
         const width =
-          max > 0 && item.value > 0 ? Math.max((item.value / max) * 100, 2) : 0;
+          total > 0 && item.value > 0
+            ? Math.max((item.value / total) * 100, 2)
+            : 0;
 
         return (
           <div key={item.label} className="space-y-2">
@@ -311,13 +384,14 @@ function BarList({
                 {valueFormatter(item.value)}
               </p>
             </div>
-            <div className="h-2 overflow-hidden rounded-sm bg-gray-100">
+            <div className="h-2 overflow-hidden rounded-full bg-gray-100">
               <div
                 className={cn(
-                  'h-full rounded-sm',
+                  'h-full rounded-full',
                   item.tone ?? 'bg-primary-500'
                 )}
                 style={{ width: `${width}%` }}
+                title={`${item.label}: ${formatPercent(width)}`}
               />
             </div>
           </div>
@@ -418,8 +492,160 @@ function SourcesCard({
   );
 }
 
+const incomeDependencyFallbackContent: IncomeDependencyContent = {
+  hero: {
+    eyebrow: 'Transparency',
+    title: 'Income and Dependency',
+    description:
+      "This page explains where Aparri's regular income came from in FY 2024 and how much of it depended on national tax transfers.",
+  },
+  guidance: {
+    title: 'What You Need to Know',
+    description: 'A quick reading table for the main FY 2024 income figures.',
+  },
+  sections: {
+    revenueComposition: {
+      eyebrow: 'Revenue Composition',
+      title: 'Where the FY 2024 Income Came From',
+      description:
+        "The charts show the share of national transfers and local collections in Aparri's annual regular income.",
+    },
+    localCollections: {
+      eyebrow: 'Local Collections',
+      title: 'Tax and Non-Tax Revenue Details',
+      description:
+        "These details show which local collections contributed most to Aparri's own-source revenue.",
+    },
+  },
+  cards: {
+    annualRegularIncome: {
+      title: 'Annual Regular Income',
+      description: 'Share of FY 2024 annual regular income by source',
+      chartLabel: 'ARI',
+    },
+    localRevenueMix: {
+      title: 'Local Revenue Mix',
+      description: 'Tax and non-tax components of locally sourced revenue',
+    },
+    taxRevenue: {
+      title: 'Tax Revenue',
+    },
+    nonTaxRevenue: {
+      title: 'Non-Tax Revenue',
+    },
+  },
+  terms: [
+    {
+      term: 'Annual Regular Income',
+      description:
+        'The regular income available to the local government during the fiscal year, excluding one-time or special receipts.',
+    },
+    {
+      term: 'Locally Sourced Revenue',
+      description:
+        'Revenue raised within Aparri, such as local taxes, permits, fees, service charges, and local economic enterprise income.',
+    },
+    {
+      term: 'National Tax Allotment',
+      description:
+        'The share of national taxes released to local governments. It is often the largest income source for municipalities.',
+    },
+    {
+      term: 'Dependency',
+      description:
+        'The share of income that comes from outside local collections. It helps show how much the budget relies on national transfers.',
+    },
+  ],
+  sourceNote:
+    'Figures are presented for public information and should be checked against the latest BLGF posting before formal use.',
+};
+
+const localFinancialFallbackContent: LocalFinancialContent = {
+  hero: {
+    eyebrow: 'Transparency',
+    title: 'Local Financial Data',
+    description:
+      "This page summarizes Aparri's Q1 FY 2025 statement of receipts and expenditures and its FY 2024 disaster risk reduction fund data.",
+  },
+  guidance: {
+    title: 'What You Need to Know',
+    description:
+      'A plain-language summary of the financial report shown below.',
+  },
+  sections: {
+    receiptsAndExpenditures: {
+      eyebrow: 'Receipts and Expenditures',
+      title: 'FY 2025 Q1 Financial Position',
+      description:
+        "These charts show the quarter's income sources, spending categories, and operating result.",
+    },
+    disasterRiskReduction: {
+      eyebrow: 'Disaster Risk Reduction',
+      title: 'LDRRMF Utilization (FY 2024)',
+      description:
+        'The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response.',
+    },
+  },
+  cards: {
+    operatingPosition: {
+      title: 'Operating Position',
+      description: 'Income, expenditures, and net operating income',
+    },
+    incomeSources: {
+      title: 'Income Sources',
+      description: 'Share of Q1 current operating income',
+      chartLabel: 'Q1 Income',
+    },
+    operatingExpenditures: {
+      title: 'Operating Expenditures',
+      description: 'Share of Q1 current operating expenditures',
+    },
+    q1IncomeDetails: {
+      title: 'Q1 Income Details',
+    },
+    socialServicesDetails: {
+      title: 'Social Services Details',
+      description: 'Breakdown of the social services expenditure line',
+    },
+    totalUtilization: {
+      title: 'Total Utilization',
+      description: 'Expenditure against total appropriation',
+      appropriationLabel: 'Total appropriation',
+      expenditureLabel: 'Total expenditures',
+    },
+    fundComponents: {
+      title: 'Fund Components',
+      description: 'Utilization by LDRRMF component',
+    },
+  },
+  terms: [
+    {
+      term: 'Statement of Receipts and Expenditures',
+      description:
+        'A BLGF report showing how much the local government received, spent, and retained during a reporting period.',
+    },
+    {
+      term: 'Current Operating Income',
+      description:
+        'Income for regular operations, including local sources and external sources such as the National Tax Allotment.',
+    },
+    {
+      term: 'Current Operating Expenditures',
+      description:
+        'Regular spending for public services, including general public services, social services, and economic services.',
+    },
+    {
+      term: 'LDRRMF',
+      description:
+        'The local disaster fund. The 70% portion supports preparedness and prevention, while the 30% Quick Response Fund supports urgent response needs.',
+    },
+  ],
+  sourceNote:
+    'Quarterly and LDRRMF figures are based on BLGF fiscal data files. Values should be reviewed against the latest BLGF release before formal citation.',
+};
+
 export function IncomeDependencyDashboard() {
-  const [data, setData] = useState<TransparencyData | null>(null);
+  const [data, setData] = useState<IncomeDependencyData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -437,6 +663,7 @@ export function IncomeDependencyDashboard() {
     return <EmptyState />;
   }
 
+  const content = data.content ?? incomeDependencyFallbackContent;
   const revenueSources = data.revenueSources || [];
   const localRevenueBreakdown = data.localRevenueBreakdown || [];
   const taxRevenueLines = data.taxRevenueLines || [];
@@ -466,9 +693,9 @@ export function IncomeDependencyDashboard() {
     <div className="space-y-12">
       <section>
         <SectionHeading
-          eyebrow="Transparency"
-          title="Income and Dependency"
-          description="This page explains where Aparri's regular income came from in FY 2024 and how much of it depended on national tax transfers."
+          eyebrow={content.hero.eyebrow}
+          title={content.hero.title}
+          description={content.hero.description}
         />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -485,22 +712,18 @@ export function IncomeDependencyDashboard() {
 
         <div className="mt-6">
           <GuidanceCard
-            title="What You Need to Know"
-            description="A quick reading table for the main FY 2024 income figures."
+            title={content.guidance.title}
+            description={content.guidance.description}
             rows={[
               {
-                label: 'Reporting year',
-                value: 'FY 2024',
-                detail:
-                  'Figures are based on BLGF annual regular income data for the Municipality of Aparri.',
-              },
-              {
-                label: 'Total income',
+                label: annualIncome?.label ?? 'Annual Regular Income',
                 value: annualIncome?.value ?? 'Not reported',
                 detail: annualIncome?.detail,
               },
               {
-                label: 'Largest source',
+                label: largestSource
+                  ? 'Largest income source'
+                  : 'Income source',
                 value: largestSource
                   ? `${largestSource.label} (${formatPercent(
                       largestSource.percent
@@ -509,25 +732,36 @@ export function IncomeDependencyDashboard() {
                 detail: largestSource
                   ? `${formatPhpMillions(
                       largestSource.value
-                    )} came from this source.`
+                    )} reported in the source data.`
                   : undefined,
               },
               {
-                label: 'Local revenue',
+                label: localRevenue?.label ?? 'Locally Sourced Revenue',
                 value: localRevenue
                   ? `${formatPhpMillions(localRevenue.value)} (${formatPercent(
                       localRevenue.percent
                     )})`
                   : 'Not reported',
-                detail:
-                  'This covers money raised directly by the local government through local taxes, fees, charges, and local enterprises.',
+                detail: localRevenue?.label
+                  ? `Value and share are from the ${localRevenue.label} row.`
+                  : undefined,
               },
               {
-                label: 'Dependency reading',
+                label: ntaDependency?.label ?? 'NTA Dependency',
                 value: ntaDependency?.value ?? 'Not reported',
-                detail:
-                  'A higher NTA dependency means a larger share of the regular income came from the national government.',
+                detail: ntaDependency?.detail,
               },
+              ...data.highlightStats
+                .filter(
+                  stat =>
+                    stat.label !== annualIncome?.label &&
+                    stat.label !== ntaDependency?.label
+                )
+                .map(stat => ({
+                  label: stat.label,
+                  value: stat.value,
+                  detail: stat.detail,
+                })),
             ]}
           />
         </div>
@@ -535,26 +769,26 @@ export function IncomeDependencyDashboard() {
 
       <section>
         <SectionHeading
-          eyebrow="Revenue Composition"
-          title="Where the FY 2024 Income Came From"
-          description="The charts show the share of national transfers and local collections in Aparri's annual regular income."
+          eyebrow={content.sections.revenueComposition.eyebrow}
+          title={content.sections.revenueComposition.title}
+          description={content.sections.revenueComposition.description}
         />
 
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Annual Regular Income
+                {content.cards.annualRegularIncome.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Share of FY 2024 annual regular income by source
+                {content.cards.annualRegularIncome.description}
               </p>
             </CardHeader>
             <CardContent className="p-6">
               <DonutChart
-                label="ARI"
+                label={content.cards.annualRegularIncome.chartLabel ?? 'ARI'}
                 sources={revenueSources}
-                value={annualIncome?.value ?? 'PHP 326.24M'}
+                value={annualIncome?.value ?? 'Not reported'}
               />
             </CardContent>
           </Card>
@@ -562,10 +796,10 @@ export function IncomeDependencyDashboard() {
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Local Revenue Mix
+                {content.cards.localRevenueMix.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Tax and non-tax components of locally sourced revenue
+                {content.cards.localRevenueMix.description}
               </p>
             </CardHeader>
             <CardContent className="p-6">
@@ -583,16 +817,16 @@ export function IncomeDependencyDashboard() {
 
       <section>
         <SectionHeading
-          eyebrow="Local Collections"
-          title="Tax and Non-Tax Revenue Details"
-          description="These details show which local collections contributed most to Aparri's own-source revenue."
+          eyebrow={content.sections.localCollections.eyebrow}
+          title={content.sections.localCollections.title}
+          description={content.sections.localCollections.description}
         />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Tax Revenue
+                {content.cards.taxRevenue.title}
               </h3>
             </CardHeader>
             <CardContent className="p-6">
@@ -606,7 +840,7 @@ export function IncomeDependencyDashboard() {
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Non-Tax Revenue
+                {content.cards.nonTaxRevenue.title}
               </h3>
             </CardHeader>
             <CardContent className="p-6">
@@ -619,41 +853,15 @@ export function IncomeDependencyDashboard() {
         </div>
       </section>
 
-      <TermsCard
-        terms={[
-          {
-            term: 'Annual Regular Income',
-            description:
-              'The regular income available to the local government during the fiscal year, excluding one-time or special receipts.',
-          },
-          {
-            term: 'Locally Sourced Revenue',
-            description:
-              'Revenue raised within Aparri, such as local taxes, permits, fees, service charges, and local economic enterprise income.',
-          },
-          {
-            term: 'National Tax Allotment',
-            description:
-              'The share of national taxes released to local governments. It is often the largest income source for municipalities.',
-          },
-          {
-            term: 'Dependency',
-            description:
-              'The share of income that comes from outside local collections. It helps show how much the budget relies on national transfers.',
-          },
-        ]}
-      />
+      <TermsCard terms={content.terms} />
 
-      <SourcesCard
-        note="Figures are presented for public information and should be checked against the latest BLGF posting before formal use."
-        sourceLinks={data.sourceLinks}
-      />
+      <SourcesCard note={content.sourceNote} sourceLinks={data.sourceLinks} />
     </div>
   );
 }
 
 export function LocalFinancialDataDashboard() {
-  const [data, setData] = useState<TransparencyData | null>(null);
+  const [data, setData] = useState<LocalFinancialData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -671,6 +879,7 @@ export function LocalFinancialDataDashboard() {
     return <EmptyState />;
   }
 
+  const content = data.content ?? localFinancialFallbackContent;
   const q1IncomeSources = data.q1IncomeSources || [];
   const q1ExpenditureSources = data.q1ExpenditureSources || [];
   const q1FundPosition = data.q1FundPosition || [];
@@ -695,9 +904,9 @@ export function LocalFinancialDataDashboard() {
     <div className="space-y-12">
       <section>
         <SectionHeading
-          eyebrow="Transparency"
-          title="Local Financial Data"
-          description="This page summarizes Aparri's Q1 FY 2025 statement of receipts and expenditures and its FY 2024 disaster risk reduction fund data."
+          eyebrow={content.hero.eyebrow}
+          title={content.hero.title}
+          description={content.hero.description}
         />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
@@ -714,66 +923,32 @@ export function LocalFinancialDataDashboard() {
 
         <div className="mt-6">
           <GuidanceCard
-            title="What You Need to Know"
-            description="A plain-language summary of the financial report shown below."
-            rows={[
-              {
-                label: 'Reporting period',
-                value: 'FY 2025, first quarter',
-                detail:
-                  'The receipts and expenditures shown here cover Q1 data from the BLGF SRE file.',
-              },
-              {
-                label: 'Operating income',
-                value:
-                  findStat(data, 'Operating Income')?.value ?? 'Not reported',
-                detail:
-                  'Money received for regular operations during the quarter.',
-              },
-              {
-                label: 'Operating expenses',
-                value:
-                  findStat(data, 'Operating Expenditures')?.value ??
-                  'Not reported',
-                detail:
-                  'Money spent for regular operating services during the quarter.',
-              },
-              {
-                label: 'Net result',
-                value:
-                  findStat(data, 'Net Operating Income')?.value ??
-                  'Not reported',
-                detail:
-                  'Operating income minus operating expenditures for the quarter.',
-              },
-              {
-                label: 'Ending cash balance',
-                value:
-                  findStat(data, 'Ending Cash Balance')?.value ??
-                  'Not reported',
-                detail:
-                  'Reported ending fund or cash balance after the quarter.',
-              },
-            ]}
+            title={content.guidance.title}
+            description={content.guidance.description}
+            rows={data.highlightStats.map(stat => ({
+              label: stat.label,
+              value: stat.value,
+              detail: stat.detail,
+            }))}
           />
         </div>
       </section>
 
       <section>
         <SectionHeading
-          eyebrow="Receipts and Expenditures"
-          title="FY 2025 Q1 Financial Position"
-          description="These charts show the quarter's income sources, spending categories, and operating result."
+          eyebrow={content.sections.receiptsAndExpenditures.eyebrow}
+          title={content.sections.receiptsAndExpenditures.title}
+          description={content.sections.receiptsAndExpenditures.description}
         />
 
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Operating Position
+                {content.cards.operatingPosition.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Income, expenditures, and net operating income
+                {content.cards.operatingPosition.description}
               </p>
             </CardHeader>
             <CardContent className="p-6">
@@ -784,18 +959,18 @@ export function LocalFinancialDataDashboard() {
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Income Sources
+                {content.cards.incomeSources.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Share of Q1 current operating income
+                {content.cards.incomeSources.description}
               </p>
             </CardHeader>
             <CardContent className="p-6">
               <DonutChart
-                label="Q1 Income"
+                label={content.cards.incomeSources.chartLabel ?? 'Q1 Income'}
                 sources={q1IncomeSources}
                 value={
-                  findStat(data, 'Operating Income')?.value ?? 'PHP 110.1M'
+                  findStat(data, 'Operating Income')?.value ?? 'Not reported'
                 }
               />
             </CardContent>
@@ -806,10 +981,10 @@ export function LocalFinancialDataDashboard() {
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Operating Expenditures
+                {content.cards.operatingExpenditures.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Share of Q1 current operating expenditures
+                {content.cards.operatingExpenditures.description}
               </p>
             </CardHeader>
             <CardContent className="p-6">
@@ -820,7 +995,7 @@ export function LocalFinancialDataDashboard() {
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Q1 Income Details
+                {content.cards.q1IncomeDetails.title}
               </h3>
             </CardHeader>
             <CardContent className="p-6">
@@ -835,10 +1010,10 @@ export function LocalFinancialDataDashboard() {
         <Card className="mt-6 border-primary-100">
           <CardHeader className="bg-stone-100">
             <h3 className="text-lg font-semibold text-gray-900">
-              Social Services Details
+              {content.cards.socialServicesDetails.title}
             </h3>
             <p className="mt-1 text-sm text-gray-600">
-              Breakdown of the social services expenditure line
+              {content.cards.socialServicesDetails.description}
             </p>
           </CardHeader>
           <CardContent className="p-6">
@@ -852,32 +1027,36 @@ export function LocalFinancialDataDashboard() {
 
       <section>
         <SectionHeading
-          eyebrow="Disaster Risk Reduction"
-          title="LDRRMF Utilization (FY 2024)"
-          description="The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response."
+          eyebrow={content.sections.disasterRiskReduction.eyebrow}
+          title={content.sections.disasterRiskReduction.title}
+          description={content.sections.disasterRiskReduction.description}
         />
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.75fr_1.25fr]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Total Utilization
+                {content.cards.totalUtilization.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Expenditure against total appropriation
+                {content.cards.totalUtilization.description}
               </p>
             </CardHeader>
             <CardContent className="space-y-5 p-6">
               <UtilizationGauge utilization={totalLdrrmfUtilization} />
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="rounded-xl bg-gray-50 p-4">
-                  <p className="text-sm text-gray-600">Appropriation</p>
+                  <p className="text-sm text-gray-600">
+                    {content.cards.totalUtilization.appropriationLabel}
+                  </p>
                   <p className="mt-1 font-semibold text-gray-900">
                     {formatPhp(totalLdrrmfAppropriation)}
                   </p>
                 </div>
                 <div className="rounded-xl bg-gray-50 p-4">
-                  <p className="text-sm text-gray-600">Expenditures</p>
+                  <p className="text-sm text-gray-600">
+                    {content.cards.totalUtilization.expenditureLabel}
+                  </p>
                   <p className="mt-1 font-semibold text-gray-900">
                     {formatPhp(totalLdrrmfExpenditure)}
                   </p>
@@ -889,10 +1068,10 @@ export function LocalFinancialDataDashboard() {
           <Card className="border-primary-100">
             <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
-                Fund Components
+                {content.cards.fundComponents.title}
               </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Utilization by LDRRMF component
+                {content.cards.fundComponents.description}
               </p>
             </CardHeader>
             <CardContent className="space-y-5 p-6">
@@ -925,35 +1104,9 @@ export function LocalFinancialDataDashboard() {
         </div>
       </section>
 
-      <TermsCard
-        terms={[
-          {
-            term: 'Statement of Receipts and Expenditures',
-            description:
-              'A BLGF report showing how much the local government received, spent, and retained during a reporting period.',
-          },
-          {
-            term: 'Current Operating Income',
-            description:
-              'Income for regular operations, including local sources and external sources such as the National Tax Allotment.',
-          },
-          {
-            term: 'Current Operating Expenditures',
-            description:
-              'Regular spending for public services, including general public services, social services, and economic services.',
-          },
-          {
-            term: 'LDRRMF',
-            description:
-              'The local disaster fund. The 70% portion supports preparedness and prevention, while the 30% Quick Response Fund supports urgent response needs.',
-          },
-        ]}
-      />
+      <TermsCard terms={content.terms} />
 
-      <SourcesCard
-        note="Quarterly and LDRRMF figures are based on BLGF fiscal data files. Values should be reviewed against the latest BLGF release before formal citation."
-        sourceLinks={data.sourceLinks}
-      />
+      <SourcesCard note={content.sourceNote} sourceLinks={data.sourceLinks} />
     </div>
   );
 }

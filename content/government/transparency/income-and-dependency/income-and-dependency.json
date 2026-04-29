@@ -110,5 +110,64 @@
       "label": "BLGF LGU Fiscal Data",
       "href": "https://blgf.gov.ph/lgu-fiscal-data/"
     }
-  ]
+  ],
+  "content": {
+    "hero": {
+      "eyebrow": "Transparency",
+      "title": "Income and Dependency",
+      "description": "This page explains where Aparri's regular income came from in FY 2024 and how much of it depended on national tax transfers."
+    },
+    "guidance": {
+      "title": "What You Need to Know",
+      "description": "A quick reading table for the main FY 2024 income figures."
+    },
+    "sections": {
+      "revenueComposition": {
+        "eyebrow": "Revenue Composition",
+        "title": "Where the FY 2024 Income Came From",
+        "description": "The charts show the share of national transfers and local collections in Aparri's annual regular income."
+      },
+      "localCollections": {
+        "eyebrow": "Local Collections",
+        "title": "Tax and Non-Tax Revenue Details",
+        "description": "These details show which local collections contributed most to Aparri's own-source revenue."
+      }
+    },
+    "cards": {
+      "annualRegularIncome": {
+        "title": "Annual Regular Income",
+        "description": "Share of FY 2024 annual regular income by source",
+        "chartLabel": "ARI"
+      },
+      "localRevenueMix": {
+        "title": "Local Revenue Mix",
+        "description": "Tax and non-tax components of locally sourced revenue"
+      },
+      "taxRevenue": {
+        "title": "Tax Revenue"
+      },
+      "nonTaxRevenue": {
+        "title": "Non-Tax Revenue"
+      }
+    },
+    "terms": [
+      {
+        "term": "Annual Regular Income",
+        "description": "The regular income available to the local government during the fiscal year, excluding one-time or special receipts."
+      },
+      {
+        "term": "Locally Sourced Revenue",
+        "description": "Revenue raised within Aparri, such as local taxes, permits, fees, service charges, and local economic enterprise income."
+      },
+      {
+        "term": "National Tax Allotment",
+        "description": "The share of national taxes released to local governments. It is often the largest income source for municipalities."
+      },
+      {
+        "term": "Dependency",
+        "description": "The share of income that comes from outside local collections. It helps show how much the budget relies on national transfers."
+      }
+    ],
+    "sourceNote": "Figures are presented for public information and should be checked against the latest BLGF posting before formal use."
+  }
 }

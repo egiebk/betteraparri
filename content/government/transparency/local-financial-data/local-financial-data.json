@@ -155,5 +155,79 @@
       "label": "BLGF LGU Fiscal Data",
       "href": "https://blgf.gov.ph/lgu-fiscal-data/"
     }
-  ]
+  ],
+  "content": {
+    "hero": {
+      "eyebrow": "Transparency",
+      "title": "Local Financial Data",
+      "description": "The latest financial data for your local government, including income, expenditures, and disaster fund utilization."
+    },
+    "guidance": {
+      "title": "What You Need to Know",
+      "description": "A plain-language summary of the financial report shown below."
+    },
+    "sections": {
+      "receiptsAndExpenditures": {
+        "eyebrow": "Receipts and Expenditures",
+        "title": "Financial Position (FY 2025 Q1)",
+        "description": "These charts show the quarter's income sources, spending categories, and operating result."
+      },
+      "disasterRiskReduction": {
+        "eyebrow": "Disaster Risk Reduction",
+        "title": "LDRRMF Utilization (FY 2024)",
+        "description": "The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response."
+      }
+    },
+    "cards": {
+      "operatingPosition": {
+        "title": "Operating Position",
+        "description": "Income, expenditures, and net operating income"
+      },
+      "incomeSources": {
+        "title": "Income Sources",
+        "description": "Share of Q1 current operating income",
+        "chartLabel": "Q1 Income"
+      },
+      "operatingExpenditures": {
+        "title": "Operating Expenditures",
+        "description": "Share of Q1 current operating expenditures"
+      },
+      "q1IncomeDetails": {
+        "title": "Q1 Income Details"
+      },
+      "socialServicesDetails": {
+        "title": "Social Services Details",
+        "description": "Breakdown of the social services expenditure line"
+      },
+      "totalUtilization": {
+        "title": "Total Utilization",
+        "description": "Expenditure against total appropriation",
+        "appropriationLabel": "Total appropriation",
+        "expenditureLabel": "Total expenditures"
+      },
+      "fundComponents": {
+        "title": "Fund Components",
+        "description": "Utilization by LDRRMF component"
+      }
+    },
+    "terms": [
+      {
+        "term": "Statement of Receipts and Expenditures",
+        "description": "A BLGF report showing how much the local government received, spent, and retained during a reporting period."
+      },
+      {
+        "term": "Current Operating Income",
+        "description": "Income for regular operations, including local sources and external sources such as the National Tax Allotment."
+      },
+      {
+        "term": "Current Operating Expenditures",
+        "description": "Regular spending for public services, including general public services, social services, and economic services."
+      },
+      {
+        "term": "LDRRMF",
+        "description": "The local disaster fund. The 70% portion supports preparedness and prevention, while the 30% Quick Response Fund supports urgent response needs."
+      }
+    ],
+    "sourceNote": "Quarterly and LDRRMF figures are based on BLGF fiscal data files. Values should be reviewed against the latest BLGF release before formal citation."
+  }
 }
