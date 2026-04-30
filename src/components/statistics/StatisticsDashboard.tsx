@@ -83,6 +83,46 @@ type CompetitivenessData = StatisticsData & {
   content?: CompetitivenessContent;
 };
 
+const chartColors = {
+  axis: '#cfd8dc',
+  grid: '#e7ecef',
+  text: '#1f2937',
+  mutedText: '#6b7280',
+  populationLine: '#0f766e',
+  populationPoint: '#14b8a6',
+  positiveBar: 'bg-emerald-500',
+  negativeBar: 'bg-rose-500',
+  rankPanel: 'bg-slate-800',
+  rankPanelText: 'text-slate-100',
+  pillar: [
+    {
+      accent: 'bg-teal-500',
+      badge: 'bg-teal-50 text-teal-800',
+      border: 'border-t-teal-500',
+    },
+    {
+      accent: 'bg-amber-500',
+      badge: 'bg-amber-50 text-amber-800',
+      border: 'border-t-amber-500',
+    },
+    {
+      accent: 'bg-sky-500',
+      badge: 'bg-sky-50 text-sky-800',
+      border: 'border-t-sky-500',
+    },
+    {
+      accent: 'bg-rose-500',
+      badge: 'bg-rose-50 text-rose-800',
+      border: 'border-t-rose-500',
+    },
+    {
+      accent: 'bg-violet-500',
+      badge: 'bg-violet-50 text-violet-800',
+      border: 'border-t-violet-500',
+    },
+  ],
+};
+
 function formatNumber(value: number) {
   return new Intl.NumberFormat('en-PH').format(value);
 }
@@ -235,7 +275,7 @@ function PopulationTrendChart({
             viewBox={`0 0 ${width} ${height}`}
           >
             <line
-              stroke="#dee2e6"
+              stroke={chartColors.axis}
               strokeWidth="1"
               x1={paddingX}
               x2={width - paddingX}
@@ -245,7 +285,7 @@ function PopulationTrendChart({
             <polyline
               fill="none"
               points={points.map(point => `${point.x},${point.y}`).join(' ')}
-              stroke="#0066eb"
+              stroke={chartColors.populationLine}
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="4"
@@ -253,7 +293,7 @@ function PopulationTrendChart({
             {points.map(point => (
               <g key={point.year}>
                 <line
-                  stroke="#e9ecef"
+                  stroke={chartColors.grid}
                   strokeDasharray="4 5"
                   x1={point.x}
                   x2={point.x}
@@ -265,11 +305,11 @@ function PopulationTrendChart({
                   cy={point.y}
                   fill="#ffffff"
                   r="7"
-                  stroke="#0066eb"
+                  stroke={chartColors.populationPoint}
                   strokeWidth="4"
                 />
                 <text
-                  fill="#212529"
+                  fill={chartColors.text}
                   fontSize="16"
                   fontWeight="700"
                   textAnchor="middle"
@@ -279,7 +319,7 @@ function PopulationTrendChart({
                   {formatNumber(point.population)}
                 </text>
                 <text
-                  fill="#868e96"
+                  fill={chartColors.mutedText}
                   fontSize="13"
                   textAnchor="middle"
                   x={point.x}
@@ -322,6 +362,8 @@ function GrowthChangeChart({
       <CardContent className="space-y-5 p-6">
         {growthIntervals.map(item => {
           const width = (Math.abs(item.value) / maxGrowth) * 100;
+          const barColor =
+            item.value >= 0 ? chartColors.positiveBar : chartColors.negativeBar;
 
           return (
             <div key={item.label} className="space-y-2">
@@ -339,7 +381,7 @@ function GrowthChangeChart({
                 <div className="h-3 overflow-hidden rounded-sm bg-gray-100">
                   {item.value < 0 && (
                     <div
-                      className={cn('ml-auto h-full rounded-sm', item.tone)}
+                      className={cn('ml-auto h-full rounded-sm', barColor)}
                       style={{ width: `${width}%` }}
                     />
                   )}
@@ -347,7 +389,7 @@ function GrowthChangeChart({
                 <div className="h-3 overflow-hidden rounded-sm bg-gray-100">
                   {item.value >= 0 && (
                     <div
-                      className={cn('h-full rounded-sm', item.tone)}
+                      className={cn('h-full rounded-sm', barColor)}
                       style={{ width: `${width}%` }}
                     />
                   )}
@@ -392,30 +434,48 @@ function CmciPillarChart({
         </div>
       </CardHeader>
       <CardContent className="grid gap-4 p-6 md:grid-cols-2">
-        {cmciPillars.map(item => (
-          <div
-            key={item.pillar}
-            className="flex min-h-[156px] flex-col rounded-lg border border-primary-100 bg-white p-5"
-          >
-            <div className="flex items-start justify-between gap-4">
-              <p className="max-w-[12rem] font-semibold leading-snug text-gray-900">
-                {item.pillar}
-              </p>
-              <span className="rounded-sm bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-700">
-                {formatScore(item.score)}
-              </span>
-            </div>
+        {cmciPillars.map((item, index) => {
+          const color = chartColors.pillar[index % chartColors.pillar.length];
 
-            <div className="mt-auto pt-6">
-              <p className="mb-3 text-3xl font-bold leading-none text-gray-900">
-                {item.rank}
-              </p>
-              <p className="mb-2 text-sm font-medium text-gray-600">
-                {item.description}
-              </p>
+          return (
+            <div
+              key={item.pillar}
+              className={cn(
+                'flex min-h-[156px] flex-col rounded-lg border border-t-4 border-primary-100 bg-white p-5',
+                color.border
+              )}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    className={cn('mt-1 h-3 w-3 rounded-sm', color.accent)}
+                  />
+                  <p className="max-w-[12rem] font-semibold leading-snug text-gray-900">
+                    {item.pillar}
+                  </p>
+                </div>
+                <span
+                  className={cn(
+                    'rounded-sm px-2.5 py-1 text-xs font-semibold',
+                    color.badge
+                  )}
+                >
+                  {formatScore(item.score)}
+                </span>
+              </div>
+
+              <div className="mt-auto pt-6">
+                <p className="mb-3 text-3xl font-bold leading-none text-gray-900">
+                  {item.rank}
+                </p>
+                <p className="mb-2 text-sm font-medium text-gray-600">
+                  {item.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </CardContent>
     </Card>
   );
@@ -516,14 +576,19 @@ function CmciRankChart({
         )}
       </CardHeader>
       <CardContent className="p-6">
-        <div className="rounded-xl bg-primary-700 p-6 text-white">
-          <p className="text-sm font-semibold uppercase tracking-normal text-primary-100">
+        <div className={cn('rounded-xl p-6 text-white', chartColors.rankPanel)}>
+          <p
+            className={cn(
+              'text-sm font-semibold uppercase tracking-normal',
+              chartColors.rankPanelText
+            )}
+          >
             Overall Rank
           </p>
           <p className="mt-3 text-5xl font-bold leading-none">
             {data.overallRank}
           </p>
-          <p className="mt-3 text-sm text-primary-100">
+          <p className={cn('mt-3 text-sm', chartColors.rankPanelText)}>
             Overall score {formatScore(data.overallScore ?? 0)}
           </p>
         </div>
@@ -757,7 +822,7 @@ export function DemographicsDashboard() {
           description={content.hero.description}
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-2">
           {data.highlightStats.map(stat => (
             <SummaryCard key={stat.label} stat={stat} />
           ))}
@@ -833,7 +898,7 @@ export function CompetitivenessDashboard() {
           description={content.hero.description}
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-2">
           {data.highlightStats.map(stat => (
             <SummaryCard key={stat.label} stat={stat} />
           ))}

@@ -1,0 +1,10 @@
+# Taxes and Payments Category Pages
+
+pages:
+  - name: 'Community tax certificate or cedula'
+    slug: 'community-tax-certificate-cedula'
+    description: 'Request a community tax certificate from the Municipal Treasurer.'
+
+  - name: 'Real property tax payment'
+    slug: 'real-property-tax-payment'
+    description: 'Pay real property tax and confirm the documents needed for assessment.'

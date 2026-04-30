@@ -33,10 +33,16 @@ import governmentActivitiesYamlContent from './government.yaml?raw';
 
 // Import all category index files statically
 import healthServicesIndex from '../../content/services/health-services/index.yaml?raw';
-import educationIndex from '../../content/services/education/index.yaml?raw';
+import civilRegistryIndex from '../../content/services/civil-registry/index.yaml?raw';
+import taxesPaymentsIndex from '../../content/services/taxes-payments/index.yaml?raw';
 import businessIndex from '../../content/services/business/index.yaml?raw';
 import socialWelfareIndex from '../../content/services/social-welfare/index.yaml?raw';
 import agricultureFisheriesIndex from '../../content/services/agriculture-fisheries/index.yaml?raw';
+import engineeringZoningIndex from '../../content/services/engineering-zoning/index.yaml?raw';
+import disasterEmergencyIndex from '../../content/services/disaster-emergency/index.yaml?raw';
+import educationLivelihoodIndex from '../../content/services/education-livelihood/index.yaml?raw';
+import complaintsRequestsIndex from '../../content/services/complaints-requests/index.yaml?raw';
+import educationIndex from '../../content/services/education/index.yaml?raw';
 import infrastructurePublicWorksIndex from '../../content/services/infrastructure-public-works/index.yaml?raw';
 import garbageWasteDisposalIndex from '../../content/services/garbage-waste-disposal/index.yaml?raw';
 import environmentIndex from '../../content/services/environment/index.yaml?raw';
@@ -53,11 +59,17 @@ import statisticsCompetitivenessIndex from '../../content/statistics/competitive
 
 // Create a mapping of category slugs to their YAML content
 const categoryIndexMap: { [key: string]: string } = {
+  'civil-registry': civilRegistryIndex,
   'health-services': healthServicesIndex,
-  education: educationIndex,
   business: businessIndex,
+  'taxes-payments': taxesPaymentsIndex,
   'social-welfare': socialWelfareIndex,
   'agriculture-fisheries': agricultureFisheriesIndex,
+  'engineering-zoning': engineeringZoningIndex,
+  'disaster-emergency': disasterEmergencyIndex,
+  'education-livelihood': educationLivelihoodIndex,
+  'complaints-requests': complaintsRequestsIndex,
+  education: educationIndex,
   'infrastructure-public-works': infrastructurePublicWorksIndex,
   'garbage-waste-disposal': garbageWasteDisposalIndex,
   environment: environmentIndex,

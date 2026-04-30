@@ -1,60 +1,54 @@
 # Government Services Data
-# This file contains all the service categories for the government portal
-# Each category's index.yaml file is automatically located at content/services/{slug}/index.yaml
-# Non-technical users can easily edit this file to add, remove, or modify service categories
+# This file contains all service categories for the government portal.
+# Each category's index.yaml file is located at content/services/{slug}/index.yaml.
 
 categories:
-  # Business & Livelihood Services
-  - category: 'Business and Livelihood'
+  - category: 'Civil Registry'
+    slug: 'civil-registry'
+    description: 'Register births, marriages, and deaths, and request certified copies from the Local Civil Registrar.'
+    icon: 'ri-file-list-3-line'
+
+  - category: 'Business and Permits'
     slug: 'business'
-    description: 'What permits and clearances you need, where to pay taxes or renew permits, and what livelihood or trade opportunities are offered.'
+    description: 'Apply for business permits, renew registrations, secure mayor permits, and request market or franchise-related assistance.'
     icon: 'ri-building-2-line'
 
-  # Health Services
+  - category: 'Taxes and Payments'
+    slug: 'taxes-payments'
+    description: 'Pay real property taxes, business taxes, community tax certificates, and other local fees.'
+    icon: 'ri-bank-card-line'
+
+  - category: 'Social Services'
+    slug: 'social-welfare'
+    description: 'Request medical, burial, financial, senior citizen, PWD, solo parent, and other social assistance.'
+    icon: 'ri-open-arm-line'
+
   - category: 'Health Services'
     slug: 'health-services'
-    description: 'Where to go for free check-ups, vaccines, and medicines, which hospitals are available, and details on health programs in your area.'
+    description: 'Find RHU consultations, immunization, maternal and child health, certificates, and sanitary permit services.'
     icon: 'ri-hospital-line'
 
-  # Education Services
-  - category: 'Education'
-    slug: 'education'
-    description: 'Where to enroll kids in daycare or preschool, how to apply for scholarships, and what education support your LGU offers.'
+  - category: 'Agriculture and Fisheries'
+    slug: 'agriculture-fisheries'
+    description: 'Register as a farmer or fisherfolk and access agricultural, fishery, livelihood, equipment, or disaster assistance.'
+    icon: 'ri-plant-line'
+
+  - category: 'Engineering and Zoning'
+    slug: 'engineering-zoning'
+    description: 'Apply for building, occupancy, excavation, fencing, and zoning services or report public works concerns.'
+    icon: 'ri-tools-line'
+
+  - category: 'Disaster and Emergency'
+    slug: 'disaster-emergency'
+    description: 'Find emergency hotlines, evacuation information, disaster assistance, hazard reporting, and preparedness guides.'
+    icon: 'ri-alarm-warning-line'
+
+  - category: 'Education and Livelihood'
+    slug: 'education-livelihood'
+    description: 'Apply for scholarships, job referrals, skills training, youth programs, and livelihood opportunities.'
     icon: 'ri-graduation-cap-line'
 
-  # Disaster Preparedness Services
-  - category: 'Disaster Preparedness'
-    slug: 'disaster-preparedness'
-    description: 'Disaster preparedness plans, emergency response information, and evacuation procedures.'
-    icon: 'ri-shield-line'
-
-  # Social Welfare Services
-  - category: 'Social Welfare'
-    slug: 'social-welfare'
-    description: 'What assistance is available for seniors, PWDs, solo parents, and indigent families, plus details on relief goods, and livelihood aid.'
-    icon: 'ri-open-arm-line'
-  
-  # Agriculture & Fisheries Services
-  - category: 'Agriculture & Fisheries'
-    slug: 'agriculture-fisheries'
-    description: 'What farm or fishing support is available, including seeds, fertilizers, veterinary care, and where to join training or borrow equipment.'
-    icon: 'ri-plant-line'
-  
-  # Infrastructure & Public Works Services
-  - category: 'Infrastructure & Public Works'
-    slug: 'infrastructure-public-works'
-    description: 'How to report damaged roads or drainage, where to request water supply, and how to access public facilities and markets.'
-    icon: 'ri-tools-line'
-  
-  # Environment Services
-  - category: 'Environment'
-    slug: 'environment'
-    description: 'Clean-up or tree planting activities, environmental protection rules, and conservation programs.'
-    icon: 'ri-tree-line'
-  
-  # Housing & Land Use Services
-  - category: 'Housing & Land Use'
-    slug: 'housing-land-use'
-    description: 'How to apply for housing projects, what zoning and building permits are needed, and where relocation sites are available.'
-    icon: 'ri-home-line'
-  
+  - category: 'Complaints and Requests'
+    slug: 'complaints-requests'
+    description: 'File complaints, request public information, report infrastructure issues, submit feedback, or route barangay concerns.'
+    icon: 'ri-chat-check-line'

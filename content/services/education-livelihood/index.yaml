@@ -1,0 +1,10 @@
+# Education and Livelihood Category Pages
+
+pages:
+  - name: 'Scholarship applications'
+    slug: 'scholarship-applications'
+    description: 'Apply for local scholarship or education assistance programs when available.'
+
+  - name: 'Job referrals and skills training'
+    slug: 'job-referrals-skills-training'
+    description: 'Access PESO job referrals, skills training, and livelihood opportunities.'
