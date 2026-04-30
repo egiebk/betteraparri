@@ -71,17 +71,16 @@ export const mainNavigation: NavigationItem[] = [
 
 export const footerNavigation = {
   mainSections: [
-    {
-      title: 'About',
-      links: [
-        { label: 'About the Portal', href: '/about' },
-        // { label: 'Privacy Policy', href: '/privacy' },
-        // { label: 'Terms of Use', href: '/terms' },
-        { label: 'Accessibility', href: '/accessibility' },
-        { label: 'Feedback', href: '' },
-        // { label: 'Community Discord', href: '/discord' },
-      ],
-    },
+    // {
+    //   title: 'About',
+    //   links: [
+    //     { label: 'About the Portal', href: '/about' },
+    //     // { label: 'Privacy Policy', href: '/privacy' },
+    //     { label: 'Accessibility', href: '/accessibility' },
+    //     { label: 'Feedback', href: '' },
+    //     // { label: 'Community Discord', href: '/discord' },
+    //   ],
+    // },
     {
       title: 'Services',
       links: [
@@ -112,5 +111,6 @@ export const footerNavigation = {
   ],
   socialLinks: [
     { label: 'Facebook', href: 'https://facebook.com/betteraparri.org' },
+    { label: 'GitHub', href: 'https://github.com/egiebk/betteraparri' },
   ],
 };
