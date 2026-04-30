@@ -1,0 +1,6 @@
+# Disaster and Emergency Category Pages
+
+pages:
+  - name: 'Emergency assistance or disaster reporting'
+    slug: 'emergency-assistance-disaster-reporting'
+    description: 'Report emergencies, hazards, or disaster-related needs to the appropriate response office.'

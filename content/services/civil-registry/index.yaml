@@ -1,0 +1,18 @@
+# Civil Registry Category Pages
+
+pages:
+  - name: 'Birth certificate registration'
+    slug: 'birth-certificate-registration'
+    description: 'Register a birth with the Local Civil Registrar and learn what documents to prepare.'
+
+  - name: 'Late birth registration'
+    slug: 'late-birth-registration'
+    description: 'File a delayed birth registration when a birth was not registered on time.'
+
+  - name: 'Marriage license application'
+    slug: 'marriage-license-application'
+    description: 'Apply for a marriage license and confirm the required documents and waiting period.'
+
+  - name: 'Death certificate registration'
+    slug: 'death-certificate-registration'
+    description: 'Register a death and prepare the documents required by the Local Civil Registrar.'

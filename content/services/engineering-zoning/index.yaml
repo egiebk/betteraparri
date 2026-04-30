@@ -1,0 +1,6 @@
+# Engineering and Zoning Category Pages
+
+pages:
+  - name: 'Building permit'
+    slug: 'building-permit'
+    description: 'Apply for a building permit and prepare plans, clearances, and required documents.'

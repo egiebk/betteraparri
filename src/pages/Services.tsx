@@ -23,11 +23,13 @@ const RemixIcon: React.FC<{ iconClass: string; className?: string }> = ({
 const Services: React.FC = () => {
   const { category } = useParams();
   const [categoryIndex, setCategoryIndex] = useState<CategoryIndex>({
-    layout: 'list',
+    layout: 'grid',
     pages: [],
   });
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const subcategories: Subcategory[] = categoryIndex.pages;
+  const normalizedSearch = searchQuery.trim().toLowerCase();
 
   const getCategory = () => {
     return serviceCategories.categories.find(c => c.slug === category);
@@ -41,6 +43,24 @@ const Services: React.FC = () => {
       description: serviceCategory.description,
     })
   );
+  const filteredServicePages = servicePages.filter(service => {
+    if (!normalizedSearch) {
+      return true;
+    }
+
+    return `${service.name} ${service.description ?? ''}`
+      .toLowerCase()
+      .includes(normalizedSearch);
+  });
+  const filteredSubcategories = subcategories.filter(subcategory => {
+    if (!normalizedSearch) {
+      return true;
+    }
+
+    return `${subcategory.name} ${subcategory.description ?? ''}`
+      .toLowerCase()
+      .includes(normalizedSearch);
+  });
 
   useEffect(() => {
     if (category && categoryData) {
@@ -56,7 +76,7 @@ const Services: React.FC = () => {
     return (
       <>
         <SEO
-          title="Services"
+          title="Citizen Services"
           description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
           keywords="government services, public services, local government, civic services"
         />
@@ -67,23 +87,32 @@ const Services: React.FC = () => {
               iconClass="ri-gallery-view-2"
               className="md:text-5xl text-sm text-sky-600"
             />
-            Services
+            Citizen Services
           </Heading>
           <Text className="text-gray-600 mb-6">
-            All services provided by the {import.meta.env.VITE_GOVERNMENT_NAME}{' '}
-            government. Find what you need for citizenship, business, education,
-            and more.
+            Find requirements, steps, offices, and contact details for common
+            local government services in Aparri.
           </Text>
+          <div className="relative mb-6">
+            <i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={event => setSearchQuery(event.target.value)}
+              placeholder="Search for a service, office, or requirement..."
+              className="w-full rounded-md border border-gray-300 bg-white py-3 pl-10 pr-4 text-sm text-gray-900 shadow-sm outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+            />
+          </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {servicePages.map(service => (
+            {filteredServicePages.map(service => (
               <Link key={service.slug} to={`/services/${service.slug}`}>
                 <Card
                   hoverable
                   className="h-full border-t-4 border-primary-500"
                 >
                   <CardContent>
-                    <h4 className="text-lg font-medium text-gray-900">
+                    <h4 className="text-xl font-medium text-gray-900">
                       {service.name}
                     </h4>
                     {service.description && (
@@ -99,6 +128,11 @@ const Services: React.FC = () => {
               </Link>
             ))}
           </div>
+          {filteredServicePages.length === 0 && (
+            <Text className="mt-6 text-gray-600">
+              No service categories match your search.
+            </Text>
+          )}
         </Section>
       </>
     );
@@ -136,6 +170,16 @@ const Services: React.FC = () => {
           {categoryData.category || category}
         </Heading>
         <Text className="text-gray-600 mb-6">{categoryData.description}</Text>
+        <div className="relative mb-6">
+          <i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={event => setSearchQuery(event.target.value)}
+            placeholder="Search for a service, office, or requirement..."
+            className="w-full rounded-md border border-gray-300 bg-white py-3 pl-10 pr-4 text-sm text-gray-900 shadow-sm outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+          />
+        </div>
 
         {loading ? (
           <div className="flex justify-center items-center p-8">
@@ -153,7 +197,7 @@ const Services: React.FC = () => {
             )}
             {categoryIndex.layout === 'grid' ? (
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {subcategories.map(subcategory => (
+                {filteredSubcategories.map(subcategory => (
                   <Link
                     key={subcategory.slug}
                     to={`/services/${category}/${subcategory.slug}`}
@@ -181,7 +225,7 @@ const Services: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-4">
-                {subcategories.map(subcategory => (
+                {filteredSubcategories.map(subcategory => (
                   <Link
                     key={subcategory.slug}
                     to={`/services/${category}/${subcategory.slug}`}
@@ -204,6 +248,11 @@ const Services: React.FC = () => {
                   </Link>
                 ))}
               </div>
+            )}
+            {filteredSubcategories.length === 0 && (
+              <Text className="mt-6 text-gray-600">
+                No services match your search in this category.
+              </Text>
             )}
           </>
         )}

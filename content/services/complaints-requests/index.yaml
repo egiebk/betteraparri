@@ -1,0 +1,6 @@
+# Complaints and Requests Category Pages
+
+pages:
+  - name: 'File a complaint or request public information'
+    slug: 'file-complaint-request-public-information'
+    description: 'Submit a complaint, request public information, or ask where to route a concern.'
