@@ -25,9 +25,9 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w bg-green-600 mx-auto px-4 py-6">
-        <p className="text-center text-sm font-semibold">
-          This project costs ₱0 to the citizens of Aparri.
+      <div className="max-w bg-green-700 mx-auto px-4 py-6">
+        <p className="text-center text-sm text-green-200 font-semibold">
+          Cost to the People of Aparri: ₱0.00
         </p>
       </div>
       <div className="container mx-auto px-4 pt-12 pb-8">
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
 
           {footerNavigation.mainSections.map(section => (
             <div key={section.title}>
-              <h3 className="text-lg font-semibold my-4">{section.title}</h3>
+              <h3 className="text-md font-semibold my-4">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map(link => (
                   <li key={link.label}>
@@ -85,25 +85,13 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              <span className="text-sm text-extralight text-white ml-4">
+          <div className="flex flex-col md:flex-row lg:justify-between items-center">
+            <p className="text-gray-400 text-sm md:mb-0?0">
+              <span className="text-sm text-extralight text-white">
                 {t('footer.cc')}
               </span>
             </p>
-            <div className="flex space-x-6">
-              {/* <a
-                href="/privacy"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="/terms"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
-              >
-                Terms of Use
-              </a> */}
+            <div className="flex space-x-6 items-center">
               <Link
                 to=""
                 className="text-gray-600 hover:text-white text-xs transition-colors font-mono"

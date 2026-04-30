@@ -71,30 +71,17 @@ export const mainNavigation: NavigationItem[] = [
 
 export const footerNavigation = {
   mainSections: [
-    // {
-    //   title: 'About',
-    //   links: [
-    //     { label: 'About the Portal', href: '/about' },
-    //     // { label: 'Privacy Policy', href: '/privacy' },
-    //     { label: 'Accessibility', href: '/accessibility' },
-    //     { label: 'Feedback', href: '' },
-    //     // { label: 'Community Discord', href: '/discord' },
-    //   ],
-    // },
     {
-      title: 'Services',
+      title: 'Quick Links',
       links: [
-        { label: 'All Services', href: '/services' },
-        ...(servicesData.categories as Category[])
-          .slice(0, 6)
-          .map(category => ({
-            label: category.category,
-            href: `/services/${category.slug}`,
-          })),
+        { label: 'Citizen Services', href: '/services' },
+        { label: 'Leadership', href: '/government/leadership' },
+        { label: 'Demographics', href: '/statistics/demographics' },
+        // { label: 'Community Discord', href: '/discord' },
       ],
     },
     {
-      title: 'Government',
+      title: 'Resources',
       links: [
         {
           label: 'Official Gazette',
@@ -103,7 +90,7 @@ export const footerNavigation = {
         { label: 'Open Data', href: 'https://data.gov.ph' },
         { label: 'Freedom of Information', href: 'https://www.foi.gov.ph' },
         {
-          label: 'Contact Center',
+          label: 'Contact Center ng Bayan',
           href: 'https://contactcenterngbayan.gov.ph',
         },
       ],

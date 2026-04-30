@@ -144,23 +144,8 @@ function CouncilorCard({ page }: { page: Subcategory }) {
             <h3 className="text-lg font-semibold leading-tight text-gray-900">
               {page.name}
             </h3>
-            <p className="mt-2 text-sm font-semibold text-gray-700">
-              {position}
-            </p>
+            <p className="mt-2 text-sm text-gray-600">{position}</p>
           </div>
-        </div>
-        <div className="mt-auto space-y-4 border-t border-gray-100 pt-4">
-          <ContactRow
-            icon="ri-map-pin-line"
-            label="Office Address"
-            value={profile.address || 'Address not yet available'}
-          />
-          <ContactRow
-            href={profile.email ? `mailto:${profile.email}` : undefined}
-            icon="ri-mail-line"
-            label="Email Address"
-            value={profile.email || 'Email not yet available'}
-          />
         </div>
       </CardContent>
     </Card>
@@ -223,7 +208,7 @@ export default function LeadershipOfficialsCards({
         <p className="mb-2 text-sm font-semibold uppercase tracking-normal text-primary-700">
           Executive
         </p>
-        <Heading level={1} className="mb-2 text-3xl md:text-4xl">
+        <Heading level={1} className="mb-2 text-2xl md:text-3xl">
           {title || 'Leadership'}
         </Heading>
       </div>
@@ -255,13 +240,13 @@ export default function LeadershipOfficialsCards({
       <section className="mt-10">
         <div className="mb-5 max-w-3xl">
           <p className="mb-2 text-sm font-semibold uppercase tracking-normal text-primary-700">
-            Legislative Council
+            Legislative
           </p>
           <Heading level={2} className="mb-2 text-2xl md:text-3xl">
-            Sangguniang Bayan Members
+            Sangguniang Bayan
           </Heading>
           <Text className="text-gray-600">
-            Below are the elected councilors serving in the Sangguniang Bayan.
+            Below are the elected officials serving in the Sangguniang Bayan.
           </Text>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
