@@ -652,7 +652,7 @@ export default function WeatherLocationSection() {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-col gap-2 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-2 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-end">
           <p>
             Data provided by{' '}
             <a

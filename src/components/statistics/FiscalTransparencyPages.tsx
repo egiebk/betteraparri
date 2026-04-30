@@ -93,6 +93,24 @@ type LocalFinancialData = TransparencyData & {
   content?: LocalFinancialContent;
 };
 
+const transparencyChartColors = [
+  { className: 'bg-teal-500', hex: '#0f766e' },
+  { className: 'bg-amber-500', hex: '#f59e0b' },
+  { className: 'bg-sky-500', hex: '#0284c7' },
+  { className: 'bg-rose-500', hex: '#e11d48' },
+  { className: 'bg-violet-500', hex: '#7c3aed' },
+  { className: 'bg-emerald-500', hex: '#059669' },
+];
+
+const gaugeColors = {
+  used: '#0f766e',
+  remaining: '#e7ecef',
+};
+
+function chartColorAt(index: number) {
+  return transparencyChartColors[index % transparencyChartColors.length];
+}
+
 function formatPhpMillions(value: number) {
   return `PHP ${value.toLocaleString('en-PH', {
     minimumFractionDigits: 2,
@@ -267,22 +285,25 @@ function StackedBar({ sources }: { sources: RevenueSource[] }) {
   return (
     <>
       <div className="flex h-4 overflow-hidden rounded-sm bg-gray-100">
-        {sources.map(source => (
+        {sources.map((source, index) => (
           <div
             key={source.label}
-            className={source.tone}
+            className={chartColorAt(index).className}
             style={{ width: `${Math.max(source.percent, 0.6)}%` }}
             title={`${source.label}: ${formatPercent(source.percent)}`}
           />
         ))}
       </div>
       <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
-        {sources.map(source => (
+        {sources.map((source, index) => (
           <div key={source.label} className="rounded-xl bg-gray-50 p-4">
             <div className="mb-3 flex items-center gap-2">
               <span
                 aria-hidden="true"
-                className={cn('h-3 w-3 rounded-sm', source.tone)}
+                className={cn(
+                  'h-3 w-3 rounded-sm',
+                  chartColorAt(index).className
+                )}
               />
               <p className="text-sm font-medium text-gray-700">
                 {source.label}
@@ -313,11 +334,11 @@ function DonutChart({
   const total = sources.reduce((sum, source) => sum + source.percent, 0) || 1;
   let cursor = 0;
   const gradient = sources
-    .map(source => {
+    .map((source, index) => {
       const start = cursor;
       const end = cursor + (source.percent / total) * 100;
       cursor = end;
-      return `${source.color} ${start}% ${end}%`;
+      return `${chartColorAt(index).hex} ${start}% ${end}%`;
     })
     .join(', ');
 
@@ -335,11 +356,14 @@ function DonutChart({
         </div>
       </div>
       <div className="space-y-4">
-        {sources.map(source => (
+        {sources.map((source, index) => (
           <div key={source.label} className="flex items-start gap-3">
             <span
               aria-hidden="true"
-              className={cn('mt-1 h-3 w-3 rounded-sm', source.tone)}
+              className={cn(
+                'mt-1 h-3 w-3 rounded-sm',
+                chartColorAt(index).className
+              )}
             />
             <div>
               <p className="font-medium text-gray-900">{source.label}</p>
@@ -367,7 +391,7 @@ function BarList({
 
   return (
     <div className="space-y-5">
-      {items.map(item => {
+      {items.map((item, index) => {
         const width =
           total > 0 && item.value > 0
             ? Math.max((item.value / total) * 100, 2)
@@ -388,7 +412,7 @@ function BarList({
               <div
                 className={cn(
                   'h-full rounded-full',
-                  item.tone ?? 'bg-primary-500'
+                  chartColorAt(index).className
                 )}
                 style={{ width: `${width}%` }}
                 title={`${item.label}: ${formatPercent(width)}`}
@@ -407,10 +431,10 @@ function OperatingComparisonChart({ items }: { items: RevenueLine[] }) {
 
   return (
     <div className="flex h-64 items-end gap-5 border-b border-gray-200 px-2 pt-6">
-      {chartItems.map(item => (
+      {chartItems.map((item, index) => (
         <div key={item.label} className="flex flex-1 flex-col items-center">
           <div
-            className={cn('w-full rounded-t-sm', item.tone ?? 'bg-primary-500')}
+            className={cn('w-full rounded-t-sm', chartColorAt(index).className)}
             style={{ height: `${Math.max((item.value / max) * 190, 8)}px` }}
           />
           <p className="mt-3 text-center text-sm font-semibold text-gray-900">
@@ -432,7 +456,7 @@ function UtilizationGauge({ utilization }: { utilization: number }) {
       className="relative mx-auto h-52 w-52 rounded-full"
       role="img"
       style={{
-        background: `conic-gradient(#0066eb ${usedDegrees}deg, #e9ecef ${usedDegrees}deg 360deg)`,
+        background: `conic-gradient(${gaugeColors.used} ${usedDegrees}deg, ${gaugeColors.remaining} ${usedDegrees}deg 360deg)`,
       }}
     >
       <div className="absolute inset-10 flex flex-col items-center justify-center rounded-full bg-white text-center shadow-sm">
@@ -686,7 +710,7 @@ export function IncomeDependencyDashboard() {
     value: item.value,
     percent: localRevenueTotal > 0 ? (item.value / localRevenueTotal) * 100 : 0,
     tone: item.tone ?? 'bg-primary-500',
-    color: item.tone?.includes('success') ? '#00af5f' : '#0066eb',
+    color: '#0f766e',
   }));
 
   return (
@@ -1075,7 +1099,7 @@ export function LocalFinancialDataDashboard() {
               </p>
             </CardHeader>
             <CardContent className="space-y-5 p-6">
-              {ldrrmfSources.map(source => (
+              {ldrrmfSources.map((source, index) => (
                 <div key={source.label} className="space-y-2">
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                     <div>
@@ -1093,7 +1117,10 @@ export function LocalFinancialDataDashboard() {
                   </div>
                   <div className="h-2 overflow-hidden rounded-sm bg-gray-100">
                     <div
-                      className={cn('h-full rounded-sm', source.tone)}
+                      className={cn(
+                        'h-full rounded-sm',
+                        chartColorAt(index).className
+                      )}
                       style={{ width: `${source.utilization}%` }}
                     />
                   </div>

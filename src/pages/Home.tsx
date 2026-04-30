@@ -1,6 +1,7 @@
 import Hero from '../components/sections/Hero';
 import ServicesSection from '../components/home/ServicesSection';
 import WeatherLocationSection from '../components/home/WeatherLocationSection';
+import ContactSection from '../components/home/ContactSection';
 import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
         <Hero />
         <ServicesSection />
         <WeatherLocationSection />
+        <ContactSection />
         {/* <GovernmentActivitySection /> */}
       </main>
     </>

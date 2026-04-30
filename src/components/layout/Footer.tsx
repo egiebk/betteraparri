@@ -27,11 +27,11 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w bg-green-600 mx-auto px-4 py-6">
         <p className="text-center text-sm font-semibold">
-          This project costs ₱0 to Aparrianos.
+          This project costs ₱0 to the citizens of Aparri.
         </p>
       </div>
       <div className="container mx-auto px-4 pt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="gap-8 md:grid md:grid-cols-4">
           <div>
             <div className="flex items-center mb-4">
               <img
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
           {footerNavigation.mainSections.map(section => (
             <div key={section.title}>
-              <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
+              <h3 className="text-lg font-semibold my-4">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map(link => (
                   <li key={link.label}>
