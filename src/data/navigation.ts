@@ -82,20 +82,18 @@ export const footerNavigation = {
         // { label: 'Community Discord', href: '/discord' },
       ],
     },
-    // {
-    //   title: 'Services',
-    //   links: [
-    //     { label: 'All Services', href: '/services' },
-    //     ...(servicesData.categories as Category[])
-    //       .slice(0, 6)
-    //       .map(category => ({
-    //         label: category.category,
-    //         href: `/services/${category.slug}`,
-    //       })),
-    //     { label: 'Hotlines', href: '/philippines/hotlines' },
-    //     { label: 'Holidays', href: '/philippines/holidays' },
-    //   ],
-    // },
+    {
+      title: 'Services',
+      links: [
+        { label: 'All Services', href: '/services' },
+        ...(servicesData.categories as Category[])
+          .slice(0, 6)
+          .map(category => ({
+            label: category.category,
+            href: `/services/${category.slug}`,
+          })),
+      ],
+    },
     {
       title: 'Government',
       links: [

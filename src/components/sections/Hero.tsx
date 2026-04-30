@@ -6,15 +6,10 @@ export default function Hero() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim();
-  const contactHref = contactEmail
-    ? `mailto:${contactEmail}`
-    : '/government/leadership';
-
   return (
     <section className="relative overflow-hidden bg-[#0f47b8] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_34%),linear-gradient(135deg,_#1849b2_0%,_#0d3794_100%)]" />
-      <div className="relative container mx-auto px-4 py-12 md:py-16 lg:py-18">
+      <div className="relative container mx-auto px-4 py-18 md:py-16 lg:py-24">
         <div className="flex items-center max-w-7xl mx-auto lg:flex-row">
           <div className="">
             <p className="text-md font-light tracking-tight text-white lg:text-lg">
@@ -30,26 +25,11 @@ export default function Hero() {
               <Button
                 type="button"
                 size="lg"
-                className="justify-center bg-emerald-600 text-white-50 hover:bg-primary-700 rounded-2xl px-6 py-3.5 text-base font-semibold shadow-xl"
+                className="justify-center bg-yellow-400 text-yellow-900 hover:bg-yellow-500 rounded-2xl px-6 py-3.5 text-base font-semibold shadow-xl"
                 onClick={() => navigate('/services')}
               >
                 <i className="ri-arrow-right-line mr-2" />
                 {t('hero.browseServices')}
-              </Button>
-              <Button
-                type="button"
-                size="lg"
-                variant="outline"
-                className="justify-center rounded-2xl border-white/80 bg-transparent px-6 py-3.5 text-base font-semibold text-white hover:bg-white/10 hover:text-white"
-                onClick={() => {
-                  if (contactEmail) {
-                    window.location.href = contactHref;
-                    return;
-                  }
-                  navigate('/government/leadership');
-                }}
-              >
-                {t('hero.contactUs')}
               </Button>
             </div>
           </div>
