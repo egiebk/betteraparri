@@ -665,7 +665,7 @@ const localFinancialFallbackContent: LocalFinancialContent = {
     },
   ],
   sourceNote:
-    'Quarterly and LDRRMF figures are based on BLGF fiscal data files. Values should be reviewed against the latest BLGF release before formal citation.',
+    'Figures are based on BLGF fiscal data files. Values should be reviewed against the latest BLGF release before formal citation.',
 };
 
 export function IncomeDependencyDashboard() {
@@ -799,8 +799,8 @@ export function IncomeDependencyDashboard() {
         />
 
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-          <Card className="border-primary-100">
-            <CardHeader className="bg-stone-100">
+          <Card className="h-full border-t-4 border-primary-100">
+            <CardHeader className="bg-blue-50">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.annualRegularIncome.title}
               </h3>
@@ -816,9 +816,8 @@ export function IncomeDependencyDashboard() {
               />
             </CardContent>
           </Card>
-
-          <Card className="border-primary-100">
-            <CardHeader className="bg-stone-100">
+          <Card className="h-full border-t-4 border-primary-100">
+            <CardHeader className="bg-blue-50">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.localRevenueMix.title}
               </h3>
@@ -847,8 +846,8 @@ export function IncomeDependencyDashboard() {
         />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <Card className="border-primary-100">
-            <CardHeader className="bg-stone-100">
+          <Card className="h-full border-t-4 border-primary-100">
+            <CardHeader className="bg-blue-50">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.taxRevenue.title}
               </h3>
@@ -861,8 +860,8 @@ export function IncomeDependencyDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="border-primary-100">
-            <CardHeader className="bg-stone-100">
+          <Card className="h-full border-t-4 border-primary-100">
+            <CardHeader className="bg-blue-50">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.nonTaxRevenue.title}
               </h3>

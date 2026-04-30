@@ -141,14 +141,14 @@ function SectionHeading({
   description: string;
 }) {
   return (
-    <div className="mb-5 max-w-3xl">
+    <div className="mb-5 max-w-7xl">
       <p className="mb-2 text-sm font-semibold uppercase tracking-normal text-primary-700">
         {eyebrow}
       </p>
       <Heading level={2} className="mb-2 text-2xl md:text-3xl">
         {title}
       </Heading>
-      <Text className="text-gray-600">{description}</Text>
+      <Text className="mb-4 text-gray-600">{description}</Text>
     </div>
   );
 }
@@ -259,14 +259,14 @@ function PopulationTrendChart({
   });
 
   return (
-    <Card className="h-full overflow-hidden border-primary-100">
-      <CardHeader className="bg-stone-100">
+    <Card className="h-full border-t-4 border-primary-100">
+      <CardHeader className="bg-blue-50">
         <h3 className="text-lg font-semibold text-gray-900">{content.title}</h3>
         {content.description && (
           <p className="mt-1 text-sm text-gray-600">{content.description}</p>
         )}
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="p-0">
         <div className="overflow-x-auto">
           <svg
             aria-label="Population trend chart"
@@ -352,8 +352,8 @@ function GrowthChangeChart({
   );
 
   return (
-    <Card className="h-full border-primary-100">
-      <CardHeader className="bg-stone-100">
+    <Card className="h-full border-t-4 border-primary-100">
+      <CardHeader className="bg-blue-50">
         <h3 className="text-lg font-semibold text-gray-900">{content.title}</h3>
         {content.description && (
           <p className="mt-1 text-sm text-gray-600">{content.description}</p>
@@ -720,11 +720,11 @@ const demographicsFallbackContent: DemographicsContent = {
   cards: {
     populationTrend: {
       title: 'Population Trend',
-      description: 'Census counts from PSA datasets',
+      description: 'Census counts from available PSA datasets',
     },
     countChanges: {
       title: 'Change Between Counts',
-      description: 'Percent change between PSA population counts',
+      description: 'Percent change between available PSA population counts',
     },
   },
   terms: [

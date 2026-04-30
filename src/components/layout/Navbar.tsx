@@ -12,7 +12,7 @@ const emergencyHotlines = [
   { label: 'BFP:', number: '09164910946', icon: 'ri-fire-line' },
   { label: 'PCG:', number: '09568301802', icon: 'ri-ship-2-line' },
   {
-    label: 'Provincial Hospital:',
+    label: 'Hospital:',
     number: '09363748430',
     icon: 'ri-hospital-line',
   },
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
                   </button>
                   {isHotlinesOpen && (
                     <div
-                      className="absolute left-0 top-full z-50 mt-2 w-72 rounded-md bg-white p-2 text-gray-900 shadow-lg ring-1 ring-black/10"
+                      className="absolute left-0 top-full z-50 mt-2 w-64 rounded-md bg-white p-2 text-gray-900 shadow-lg ring-1 ring-black/10"
                       role="menu"
                     >
                       {secondaryEmergencyHotlines.map(item => (
@@ -269,20 +269,6 @@ const Navbar: React.FC = () => {
               )}
             </div>
           ))}
-          <Link
-            to="/about"
-            onClick={closeMenu}
-            className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-          >
-            About
-          </Link>
-          <Link
-            to="/search"
-            onClick={closeMenu}
-            className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-          >
-            Search
-          </Link>
           <div className="px-4 py-3 border-t border-gray-200">
             <div className="flex items-center">
               <i className="ri-global-line h-5 w-5 text-gray-800 mr-2" />

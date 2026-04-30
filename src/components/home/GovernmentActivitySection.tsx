@@ -66,7 +66,9 @@ export default function GovernmentActivitySection({
                     {category.category}
                   </h3>
                 </div>
-                <Text className="text-gray-800 text-sm font-light">{category.description}</Text>
+                <Text className="text-gray-800 text-sm font-light">
+                  {category.description}
+                </Text>
               </CardContent>
             </Link>
           </Card>

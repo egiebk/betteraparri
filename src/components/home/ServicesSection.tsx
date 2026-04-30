@@ -64,7 +64,9 @@ export default function ServicesSection({
                     {category.category}
                   </h2>
                 </div>
-                <Text className="text-gray-800 text-sm font-light">{category.description}</Text>
+                <Text className="text-gray-800 text-sm font-light">
+                  {category.description}
+                </Text>
               </CardContent>
             </Link>
           </Card>
