@@ -10,6 +10,7 @@ const emergencyHotlines = [
   { label: 'MDRRMO:', number: '09566542894', icon: 'ri-alarm-warning-line' },
   { label: 'PNP:', number: '09172302003', icon: 'ri-police-badge-line' },
   { label: 'BFP:', number: '09164910946', icon: 'ri-fire-line' },
+  { label: 'PCG:', number: '09568301802', icon: 'ri-ship-2-line' },
   {
     label: 'Provincial Hospital:',
     number: '09363748430',
@@ -25,7 +26,6 @@ const emergencyHotlines = [
     number: '09359519786',
     icon: 'ri-first-aid-kit-line',
   },
-  { label: 'PH Coast Guard:', number: '09568301802', icon: 'ri-ship-2-line' },
 ];
 
 const primaryEmergencyHotlines = emergencyHotlines.filter(item =>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       {/* Top bar with emergency contacts and language switcher */}
-      <div className="border-b border-gray-200 bg-red-800 text-white">
+      <div className="border-b border-gray-200 bg-stone-800 text-white">
         <div className="container mx-auto px-4 py-1.5">
           <div className="flex flex-col gap-1.5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-2.5">
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
                   <a
                     key={item.label}
                     href={`tel:${item.number}`}
-                    className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] leading-5 text-white/90 transition-colors hover:bg-white/15 gap-1.5"
+                    className="inline-flex items-center rounded-full border border-white/15 bg-red-50/10 px-2.5 py-1 text-[11px] leading-5 text-white/90 transition-colors hover:bg-white/15 gap-1.5"
                   >
                     <i className={`${item.icon} text-xs`} />
                     <span className="font-medium text-white">{item.label}</span>
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
                   </button>
                   {isHotlinesOpen && (
                     <div
-                      className="absolute left-0 top-full z-50 mt-2 w-88 rounded-md bg-white p-2 text-gray-900 shadow-lg ring-1 ring-black/10"
+                      className="absolute left-0 top-full z-50 mt-2 w-72 rounded-md bg-white p-2 text-gray-900 shadow-lg ring-1 ring-black/10"
                       role="menu"
                     >
                       {secondaryEmergencyHotlines.map(item => (

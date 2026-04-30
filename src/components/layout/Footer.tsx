@@ -12,8 +12,8 @@ const Footer: React.FC = () => {
     switch (label) {
       case 'Facebook':
         return <i className="ri-facebook-fill h-5 w-5" />;
-      case 'Twitter':
-        return <i className="ri-twitter-x-line h-5 w-5" />;
+      case 'GitHub':
+        return <i className="ri-github-line h-5 w-5" />;
       case 'Instagram':
         return <i className="ri-instagram-line h-5 w-5" />;
       case 'YouTube':
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="container mx-auto px-4 pt-12 pb-8">
         <div className="gap-8 md:grid md:grid-cols-4">
-          <div>
+          <div className="col-span-2">
             <div className="flex items-center mb-4">
               <img
                 src={betterAparriLogo}
@@ -41,12 +41,7 @@ const Footer: React.FC = () => {
               />
 
               <div>
-                <div className="font-bold">
-                  {t('site_name')}{' '}
-                  <span className="text-xs text-gray-600">
-                    v.{packageJson.version}
-                  </span>
-                </div>
+                <div className="font-bold">{t('site_name')}</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm mb-4">
@@ -92,8 +87,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              {t('footer.copyright')} <br />
-              <span className="text-xs text-extralight text-gray-600">
+              <span className="text-sm text-extralight text-white ml-4">
                 {t('footer.cc')}
               </span>
             </p>
@@ -111,10 +105,16 @@ const Footer: React.FC = () => {
                 Terms of Use
               </a> */}
               <Link
-                to="https://github.com/egiebk/betteraparri"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+                to=""
+                className="text-gray-600 hover:text-white text-xs transition-colors font-mono"
               >
-                Contribute at GitHub
+                v{packageJson.version}
+              </Link>
+              <Link
+                to="https://github.com/egiebk"
+                className="text-gray-600 hover:text-gray-400 text-xs transition-colors font-mono"
+              >
+                built by egiebk
               </Link>
             </div>
           </div>
