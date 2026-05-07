@@ -26,7 +26,7 @@ export const updates: Update[] = [
   {
     id: 'act-001',
     type: 'activity',
-    title: 'MOTORCYCLE FUN RIDE',
+    title: 'Motorcycle Fun Ride',
     description:
       "Join us for a fun-filled motorcycle ride around the town! All motorcycle enthusiasts are welcome to participate. Don't miss out on this exciting event! Pre-Rider Inspection is required for all participants.",
     date: '2026-05-10',
@@ -42,7 +42,7 @@ export const updates: Update[] = [
   {
     id: 'act-002',
     type: 'activity',
-    title: 'APPLICATION FOR NATIONAL ID',
+    title: 'Application for National ID',
     description:
       'The Philippine Statistics Authority (PSA) will conduct a National ID registration drive in Aparri. Residents can apply for their National ID at the designated registration centers. Please bring valid identification documents for the application process.',
     date: '2026-05-07',
@@ -58,7 +58,7 @@ export const updates: Update[] = [
   {
     id: 'act-003',
     type: 'activity',
-    title: 'APPLICATION FOR NATIONAL ID',
+    title: 'Application for National ID',
     description:
       'The Philippine Statistics Authority (PSA) will conduct a National ID registration drive in Aparri. Residents can apply for their National ID at the designated registration centers. Please bring valid identification documents for the application process.',
     date: '2026-05-06',
@@ -74,7 +74,7 @@ export const updates: Update[] = [
   {
     id: 'act-004',
     type: 'activity',
-    title: 'JOB FAIR',
+    title: 'Job Fair',
     description:
       "All job seekers and interested individuals are invited to attend the Government Service Caravan cum Job Fair organized by the Municipal Government of Aparri. This event will provide an opportunity for job seekers to connect with various government agencies and explore employment opportunities. Don't miss out on this chance to find your next career move!",
     date: '2026-05-01',

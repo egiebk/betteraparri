@@ -100,6 +100,7 @@ type WeatherCodeInfo = {
 };
 
 type AdvisoryDetail = {
+  icon?: string;
   label: string;
   bullets: string[];
 };
@@ -114,10 +115,14 @@ type Advisory = {
 
 type RiskLevel = 'low' | 'watch' | 'caution' | 'high';
 
+type HazardType = 'heat' | 'rain' | 'wind' | 'sea' | 'farm' | 'none';
+
 type RiskAssessment = {
   level: RiskLevel;
+  hazard: HazardType;
   status: string;
   detail: string;
+  actions: string[];
 };
 
 const LOCATION = {
@@ -342,44 +347,73 @@ const assessHeat = (
   if (typeof apparentTemperature !== 'number') {
     return {
       level: 'watch',
+      hazard: 'heat',
       status: 'Check heat conditions',
-      detail: 'Heat index is unavailable. Use the actual temperature instead.',
+      detail:
+        'Heat index is unavailable, so actual heat stress may differ locally.',
+      actions: [
+        'Use the actual temperature, shade, and how your body feels to judge outdoor plans.',
+        'Bring drinking water if you will be outside for errands, school pickup, or field work.',
+      ],
     };
   }
 
+  const humidityUnavailable = typeof humidity !== 'number';
   const humidHeat =
     typeof humidity === 'number' && humidity >= 80 && apparentTemperature >= 32;
 
   if (apparentTemperature >= 42) {
     return {
       level: 'high',
+      hazard: 'heat',
       status: 'Dangerous heat',
       detail:
-        'Avoid all outdoor work. Use shade, drink water often, and take rest breaks.',
+        'Dangerous heat can affect outdoor workers, children, older adults, and people waiting for transport.',
+      actions: [
+        'Avoid long outdoor work during late morning and afternoon.',
+        'Use shade, drink water often, and take planned rest breaks.',
+        'Watch for dizziness, headache, confusion, heavy sweating, or weakness.',
+      ],
     };
   }
 
   if (apparentTemperature >= 37 || humidHeat) {
     return {
       level: 'caution',
+      hazard: 'heat',
       status: 'High heat stress',
       detail:
-        'Limit outdoor work to early morning or late afternoon. Use shade and drink water often.',
+        'Heat stress is elevated, especially during midday outdoor work, errands, or long waits for transport.',
+      actions: [
+        'Move heavy errands and field work to early morning or late afternoon when possible.',
+        'Bring water and rest in shade during long outdoor trips.',
+      ],
     };
   }
 
   if (apparentTemperature >= 32) {
     return {
       level: 'watch',
+      hazard: 'heat',
       status: 'Warm conditions',
-      detail: 'Do heavy errands in the morning or late afternoon.',
+      detail: humidityUnavailable
+        ? 'It feels warm, and humidity data is unavailable, so heat may feel heavier in some areas.'
+        : 'Warm conditions may make heavy errands or field work tiring by midday.',
+      actions: [
+        'Do heavier outdoor tasks in the morning or late afternoon when possible.',
+        'Bring drinking water for long walks, market trips, and field checks.',
+      ],
     };
   }
 
   return {
     level: 'low',
-    status: 'Comfortable heat level',
-    detail: 'Heat risk is low, but bring water for long outdoor trips.',
+    hazard: 'heat',
+    status: 'Heat risk appears low',
+    detail: humidityUnavailable
+      ? 'Heat risk appears low, but humidity data is unavailable and local conditions may feel different.'
+      : 'Weather-related heat risk is low for most routine activities.',
+    actions: ['Bring water for long outdoor trips or field work.'],
   };
 };
 
@@ -390,40 +424,62 @@ const assessRain = (
 ): RiskAssessment => {
   const probability = precipitationProbability ?? 0;
   const rainTotal = precipitation ?? 0;
+  const stormRisk = isStormCode(weatherCode);
+  const heavyRainRisk = isHeavyRainCode(weatherCode);
 
-  if (
-    isStormCode(weatherCode) ||
-    isHeavyRainCode(weatherCode) ||
-    probability >= 80 ||
-    rainTotal >= 30
-  ) {
+  if (stormRisk || heavyRainRisk || rainTotal >= 30) {
     return {
       level: 'high',
-      status: 'Heavy rain or thunderstorm risk',
-      detail: 'Expect downpours or lightning. Avoid flood-prone areas.',
+      hazard: 'rain',
+      status: stormRisk ? 'Thunderstorm risk' : 'Heavy rain risk',
+      detail: stormRisk
+        ? 'Thunderstorms may bring lightning, sudden downpours, and fast-changing road or sea conditions.'
+        : 'Heavy rain may cause ponding, poor visibility, and flooding in low-lying or poorly drained areas.',
+      actions: [
+        'Avoid flood-prone roads, low-lying shortcuts, and river crossings when water is rising.',
+        'Keep phones, documents, medicines, and IDs in a waterproof pouch.',
+        'Follow LGU, barangay, school, transport, and road advisories.',
+      ],
     };
   }
 
-  if (probability >= 60 || rainTotal >= 15) {
+  if ((probability >= 80 && rainTotal >= 10) || rainTotal >= 15) {
     return {
       level: 'caution',
+      hazard: 'rain',
       status: 'Likely rain today',
-      detail: 'Bring rain gear and keep documents or supplies covered.',
+      detail:
+        'Rain is likely and may interrupt errands, drying, spraying, hauling, or outdoor waiting times.',
+      actions: [
+        'Bring rain gear and protect phones, documents, medicines, and supplies from getting wet.',
+        'Add extra travel time for tricycle, bus, boat, school, or market trips.',
+      ],
     };
   }
 
-  if (probability >= 35 || rainTotal >= 3) {
+  if (probability >= 80 || probability >= 60 || rainTotal >= 3) {
     return {
-      level: 'watch',
-      status: 'Possible rain',
-      detail: 'Plan outdoor work carefully. Rain may still interrupt errands.',
+      level: probability >= 60 || rainTotal >= 3 ? 'watch' : 'watch',
+      hazard: 'rain',
+      status: probability >= 80 ? 'Likely light rain' : 'Possible rain',
+      detail:
+        probability >= 80 && rainTotal < 5
+          ? 'Light rain is likely, but rainfall totals look limited at this time.'
+          : 'Rain may still interrupt errands, field work, drying, or outdoor plans.',
+      actions: [
+        'Carry an umbrella or raincoat if you will be outside for several hours.',
+        'Keep drying crops, fish, and supplies easy to cover or move.',
+      ],
     };
   }
 
   return {
     level: 'low',
+    hazard: 'rain',
     status: 'Low rain risk',
-    detail: 'Rain risk is low. Normal travel should be manageable.',
+    detail:
+      'Weather-related rain risk is low for most routine trips and outdoor work.',
+    actions: ['Continue normal plans, but watch the sky for local showers.'],
   };
 };
 
@@ -437,32 +493,50 @@ const assessWind = (
   if (gusts >= 50 || speed >= 35) {
     return {
       level: 'high',
+      hazard: 'wind',
       status: 'Strong wind risk',
-      detail: 'Secure light materials, signs, tarps, and loose roofing.',
+      detail:
+        'Strong wind may affect light materials, trees, signs, tarps, small boats, and loose roofing.',
+      actions: [
+        'Secure light materials, signs, tarps, stalls, and loose roofing.',
+        'Avoid walking, waiting, or parking under unstable trees, signs, or roofing.',
+      ],
     };
   }
 
   if (gusts >= 35 || speed >= 25) {
     return {
       level: 'caution',
+      hazard: 'wind',
       status: 'Gusty conditions',
       detail:
-        'Secure loose items and be cautious of falling branches or debris.',
+        'Gusty conditions may blow loose items around and make open, coastal, or roadside areas less comfortable.',
+      actions: [
+        'Secure loose items before leaving home, the farm, or the shore.',
+        'Use extra care near branches, light structures, tarps, and roadside materials.',
+      ],
     };
   }
 
   if (gusts >= 25 || speed >= 18) {
     return {
       level: 'watch',
+      hazard: 'wind',
       status: 'Breezy conditions',
-      detail: 'Expect noticeable wind, especially in open or coastal areas.',
+      detail:
+        'Noticeable wind is possible, especially in open or coastal areas.',
+      actions: [
+        'Check tarps, signs, and light materials before leaving them unattended.',
+      ],
     };
   }
 
   return {
     level: 'low',
+    hazard: 'wind',
     status: 'Light to moderate wind',
-    detail: 'Wind risk is low for most daily activities.',
+    detail: 'Weather-related wind risk is low for most daily activities.',
+    actions: ['Normal outdoor plans should be manageable for wind.'],
   };
 };
 
@@ -476,34 +550,59 @@ const assessSea = (
   const gusts = windGusts ?? 0;
   const steepShortWaves = waves >= 1.2 && period > 0 && period <= 6;
 
-  if (waves >= 2.5 || gusts >= 45 || (waves >= 2 && steepShortWaves)) {
+  if (waves >= 2.5 || gusts >= 45 || (waves >= 1.8 && steepShortWaves)) {
     return {
       level: 'high',
+      hazard: 'sea',
       status: 'Avoid small boats',
-      detail: 'Small craft may be unsafe. Wait for calmer conditions.',
+      detail:
+        'Small craft may be unsafe, especially with strong gusts or short, steep waves.',
+      actions: [
+        'Delay small-boat trips, fishing, or coastal travel until conditions are calmer.',
+        'Check Coast Guard, MDRRMO, barangay, port, and local shore advisories before leaving.',
+        'Do not rely on the forecast alone if waves at the shore already look rough.',
+      ],
     };
   }
 
   if (waves >= 1.5 || gusts >= 30 || steepShortWaves) {
     return {
       level: 'caution',
+      hazard: 'sea',
       status: 'Take extra care at sea',
-      detail: 'Check shore conditions and local advisories before sailing.',
+      detail:
+        'Small boats may face choppy conditions, harder docking, or a rougher return to shore.',
+      actions: [
+        'Compare the forecast with actual shore, tide, and wind conditions before loading a boat.',
+        'Avoid overloading and delay the trip if waves or gusts are increasing.',
+        'Check Coast Guard, MDRRMO, barangay, or port advisories.',
+      ],
     };
   }
 
   if (waves >= 1 || gusts >= 25) {
     return {
       level: 'watch',
+      hazard: 'sea',
       status: 'Monitor sea conditions',
-      detail: 'Stay alert near the coast. Conditions can change quickly.',
+      detail:
+        'Marine conditions may change quickly near the coast, especially for small boats.',
+      actions: [
+        'Check the shore, tide, and wind before leaving.',
+        'Be ready to delay if waves become rougher than expected.',
+      ],
     };
   }
 
   return {
     level: 'low',
-    status: 'Sea looks manageable',
-    detail: 'Marine risk is low, but still check the shore before leaving.',
+    hazard: 'sea',
+    status: 'Marine weather risk is low',
+    detail:
+      'Marine weather risk appears low, but shore conditions can still vary locally.',
+    actions: [
+      'Check the shore before leaving and continue to follow official marine advisories.',
+    ],
   };
 };
 
@@ -520,42 +619,89 @@ const assessFarm = (
   const waterDemand = evapotranspiration ?? 0;
   const uv = uvIndex ?? 0;
 
-  if (rain.level === 'high' || probability >= 75 || rainTotal >= 20) {
+  if (rain.level === 'high' || rainTotal >= 20) {
     return {
       level: 'high',
+      hazard: 'farm',
       status: 'Delay drying and spraying',
-      detail: 'Rain may affect drying, spraying, hauling, and harvest work.',
+      detail:
+        'Rain may disrupt crop drying, fish drying, spraying, hauling, transplanting, and harvest work.',
+      actions: [
+        'Delay spraying, fertilizer application, and open-air drying until rain risk drops.',
+        'Move harvested crops, fish, feeds, tools, and supplies under cover early.',
+        'Check drainage around fields, canals, storage areas, and animal shelters.',
+      ],
     };
   }
 
-  if (rain.level === 'caution' || probability >= 55 || rainTotal >= 8) {
+  if (rain.level === 'caution' || probability >= 75 || rainTotal >= 8) {
     return {
       level: 'caution',
+      hazard: 'farm',
       status: 'Protect drying crops',
-      detail: 'Use cover or tarps. Avoid spraying if rain is near.',
+      detail:
+        'Rain may interrupt drying, spraying, hauling, or other weather-sensitive farm work.',
+      actions: [
+        'Use cover, tarps, or shaded areas for drying harvest, fish, feeds, and supplies.',
+        'Avoid spraying if rain is nearby or expected during the work period.',
+        'Keep harvest and hauling plans flexible in case showers arrive earlier than expected.',
+      ],
+    };
+  }
+
+  if (heat.level === 'high') {
+    return {
+      level: 'high',
+      hazard: 'farm',
+      status: 'Limit field work during dangerous heat',
+      detail:
+        'Dangerous heat can stress crops, livestock, and field workers during long outdoor work.',
+      actions: [
+        'Move heavy field work to early morning or late afternoon.',
+        'Set water and shade breaks for workers.',
+        'Check soil moisture, seedlings, livestock water, and shaded areas before midday.',
+      ],
     };
   }
 
   if (waterDemand >= 5 || heat.level === 'caution' || uv >= 8) {
     return {
       level: 'caution',
+      hazard: 'farm',
       status: 'Irrigation and heat caution',
-      detail: 'Check soil moisture. Crops may need more water today.',
+      detail:
+        'Crops, livestock, and field workers may need extra water or shade during hotter parts of the day.',
+      actions: [
+        'Check soil moisture before watering so irrigation is targeted.',
+        'Schedule longer field work for cooler parts of the day when possible.',
+        'Bring drinking water and plan shade breaks for field workers.',
+      ],
     };
   }
 
   if (waterDemand >= 3.5 || heat.level === 'watch' || uv >= 6) {
     return {
       level: 'watch',
+      hazard: 'farm',
       status: 'Good with water checks',
-      detail: 'Regular work is okay. Check water needs before midday heat.',
+      detail:
+        'Regular work is generally okay, but midday heat, UV, or crop water demand may need attention.',
+      actions: [
+        'Check water needs before midday heat.',
+        'Use shade and drinking water for longer field work.',
+      ],
     };
   }
 
   return {
     level: 'low',
+    hazard: 'farm',
     status: 'Good day for regular farm work',
-    detail: 'Good for regular work, drying, and routine field checks.',
+    detail:
+      'Weather risk is low for regular work, drying, and routine field checks.',
+    actions: [
+      'Continue routine field checks and watch for local changes in rain or wind.',
+    ],
   };
 };
 
@@ -572,6 +718,7 @@ const buildAdvisories = (
         tone: 'border-slate-200 bg-white',
         details: [
           {
+            icon: 'ri-question-line',
             label: 'What This Means',
             bullets: [
               'The live weather feed did not load.',
@@ -579,6 +726,7 @@ const buildAdvisories = (
             ],
           },
           {
+            icon: 'ri-question-line',
             label: 'What To Do',
             bullets: [
               'Check LGU, barangay, school, or transport announcements.',
@@ -587,6 +735,7 @@ const buildAdvisories = (
             ],
           },
           {
+            icon: 'ri-database-line',
             label: 'Weather Basis',
             bullets: ['No current weather reading was received.'],
           },
@@ -599,6 +748,7 @@ const buildAdvisories = (
         tone: 'border-slate-200 bg-white',
         details: [
           {
+            icon: 'ri-question-line',
             label: 'What This Means',
             bullets: [
               'The marine feed did not load.',
@@ -606,6 +756,7 @@ const buildAdvisories = (
             ],
           },
           {
+            icon: 'ri-question-line',
             label: 'What To Do',
             bullets: [
               'Check the shore, tide, and wind before loading a boat.',
@@ -614,6 +765,7 @@ const buildAdvisories = (
             ],
           },
           {
+            icon: 'ri-database-line',
             label: 'Weather Basis',
             bullets: ['No current marine reading was received.'],
           },
@@ -626,6 +778,7 @@ const buildAdvisories = (
         tone: 'border-slate-200 bg-white',
         details: [
           {
+            icon: 'ri-question-line',
             label: 'What This Means',
             bullets: [
               'The farm planning feed did not load.',
@@ -633,6 +786,7 @@ const buildAdvisories = (
             ],
           },
           {
+            icon: 'ri-question-line',
             label: 'What To Do',
             bullets: [
               'Use local rain reports and field observations.',
@@ -641,6 +795,7 @@ const buildAdvisories = (
             ],
           },
           {
+            icon: 'ri-database-line',
             label: 'Weather Basis',
             bullets: ['No usable farm planning values were received.'],
           },
@@ -703,6 +858,7 @@ const buildAdvisories = (
       tone: getRiskTone(publicRisk),
       details: [
         {
+          icon: 'ri-question-line',
           label: 'What This Means',
           bullets: [
             heatRisk.detail,
@@ -712,6 +868,7 @@ const buildAdvisories = (
           ],
         },
         {
+          icon: 'ri-information-line',
           label: 'What To Do',
           bullets: [
             'Bring water, an umbrella, or a raincoat when conditions call for it.',
@@ -721,6 +878,7 @@ const buildAdvisories = (
           ],
         },
         {
+          icon: 'ri-database-line',
           label: 'Weather Basis',
           bullets: [
             `Feels like ${formatDecimal(snapshot.weather.apparentTemperature)}°C with ${formatNumber(snapshot.weather.humidity)}% humidity.`,
@@ -737,6 +895,7 @@ const buildAdvisories = (
       tone: getRiskTone(seaRisk.level),
       details: [
         {
+          icon: 'ri-question-line',
           label: 'What This Means',
           bullets: [
             seaRisk.detail,
@@ -745,6 +904,7 @@ const buildAdvisories = (
           ],
         },
         {
+          icon: 'ri-question-line',
           label: 'What To Do',
           bullets: [
             'Compare this forecast with what you actually see at the shore.',
@@ -753,6 +913,7 @@ const buildAdvisories = (
           ],
         },
         {
+          icon: 'ri-database-line',
           label: 'Weather Basis',
           bullets: [
             `Waves may reach ${formatDecimal(seaHeight)} m.`,
@@ -769,6 +930,7 @@ const buildAdvisories = (
       tone: getRiskTone(farmRisk.level),
       details: [
         {
+          icon: 'ri-question-line',
           label: 'What This Means',
           bullets: [
             farmRisk.detail,
@@ -777,6 +939,7 @@ const buildAdvisories = (
           ],
         },
         {
+          icon: 'ri-information-line',
           label: 'What To Do',
           bullets: [
             'Use cover, tarps, or shaded areas when drying harvest or fish.',
@@ -786,6 +949,7 @@ const buildAdvisories = (
           ],
         },
         {
+          icon: 'ri-database-line',
           label: 'Weather Basis',
           bullets: [
             `Rain chance is ${formatNumber(today?.precipitationProbability)}%, with ${formatDecimal(today?.precipitation)} mm expected.`,
@@ -908,18 +1072,24 @@ function AdvisoryCard({
       </summary>
 
       <div className="space-y-3 border-t border-black/5 px-5 pb-5 pt-4 text-sm leading-6 text-slate-700">
-        {advisory.details.map(detail => (
-          <div key={detail.label}>
-            <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">
-              {detail.label}
-            </p>
-            <ul className="mt-1 list-disc space-y-1 pl-4">
-              {detail.bullets.map(bullet => (
-                <li key={bullet}>{bullet}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="grid grid-cols-3 gap-6">
+          {advisory.details.map(detail => (
+            <div key={detail.label}>
+              <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">
+                <i
+                  className={`${detail.icon} mr-1 h-3 w-3 items-center justify-center text-slate-400`}
+                  aria-hidden="true"
+                />
+                {detail.label}
+              </p>
+              <ul className="mt-1 list-disc space-y-1 pl-4">
+                {detail.bullets.map(bullet => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </details>
   );
