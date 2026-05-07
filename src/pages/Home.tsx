@@ -3,6 +3,7 @@ import ServicesSection from '../components/home/ServicesSection';
 import WeatherLocationSection from '../components/home/WeatherLocationSection';
 import ContactSection from '../components/home/ContactSection';
 import SEO from '../components/SEO';
+import UpdatesSection from '../components/home/UpdatesSection';
 
 const Home: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
       />
       <main className="flex-grow">
         <Hero />
+        <UpdatesSection />
         <ServicesSection />
         <WeatherLocationSection />
         <ContactSection />
