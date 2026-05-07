@@ -3,6 +3,7 @@ export type UpdateType = 'announcement' | 'advisory' | 'activity';
 export type UpdateSeverity = 'info' | 'warning' | 'urgent';
 
 export interface Update {
+  items: boolean;
   id: string;
   type: UpdateType;
   title: string;
@@ -33,11 +34,12 @@ export const updates: Update[] = [
     time: '06:00 AM',
     venue: 'Aparri Municipal Hall',
     tags: ['Events', 'Community', 'Motorcycle', 'Aramang Festival'],
-    source: 'Mayor Dominador Ambo Dayag Facebook',
+    source: 'Mayor Dominador Ambo Dayag Facebook Page',
     link: 'https://www.facebook.com/share/p/1E2EYNJQYv/',
     isPinned: false,
     status: 'published',
     createdAt: '2026-05-07',
+    items: false,
   },
   {
     id: 'act-002',
@@ -46,14 +48,15 @@ export const updates: Update[] = [
     description:
       'The Philippine Statistics Authority (PSA) will conduct a National ID registration drive in Aparri. Residents can apply for their National ID at the designated registration centers. Please bring valid identification documents for the application process.',
     date: '2026-05-07',
-    time: '06:00 AM',
+    time: '08:00 AM',
     venue: 'Aparri Municipal Hall',
     tags: ['Activities', 'National ID', 'Services'],
-    source: 'Mayor Dominador Ambo Dayag Facebook',
+    source: 'Mayor Dominador Ambo Dayag Facebook Page',
     link: 'https://www.facebook.com/share/p/18QZjr2r4L/',
     isPinned: false,
     status: 'published',
     createdAt: '2026-05-07',
+    items: false,
   },
   {
     id: 'act-003',
@@ -62,14 +65,15 @@ export const updates: Update[] = [
     description:
       'The Philippine Statistics Authority (PSA) will conduct a National ID registration drive in Aparri. Residents can apply for their National ID at the designated registration centers. Please bring valid identification documents for the application process.',
     date: '2026-05-06',
-    time: '06:00 AM',
+    time: '08:00 AM',
     venue: 'Aparri Municipal Hall',
     tags: ['Activities', 'National ID', 'Services'],
-    source: 'Mayor Dominador Ambo Dayag Facebook',
+    source: 'Mayor Dominador Ambo Dayag Facebook Page',
     link: 'https://www.facebook.com/share/p/18QZjr2r4L/',
     isPinned: false,
     status: 'published',
     createdAt: '2026-05-07',
+    items: false,
   },
   {
     id: 'act-004',
@@ -86,6 +90,7 @@ export const updates: Update[] = [
     isPinned: false,
     status: 'published',
     createdAt: '2026-05-07',
+    items: false,
   },
   {
     id: 'advisory-001',
@@ -100,17 +105,24 @@ export const updates: Update[] = [
     source: 'Municipal Planning and Development Office - Aparri',
     link: 'https://www.facebook.com/share/p/192c4pa8R4/',
     isPinned: false,
-    status: 'published',
+    status: 'archived',
     createdAt: '2026-05-07',
+    items: false,
   },
 ];
 
+const sortUpdates = (a: Update, b: Update) => {
+  if (a.isPinned !== b.isPinned) {
+    return a.isPinned ? -1 : 1;
+  }
+
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+};
+
 export const publishedUpdates = updates
   .filter(update => update.status === 'published')
-  .sort((a, b) => {
-    if (a.isPinned !== b.isPinned) {
-      return a.isPinned ? -1 : 1;
-    }
+  .sort(sortUpdates);
 
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+export const archivedUpdates = updates
+  .filter(update => update.status === 'archived')
+  .sort(sortUpdates);
