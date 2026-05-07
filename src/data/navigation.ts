@@ -40,6 +40,10 @@ export const mainNavigation: NavigationItem[] = [
     ],
   },
   {
+    label: 'Updates',
+    href: '/updates',
+  },
+  {
     label: 'Transparency',
     href: '/transparency',
     children: [
