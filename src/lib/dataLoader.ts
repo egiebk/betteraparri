@@ -30,6 +30,50 @@ export interface TransparencyData {
   sourceLinks?: SourceLink[];
 }
 
+export interface ProcurementData {
+  content?: ProcurementContent;
+  asOf: string;
+  sourceLinks?: SourceLink[];
+  summary: ProcurementSummary;
+  categories: string[];
+  records: ProcurementRecord[];
+}
+
+export interface ProcurementContent {
+  hero: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  sourceNote: string;
+  dateLabel: string;
+}
+
+export interface ProcurementSummary {
+  recordCount: number;
+  totalBudget: number;
+  largestBudget: number;
+  earliestDate: string | null;
+  latestDate: string | null;
+  categoryCount: number;
+}
+
+export interface ProcurementRecord {
+  id: string;
+  referenceId: string;
+  contractNo: string;
+  title: string;
+  noticeTitle: string;
+  awardee: string;
+  procuringEntity: string;
+  budget: number;
+  awardDate: string | null;
+  status?: string;
+  category: string;
+  classification: string;
+  areaOfDelivery: string;
+}
+
 export interface HighlightStat {
   label: string;
   value: string;
@@ -150,5 +194,19 @@ export async function loadLocalFinancialData(): Promise<TransparencyData> {
   } catch (error) {
     console.error('Failed to load local financial data:', error);
     return { highlightStats: [] };
+  }
+}
+
+/**
+ * Load procurement data from JSON file
+ */
+export async function loadProcurementData(): Promise<ProcurementData | null> {
+  try {
+    const module =
+      await import('../../content/transparency/procurement/procurement.json');
+    return module.default;
+  } catch (error) {
+    console.error('Failed to load procurement data:', error);
+    return null;
   }
 }

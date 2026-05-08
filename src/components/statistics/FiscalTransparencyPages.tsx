@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
@@ -6,6 +6,9 @@ import { cn } from '../../lib/utils';
 import {
   loadIncomeDependencyData,
   loadLocalFinancialData,
+  loadProcurementData,
+  type ProcurementData,
+  type ProcurementRecord,
   type RevenueLine,
   type RevenueSource,
   type SourceLink,
@@ -93,6 +96,17 @@ type LocalFinancialData = TransparencyData & {
   content?: LocalFinancialContent;
 };
 
+type ProcurementSortKey =
+  | 'budget-desc'
+  | 'budget-asc'
+  | 'date-desc'
+  | 'date-asc';
+
+type ProcurementFilterOption = {
+  label: string;
+  value: string;
+};
+
 const transparencyChartColors = [
   { className: 'bg-teal-500', hex: '#0f766e' },
   { className: 'bg-amber-500', hex: '#f59e0b' },
@@ -122,6 +136,37 @@ function formatPhp(value: number) {
   return `PHP ${value.toLocaleString('en-PH', {
     maximumFractionDigits: 0,
   })}`;
+}
+
+function formatCompactPhp(value: number) {
+  return `PHP ${value.toLocaleString('en-PH', {
+    notation: 'compact',
+    maximumFractionDigits: 1,
+  })}`;
+}
+
+function formatDate(value: string | null) {
+  if (!value) {
+    return 'Not reported';
+  }
+
+  return new Intl.DateTimeFormat('en-PH', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }).format(new Date(`${value}T00:00:00`));
+}
+
+function normalizeFilterValue(value: string) {
+  return value.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function normalizeSearchValue(value: string) {
+  return normalizeFilterValue(value).replace(/[^\p{L}\p{N}\s]/gu, ' ');
+}
+
+function procurementClassification(record: ProcurementRecord) {
+  return record.classification || record.category || 'Uncategorized';
 }
 
 function formatPercent(value: number) {
@@ -1133,6 +1178,364 @@ export function LocalFinancialDataDashboard() {
       <TermsCard terms={content.terms} />
 
       <SourcesCard note={content.sourceNote} sourceLinks={data.sourceLinks} />
+    </div>
+  );
+}
+
+export function ProcurementDashboard() {
+  const [data, setData] = useState<ProcurementData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [classification, setClassification] = useState('all');
+  const [sortKey, setSortKey] = useState<ProcurementSortKey>('date-desc');
+
+  useEffect(() => {
+    loadProcurementData()
+      .then(setData)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
+
+  const classificationOptions = useMemo<ProcurementFilterOption[]>(() => {
+    if (!data) {
+      return [];
+    }
+
+    const optionMap = new Map<string, string>();
+
+    data.records.forEach(record => {
+      const label = procurementClassification(record);
+      const value = normalizeFilterValue(label);
+
+      if (value && !optionMap.has(value)) {
+        optionMap.set(value, label);
+      }
+    });
+
+    return [...optionMap.entries()]
+      .map(([value, label]) => ({ label, value }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [data]);
+
+  const filteredRecords = useMemo(() => {
+    if (!data) {
+      return [];
+    }
+
+    const searchTokens = normalizeSearchValue(searchQuery)
+      .split(' ')
+      .filter(Boolean);
+
+    return data.records
+      .filter(record => {
+        const searchableText = normalizeSearchValue(
+          [record.title, record.procuringEntity].join(' ')
+        );
+        const matchesQuery = searchTokens.every(token =>
+          searchableText.includes(token)
+        );
+        const matchesClassification =
+          classification === 'all' ||
+          normalizeFilterValue(procurementClassification(record)) ===
+            classification;
+
+        return matchesQuery && matchesClassification;
+      })
+      .sort((a, b) => {
+        if (sortKey === 'budget-desc') {
+          return b.budget - a.budget;
+        }
+
+        if (sortKey === 'budget-asc') {
+          return a.budget - b.budget;
+        }
+
+        const dateA = a.awardDate ? Date.parse(a.awardDate) : 0;
+        const dateB = b.awardDate ? Date.parse(b.awardDate) : 0;
+
+        return sortKey === 'date-desc' ? dateB - dateA : dateA - dateB;
+      });
+  }, [classification, data, searchQuery, sortKey]);
+
+  if (loading) {
+    return <LoadingState label="procurement data" />;
+  }
+
+  if (!data) {
+    return <EmptyState />;
+  }
+
+  const content = data.content;
+  const summary = data.summary;
+  const dateLabel = content?.dateLabel ?? 'Date';
+
+  return (
+    <div className="space-y-10">
+      <section>
+        <SectionHeading
+          eyebrow={content?.hero.eyebrow ?? 'Transparency'}
+          title={content?.hero.title ?? 'Procurement'}
+          description={
+            content?.hero.description ??
+            'Browse procurement records by title, procuring entity, classification, budget, and date.'
+          }
+        />
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          <SummaryCard
+            label="Records"
+            value={summary.recordCount.toLocaleString('en-PH')}
+            detail={`${summary.categoryCount.toLocaleString(
+              'en-PH'
+            )} classifications in the dataset.`}
+            icon="ri-file-list-3-line"
+          />
+          <SummaryCard
+            label="Total Budget"
+            value={formatCompactPhp(summary.totalBudget)}
+            detail="Sum of all reported contract amounts."
+            icon="ri-money-dollar-circle-line"
+          />
+          <SummaryCard
+            label="Largest Budget"
+            value={formatCompactPhp(summary.largestBudget)}
+            detail="Highest single reported contract amount."
+            icon="ri-bar-chart-grouped-line"
+          />
+          <SummaryCard
+            label="Date Range"
+            value={`${formatDate(summary.earliestDate)} - ${formatDate(
+              summary.latestDate
+            )}`}
+            detail={`Based on the award date of records.`}
+            icon="ri-calendar-line"
+          />
+        </div>
+      </section>
+
+      <div className="rounded-md bg-amber-50 px-5 py-3 text-sm leading-relaxed text-amber-900">
+        This dataset is based on the{' '}
+        <a
+          className="text-amber-900 underline"
+          href="https://transparency.bettergov.ph/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          BetterGovPH Transparency Dashboard.
+        </a>{' '}
+        Verify procurement details with the{' '}
+        <a
+          className="text-amber-900 underline"
+          href="mailto:aparri.bac@gmail.com"
+        >
+          LGU Aparri - Bids and Awards Committee
+        </a>{' '}
+        before formal use.
+      </div>
+
+      <Card className="border-primary-100">
+        <CardHeader className="bg-stone-100">
+          <div className="grid gap-4 lg:grid-cols-[1fr_220px_220px]">
+            <label className="block">
+              <span className="mb-2 block text-sm font-semibold text-gray-700">
+                Search
+              </span>
+              <div className="relative">
+                <i
+                  aria-hidden="true"
+                  className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+                />
+                <input
+                  className="w-full rounded-sm border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm text-gray-900 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+                  onChange={event => setSearchQuery(event.target.value)}
+                  placeholder="Search title or procuring entity"
+                  type="search"
+                  value={searchQuery}
+                />
+              </div>
+            </label>
+
+            <label className="block">
+              <span className="mb-2 block text-sm font-semibold text-gray-700">
+                Classification
+              </span>
+              <select
+                className="w-full rounded-sm border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+                onChange={event => setClassification(event.target.value)}
+                value={classification}
+              >
+                <option value="all">All classifications</option>
+                {classificationOptions.map(item => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="block">
+              <span className="mb-2 block text-sm font-semibold text-gray-700">
+                Sort
+              </span>
+              <select
+                className="w-full rounded-sm border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+                onChange={event =>
+                  setSortKey(event.target.value as ProcurementSortKey)
+                }
+                value={sortKey}
+              >
+                <option value="date-desc">{dateLabel}: newest first</option>
+                <option value="date-asc">{dateLabel}: oldest first</option>
+                <option value="budget-desc">Budget: highest first</option>
+                <option value="budget-asc">Budget: lowest first</option>
+              </select>
+            </label>
+          </div>
+        </CardHeader>
+        <CardContent className="border-t border-gray-100 px-5 py-4">
+          <p className="text-sm text-gray-600">
+            Showing{' '}
+            <span className="font-semibold text-gray-900">
+              {filteredRecords.length.toLocaleString('en-PH')}
+            </span>{' '}
+            of {data.records.length.toLocaleString('en-PH')} records
+          </p>
+        </CardContent>
+      </Card>
+
+      {filteredRecords.length > 0 ? (
+        <div className="grid gap-4">
+          {filteredRecords.map((record, index) => (
+            <ProcurementRecordCard
+              dateLabel={dateLabel}
+              key={`${record.id}-${record.title}-${record.awardDate}-${record.budget}-${index}`}
+              record={record}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-md border border-dashed border-gray-300 bg-gray-50 p-6 text-sm text-gray-600">
+          No procurement records match the current search and filter.
+        </div>
+      )}
+
+      <SourcesCard
+        note={
+          content?.sourceNote ??
+          `Data is based on the Procurement Transparency Dashboard of BetterGovPH, as of ${data.asOf}.`
+        }
+        sourceLinks={data.sourceLinks}
+      />
+    </div>
+  );
+}
+
+function ProcurementRecordCard({
+  dateLabel,
+  record,
+}: {
+  dateLabel: string;
+  record: ProcurementRecord;
+}) {
+  const reference = record.referenceId || record.contractNo || 'Not reported';
+
+  return (
+    <article className="overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm transition hover:border-primary-200 hover:shadow-md">
+      <div className="grid gap-0 lg:grid-cols-[1fr_260px]">
+        <div className="p-5 md:p-6">
+          <div className="mb-4 flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center rounded-sm bg-primary-50 px-2.5 py-1 text-xs font-semibold text-primary-700">
+              <i className="ri-price-tag-3-line mr-1.5" aria-hidden="true" />
+              {record.classification}
+            </span>
+            {record.status && (
+              <span className="inline-flex items-center rounded-sm bg-emerald-50 px-2.5 py-1 text-xs font-semibold capitalize text-emerald-700">
+                <i
+                  className="ri-checkbox-circle-line mr-1.5"
+                  aria-hidden="true"
+                />
+                {record.status}
+              </span>
+            )}
+            {record.areaOfDelivery && (
+              <span className="inline-flex items-center rounded-sm bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-700">
+                <i className="ri-map-pin-line mr-1.5" aria-hidden="true" />
+                {record.areaOfDelivery}
+              </span>
+            )}
+          </div>
+
+          <h3 className="max-w-4xl break-words text-lg font-semibold leading-snug text-gray-950 md:text-xl">
+            {record.title}
+          </h3>
+          {record.noticeTitle && record.noticeTitle !== record.title && (
+            <p className="mt-2 max-w-4xl text-sm leading-relaxed text-gray-600">
+              {record.noticeTitle}
+            </p>
+          )}
+
+          <dl className="mt-5 grid gap-x-6 gap-y-4 text-sm md:grid-cols-2">
+            <ProcurementMetaItem
+              label="Procuring entity"
+              value={record.procuringEntity}
+            />
+            <ProcurementMetaItem
+              label="Awardee"
+              value={record.awardee || 'Not reported'}
+            />
+            <ProcurementMetaItem
+              label="PHILGEPS Reference Number"
+              value={reference}
+            />
+            <ProcurementMetaItem
+              label="Contract Number"
+              value={record.contractNo || 'Not reported'}
+            />
+          </dl>
+        </div>
+
+        <aside className="border-t border-gray-100 bg-gray-50 p-5 md:p-6 lg:border-l lg:border-t-0">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-normal text-gray-500">
+                <i className="ri-money-dollar-circle-line" aria-hidden="true" />
+                Amount
+              </p>
+              <p className="mt-2 break-words text-2xl font-bold leading-tight text-gray-950">
+                {formatPhp(record.budget)}
+              </p>
+            </div>
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-normal text-gray-500">
+                <i className="ri-calendar-line" aria-hidden="true" />
+                {dateLabel}
+              </p>
+              <p className="mt-2 text-base font-semibold text-gray-900">
+                {formatDate(record.awardDate)}
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  );
+}
+
+function ProcurementMetaItem({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div>
+      <dt className="text-xs font-semibold uppercase tracking-normal text-gray-500">
+        {label}
+      </dt>
+      <dd className="mt-1 break-words text-sm font-medium leading-relaxed text-gray-800">
+        {value}
+      </dd>
     </div>
   );
 }
