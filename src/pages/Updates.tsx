@@ -131,7 +131,7 @@ const Updates = () => {
         </Text>
 
         {publishedUpdates.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-1">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {publishedUpdates.map(update => (
               <UpdateCard key={update.id} update={update} />
             ))}
