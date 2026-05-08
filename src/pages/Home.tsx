@@ -10,8 +10,8 @@ const Home: React.FC = () => {
     <>
       <SEO
         title="Home"
-        description="Official website of your local government. Access government services, information, and resources."
-        keywords="government, local government, services, public services, civic services"
+        description="BetterAparri.org makes Aparri public information, local government services, updates, transparency data, and civic resources easier to find."
+        keywords="Aparri, Cagayan, local government, public services, transparency, citizen services"
       />
       <main className="flex-grow">
         <Hero />

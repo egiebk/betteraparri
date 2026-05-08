@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
   title?: string;
@@ -8,6 +9,24 @@ interface SEOProps {
   url?: string;
   type?: string;
   siteName?: string;
+  noIndex?: boolean;
+}
+
+function trimTrailingSlash(value: string) {
+  return value.replace(/\/+$/, '');
+}
+
+function toAbsoluteUrl(value: string, siteUrl: string) {
+  if (!value) {
+    return '';
+  }
+
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
+
+  const path = value.startsWith('/') ? value : `/${value}`;
+  return `${trimTrailingSlash(siteUrl)}${path}`;
 }
 
 export default function SEO({
@@ -18,7 +37,12 @@ export default function SEO({
   url,
   type = 'website',
   siteName = import.meta.env.VITE_GOVERNMENT_NAME || 'Local Government Website',
+  noIndex = false,
 }: SEOProps) {
+  const location = useLocation();
+  const siteUrl = trimTrailingSlash(
+    import.meta.env.VITE_WEBSITE_URL || 'https://betteraparri.org'
+  );
   const defaultTitle = `${siteName} - Official Government Website`;
   const defaultDescription =
     import.meta.env.VITE_SITE_DESCRIPTION ||
@@ -30,10 +54,27 @@ export default function SEO({
   const fullTitle = title ? `${title} | ${siteName}` : defaultTitle;
   const fullDescription = description || defaultDescription;
   const fullKeywords = keywords || defaultKeywords;
-  const fullUrl = url || import.meta.env.VITE_WEBSITE_URL || '';
-  const fullImage =
-    image || import.meta.env.VITE_OG_IMAGE_URL || `${fullUrl}/og-image.jpg`;
+  const canonicalPath = location.pathname;
+  const fullUrl = toAbsoluteUrl(url || canonicalPath, siteUrl);
+  const fullImage = toAbsoluteUrl(
+    image || import.meta.env.VITE_OG_IMAGE_URL || '/og-image.jpg',
+    siteUrl
+  );
   const twitterHandle = import.meta.env.VITE_TWITTER_HANDLE || '';
+  const robots = noIndex ? 'noindex, nofollow' : 'index, follow';
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'GovernmentOrganization',
+    name: siteName,
+    url: siteUrl,
+    logo: fullImage,
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: `${import.meta.env.VITE_PROVINCE || 'Cagayan'}, ${
+        import.meta.env.VITE_REGION || 'Philippines'
+      }`,
+    },
+  };
 
   return (
     <Helmet>
@@ -42,9 +83,8 @@ export default function SEO({
       <meta name="description" content={fullDescription} />
       <meta name="keywords" content={fullKeywords} />
       <meta name="author" content={siteName} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <meta name="language" content="English" />
-      <meta name="revisit-after" content="7 days" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
@@ -52,22 +92,19 @@ export default function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={fullDescription} />
       <meta property="og:image" content={fullImage} />
+      <meta property="og:image:alt" content={`${siteName} preview`} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={fullUrl} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={fullDescription} />
-      <meta property="twitter:image" content={fullImage} />
-      {twitterHandle && (
-        <meta property="twitter:site" content={twitterHandle} />
-      )}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={fullUrl} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content={fullImage} />
+      {twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
 
       {/* Additional Meta Tags */}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="theme-color" content="#0066eb" />
 
       {/* Canonical URL */}
@@ -100,6 +137,10 @@ export default function SEO({
         href="https://fonts.gstatic.com"
         crossOrigin="anonymous"
       />
+
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
     </Helmet>
   );
 }
