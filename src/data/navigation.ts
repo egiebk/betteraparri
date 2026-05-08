@@ -55,6 +55,10 @@ export const mainNavigation: NavigationItem[] = [
         label: 'Local Financial Data',
         href: '/transparency/local-financial-data',
       },
+      {
+        label: 'Procurement',
+        href: '/transparency/procurement',
+      },
     ],
   },
   {

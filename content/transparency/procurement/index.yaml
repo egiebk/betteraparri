@@ -1,0 +1,7 @@
+# Procurement
+# Search procurement records by title, procuring entity, classification, budget, and date.
+
+title: 'Procurement'
+description: 'Search procurement records by title or procuring entity, filter by classification, and sort by budget or date.'
+layout: 'grid'
+pages: []

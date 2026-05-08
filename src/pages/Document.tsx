@@ -30,6 +30,7 @@ import {
 import {
   IncomeDependencyDashboard,
   LocalFinancialDataDashboard,
+  ProcurementDashboard,
 } from '../components/statistics/FiscalTransparencyPages';
 
 interface DocumentProps {
@@ -41,13 +42,15 @@ type DashboardDocument =
   | 'demographics'
   | 'competitiveness'
   | 'income-and-dependency'
-  | 'local-financial-data';
+  | 'local-financial-data'
+  | 'procurement';
 
 const dashboardTitles: Record<DashboardDocument, string> = {
   demographics: 'Demographics',
   competitiveness: 'Competitiveness',
   'income-and-dependency': 'Income and Dependency',
   'local-financial-data': 'Local Financial Data',
+  procurement: 'Procurement',
 };
 
 function buildDocumentBreadcrumbs({
@@ -101,7 +104,8 @@ function getDashboardDocument(
   if (
     (categoryType === 'transparency' || category === 'transparency') &&
     (documentSlug === 'income-and-dependency' ||
-      documentSlug === 'local-financial-data')
+      documentSlug === 'local-financial-data' ||
+      documentSlug === 'procurement')
   ) {
     return documentSlug;
   }
@@ -119,6 +123,8 @@ function DashboardContent({ dashboard }: { dashboard: DashboardDocument }) {
       return <IncomeDependencyDashboard />;
     case 'local-financial-data':
       return <LocalFinancialDataDashboard />;
+    case 'procurement':
+      return <ProcurementDashboard />;
     default:
       return null;
   }

@@ -53,6 +53,7 @@ import governmentLeadershipLegislativeIndex from '../../content/government/leade
 import transparencyIndex from '../../content/transparency/index.yaml?raw';
 import transparencyIncomeAndDependencyIndex from '../../content/transparency/income-and-dependency/index.yaml?raw';
 import transparencyLocalFinancialDataIndex from '../../content/transparency/local-financial-data/index.yaml?raw';
+import transparencyProcurementIndex from '../../content/transparency/procurement/index.yaml?raw';
 import statisticsIndex from '../../content/statistics/index.yaml?raw';
 import statisticsDemographicsIndex from '../../content/statistics/demographics/index.yaml?raw';
 import statisticsCompetitivenessIndex from '../../content/statistics/competitiveness/index.yaml?raw';
@@ -80,6 +81,7 @@ const categoryIndexMap: { [key: string]: string } = {
   transparency: transparencyIndex,
   'income-and-dependency': transparencyIncomeAndDependencyIndex,
   'local-financial-data': transparencyLocalFinancialDataIndex,
+  procurement: transparencyProcurementIndex,
   statistics: statisticsIndex,
   demographics: statisticsDemographicsIndex,
   competitiveness: statisticsCompetitivenessIndex,
