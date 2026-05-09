@@ -25,6 +25,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: 'adv-012',
+    type: 'advisory',
+    title: 'Special Non-Working Day',
+    description:
+      'Monday, 11 May 2026, is declared as a Special (Non-working) Day in the Municipality of Aparri, Province of Cagayan',
+    date: '2026-05-11',
+    time: '',
+    venue: 'Aparri',
+    tags: ['Advisories', 'Aramang Festival', 'WalangPasok'],
+    source: 'Official Gazette of the Republic of the Philippines',
+    link: 'https://www.officialgazette.gov.ph/2026/04/21/proclamation-no-1231-s-2026/',
+    isPinned: true,
+    status: 'published',
+    createdAt: '2026-05-09',
+    items: false,
+  },
+  {
     id: 'act-011',
     type: 'activity',
     title: 'Motorshow',

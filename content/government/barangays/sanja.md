@@ -4,8 +4,7 @@
 
 - **Barangay:** Sanja
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
-- **Barangay Telephone:** Not available
+- **Barangay Telephone:** No data provided
 
 ## Punong Barangay
 

@@ -4,7 +4,6 @@
 
 - **Barangay:** Minanga
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 09453091772
 
 ## Punong Barangay

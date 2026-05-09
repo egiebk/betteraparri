@@ -4,7 +4,6 @@
 
 - **Barangay:** Centro 9
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 09537661064
 
 ## Punong Barangay

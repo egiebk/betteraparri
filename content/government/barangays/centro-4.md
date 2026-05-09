@@ -4,7 +4,6 @@
 
 - **Barangay:** Centro 4
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 078-846-9365
 
 ## Punong Barangay

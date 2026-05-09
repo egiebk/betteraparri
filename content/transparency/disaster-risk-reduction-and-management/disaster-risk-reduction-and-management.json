@@ -1,0 +1,121 @@
+{
+  "highlightStats": [
+    {
+      "label": "Total LDRRMF Appropriation",
+      "value": "PHP 67.47M",
+      "detail": "FY 2024 total disaster risk reduction and management fund appropriation",
+      "icon": "ri-shield-check-line",
+      "tone": "primary"
+    },
+    {
+      "label": "Total LDRRMF Expenditures",
+      "value": "PHP 11.34M",
+      "detail": "FY 2024 expenditures charged to LDRRMF",
+      "icon": "ri-funds-box-line",
+      "tone": "success"
+    },
+    {
+      "label": "Total Utilization",
+      "value": "16.8%",
+      "detail": "Expenditures as share of total LDRRMF appropriation",
+      "icon": "ri-pie-chart-2-line",
+      "tone": "accent"
+    }
+  ],
+  "ldrrmfSources": [
+    {
+      "label": "70% LDRRMF",
+      "appropriation": 62700950,
+      "expenditure": 11336144,
+      "utilization": 18.1,
+      "tone": "bg-primary-500"
+    },
+    {
+      "label": "30% Quick Response Fund",
+      "appropriation": 4772400,
+      "expenditure": 0,
+      "utilization": 0,
+      "tone": "bg-violet-600"
+    }
+  ],
+  "sourceLinks": [
+    {
+      "label": "BLGF LGU Fiscal Data",
+      "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    }
+  ],
+  "content": {
+    "hero": {
+      "eyebrow": "Transparency",
+      "title": "Disaster Risk Reduction and Management",
+      "description": "This page shows Aparri's FY 2024 Local Disaster Risk Reduction and Management Fund appropriation, expenditures, and utilization."
+    },
+    "guidance": {
+      "title": "What You Need to Know",
+      "description": "A quick reading table for the FY 2024 LDRRMF figures."
+    },
+    "sections": {
+      "receiptsAndExpenditures": {
+        "eyebrow": "Receipts and Expenditures",
+        "title": "Financial Position (FY 2024)",
+        "description": "These charts show the year's income sources, spending categories, and operating result."
+      },
+      "disasterRiskReduction": {
+        "eyebrow": "Disaster Risk Reduction",
+        "title": "LDRRMF Utilization (FY 2024)",
+        "description": "The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response."
+      }
+    },
+    "cards": {
+      "operatingPosition": {
+        "title": "Operating Position",
+        "description": "Income, expenditures, and net operating income"
+      },
+      "incomeSources": {
+        "title": "Income Sources",
+        "description": "Share of FY 2024 current operating income",
+        "chartLabel": "FY 2024 Income"
+      },
+      "operatingExpenditures": {
+        "title": "Operating Expenditures",
+        "description": "Share of FY 2024 current operating expenditures"
+      },
+      "q1IncomeDetails": {
+        "title": "Income Details"
+      },
+      "socialServicesDetails": {
+        "title": "Social Services Details",
+        "description": "Breakdown of the social services expenditure line"
+      },
+      "totalUtilization": {
+        "title": "Total Utilization",
+        "description": "Expenditure against total appropriation",
+        "appropriationLabel": "Total appropriation",
+        "expenditureLabel": "Total expenditures"
+      },
+      "fundComponents": {
+        "title": "Fund Components",
+        "description": "Utilization by LDRRMF component"
+      }
+    },
+    "terms": [
+      {
+        "term": "LDRRMF",
+        "description": "The Local Disaster Risk Reduction and Management Fund used for disaster preparedness, mitigation, response, rehabilitation, and recovery."
+      },
+      {
+        "term": "70% LDRRMF",
+        "description": "The portion generally used for disaster prevention, mitigation, preparedness, rehabilitation, and recovery programs."
+      },
+      {
+        "term": "30% Quick Response Fund",
+        "description": "The standby portion intended for urgent disaster response and recovery needs."
+      },
+      {
+        "term": "Utilization",
+        "description": "The share of appropriation that has been spent."
+      }
+    ],
+    "sourceNote": "Figures are based on the uploaded Aparri LDRRMF 2024 CSV and should be checked against the latest BLGF posting before formal use."
+  }
+}

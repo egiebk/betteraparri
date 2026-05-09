@@ -4,7 +4,6 @@
 
 - **Barangay:** Gaddang
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 09263602088
 
 ## Punong Barangay

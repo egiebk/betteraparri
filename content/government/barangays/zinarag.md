@@ -4,7 +4,6 @@
 
 - **Barangay:** Zinarag
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 09953393586
 
 ## Punong Barangay
