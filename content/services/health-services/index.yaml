@@ -5,6 +5,14 @@ pages:
     slug: 'rhu-consultation'
     description: 'Visit the Rural Health Unit for basic consultation and primary health services.'
 
+  - name: 'Clinical laboratory services'
+    slug: 'clinical-laboratory-services'
+    description: 'View the Aparri Municipal Health Center - East Clinical Laboratory schedule, test fees, and PhilHealth notes.'
+
+  - name: 'Maternal care and child immunization'
+    slug: 'access-maternal-care-and-child-immunization'
+    description: 'Access maternal care, pregnancy-related laboratory services, and child immunization guidance.'
+
   - name: 'Immunization services'
     slug: 'immunization-services'
     description: 'Access routine immunization services for eligible residents.'
