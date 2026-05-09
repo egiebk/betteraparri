@@ -175,7 +175,7 @@ export async function loadCompetitivenessData(): Promise<StatisticsData> {
 export async function loadIncomeDependencyData(): Promise<TransparencyData> {
   try {
     const module =
-      await import('../../content/transparency/income-and-dependency/income-and-dependency.json');
+      await import('../../content/transparency/annual-regular-income-and-dependencies/annual-regular-income-and-dependencies.json');
     return module.default;
   } catch (error) {
     console.error('Failed to load income dependency data:', error);
@@ -184,15 +184,29 @@ export async function loadIncomeDependencyData(): Promise<TransparencyData> {
 }
 
 /**
- * Load local financial data from JSON file
+ * Load statement of receipts and expenditure data from JSON file
  */
-export async function loadLocalFinancialData(): Promise<TransparencyData> {
+export async function loadStatementReceiptsExpenditureData(): Promise<TransparencyData> {
   try {
     const module =
-      await import('../../content/transparency/local-financial-data/local-financial-data.json');
+      await import('../../content/transparency/statements-of-receipts-and-expenditure/statements-of-receipts-and-expenditure.json');
     return module.default;
   } catch (error) {
-    console.error('Failed to load local financial data:', error);
+    console.error('Failed to load statement receipts expenditure data:', error);
+    return { highlightStats: [] };
+  }
+}
+
+/**
+ * Load disaster risk reduction and management data from JSON file
+ */
+export async function loadDisasterRiskReductionData(): Promise<TransparencyData> {
+  try {
+    const module =
+      await import('../../content/transparency/disaster-risk-reduction-and-management/disaster-risk-reduction-and-management.json');
+    return module.default;
+  } catch (error) {
+    console.error('Failed to load disaster risk reduction data:', error);
     return { highlightStats: [] };
   }
 }

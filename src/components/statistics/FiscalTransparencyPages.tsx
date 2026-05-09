@@ -4,9 +4,10 @@ import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
 import { cn } from '../../lib/utils';
 import {
+  loadDisasterRiskReductionData,
   loadIncomeDependencyData,
-  loadLocalFinancialData,
   loadProcurementData,
+  loadStatementReceiptsExpenditureData,
   type ProcurementData,
   type ProcurementRecord,
   type RevenueLine,
@@ -108,16 +109,16 @@ type ProcurementFilterOption = {
 };
 
 const transparencyChartColors = [
-  { className: 'bg-teal-500', hex: '#0f766e' },
-  { className: 'bg-amber-500', hex: '#f59e0b' },
-  { className: 'bg-sky-500', hex: '#0284c7' },
-  { className: 'bg-rose-500', hex: '#e11d48' },
-  { className: 'bg-violet-500', hex: '#7c3aed' },
-  { className: 'bg-emerald-500', hex: '#059669' },
+  { className: 'bg-primary-700', hex: '#003d8d' },
+  { className: 'bg-primary-500', hex: '#0066eb' },
+  { className: 'bg-violet-600', hex: '#7c3aed' },
+  { className: 'bg-blue-800', hex: '#1e40af' },
+  { className: 'bg-yellow-400', hex: '#facc15' },
+  { className: 'bg-primary-300', hex: '#66a3f3' },
 ];
 
 const gaugeColors = {
-  used: '#0f766e',
+  used: '#003d8d',
   remaining: '#e7ecef',
 };
 
@@ -426,20 +427,19 @@ function DonutChart({
 
 function BarList({
   items,
+  max,
   valueFormatter = formatPhpMillions,
 }: {
   items: RevenueLine[];
   max: number;
   valueFormatter?: (value: number) => string;
 }) {
-  const total = items.reduce((sum, item) => sum + item.value, 0);
-
   return (
     <div className="space-y-5">
       {items.map((item, index) => {
         const width =
-          total > 0 && item.value > 0
-            ? Math.max((item.value / total) * 100, 2)
+          max > 0 && item.value > 0
+            ? Math.min(Math.max((item.value / max) * 100, 2), 100)
             : 0;
 
         return (
@@ -460,7 +460,7 @@ function BarList({
                   chartColorAt(index).className
                 )}
                 style={{ width: `${width}%` }}
-                title={`${item.label}: ${formatPercent(width)}`}
+                title={`${item.label}: ${valueFormatter(item.value)}`}
               />
             </div>
           </div>
@@ -755,7 +755,7 @@ export function IncomeDependencyDashboard() {
     value: item.value,
     percent: localRevenueTotal > 0 ? (item.value / localRevenueTotal) * 100 : 0,
     tone: item.tone ?? 'bg-primary-500',
-    color: '#0f766e',
+    color: '#003d8d',
   }));
 
   return (
@@ -844,8 +844,8 @@ export function IncomeDependencyDashboard() {
         />
 
         <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-          <Card className="h-full border-t-4 border-primary-100">
-            <CardHeader className="bg-blue-50">
+          <Card className="h-full border-primary-100">
+            <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.annualRegularIncome.title}
               </h3>
@@ -861,8 +861,8 @@ export function IncomeDependencyDashboard() {
               />
             </CardContent>
           </Card>
-          <Card className="h-full border-t-4 border-primary-100">
-            <CardHeader className="bg-blue-50">
+          <Card className="h-full border-primary-100">
+            <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.localRevenueMix.title}
               </h3>
@@ -891,8 +891,8 @@ export function IncomeDependencyDashboard() {
         />
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <Card className="h-full border-t-4 border-primary-100">
-            <CardHeader className="bg-blue-50">
+          <Card className="h-full border-primary-100">
+            <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.taxRevenue.title}
               </h3>
@@ -905,8 +905,8 @@ export function IncomeDependencyDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="h-full border-t-4 border-primary-100">
-            <CardHeader className="bg-blue-50">
+          <Card className="h-full border-primary-100">
+            <CardHeader className="bg-stone-100">
               <h3 className="text-lg font-semibold text-gray-900">
                 {content.cards.nonTaxRevenue.title}
               </h3>
@@ -928,19 +928,19 @@ export function IncomeDependencyDashboard() {
   );
 }
 
-export function LocalFinancialDataDashboard() {
+export function StatementsReceiptsExpenditureDashboard() {
   const [data, setData] = useState<LocalFinancialData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadLocalFinancialData()
+    loadStatementReceiptsExpenditureData()
       .then(setData)
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
-    return <LoadingState label="local financial data" />;
+    return <LoadingState label="receipts and expenditure data" />;
   }
 
   if (!data) {
@@ -953,21 +953,6 @@ export function LocalFinancialDataDashboard() {
   const q1FundPosition = data.q1FundPosition || [];
   const q1LocalSourceBreakdown = data.q1LocalSourceBreakdown || [];
   const q1SocialServicesBreakdown = data.q1SocialServicesBreakdown || [];
-  const ldrrmfSources = data.ldrrmfSources || [];
-
-  const totalLdrrmfAppropriation = ldrrmfSources.reduce(
-    (sum, source) => sum + source.appropriation,
-    0
-  );
-  const totalLdrrmfExpenditure = ldrrmfSources.reduce(
-    (sum, source) => sum + source.expenditure,
-    0
-  );
-  const totalLdrrmfUtilization =
-    totalLdrrmfAppropriation > 0
-      ? (totalLdrrmfExpenditure / totalLdrrmfAppropriation) * 100
-      : 0;
-
   return (
     <div className="space-y-12">
       <section>
@@ -1093,6 +1078,82 @@ export function LocalFinancialDataDashboard() {
         </Card>
       </section>
 
+      <TermsCard terms={content.terms} />
+
+      <SourcesCard note={content.sourceNote} sourceLinks={data.sourceLinks} />
+    </div>
+  );
+}
+
+export function DisasterRiskReductionDashboard() {
+  const [data, setData] = useState<LocalFinancialData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadDisasterRiskReductionData()
+      .then(setData)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return <LoadingState label="disaster risk reduction data" />;
+  }
+
+  if (!data) {
+    return <EmptyState />;
+  }
+
+  const content = data.content ?? localFinancialFallbackContent;
+  const ldrrmfSources = data.ldrrmfSources || [];
+
+  const totalLdrrmfAppropriation = ldrrmfSources.reduce(
+    (sum, source) => sum + source.appropriation,
+    0
+  );
+  const totalLdrrmfExpenditure = ldrrmfSources.reduce(
+    (sum, source) => sum + source.expenditure,
+    0
+  );
+  const totalLdrrmfUtilization =
+    totalLdrrmfAppropriation > 0
+      ? (totalLdrrmfExpenditure / totalLdrrmfAppropriation) * 100
+      : 0;
+
+  return (
+    <div className="space-y-12">
+      <section>
+        <SectionHeading
+          eyebrow={content.hero.eyebrow}
+          title={content.hero.title}
+          description={content.hero.description}
+        />
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {data.highlightStats.map(stat => (
+            <SummaryCard
+              key={stat.label}
+              label={stat.label}
+              value={stat.value}
+              detail={stat.detail}
+              icon={stat.icon}
+            />
+          ))}
+        </div>
+
+        <div className="mt-6">
+          <GuidanceCard
+            title={content.guidance.title}
+            description={content.guidance.description}
+            rows={data.highlightStats.map(stat => ({
+              label: stat.label,
+              value: stat.value,
+              detail: stat.detail,
+            }))}
+          />
+        </div>
+      </section>
+
       <section>
         <SectionHeading
           eyebrow={content.sections.disasterRiskReduction.eyebrow}
@@ -1143,33 +1204,43 @@ export function LocalFinancialDataDashboard() {
               </p>
             </CardHeader>
             <CardContent className="space-y-5 p-6">
-              {ldrrmfSources.map((source, index) => (
-                <div key={source.label} className="space-y-2">
-                  <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="font-medium text-gray-900">
-                        {source.label}
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        {formatPhp(source.expenditure)} spent from{' '}
-                        {formatPhp(source.appropriation)} appropriated
+              {ldrrmfSources.map((source, index) => {
+                const utilizationWidth =
+                  source.utilization > 0
+                    ? Math.min(Math.max(source.utilization, 2), 100)
+                    : 0;
+
+                return (
+                  <div key={source.label} className="space-y-2">
+                    <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <p className="font-medium text-gray-900">
+                          {source.label}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {formatPhp(source.expenditure)} spent from{' '}
+                          {formatPhp(source.appropriation)} appropriated
+                        </p>
+                      </div>
+                      <p className="font-semibold text-gray-900">
+                        {formatPercent(source.utilization)}
                       </p>
                     </div>
-                    <p className="font-semibold text-gray-900">
-                      {formatPercent(source.utilization)}
-                    </p>
+                    <div className="h-2 overflow-hidden rounded-full bg-gray-100">
+                      <div
+                        className={cn(
+                          'h-full rounded-full',
+                          chartColorAt(index).className
+                        )}
+                        style={{ width: `${utilizationWidth}%` }}
+                        title={`${source.label}: ${formatPercent(
+                          source.utilization
+                        )}`}
+                      />
+                    </div>
                   </div>
-                  <div className="h-2 overflow-hidden rounded-sm bg-gray-100">
-                    <div
-                      className={cn(
-                        'h-full rounded-sm',
-                        chartColorAt(index).className
-                      )}
-                      style={{ width: `${source.utilization}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </CardContent>
           </Card>
         </div>
@@ -1313,10 +1384,10 @@ export function ProcurementDashboard() {
         </div>
       </section>
 
-      <div className="rounded-md bg-amber-50 px-5 py-3 text-sm leading-relaxed text-amber-900">
+      <div className="rounded-md bg-primary-50 px-5 py-3 text-sm leading-relaxed text-primary-900">
         This dataset is based on the{' '}
         <a
-          className="text-amber-900 underline"
+          className="text-primary-900 underline"
           href="https://transparency.bettergov.ph/"
           rel="noreferrer"
           target="_blank"
@@ -1325,7 +1396,7 @@ export function ProcurementDashboard() {
         </a>{' '}
         Verify procurement details with the{' '}
         <a
-          className="text-amber-900 underline"
+          className="text-primary-900 underline"
           href="mailto:aparri.bac@gmail.com"
         >
           LGU Aparri - Bids and Awards Committee
@@ -1449,7 +1520,7 @@ function ProcurementRecordCard({
               {record.classification}
             </span>
             {record.status && (
-              <span className="inline-flex items-center rounded-sm bg-emerald-50 px-2.5 py-1 text-xs font-semibold capitalize text-emerald-700">
+              <span className="inline-flex items-center rounded-sm bg-violet-50 px-2.5 py-1 text-xs font-semibold capitalize text-violet-700">
                 <i
                   className="ri-checkbox-circle-line mr-1.5"
                   aria-hidden="true"

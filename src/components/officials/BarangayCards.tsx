@@ -1,10 +1,4 @@
-import { Button } from '@bettergov/kapwa/button';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@bettergov/kapwa/card';
+import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import type { Subcategory } from '../../data/yamlLoader';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
@@ -105,69 +99,62 @@ export default function BarangayCards({
       <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-3">
         {pages.map(page => {
           const profile = barangayData[page.slug] ?? {};
-          const punongBarangay =
-            profile.punongBarangay || 'Waiting for data...';
+          const punongBarangay = profile.punongBarangay || 'Loading data...';
           const telephone = profile.telephone;
 
           return (
             <Card
               key={page.slug}
               hoverable
-              className="h-full overflow-hidden border-primary-100 shadow-sm hover:bg-blue-50"
+              className="h-full border-primary-100 hover:bg-blue-50"
             >
-              <CardHeader className="bg-stone-100">
-                <h4 className="text-md font-medium text-slate-900 sm:text-lg">
-                  {page.name}
-                </h4>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <i className="ri-user-3-line h-4 w-4 text-primary-700" />
-                    <div>
-                      <p className="text-[11px] font-light uppercase text-slate-500">
-                        Punong Barangay
-                      </p>
-                      <p className="mt-1 text-sm text-slate-800 sm:text-base">
-                        {punongBarangay}
-                      </p>
-                    </div>
-                  </div>
+              <CardContent className="flex h-full flex-col p-4">
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <span className="rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-700">
+                    Barangay
+                  </span>
                 </div>
 
-                {telephone && (
-                  <div className="rounded-xl">
-                    <div className="flex items-center gap-3">
-                      <i className="ri-phone-line h-4 w-4 text-primary-700" />
-                      <div>
-                        <p className="text-[11px] font-light uppercase text-slate-500">
-                          Telephone
-                        </p>
-                        <p className="mt-1 break-all text-sm text-slate-800 sm:text-base">
-                          {telephone}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <h2 className="mb-3 text-xl font-semibold text-gray-900">
+                  {page.name}
+                </h2>
+
+                <div className="mb-3 space-y-2 text-sm text-gray-600">
+                  <p>
+                    <i
+                      className="ri-user-3-line mr-1 text-primary-700"
+                      aria-hidden="true"
+                    />
+                    <span className="font-medium text-gray-700">
+                      Punong Barangay:
+                    </span>{' '}
+                    {punongBarangay}
+                  </p>
+                  <p>
+                    <i
+                      className="ri-phone-line mr-1 text-primary-700"
+                      aria-hidden="true"
+                    />
+                    <span className="font-medium text-gray-700">
+                      Telephone:
+                    </span>{' '}
+                    <span className="break-all">{telephone}</span>
+                  </p>
+                </div>
+
+                <div className="mt-auto border-t border-gray-100 pt-4 text-sm">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-md border border-primary-200 bg-white px-3 py-2 font-medium text-primary-700 transition hover:border-primary-300 hover:bg-primary-50"
+                    onClick={() => {
+                      navigate(`/government/barangays/${page.slug}`);
+                    }}
+                  >
+                    View barangay profile
+                    <i className="ri-arrow-right-line" aria-hidden="true" />
+                  </button>
+                </div>
               </CardContent>
-              <CardFooter className="flex items-center justify-center px-5 pb-5 pt-0 sm:px-6">
-                <Button
-                  type="button"
-                  size="sm"
-                  fullWidth
-                  className="flex items-center py-6 hover:bg-primary-700 justify-center gap-2 rounded-full"
-                  onClick={() => {
-                    navigate(`/government/barangays/${page.slug}`);
-                  }}
-                >
-                  <i
-                    className="ri-information-line inline-flex h-6 w-6 items-center justify-center"
-                    aria-hidden="true"
-                  />
-                  View Barangay Profile
-                </Button>
-              </CardFooter>
             </Card>
           );
         })}

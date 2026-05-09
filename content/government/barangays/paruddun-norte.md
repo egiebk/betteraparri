@@ -4,7 +4,6 @@
 
 - **Barangay:** Paruddun Norte
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 09359252459
 
 ## Punong Barangay

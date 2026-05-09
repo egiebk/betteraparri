@@ -28,9 +28,10 @@ import {
   DemographicsDashboard,
 } from '../components/statistics/StatisticsDashboard';
 import {
+  DisasterRiskReductionDashboard,
   IncomeDependencyDashboard,
-  LocalFinancialDataDashboard,
   ProcurementDashboard,
+  StatementsReceiptsExpenditureDashboard,
 } from '../components/statistics/FiscalTransparencyPages';
 
 interface DocumentProps {
@@ -41,15 +42,20 @@ interface DocumentProps {
 type DashboardDocument =
   | 'demographics'
   | 'competitiveness'
-  | 'income-and-dependency'
-  | 'local-financial-data'
+  | 'annual-regular-income-and-dependencies'
+  | 'statements-of-receipts-and-expenditure'
+  | 'disaster-risk-reduction-and-management'
   | 'procurement';
 
 const dashboardTitles: Record<DashboardDocument, string> = {
   demographics: 'Demographics',
   competitiveness: 'Competitiveness',
-  'income-and-dependency': 'Income and Dependency',
-  'local-financial-data': 'Local Financial Data',
+  'annual-regular-income-and-dependencies':
+    'Annual Regular Income (ARI) and Dependencies',
+  'statements-of-receipts-and-expenditure':
+    'Statements of Receipts and Expenditure',
+  'disaster-risk-reduction-and-management':
+    'Disaster Risk Reduction and Management',
   procurement: 'Procurement',
 };
 
@@ -103,8 +109,9 @@ function getDashboardDocument(
 
   if (
     (categoryType === 'transparency' || category === 'transparency') &&
-    (documentSlug === 'income-and-dependency' ||
-      documentSlug === 'local-financial-data' ||
+    (documentSlug === 'annual-regular-income-and-dependencies' ||
+      documentSlug === 'statements-of-receipts-and-expenditure' ||
+      documentSlug === 'disaster-risk-reduction-and-management' ||
       documentSlug === 'procurement')
   ) {
     return documentSlug;
@@ -119,10 +126,12 @@ function DashboardContent({ dashboard }: { dashboard: DashboardDocument }) {
       return <DemographicsDashboard />;
     case 'competitiveness':
       return <CompetitivenessDashboard />;
-    case 'income-and-dependency':
+    case 'annual-regular-income-and-dependencies':
       return <IncomeDependencyDashboard />;
-    case 'local-financial-data':
-      return <LocalFinancialDataDashboard />;
+    case 'statements-of-receipts-and-expenditure':
+      return <StatementsReceiptsExpenditureDashboard />;
+    case 'disaster-risk-reduction-and-management':
+      return <DisasterRiskReductionDashboard />;
     case 'procurement':
       return <ProcurementDashboard />;
     default:

@@ -12,10 +12,10 @@ export default function Hero() {
       <div className="relative container mx-auto px-4 py-18 md:py-16 lg:py-24">
         <div className="flex items-center max-w-7xl mx-auto lg:flex-row">
           <div className="">
-            <p className="text-sm font-light tracking-wider text-white lg:text-lg uppercase">
-              Welcome to
+            <p className="text-sm font-light tracking-wider text-white lg:text-lg">
+              Maddulô Kamu ta
             </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-4xl lg:text-6xl">
+            <h1 className="text-4xl font-semibold mt-4 tracking-tight text-white sm:text-4xl lg:text-6xl">
               {t('hero.title')}
             </h1>
             <p className="mt-4 max-w text-base leading-8 text-blue-50 sm:text-lg">

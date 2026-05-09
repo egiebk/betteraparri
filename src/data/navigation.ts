@@ -48,12 +48,16 @@ export const mainNavigation: NavigationItem[] = [
     href: '/transparency',
     children: [
       {
-        label: 'Income and Dependency',
-        href: '/transparency/income-and-dependency',
+        label: 'ARI and Dependencies',
+        href: '/transparency/annual-regular-income-and-dependencies',
       },
       {
-        label: 'Local Financial Data',
-        href: '/transparency/local-financial-data',
+        label: 'Receipts and Expenditure',
+        href: '/transparency/statements-of-receipts-and-expenditure',
+      },
+      {
+        label: 'DRRM',
+        href: '/transparency/disaster-risk-reduction-and-management',
       },
       {
         label: 'Procurement',

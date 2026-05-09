@@ -4,7 +4,6 @@
 
 - **Barangay:** Tallungan
 - **Municipality:** Aparri
-- **Term Covered by Import:** 2023 - 2026
 - **Barangay Telephone:** 09068384590
 
 ## Punong Barangay

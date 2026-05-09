@@ -51,8 +51,9 @@ import housingLandUseIndex from '../../content/services/housing-land-use/index.y
 import governmentBarangaysIndex from '../../content/government/barangays/index.yaml?raw';
 import governmentLeadershipLegislativeIndex from '../../content/government/leadership/legislative/index.yaml?raw';
 import transparencyIndex from '../../content/transparency/index.yaml?raw';
-import transparencyIncomeAndDependencyIndex from '../../content/transparency/income-and-dependency/index.yaml?raw';
-import transparencyLocalFinancialDataIndex from '../../content/transparency/local-financial-data/index.yaml?raw';
+import transparencyAnnualRegularIncomeIndex from '../../content/transparency/annual-regular-income-and-dependencies/index.yaml?raw';
+import transparencyStatementsReceiptsExpenditureIndex from '../../content/transparency/statements-of-receipts-and-expenditure/index.yaml?raw';
+import transparencyDisasterRiskReductionIndex from '../../content/transparency/disaster-risk-reduction-and-management/index.yaml?raw';
 import transparencyProcurementIndex from '../../content/transparency/procurement/index.yaml?raw';
 import statisticsIndex from '../../content/statistics/index.yaml?raw';
 import statisticsDemographicsIndex from '../../content/statistics/demographics/index.yaml?raw';
@@ -79,8 +80,12 @@ const categoryIndexMap: { [key: string]: string } = {
   barangays: governmentBarangaysIndex,
   legislative: governmentLeadershipLegislativeIndex,
   transparency: transparencyIndex,
-  'income-and-dependency': transparencyIncomeAndDependencyIndex,
-  'local-financial-data': transparencyLocalFinancialDataIndex,
+  'annual-regular-income-and-dependencies':
+    transparencyAnnualRegularIncomeIndex,
+  'statements-of-receipts-and-expenditure':
+    transparencyStatementsReceiptsExpenditureIndex,
+  'disaster-risk-reduction-and-management':
+    transparencyDisasterRiskReductionIndex,
   procurement: transparencyProcurementIndex,
   statistics: statisticsIndex,
   demographics: statisticsDemographicsIndex,

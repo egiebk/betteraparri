@@ -3,7 +3,7 @@
     {
       "label": "Annual Regular Income",
       "value": "PHP 326.24M",
-      "detail": "FY 2024 preliminary annual regular income",
+      "detail": "FY 2024 annual regular income",
       "icon": "ri-funds-line",
       "tone": "primary"
     },
@@ -17,7 +17,7 @@
     {
       "label": "LSR Dependency",
       "value": "14.4%",
-      "detail": "Local revenue as share of regular income",
+      "detail": "Locally sourced revenue as share of regular income",
       "icon": "ri-store-2-line",
       "tone": "accent"
     }
@@ -34,15 +34,15 @@
       "label": "National Tax Allotment",
       "value": 279.08,
       "percent": 85.5,
-      "tone": "bg-success-500",
-      "color": "#00af5f"
+      "tone": "bg-primary-500",
+      "color": "#0066eb"
     },
     {
       "label": "Other National Tax Shares",
       "value": 0.2,
       "percent": 0.06,
-      "tone": "bg-accent-500",
-      "color": "#f58900"
+      "tone": "bg-violet-600",
+      "color": "#facc15"
     }
   ],
   "localRevenueBreakdown": [
@@ -56,12 +56,12 @@
       "label": "Non-tax revenue",
       "value": 16.28,
       "detail": "Fees, charges, and economic enterprises",
-      "tone": "bg-success-500"
+      "tone": "bg-primary-500"
     },
     {
       "label": "Interest income",
       "value": 0,
-      "detail": "Reported as zero in the FY 2024 preliminary data",
+      "detail": "No interest income reported in the FY 2024 data",
       "tone": "bg-gray-500"
     }
   ],
@@ -75,14 +75,14 @@
     {
       "label": "Real property tax",
       "value": 4.97,
-      "detail": "General fund RPT",
-      "tone": "bg-success-500"
+      "detail": "General fund real property tax collections",
+      "tone": "bg-primary-500"
     },
     {
       "label": "Other taxes",
       "value": 1.55,
-      "detail": "Other tax revenue",
-      "tone": "bg-accent-500"
+      "detail": "Other local tax revenue",
+      "tone": "bg-violet-600"
     }
   ],
   "nonTaxRevenueLines": [
@@ -96,13 +96,13 @@
       "label": "Regulatory fees",
       "value": 6.69,
       "detail": "Permits, licenses, and similar fees",
-      "tone": "bg-success-500"
+      "tone": "bg-primary-500"
     },
     {
       "label": "Service/user charges",
       "value": 1.24,
       "detail": "Service and user charge collections",
-      "tone": "bg-accent-500"
+      "tone": "bg-violet-600"
     }
   ],
   "sourceLinks": [
@@ -114,12 +114,12 @@
   "content": {
     "hero": {
       "eyebrow": "Transparency",
-      "title": "Income and Dependency",
-      "description": "This page explains where Aparri's regular income came from in FY 2024 and how much of it depended on national tax transfers."
+      "title": "Annual Regular Income (ARI) and Dependencies",
+      "description": "This page explains where Aparri's FY 2024 annual regular income came from and how much of it depended on national tax transfers."
     },
     "guidance": {
       "title": "What You Need to Know",
-      "description": "A quick reading table for the main FY 2024 income figures."
+      "description": "A quick reading table for the main FY 2024 income and dependency figures."
     },
     "sections": {
       "revenueComposition": {
@@ -165,9 +165,9 @@
       },
       {
         "term": "Dependency",
-        "description": "The share of income that comes from outside local collections. It helps show how much the budget relies on national transfers."
+        "description": "The share of income that comes from a source such as the National Tax Allotment or locally sourced revenue."
       }
     ],
-    "sourceNote": "Figures are presented for public information and should be checked against the latest BLGF posting before formal use."
+    "sourceNote": "Figures are based on the uploaded Aparri ARI and Dependencies 2024 CSV and should be checked against the latest BLGF posting before formal use."
   }
 }
