@@ -22,9 +22,15 @@ Municipal Health Office / Rural Health Unit
 3. Wait for triage, consultation, or referral.
 4. Follow the health worker's instructions for medicine, laboratory tests, or follow-up.
 
+## Laboratory Services
+
+If a doctor or health worker requests laboratory testing, Aparri Municipal Health Center - East Clinical Laboratory has posted schedules for routine laboratory tests, blood chemistry tests, pregnancy-related serological testing, and cervical smear services.
+
+Bring your doctor's request, patient record, and PhilHealth number, if available. See [Clinical Laboratory Services](/services/health-services/clinical-laboratory-services) for the posted schedule and price list.
+
 ## Fees
 
-Basic public health services may be free, but confirm any charges for certificates, tests, or special services.
+Basic public health services may be free, but confirm any charges for certificates, laboratory tests, or special services.
 
 ## Processing Time
 

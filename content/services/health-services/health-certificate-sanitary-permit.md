@@ -24,6 +24,12 @@ Municipal Health Office / Sanitation Office
 4. Pay assessed fees, if applicable.
 5. Claim the certificate or permit once approved.
 
+## Laboratory Tests
+
+If laboratory results are required, bring your doctor's request, patient record, and PhilHealth number, if available. Aparri Municipal Health Center - East Clinical Laboratory has posted fees under Ordinance No. 2024-107 for tests such as CBC / platelet count, urinalysis, fecalysis, blood typing, and other laboratory services.
+
+See [Clinical Laboratory Services](/services/health-services/clinical-laboratory-services) for the posted schedule and price list.
+
 ## Fees
 
 Fees are based on applicable local ordinances and the type of certificate or permit requested.
