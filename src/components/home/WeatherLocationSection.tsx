@@ -1072,7 +1072,7 @@ function AdvisoryCard({
       </summary>
 
       <div className="space-y-3 border-t border-black/5 px-5 pb-5 pt-4 text-sm leading-6 text-slate-700">
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-6">
           {advisory.details.map(detail => (
             <div key={detail.label}>
               <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">
