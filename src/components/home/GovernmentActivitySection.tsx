@@ -50,7 +50,7 @@ export default function GovernmentActivitySection({
           <Card
             key={category.slug}
             hoverable
-            className="border-primary-100 hover:bg-blue-50"
+            className="card-fade-in border-primary-100 hover:bg-blue-50"
           >
             <Link
               to={`/government/${category.slug}`}

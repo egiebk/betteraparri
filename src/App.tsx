@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import ScrollToTop from './components/ui/ScrollToTop';
+import CardFadeInObserver from './components/ui/CardFadeInObserver';
 import Services from './pages/Services';
 import Document from './pages/Document';
 import Government from './pages/Government';
@@ -19,6 +20,7 @@ function App() {
           <div className="min-h-screen flex flex-col">
             <Navbar />
             <ScrollToTop />
+            <CardFadeInObserver />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services/:category" element={<Services />} />
