@@ -57,7 +57,7 @@ export default function UpdatesSection() {
           <Card
             key={update.id}
             hoverable
-            className="border-primary-100 hover:bg-blue-50"
+            className="card-fade-in border-primary-100 hover:bg-blue-50"
           >
             <CardContent className="flex h-full flex-col p-6">
               <div className="mb-3 flex flex-wrap items-center gap-2">

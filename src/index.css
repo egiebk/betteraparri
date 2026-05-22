@@ -114,6 +114,39 @@
   --font-mono: var(--font-kapwa-mono);
 }
 
+.card-fade-in {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.card-fade-in-visible {
+  animation: cardFadeIn 240ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-fade-in-visible {
+    animation: none;
+  }
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Checklist styling */
 .task-list-item {
   @apply text-base text-gray-700 leading-relaxed relative flex items-start gap-3 font-sans rounded-md mb-5 transition-all duration-200 border border-transparent cursor-pointer items-center;

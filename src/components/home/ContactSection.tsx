@@ -45,7 +45,7 @@ const contactCards: ContactCard[] = [
 
 function ContactCardItem({ card }: { card: ContactCard }) {
   const content = (
-    <div className="flex h-full items-start gap-6 rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
+    <div className="card-fade-in flex h-full items-start gap-6 rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
       <span
         aria-hidden="true"
         className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${card.tone}`}

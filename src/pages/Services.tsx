@@ -109,7 +109,7 @@ const Services: React.FC = () => {
               <Link key={service.slug} to={`/services/${service.slug}`}>
                 <Card
                   hoverable
-                  className="h-full border-t-4 border-primary-500"
+                  className="card-fade-in h-full border-t-4 border-primary-500"
                 >
                   <CardContent>
                     <h4 className="text-xl font-medium text-gray-900">
@@ -204,7 +204,7 @@ const Services: React.FC = () => {
                   >
                     <Card
                       hoverable
-                      className="h-full border-t-4 border-primary-500"
+                      className="card-fade-in h-full border-t-4 border-primary-500"
                     >
                       <CardContent>
                         <h4 className="text-lg font-medium text-gray-900">
@@ -230,7 +230,7 @@ const Services: React.FC = () => {
                     key={subcategory.slug}
                     to={`/services/${category}/${subcategory.slug}`}
                   >
-                    <Card hoverable className="mb-4">
+                    <Card hoverable className="card-fade-in mb-4">
                       <CardContent>
                         <h4 className="text-lg font-medium text-gray-900">
                           {subcategory.name}
