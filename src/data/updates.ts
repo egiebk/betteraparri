@@ -135,7 +135,7 @@ export const updates: Update[] = [
     tags: ['Advisory', 'CAGELCO', 'PowerInterruption'],
     source: 'Cagelco II',
     link: 'https://www.facebook.com/share/p/16sHeL9wCo/',
-    isPinned: true,
+    isPinned: false,
     status: 'published',
     createdAt: '2026-05-13',
     items: false,
