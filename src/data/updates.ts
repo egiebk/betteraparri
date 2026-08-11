@@ -26,6 +26,23 @@ export interface Update {
 export const updates: Update[] = [
   {
     id: 'act-024',
+    type: 'advisory',
+    title: 'No Face-to-Face Classes',
+    description:
+      'Pre-School to College (Public and Private) due to NGCP Scheduled Power Interruption',
+    date: '2026-08-12',
+    time: '06:00 AM - 04:00 PM',
+    venue: '',
+    tags: ['Suspension', '#WalangPasok'],
+    source: 'Mayor Dominador Ambo Dayag Facebook Page',
+    link: 'https://www.facebook.com/AparriLGUPIO/posts/pfbid0Rk5EjDGxdWMuM6kMdeeaoMRRM479DpgtgsXf82PswjWi2SsjEbhSyDet43dQWS3jl',
+    isPinned: false,
+    status: 'published',
+    createdAt: '2026-08-11',
+    items: false,
+  },
+  {
+    id: 'act-024',
     type: 'activity',
     title: 'Distribution of Social Pension Stipend to Indigent Senior Citizens',
     description:
