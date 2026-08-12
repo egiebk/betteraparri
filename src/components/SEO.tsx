@@ -10,6 +10,9 @@ interface SEOProps {
   type?: string;
   siteName?: string;
   noIndex?: boolean;
+  pageType?: string;
+  breadcrumbs?: Array<{ label: string; href: string }>;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 function trimTrailingSlash(value: string) {
@@ -38,6 +41,9 @@ export default function SEO({
   type = 'website',
   siteName = import.meta.env.VITE_GOVERNMENT_NAME || 'Local Government Website',
   noIndex = false,
+  pageType = 'WebPage',
+  breadcrumbs,
+  structuredData,
 }: SEOProps) {
   const location = useLocation();
   const siteUrl = trimTrailingSlash(
@@ -62,7 +68,7 @@ export default function SEO({
   );
   const twitterHandle = import.meta.env.VITE_TWITTER_HANDLE || '';
   const robots = noIndex ? 'noindex, nofollow' : 'index, follow';
-  const structuredData = {
+  const organizationData = {
     '@context': 'https://schema.org',
     '@type': 'GovernmentOrganization',
     name: siteName,
@@ -75,6 +81,41 @@ export default function SEO({
       }`,
     },
   };
+  const pageData = {
+    '@context': 'https://schema.org',
+    '@type': pageType,
+    name: title || defaultTitle,
+    description: fullDescription,
+    url: fullUrl,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteName,
+      url: siteUrl,
+    },
+  };
+  const breadcrumbData = breadcrumbs?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((breadcrumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: breadcrumb.label,
+          item: toAbsoluteUrl(breadcrumb.href, siteUrl),
+        })),
+      }
+    : null;
+  const additionalData = structuredData
+    ? Array.isArray(structuredData)
+      ? structuredData
+      : [structuredData]
+    : [];
+  const schemaData = [
+    organizationData,
+    pageData,
+    ...(breadcrumbData ? [breadcrumbData] : []),
+    ...additionalData,
+  ];
 
   return (
     <Helmet>
@@ -138,9 +179,11 @@ export default function SEO({
         crossOrigin="anonymous"
       />
 
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
+      {schemaData.map((data, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(data)}
+        </script>
+      ))}
     </Helmet>
   );
 }

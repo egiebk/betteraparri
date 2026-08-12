@@ -12,6 +12,7 @@ const Home: React.FC = () => {
         title="Home"
         description="BetterAparri.org makes Aparri public information, local government services, updates, transparency data, and civic resources easier to find."
         keywords="Aparri, Cagayan, local government, public services, transparency, citizen services"
+        pageType="WebSite"
       />
       <main className="flex-grow">
         <Hero />

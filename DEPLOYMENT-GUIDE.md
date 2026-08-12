@@ -45,7 +45,7 @@ VITE_GOVERNMENT_NAME=Municipality of Aparri
 VITE_GOVERNMENT_TYPE=City
 VITE_REGION=Region II
 VITE_PROVINCE=Cagayan
-VITE_WEBSITE_URL=https://your-project.vercel.app
+VITE_WEBSITE_URL=https://betteraparri.org
 VITE_CONTACT_EMAIL=info@
 VITE_CONTACT_PHONE=
 VITE_FACEBOOK_URL=https://facebook.com/your-government
@@ -63,6 +63,12 @@ VITE_SITE_KEYWORDS=government, local government, services, your city
 3. **Your website will be available at** `https://your-project.vercel.app`
 
 ### Step 5: Custom Domain (Optional)
+
+Set `betteraparri.org` as the production domain in Vercel. Add
+`www.betteraparri.org`, `betteraparri.gov.ph`, and
+`www.betteraparri.gov.ph` only if they are configured to point at the same
+Vercel project; the checked-in redirect rules will permanently send them to
+`https://betteraparri.org` while preserving the path and query string.
 
 1. **Go to Settings → Domains**
 2. **Add your custom domain** (e.g., ``)

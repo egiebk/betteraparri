@@ -79,6 +79,11 @@ const Services: React.FC = () => {
           title="Citizen Services"
           description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
           keywords="government services, public services, local government, civic services"
+          pageType="CollectionPage"
+          breadcrumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Services', href: '/services' },
+          ]}
         />
         <Section className="p-3 mb-12">
           <Breadcrumbs className="mb-8" />
@@ -157,6 +162,15 @@ const Services: React.FC = () => {
         title={categoryData.category || category}
         description={categoryData.description}
         keywords={`${categoryData.category}, government services, public services, local government`}
+        pageType="CollectionPage"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          {
+            label: categoryData.category || category,
+            href: `/services/${category}`,
+          },
+        ]}
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" />

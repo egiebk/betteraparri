@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import type { Subcategory } from '../../data/yamlLoader';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 interface BarangayProfile {
   punongBarangay?: string;

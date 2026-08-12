@@ -303,6 +303,11 @@ export default function Document({
         <SEO
           title={documentSlug}
           keywords={`${documentSlug}, government services, local government`}
+          pageType="CollectionPage"
+          breadcrumbs={breadcrumbs.filter(
+            (breadcrumb): breadcrumb is { label: string; href: string } =>
+              Boolean(breadcrumb.href)
+          )}
         />
         <Section className="p-3 mb-12">
           <Breadcrumbs className="mb-8" items={breadcrumbs} />
@@ -360,6 +365,11 @@ export default function Document({
         <SEO
           title={dashboardTitles[dashboardDocument]}
           keywords={`${dashboardTitles[dashboardDocument]}, statistics, transparency, local government`}
+          pageType="Dataset"
+          breadcrumbs={breadcrumbs.filter(
+            (breadcrumb): breadcrumb is { label: string; href: string } =>
+              Boolean(breadcrumb.href)
+          )}
         />
         <Section className="p-3 mb-12">
           <Breadcrumbs className="mb-8" items={breadcrumbs} />
@@ -382,6 +392,13 @@ export default function Document({
           `Government service information for ${documentSlug}`
         }
         keywords={`${documentSlug}, government services, public services, local government`}
+        pageType={
+          categoryType === 'service' ? 'GovernmentService' : 'WebPage'
+        }
+        breadcrumbs={breadcrumbs.filter(
+          (breadcrumb): breadcrumb is { label: string; href: string } =>
+            Boolean(breadcrumb.href)
+        )}
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" items={breadcrumbs} />

@@ -148,6 +148,14 @@ const Government: React.FC<GovernmentProps> = ({
         title={pageTitle}
         description={pageDescription}
         keywords={`${categoryData.category}, government services, public services, local government`}
+        pageType="CollectionPage"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: sectionMeta[sectionType].category, href: `/${sectionType}` },
+          ...(category
+            ? [{ label: pageTitle || category, href: baseHref }]
+            : []),
+        ]}
       />
       <Section className="p-3 mb-12">
         <Breadcrumbs className="mb-8" />
