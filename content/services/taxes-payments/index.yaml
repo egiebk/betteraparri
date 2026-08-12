@@ -1,10 +1,5 @@
-# Taxes and Payments Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'Community tax certificate or cedula'
-    slug: 'community-tax-certificate-cedula'
-    description: 'Request a community tax certificate from the Municipal Treasurer.'
-
-  - name: 'Real property tax payment'
-    slug: 'real-property-tax-payment'
-    description: 'Pay real property tax and confirm the documents needed for assessment.'
+  - name: 'Treasury and Property Assessment Services'
+    slug: 'treasury-property-assessment-services'
+    description: 'Community tax certificates, local taxes and fees, cattle and weights registration, and property assessment records.'

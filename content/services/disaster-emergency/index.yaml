@@ -1,6 +1,5 @@
-# Disaster and Emergency Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'Emergency assistance or disaster reporting'
-    slug: 'emergency-assistance-disaster-reporting'
-    description: 'Report emergencies, hazards, or disaster-related needs to the appropriate response office.'
+  - name: 'Disaster, Emergency, and Environment Services'
+    slug: 'disaster-emergency-environment-services'
+    description: 'Disaster preparedness, prevention and response, plus garbage-hauling, forest-product, and environmental education requests.'

@@ -1,10 +1,5 @@
-# Agriculture and Fisheries Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'Farmer or fisherfolk registration'
-    slug: 'farmer-fisherfolk-registration'
-    description: 'Register as a farmer or fisherfolk for local and national agriculture or fishery programs.'
-
-  - name: 'Agricultural or fishery assistance'
-    slug: 'agricultural-fishery-assistance'
-    description: 'Request available seed, fertilizer, fishery, livelihood, or equipment assistance.'
+  - name: "Agriculture and Fisheries Services"
+    slug: 'agriculture-fisheries-services'
+    description: 'Farmer and fisherfolk registration, farm inputs, certifications, insurance, technical assistance, and animal services.'

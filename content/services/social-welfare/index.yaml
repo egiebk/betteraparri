@@ -1,22 +1,5 @@
-# Social Services Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'Medical assistance'
-    slug: 'medical-assistance'
-    description: 'Request medical assistance through the local social welfare office.'
-
-  - name: 'Burial assistance'
-    slug: 'burial-assistance'
-    description: 'Request burial assistance for eligible families.'
-
-  - name: 'Senior citizen ID'
-    slug: 'senior-citizen-id'
-    description: 'Apply for or renew a senior citizen identification card.'
-
-  - name: 'PWD ID'
-    slug: 'pwd-id'
-    description: 'Apply for a person with disability identification card.'
-
-  - name: 'Solo parent ID'
-    slug: 'solo-parent-id'
-    description: 'Apply for or renew a solo parent identification card.'
+  - name: 'Social Welfare Services'
+    slug: 'social-welfare-services'
+    description: 'Crisis assistance, social case reports, IDs and certificates, child services, pensions, and disaster relief.'

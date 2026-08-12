@@ -1,10 +1,5 @@
-# Education and Livelihood Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'Scholarship applications'
-    slug: 'scholarship-applications'
-    description: 'Apply for local scholarship or education assistance programs when available.'
-
-  - name: 'Job referrals and skills training'
-    slug: 'job-referrals-skills-training'
-    description: 'Access PESO job referrals, skills training, and livelihood opportunities.'
+  - name: 'Employment and Tourism Services'
+    slug: 'employment-tourism-services'
+    description: 'Job matching, employer accreditation, student employment programs, and tourism information or research requests.'

@@ -1,6 +1,5 @@
-# Complaints and Requests Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'File a complaint or request public information'
-    slug: 'file-complaint-request-public-information'
-    description: 'Submit a complaint, request public information, or ask where to route a concern.'
+  - name: 'Mayor, Sangguniang Bayan, and Public Administration Services'
+    slug: 'public-administration-services'
+    description: 'Mayor clearances and endorsements, marriage solemnization, public vehicle use, correspondence, Sangguniang records, and civic organization services.'
