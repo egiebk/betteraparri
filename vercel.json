@@ -4,6 +4,41 @@
   "framework": "vite",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.betteraparri.org"
+        }
+      ],
+      "destination": "https://betteraparri.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "betteraparri.gov.ph"
+        }
+      ],
+      "destination": "https://betteraparri.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.betteraparri.gov.ph"
+        }
+      ],
+      "destination": "https://betteraparri.org/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

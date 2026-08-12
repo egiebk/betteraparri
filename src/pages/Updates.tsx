@@ -241,6 +241,27 @@ const Updates = () => {
       <SEO
         title="Updates"
         description="Latest announcements and public advisories from BetterAparri."
+        pageType="CollectionPage"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Updates', href: '/updates' },
+        ]}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Aparri government updates',
+          itemListElement: publishedUpdates.map((update, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'NewsArticle',
+              headline: update.title,
+              description: update.description || undefined,
+              datePublished: update.createdAt,
+              dateModified: update.updatedAt || update.createdAt,
+            },
+          })),
+        }}
       />
 
       <Section className="p-3 mb-12">
