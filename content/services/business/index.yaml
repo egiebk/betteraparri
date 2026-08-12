@@ -1,10 +1,5 @@
-# Business and Permits Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'New business permit'
-    slug: 'new-business-permit'
-    description: 'Apply for a permit to operate a business in Aparri.'
-
-  - name: 'Business permit renewal'
-    slug: 'business-permit-renewal'
-    description: 'Renew an existing business permit and pay local business taxes.'
+  - name: "Business, permit, and franchising services"
+    slug: 'business-permit-franchising-services'
+    description: 'Business permits, mayor permits, tricycle operator permits, and related municipal permits.'

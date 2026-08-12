@@ -1,6 +1,5 @@
-# Engineering and Zoning Category Pages
-
+# Services listed in the LGU Aparri Citizens' Charter (2022, 1st Edition)
 pages:
-  - name: 'Building permit'
-    slug: 'building-permit'
-    description: 'Apply for a building permit and prepare plans, clearances, and required documents.'
+  - name: 'Planning, Engineering, and Zoning Services'
+    slug: 'planning-engineering-zoning-services'
+    description: 'Locational clearances, zoning certifications, building permits, and related construction permits.'
