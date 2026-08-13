@@ -25,6 +25,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: 'act-025',
+    type: 'activity',
+    title: 'Special Recruitment Activity',
+    description: 'The Public Employment Service Office (PESO) of LGU Aparri is inviting interested applicants to attend a Special Recruitment Activity (SRA) in partnership with Pacific Star International Employment Agency Corp.',
+    date: '2026-08-19',
+    time: '09:00 AM - 04:00 PM',
+    venue: 'PESO LGU Aparri',
+    tags: ['Employment', 'Recruitment'],
+    source: 'PESO Aparri',
+    link: 'https://www.facebook.com/permalink.php?story_fbid=pfbid0RkWd8VaG2HmhZ6ySESJheVFKcKp8gN3ufNiMUd1bwKwpNj7BS74LYYydWfAeA59dl&id=61567981739724',
+    isPinned: false,
+    status: 'published',
+    createdAt: '2026-08-13',
+    items: false,
+  },
+  {
     id: 'act-024',
     type: 'advisory',
     title: 'No Face-to-Face Classes',
