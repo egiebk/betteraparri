@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
+import TrendChart from '../ui/TrendChart';
 import { cn } from '../../lib/utils';
 import {
   loadCompetitivenessData,
+  type CmciTrendPoint,
   loadDemographicsData,
   type GrowthInterval,
   type HighlightStat,
@@ -66,10 +68,13 @@ type CompetitivenessContent = {
   guidance: PageGuidanceContent;
   sections: {
     cmciPerformance: SectionContent;
+    yearlyTrend?: SectionContent;
   };
   cards: {
     rankProfile: CardContentText;
     pillarScores: CardContentText;
+    overallRankTrend?: CardContentText;
+    pillarRankTrend?: CardContentText;
   };
   terms: Term[];
   sourceNote: string;
@@ -631,6 +636,233 @@ function CmciPerformanceCards({
   );
 }
 
+function ordinal(value: number) {
+  const mod100 = value % 100;
+  if (mod100 >= 11 && mod100 <= 13) return `${value}th`;
+  switch (value % 10) {
+    case 1:
+      return `${value}st`;
+    case 2:
+      return `${value}nd`;
+    case 3:
+      return `${value}rd`;
+    default:
+      return `${value}th`;
+  }
+}
+
+const cmciTrendPillars: {
+  key: keyof Pick<
+    CmciTrendPoint,
+    | 'economicDynamism'
+    | 'governmentEfficiency'
+    | 'infrastructure'
+    | 'resiliency'
+    | 'innovation'
+  >;
+  label: string;
+}[] = [
+  { key: 'economicDynamism', label: 'Economic Dynamism' },
+  { key: 'governmentEfficiency', label: 'Government Efficiency' },
+  { key: 'infrastructure', label: 'Infrastructure' },
+  { key: 'resiliency', label: 'Resiliency' },
+  { key: 'innovation', label: 'Innovation' },
+];
+
+function RankChange({
+  current,
+  previous,
+}: {
+  current: number | null;
+  previous: number | null | undefined;
+}) {
+  if (current === null || previous === null || previous === undefined) {
+    return null;
+  }
+  const change = previous - current;
+  if (change === 0) {
+    return (
+      <span className="block text-[11px] font-medium text-gray-500">
+        no change
+      </span>
+    );
+  }
+  const improved = change > 0;
+  return (
+    <span
+      className={cn(
+        'block text-[11px] font-medium',
+        improved ? 'text-emerald-700' : 'text-rose-700'
+      )}
+    >
+      <span aria-hidden="true">{improved ? '▲' : '▼'}</span>{' '}
+      <span className="sr-only">{improved ? 'up' : 'down'}</span>
+      {Math.abs(change)}
+    </span>
+  );
+}
+
+function CmciTrendSection({
+  trend,
+  section,
+  rankCard,
+  pillarCard,
+}: {
+  trend: CmciTrendPoint[];
+  section: SectionContent;
+  rankCard?: CardContentText;
+  pillarCard?: CardContentText;
+}) {
+  const sorted = [...trend].sort((a, b) => a.year - b.year);
+  const years = sorted.map(t => t.year);
+  const rows: {
+    label: string;
+    values: (number | null)[];
+    isScore?: boolean;
+  }[] = [
+    { label: 'Overall', values: sorted.map(t => t.overallRank) },
+    ...cmciTrendPillars.map(p => ({
+      label: p.label,
+      values: sorted.map(t => t[p.key]),
+    })),
+    {
+      label: 'Overall score',
+      values: sorted.map(t => t.overallScore),
+      isScore: true,
+    },
+  ];
+
+  return (
+    <section>
+      <SectionHeading
+        eyebrow={section.eyebrow}
+        title={section.title}
+        description={section.description}
+      />
+
+      <div className="grid gap-6">
+        <Card className="border-primary-100">
+          <CardHeader className="bg-stone-100">
+            <h3 className="text-lg font-semibold text-gray-900">
+              {rankCard?.title ?? 'Overall Rank by Year'}
+            </h3>
+            {rankCard?.description && (
+              <p className="mt-1 text-sm text-gray-600">
+                {rankCard.description}
+              </p>
+            )}
+          </CardHeader>
+          <CardContent className="p-6">
+            <TrendChart
+              years={years}
+              series={[
+                {
+                  label: 'Overall CMCI rank',
+                  color: '#0066eb',
+                  values: sorted.map(t => t.overallRank),
+                },
+              ]}
+              unit="rank"
+              invertY
+              ariaLabel="Line chart of Aparri's overall CMCI rank by year. Rank 1 is at the top."
+              formatValue={v => (v === 0 ? '1st' : ordinal(Math.round(v)))}
+            />
+          </CardContent>
+        </Card>
+
+        <Card className="border-primary-100">
+          <CardHeader className="bg-stone-100">
+            <h3 className="text-lg font-semibold text-gray-900">
+              {pillarCard?.title ?? 'Pillar Ranks by Year'}
+            </h3>
+            {pillarCard?.description && (
+              <p className="mt-1 text-sm text-gray-600">
+                {pillarCard.description}
+              </p>
+            )}
+          </CardHeader>
+          <CardContent className="p-0">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-sm">
+                <thead>
+                  <tr className="bg-white">
+                    <th
+                      scope="col"
+                      className="sticky left-0 border-b border-primary-100 bg-white px-4 py-3 text-left font-semibold text-gray-700"
+                    >
+                      Rank
+                    </th>
+                    {years.map(year => (
+                      <th
+                        key={year}
+                        scope="col"
+                        className="border-b border-primary-100 px-3 py-3 text-right font-semibold text-gray-700"
+                      >
+                        {year}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map(row => (
+                    <tr
+                      key={row.label}
+                      className={cn(
+                        row.label === 'Overall' && 'bg-primary-50/60',
+                        row.isScore && 'bg-gray-50'
+                      )}
+                    >
+                      <th
+                        scope="row"
+                        className={cn(
+                          'sticky left-0 border-b border-gray-100 px-4 py-3 text-left font-medium text-gray-900',
+                          row.label === 'Overall'
+                            ? 'bg-primary-50'
+                            : row.isScore
+                              ? 'bg-gray-50'
+                              : 'bg-white'
+                        )}
+                      >
+                        {row.label}
+                      </th>
+                      {row.values.map((value, i) => (
+                        <td
+                          key={years[i]}
+                          className="border-b border-gray-100 px-3 py-3 text-right tabular-nums text-gray-900"
+                        >
+                          {value === null ? (
+                            <span className="text-gray-400">—</span>
+                          ) : row.isScore ? (
+                            formatScore(value)
+                          ) : (
+                            <>
+                              <span
+                                className={cn(
+                                  row.label === 'Overall' && 'font-semibold'
+                                )}
+                              >
+                                {ordinal(value)}
+                              </span>
+                              <RankChange
+                                current={value}
+                                previous={i > 0 ? row.values[i - 1] : null}
+                              />
+                            </>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
 function TermsCard({ terms }: { terms: Term[] }) {
   return (
     <Card className="border-primary-100 bg-gray-50">
@@ -942,6 +1174,17 @@ export function CompetitivenessDashboard() {
           cmciPillars={cmciPillars}
         />
       </section>
+
+      {content.sections.yearlyTrend &&
+        data.yearlyTrend &&
+        data.yearlyTrend.length > 0 && (
+          <CmciTrendSection
+            trend={data.yearlyTrend}
+            section={content.sections.yearlyTrend}
+            rankCard={content.cards.overallRankTrend}
+            pillarCard={content.cards.pillarRankTrend}
+          />
+        )}
 
       <TermsCard terms={content.terms} />
 

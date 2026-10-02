@@ -12,7 +12,20 @@ export interface StatisticsData {
   municipalityClass?: string;
   cmciPopulationBasis?: number;
   cmciProfile?: CmciProfile;
+  yearlyTrend?: CmciTrendPoint[];
   sourceLinks?: SourceLink[];
+}
+
+export interface CmciTrendPoint {
+  year: number;
+  overallRank: number;
+  overallScore: number | null;
+  pillarCount: number;
+  economicDynamism: number | null;
+  governmentEfficiency: number | null;
+  infrastructure: number | null;
+  resiliency: number | null;
+  innovation: number | null;
 }
 
 export interface TransparencyData {

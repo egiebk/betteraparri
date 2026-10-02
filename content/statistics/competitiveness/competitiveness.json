@@ -58,17 +58,120 @@
     "ranking2023": 333,
     "improvement": 11
   },
+  "yearlyTrend": [
+    {
+      "year": 2018,
+      "overallRank": 93,
+      "overallScore": null,
+      "pillarCount": 4,
+      "economicDynamism": 164,
+      "governmentEfficiency": 123,
+      "infrastructure": 78,
+      "resiliency": 210,
+      "innovation": null
+    },
+    {
+      "year": 2019,
+      "overallRank": 146,
+      "overallScore": 36.8005,
+      "pillarCount": 4,
+      "economicDynamism": 146,
+      "governmentEfficiency": 197,
+      "infrastructure": 162,
+      "resiliency": 258,
+      "innovation": null
+    },
+    {
+      "year": 2020,
+      "overallRank": 155,
+      "overallScore": 37.569,
+      "pillarCount": 4,
+      "economicDynamism": 182,
+      "governmentEfficiency": 182,
+      "infrastructure": 247,
+      "resiliency": 194,
+      "innovation": null
+    },
+    {
+      "year": 2021,
+      "overallRank": 242,
+      "overallScore": 32.0529,
+      "pillarCount": 4,
+      "economicDynamism": 336,
+      "governmentEfficiency": 186,
+      "infrastructure": 343,
+      "resiliency": 244,
+      "innovation": null
+    },
+    {
+      "year": 2022,
+      "overallRank": 192,
+      "overallScore": 29.9049,
+      "pillarCount": 5,
+      "economicDynamism": 214,
+      "governmentEfficiency": 125,
+      "infrastructure": 108,
+      "resiliency": 307,
+      "innovation": 260
+    },
+    {
+      "year": 2023,
+      "overallRank": 333,
+      "overallScore": 29.4493,
+      "pillarCount": 5,
+      "economicDynamism": 241,
+      "governmentEfficiency": 372,
+      "infrastructure": 161,
+      "resiliency": 339,
+      "innovation": 327
+    },
+    {
+      "year": 2024,
+      "overallRank": 322,
+      "overallScore": 29.4233,
+      "pillarCount": 5,
+      "economicDynamism": 103,
+      "governmentEfficiency": 362,
+      "infrastructure": 147,
+      "resiliency": 369,
+      "innovation": 379
+    }
+  ],
   "sourceLinks": [
     {
-      "label": "CMCI Aparri profile",
-      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri"
+      "label": "CMCI Aparri profile, 2024",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2024"
+    },
+    {
+      "label": "CMCI Aparri profile, 2023",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2023"
+    },
+    {
+      "label": "CMCI Aparri profile, 2022",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2022"
+    },
+    {
+      "label": "CMCI Aparri profile, 2021",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2021"
+    },
+    {
+      "label": "CMCI Aparri profile, 2020",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2020"
+    },
+    {
+      "label": "CMCI Aparri profile, 2019",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2019"
+    },
+    {
+      "label": "CMCI Aparri profile, 2018",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2018"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Statistics",
       "title": "Competitiveness",
-      "description": "Aparri's Cities and Municipalities Competitiveness Index results, including overall placement and pillar performance."
+      "description": "Aparri's Cities and Municipalities Competitiveness Index results, including overall placement, pillar performance, and a 7-year trend."
     },
     "guidance": {
       "title": "What You Need to Know",
@@ -79,6 +182,11 @@
         "eyebrow": "Competitiveness",
         "title": "CMCI 2024 Performance",
         "description": "The Cities and Municipalities Competitiveness Index scores LGUs across economic dynamism, government efficiency, infrastructure, resiliency, and innovation."
+      },
+      "yearlyTrend": {
+        "eyebrow": "Multi-Year Trend",
+        "title": "CMCI Performance, 2018-2024",
+        "description": "Aparri's overall rank and pillar ranks across seven CMCI editions. Lower rank numbers mean stronger placement among 1st to 2nd class municipalities."
       }
     },
     "cards": {
@@ -89,6 +197,14 @@
       "pillarScores": {
         "title": "Pillar Scores",
         "description": "CMCI 2024 score and rank by pillar"
+      },
+      "overallRankTrend": {
+        "title": "Overall Rank by Year",
+        "description": "Rank 1 is at the top of the chart, so a rising line means Aparri moved up the rankings."
+      },
+      "pillarRankTrend": {
+        "title": "Pillar Ranks by Year",
+        "description": "Arrows compare each rank with the previous year. Innovation first appears on Aparri's CMCI profile in 2022."
       }
     },
     "terms": [
@@ -99,8 +215,12 @@
       {
         "term": "Pillar Score",
         "description": "A score for one CMCI dimension, such as economic dynamism, government efficiency, infrastructure, resiliency, or innovation."
+      },
+      {
+        "term": "Comparing Years",
+        "description": "Aparri's CMCI profile shows four pillars (25% each) for 2018-2021 and five pillars (20% each) from 2022, and some indicators were renamed or replaced. Ranks are the fairest year-to-year comparison; overall scores before and after 2022 are not directly comparable."
       }
     ],
-    "sourceNote": "CMCI figures are based on the latest source file included in this page. Update this JSON data file when DTI publishes a new profile."
+    "sourceNote": "CMCI figures come from the DTI CMCI LGU profile pages for 2018-2024. Overall score is the sum of the pillar scores; DTI did not publish 2018 pillar scores for Aparri, so only ranks are shown for that year. Update this JSON data file when DTI publishes a new profile."
   }
 }
