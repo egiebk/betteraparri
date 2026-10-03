@@ -110,11 +110,13 @@ export function StatTile({
   value,
   detail,
   icon,
+  valueClassName,
 }: {
   label: string;
   value: string;
   detail: ReactNode;
   icon: string;
+  valueClassName?: string;
 }) {
   return (
     <Card className="h-full border-primary-100">
@@ -128,7 +130,14 @@ export function StatTile({
             <i className={cn(icon, 'text-lg')} />
           </span>
         </div>
-        <p className="text-3xl font-bold leading-none text-gray-900">{value}</p>
+        <p
+          className={cn(
+            'text-3xl font-bold leading-none text-gray-900',
+            valueClassName
+          )}
+        >
+          {value}
+        </p>
         <div className="mt-auto text-sm leading-relaxed text-gray-600">
           {detail}
         </div>

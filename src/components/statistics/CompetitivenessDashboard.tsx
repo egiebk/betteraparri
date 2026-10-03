@@ -320,18 +320,21 @@ function OverviewSection({
         )}
       >
         <StatTile
+          valueClassName="font-mono"
           icon="ri-trophy-line"
           label="Overall rank"
           value={ordinal(yearData.overallRank)}
           detail={`out of ${yearData.cohortSize} ${data.categoryPlain}`}
         />
         <StatTile
+          valueClassName="font-mono"
           icon="ri-bar-chart-horizontal-line"
           label="Ahead of"
           value={`${ahead}%`}
           detail="of similar towns nationwide"
         />
         <StatTile
+          valueClassName="font-mono"
           icon="ri-arrow-up-down-line"
           label={previous ? `Change since ${previous.year}` : 'Change'}
           value={
@@ -350,6 +353,7 @@ function OverviewSection({
         />
         {peerRank && (
           <StatTile
+            valueClassName="font-mono"
             icon="ri-map-pin-line"
             label="Among nearby 1st class towns"
             value={ordinal(peerRank.position)}
@@ -429,7 +433,7 @@ function PillarCards({
               {info.plainName}
             </p>
             <p className="text-xs text-gray-500">{info.officialName}</p>
-            <p className="mt-4 text-3xl font-bold leading-none text-gray-900">
+            <p className="mt-4 font-mono text-3xl font-bold leading-none text-gray-900">
               {ordinal(result.rank)}
             </p>
             <p className="mt-1 text-sm text-gray-600">
