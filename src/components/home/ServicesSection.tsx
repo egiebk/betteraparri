@@ -1,77 +1,86 @@
+import { Link } from 'react-router-dom';
 import Section from '../ui/Section';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
-import { useTranslation } from '../../hooks/useTranslation';
-import { Card, CardContent } from '@bettergov/kapwa/card';
-import { Link } from 'react-router-dom';
+import GuideCard from '../services/GuideCard';
+import { cn } from '../../lib/utils';
+import { lifeEvents, serviceGuides } from '../../data/serviceGuides';
 
-import { serviceCategories } from '../../data/yamlLoader';
-
-const RemixIcon: React.FC<{ iconClass: string; className?: string }> = ({
-  iconClass,
-  className = 'h-6 w-6',
-}) => <i className={`${iconClass} ${className}`} />;
-
-interface Subcategory {
-  name: string;
-  slug: string;
-}
-
-interface Category {
-  category: string;
-  slug: string;
-  subcategories: Subcategory[];
-  description: string;
-  icon: string;
-}
-
-export default function ServicesSection({
-  title,
-  description,
-}: {
-  title?: string;
-  description?: string;
-}) {
-  const { t } = useTranslation();
-
-  const displayedCategories = serviceCategories.categories as Category[];
-
+/**
+ * Homepage services block: life-event shortcuts into /services, plus the
+ * plain-language step-by-step guides.
+ */
+export default function ServicesSection() {
   return (
     <Section className="max-w-7xl mx-auto">
-      <Heading level={2}>{title || t('services.title')}</Heading>
-      <Text className="text-gray-600 mb-6">
-        {description || t('services.description')}
-      </Text>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {displayedCategories.map(category => (
-          <Card
-            key={category.slug}
-            hoverable
-            className="card-fade-in border-primary-100 hover:bg-blue-50"
-          >
-            <Link
-              to={`/services/${category.slug}`}
-              className="mt-auto text-primary-600 hover:text-primary-700 font-medium transition-colors inline-flex items-center"
-            >
-              <CardContent className="flex flex-col h-full p-6">
-                <div className="flex gap-2">
-                  <div className="bg-primary-100 text-primary-600 px-3 py-2 rounded-full mb-4 self-start">
-                    <RemixIcon iconClass={category.icon} className="text-xl" />
-                  </div>
-
-                  <h2 className="text-md font-medium mb-4 text-gray-900 self-center">
-                    {category.category}
-                  </h2>
-                </div>
-                <Text className="text-gray-800 text-sm font-light">
-                  {category.description}
-                </Text>
-              </CardContent>
-            </Link>
-          </Card>
-        ))}
+      <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <Heading level={2}>Services</Heading>
+          <Text className="text-gray-600">
+            Know what to bring, where to go and how much it costs before you
+            visit the Municipal Hall.
+          </Text>
+        </div>
+        <Link
+          to="/services"
+          className="inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-700"
+        >
+          View all services
+          <i aria-hidden="true" className="ri-arrow-right-line ml-1" />
+        </Link>
       </div>
+
+      <h3 className="mb-3 text-lg font-semibold text-gray-900">
+        What do you need to do?
+      </h3>
+      <ul className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {lifeEvents.map(event => {
+          const guideCount = event.items.filter(item => item.guide).length;
+          return (
+            <li key={event.slug}>
+              <Link
+                to={`/services#${event.slug}`}
+                className="card-fade-in group flex h-full items-center gap-3 rounded-lg border border-primary-100 bg-white p-4 shadow-sm transition hover:border-primary-300 hover:bg-blue-50"
+              >
+                <span
+                  aria-hidden="true"
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700"
+                >
+                  <i className={cn(event.icon, 'text-lg')} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-medium text-gray-900 group-hover:text-primary-700">
+                    {event.title}
+                  </span>
+                  <span className="block text-xs text-gray-500">
+                    {event.items.length}{' '}
+                    {event.items.length === 1 ? 'service' : 'services'}
+                    {guideCount > 0 &&
+                      ` · ${guideCount} ${guideCount === 1 ? 'guide' : 'guides'}`}
+                  </span>
+                </span>
+                <i
+                  aria-hidden="true"
+                  className="ri-arrow-right-s-line text-lg text-gray-400 group-hover:text-primary-600"
+                />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      {serviceGuides.length > 0 && (
+        <>
+          <h3 className="mb-3 text-lg font-semibold text-gray-900">
+            Step-by-step guides
+          </h3>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {serviceGuides.map(guide => (
+              <GuideCard key={guide.slug} guide={guide} />
+            ))}
+          </div>
+        </>
+      )}
     </Section>
   );
 }

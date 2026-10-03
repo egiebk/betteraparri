@@ -276,7 +276,8 @@ export default function ServicesLanding() {
                 {resolvedEvents.map(event => (
                   <Card
                     key={event.slug}
-                    className="card-fade-in h-full border-primary-100"
+                    id={event.slug}
+                    className="card-fade-in h-full scroll-mt-24 border-primary-100 target:ring-2 target:ring-primary-400"
                   >
                     <CardContent className="p-5">
                       <div className="mb-3 flex items-start gap-3">
