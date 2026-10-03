@@ -1,106 +1,2358 @@
 {
-  "highlightStats": [
-    {
-      "label": "CMCI Overall",
-      "value": "29.4233",
-      "detail": "322nd in 2024 CMCI rankings",
-      "icon": "ri-trophy-line",
-      "tone": "accent"
-    },
-    {
-      "label": "Best CMCI Rank",
-      "value": "103rd",
-      "detail": "Economic Dynamism pillar",
-      "icon": "ri-rocket-line",
-      "tone": "secondary"
-    }
-  ],
-  "cmciPillars": [
-    {
-      "pillar": "Economic Dynamism",
-      "rank": "103rd",
-      "score": 3.9471,
-      "tone": "bg-primary-500",
-      "description": "Economic performance and business environment"
-    },
-    {
-      "pillar": "Government Efficiency",
-      "rank": "362nd",
-      "score": 7.8808,
-      "description": "Quality of governance and public services"
-    },
-    {
-      "pillar": "Infrastructure",
-      "rank": "147th",
-      "score": 2.6046,
-      "description": "Physical and digital infrastructure quality"
-    },
-    {
-      "pillar": "Resiliency",
-      "rank": "369th",
-      "score": 11.2245,
-      "description": "Disaster preparedness and adaptive capacity"
-    },
-    {
-      "pillar": "Innovation",
-      "rank": "379th",
-      "score": 3.7663,
-      "description": "Adoption of new technologies and practices"
-    }
-  ],
-  "overallRank": "322nd",
-  "overallScore": 29.4233,
+  "lgu": "Aparri",
+  "province": "Cagayan",
+  "category": "1st to 2nd Class Municipalities",
+  "categoryPlain": "1st and 2nd class municipalities",
   "municipalityClass": "First Class",
   "cmciPopulationBasis": 68839,
-  "cmciProfile": {
-    "rank": 108,
-    "lgu": "Aparri",
-    "ranking2023": 333,
-    "improvement": 11
-  },
+  "pillarInfo": [
+    {
+      "key": "ed",
+      "officialName": "Economic Dynamism",
+      "plainName": "Local economy",
+      "description": "How big, growing and affordable the local economy is for businesses and workers."
+    },
+    {
+      "key": "ge",
+      "officialName": "Government Efficiency",
+      "plainName": "Government services",
+      "description": "How quick, reliable and well-staffed town hall and public services are."
+    },
+    {
+      "key": "in",
+      "officialName": "Infrastructure",
+      "plainName": "Infrastructure",
+      "description": "Roads, water and power, transport, schools, health facilities and connectivity."
+    },
+    {
+      "key": "re",
+      "officialName": "Resiliency",
+      "plainName": "Disaster readiness",
+      "description": "How prepared the town is for typhoons, floods and other shocks, and how quickly it can recover."
+    },
+    {
+      "key": "iv",
+      "officialName": "Innovation",
+      "plainName": "Technology and innovation",
+      "description": "How much the town and its people use technology, research and new ideas."
+    }
+  ],
+  "indicatorInfo": [
+    {
+      "key": "les",
+      "pillar": "ed",
+      "officialName": "Local Economy Size",
+      "formerNames": [],
+      "plainName": "Size of the local economy",
+      "description": "How much business happens in town: total sales of businesses, new business registrations, and the money invested in them."
+    },
+    {
+      "key": "leg",
+      "pillar": "ed",
+      "officialName": "Local Economy Growth",
+      "formerNames": [],
+      "plainName": "Economic growth",
+      "description": "How fast business sales, registrations and investments grew compared with the year before."
+    },
+    {
+      "key": "sle",
+      "pillar": "ed",
+      "officialName": "Active Establishments in the Locality",
+      "formerNames": ["Local Economy Structure"],
+      "plainName": "Number of active businesses",
+      "description": "How many businesses are registered and operating in town."
+    },
+    {
+      "key": "scb",
+      "pillar": "ed",
+      "officialName": "Safety Compliant Business",
+      "formerNames": [],
+      "plainName": "Businesses with safety permits",
+      "description": "How many businesses have both an occupancy permit and a passed fire safety inspection."
+    },
+    {
+      "key": "job",
+      "pillar": "ed",
+      "officialName": "Employment Generation",
+      "formerNames": ["Increase in Employment"],
+      "plainName": "Jobs created",
+      "description": "How many jobs local businesses provided or added."
+    },
+    {
+      "key": "col",
+      "pillar": "ed",
+      "officialName": "Cost of Living",
+      "formerNames": [],
+      "plainName": "Cost of living",
+      "description": "Prices of basic needs such as food, clothing and housing. Lower prices score better."
+    },
+    {
+      "key": "cdb",
+      "pillar": "ed",
+      "officialName": "Cost of Doing Business",
+      "formerNames": [],
+      "plainName": "Cost of doing business",
+      "description": "Local costs of water, electricity, fuel, rent, land and labor. Lower costs score better."
+    },
+    {
+      "key": "fd",
+      "pillar": "ed",
+      "officialName": "Financial Deepening",
+      "formerNames": [],
+      "plainName": "Banks and lenders",
+      "description": "How many banks, cooperatives, pawnshops and other financial institutions operate in town."
+    },
+    {
+      "key": "pro",
+      "pillar": "ed",
+      "officialName": "Productivity",
+      "formerNames": [],
+      "plainName": "Business productivity",
+      "description": "How much local businesses produce for every worker they employ."
+    },
+    {
+      "key": "pbpo",
+      "pillar": "ed",
+      "officialName": "Presence of Business and Professional Organizations",
+      "formerNames": [],
+      "plainName": "Business and professional groups",
+      "description": "Whether chambers of commerce and business or professional associations are active in town."
+    },
+    {
+      "key": "cnd",
+      "pillar": "ge",
+      "officialName": "Compliance to National Directives",
+      "formerNames": [],
+      "plainName": "Following national requirements",
+      "description": "Whether the town completes plans and reports required by national agencies, such as an updated land use plan and disaster plan."
+    },
+    {
+      "key": "pipu",
+      "pillar": "ge",
+      "officialName": "Presence of Investment Promotion Unit",
+      "formerNames": [],
+      "plainName": "Investment promotion office",
+      "description": "Whether the town has an office that helps investors and promotes local business."
+    },
+    {
+      "key": "bre",
+      "pillar": "ge",
+      "officialName": "Compliance to ARTA Citizens Charter",
+      "formerNames": ["Business Registration Efficiency"],
+      "plainName": "Clear and fast public service",
+      "description": "Whether the town hall publishes and follows a Citizen's Charter under the Anti-Red Tape Authority (ARTA) rules. Before 2022, this measured how quickly businesses could register."
+    },
+    {
+      "key": "rat",
+      "pillar": "ge",
+      "officialName": "Capacity to Generate Local Resource",
+      "formerNames": [],
+      "plainName": "Ability to raise its own income",
+      "description": "How much the town collects from its own taxes and fees, compared with what it gets from the national government."
+    },
+    {
+      "key": "chs",
+      "pillar": "ge",
+      "officialName": "Capacity of Health Services",
+      "formerNames": [],
+      "plainName": "Doctors, nurses and midwives",
+      "description": "Number of health workers in public and private facilities, compared with the population."
+    },
+    {
+      "key": "css",
+      "pillar": "ge",
+      "officialName": "Capacity of School Services",
+      "formerNames": [],
+      "plainName": "High school teachers",
+      "description": "Number of public and private high school teachers, compared with the number of high school-age residents."
+    },
+    {
+      "key": "lgua",
+      "pillar": "ge",
+      "officialName": "Recognition of Performance",
+      "formerNames": [],
+      "plainName": "Awards for good governance",
+      "description": "Number of awards the town received for good performance."
+    },
+    {
+      "key": "bpls",
+      "pillar": "ge",
+      "officialName": "Getting Business Permits",
+      "formerNames": [
+        "Compliance to Business Permits and Licensing System (BPLS) Standards"
+      ],
+      "plainName": "Getting a business permit",
+      "description": "How fast and simple it is to get a Mayor's Permit."
+    },
+    {
+      "key": "pao",
+      "pillar": "ge",
+      "officialName": "Peace and Order",
+      "formerNames": [],
+      "plainName": "Police presence",
+      "description": "Number of police officers in town, compared with the population."
+    },
+    {
+      "key": "sp",
+      "pillar": "ge",
+      "officialName": "Social Protection",
+      "formerNames": [],
+      "plainName": "PhilHealth coverage",
+      "description": "How many residents are registered with PhilHealth."
+    },
+    {
+      "key": "road",
+      "pillar": "in",
+      "officialName": "Road Network",
+      "formerNames": [],
+      "plainName": "Road network",
+      "description": "Total length of roads and bridges, compared with the town's land area."
+    },
+    {
+      "key": "dtp",
+      "pillar": "in",
+      "officialName": "Distance to Ports",
+      "formerNames": [],
+      "plainName": "Distance to ports and terminals",
+      "description": "How far the town center is from the nearest airport, seaport and bus or jeepney terminals."
+    },
+    {
+      "key": "abu",
+      "pillar": "in",
+      "officialName": "Availability of Basic Utilities",
+      "formerNames": [],
+      "plainName": "Water and power service",
+      "description": "How reliable and widely available water and electricity are."
+    },
+    {
+      "key": "trans",
+      "pillar": "in",
+      "officialName": "Transportation Vehicles",
+      "formerNames": [],
+      "plainName": "Public transport vehicles",
+      "description": "Number of public vehicles such as tricycles, jeepneys and vans recognized by the town."
+    },
+    {
+      "key": "edu",
+      "pillar": "in",
+      "officialName": "Education",
+      "formerNames": [],
+      "plainName": "School facilities",
+      "description": "Classrooms and other education facilities available for the population."
+    },
+    {
+      "key": "hea",
+      "pillar": "in",
+      "officialName": "Health",
+      "formerNames": [],
+      "plainName": "Health facilities",
+      "description": "Hospitals, clinics and health centers available for the population."
+    },
+    {
+      "key": "inv",
+      "pillar": "in",
+      "officialName": "LGU Investment",
+      "formerNames": [],
+      "plainName": "Town spending on infrastructure",
+      "description": "How much of its budget the town spends on infrastructure."
+    },
+    {
+      "key": "acc",
+      "pillar": "in",
+      "officialName": "Accommodation Capacity",
+      "formerNames": [],
+      "plainName": "Hotel and lodging rooms",
+      "description": "Number of rooms in accredited hotels, inns and resorts."
+    },
+    {
+      "key": "ict",
+      "pillar": "in",
+      "officialName": "Information Technology Capacity",
+      "formerNames": [],
+      "plainName": "Telecom and internet capacity",
+      "description": "Telecommunication and internet capacity available in town."
+    },
+    {
+      "key": "atm",
+      "pillar": "in",
+      "officialName": "Financial Technology Capacity",
+      "formerNames": [],
+      "plainName": "ATMs",
+      "description": "Number of automated teller machines (ATMs) in town."
+    },
+    {
+      "key": "lup",
+      "pillar": "re",
+      "officialName": "Land Use Plan",
+      "formerNames": [],
+      "plainName": "Land use plan",
+      "description": "Whether the town has an updated Comprehensive Land Use Plan, with an office and staff to carry it out."
+    },
+    {
+      "key": "drrp",
+      "pillar": "re",
+      "officialName": "Disaster Risk Reduction Plan",
+      "formerNames": [],
+      "plainName": "Disaster plan",
+      "description": "Whether the town has a disaster risk reduction and management plan, as required by law."
+    },
+    {
+      "key": "add",
+      "pillar": "re",
+      "officialName": "Annual Disaster Drill",
+      "formerNames": [],
+      "plainName": "Disaster drills",
+      "description": "Whether the town holds and records yearly disaster drills."
+    },
+    {
+      "key": "ews",
+      "pillar": "re",
+      "officialName": "Early Warning System",
+      "formerNames": [],
+      "plainName": "Early warning system",
+      "description": "Whether the town has a warning system that connects emergency responders and barangays."
+    },
+    {
+      "key": "drrmp",
+      "pillar": "re",
+      "officialName": "Budget for DRRMP",
+      "formerNames": [],
+      "plainName": "Disaster budget",
+      "description": "How much of the town budget is set aside for disaster preparedness and response."
+    },
+    {
+      "key": "lra",
+      "pillar": "re",
+      "officialName": "Local Risk Assessments",
+      "formerNames": [],
+      "plainName": "Hazard maps and risk profile",
+      "description": "Whether the town has hazard maps and a study of its disaster risks."
+    },
+    {
+      "key": "ei",
+      "pillar": "re",
+      "officialName": "Emergency Infrastructure",
+      "formerNames": [],
+      "plainName": "Emergency vehicles",
+      "description": "Number of vehicles ready for emergencies, such as ambulances and rescue trucks."
+    },
+    {
+      "key": "util",
+      "pillar": "re",
+      "officialName": "Utilities",
+      "formerNames": [],
+      "plainName": "Backup water and power",
+      "description": "Whether the town has water and power sources, generators and backups for emergencies."
+    },
+    {
+      "key": "ep",
+      "pillar": "re",
+      "officialName": "Employed Population",
+      "formerNames": [],
+      "plainName": "Residents with jobs",
+      "description": "Number of employed people, compared with the total population."
+    },
+    {
+      "key": "ss",
+      "pillar": "re",
+      "officialName": "Sanitary System",
+      "formerNames": [],
+      "plainName": "Garbage and sanitation",
+      "description": "Garbage collection, waste segregation, a sanitary landfill and a recycling facility."
+    },
+    {
+      "key": "itp",
+      "pillar": "iv",
+      "officialName": "ICT Plan",
+      "formerNames": [],
+      "plainName": "Technology plan",
+      "description": "Whether the town has a plan for using information and communications technology (ICT)."
+    },
+    {
+      "key": "ivf",
+      "pillar": "iv",
+      "officialName": "Innovation Financing: R&D Expenditures Allotment",
+      "formerNames": [],
+      "plainName": "Research budget",
+      "description": "How much the town sets aside for research and development."
+    },
+    {
+      "key": "ebpls",
+      "pillar": "iv",
+      "officialName": "ICT Use: E-BPLS Software",
+      "formerNames": [],
+      "plainName": "Online business permit system",
+      "description": "Whether business permits can be applied for and processed electronically."
+    },
+    {
+      "key": "opf",
+      "pillar": "iv",
+      "officialName": "Online Payment Facilities",
+      "formerNames": [],
+      "plainName": "Online payments",
+      "description": "Whether residents and businesses can pay town fees and taxes online."
+    },
+    {
+      "key": "stg",
+      "pillar": "iv",
+      "officialName": "STEM graduates",
+      "formerNames": [],
+      "plainName": "STEM graduates",
+      "description": "Number of college graduates in science, technology, engineering, arts and math."
+    },
+    {
+      "key": "ipop",
+      "pillar": "iv",
+      "officialName": "Intellectual Property Registration",
+      "formerNames": [],
+      "plainName": "Patents and trademarks",
+      "description": "Number of patents, trademarks and other intellectual property registered from the town."
+    },
+    {
+      "key": "intc",
+      "pillar": "iv",
+      "officialName": "Internet Capability",
+      "formerNames": [],
+      "plainName": "Internet speed and free Wi-Fi",
+      "description": "Internet speed and free public internet access points in town."
+    },
+    {
+      "key": "abis",
+      "pillar": "iv",
+      "officialName": "Availability of Basic Internet Service",
+      "formerNames": [],
+      "plainName": "Households with internet",
+      "description": "Share of households with an internet connection."
+    },
+    {
+      "key": "stup",
+      "pillar": "iv",
+      "officialName": "Start Up and Innovation Facilities",
+      "formerNames": [],
+      "plainName": "Startups and innovation hubs",
+      "description": "Startups and facilities that support new products, services and business ideas."
+    },
+    {
+      "key": "newt",
+      "pillar": "iv",
+      "officialName": "New Technology",
+      "formerNames": [],
+      "plainName": "Use of new technology",
+      "description": "Use of new technologies, such as automation or artificial intelligence, in the locality."
+    }
+  ],
+  "years": [
+    {
+      "year": 2018,
+      "cohortSize": 489,
+      "overallRank": 93,
+      "overallScore": null,
+      "pillarWeight": 25,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 164,
+          "score": null,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 148,
+              "score": 0.0382
+            },
+            {
+              "key": "leg",
+              "rank": 142,
+              "score": 0.0163
+            },
+            {
+              "key": "sle",
+              "rank": 156,
+              "score": 0.3136
+            },
+            {
+              "key": "scb",
+              "rank": 39,
+              "score": 0.5218
+            },
+            {
+              "key": "job",
+              "rank": 95,
+              "score": 0.1369
+            },
+            {
+              "key": "col",
+              "rank": 313,
+              "score": 1.2963
+            },
+            {
+              "key": "cdb",
+              "rank": 214,
+              "score": 2.1102
+            },
+            {
+              "key": "fd",
+              "rank": 140,
+              "score": 0.0884
+            },
+            {
+              "key": "pro",
+              "rank": 277,
+              "score": 0.0023
+            },
+            {
+              "key": "pbpo",
+              "rank": 99,
+              "score": 0.0672
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 123,
+          "score": null,
+          "indicators": []
+        },
+        {
+          "key": "in",
+          "rank": 78,
+          "score": null,
+          "indicators": []
+        },
+        {
+          "key": "re",
+          "rank": 210,
+          "score": null,
+          "indicators": []
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "cohortSize": 489,
+      "overallRank": 146,
+      "overallScore": 36.8006,
+      "pillarWeight": 25,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 146,
+          "score": 4.2909,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 262,
+              "score": 0.005
+            },
+            {
+              "key": "leg",
+              "rank": 434,
+              "score": 0.0003
+            },
+            {
+              "key": "sle",
+              "rank": 133,
+              "score": 0.186
+            },
+            {
+              "key": "scb",
+              "rank": 135,
+              "score": 0.209
+            },
+            {
+              "key": "job",
+              "rank": 142,
+              "score": 0.156
+            },
+            {
+              "key": "col",
+              "rank": 219,
+              "score": 1.1905
+            },
+            {
+              "key": "cdb",
+              "rank": 232,
+              "score": 2.0164
+            },
+            {
+              "key": "fd",
+              "rank": 64,
+              "score": 0.4924
+            },
+            {
+              "key": "pro",
+              "rank": 179,
+              "score": 0.0012
+            },
+            {
+              "key": "pbpo",
+              "rank": 121,
+              "score": 0.034
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 197,
+          "score": 10.2495,
+          "indicators": [
+            {
+              "key": "cnd",
+              "rank": 106,
+              "score": 2.4
+            },
+            {
+              "key": "pipu",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "bre",
+              "rank": 362,
+              "score": 2.1711
+            },
+            {
+              "key": "rat",
+              "rank": 250,
+              "score": 0.0867
+            },
+            {
+              "key": "chs",
+              "rank": 75,
+              "score": 0.2404
+            },
+            {
+              "key": "css",
+              "rank": 465,
+              "score": 0
+            },
+            {
+              "key": "lgua",
+              "rank": 313,
+              "score": 0.0722
+            },
+            {
+              "key": "bpls",
+              "rank": 137,
+              "score": 2.4788
+            },
+            {
+              "key": "pao",
+              "rank": 185,
+              "score": 0.0287
+            },
+            {
+              "key": "sp",
+              "rank": 250,
+              "score": 0.2717
+            }
+          ]
+        },
+        {
+          "key": "in",
+          "rank": 162,
+          "score": 5.8404,
+          "indicators": [
+            {
+              "key": "road",
+              "rank": 227,
+              "score": 0.0361
+            },
+            {
+              "key": "dtp",
+              "rank": 134,
+              "score": 2.3989
+            },
+            {
+              "key": "abu",
+              "rank": 392,
+              "score": 1.9057
+            },
+            {
+              "key": "trans",
+              "rank": 18,
+              "score": 0.222
+            },
+            {
+              "key": "edu",
+              "rank": 334,
+              "score": 0.0716
+            },
+            {
+              "key": "hea",
+              "rank": 133,
+              "score": 0.1794
+            },
+            {
+              "key": "inv",
+              "rank": 158,
+              "score": 0.3375
+            },
+            {
+              "key": "acc",
+              "rank": 120,
+              "score": 0.019
+            },
+            {
+              "key": "ict",
+              "rank": 70,
+              "score": 0.4257
+            },
+            {
+              "key": "atm",
+              "rank": 84,
+              "score": 0.2445
+            }
+          ]
+        },
+        {
+          "key": "re",
+          "rank": 258,
+          "score": 16.4197,
+          "indicators": [
+            {
+              "key": "lup",
+              "rank": 287,
+              "score": 2.4359
+            },
+            {
+              "key": "drrp",
+              "rank": 382,
+              "score": 2.3611
+            },
+            {
+              "key": "add",
+              "rank": 52,
+              "score": 2.25
+            },
+            {
+              "key": "ews",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "drrmp",
+              "rank": 206,
+              "score": 0.2068
+            },
+            {
+              "key": "lra",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "ei",
+              "rank": 352,
+              "score": 0.4725
+            },
+            {
+              "key": "util",
+              "rank": 226,
+              "score": 1.8773
+            },
+            {
+              "key": "ep",
+              "rank": 134,
+              "score": 0.054
+            },
+            {
+              "key": "ss",
+              "rank": 325,
+              "score": 1.7621
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "cohortSize": 489,
+      "overallRank": 155,
+      "overallScore": 37.569,
+      "pillarWeight": 25,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 182,
+          "score": 4.6313,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 200,
+              "score": 0.0112
+            },
+            {
+              "key": "leg",
+              "rank": 112,
+              "score": 0.3316
+            },
+            {
+              "key": "sle",
+              "rank": 457,
+              "score": 0.0435
+            },
+            {
+              "key": "scb",
+              "rank": 162,
+              "score": 0.1651
+            },
+            {
+              "key": "job",
+              "rank": 183,
+              "score": 0.107
+            },
+            {
+              "key": "col",
+              "rank": 156,
+              "score": 1.2069
+            },
+            {
+              "key": "cdb",
+              "rank": 279,
+              "score": 2.158
+            },
+            {
+              "key": "fd",
+              "rank": 66,
+              "score": 0.4943
+            },
+            {
+              "key": "pro",
+              "rank": 178,
+              "score": 0.0759
+            },
+            {
+              "key": "pbpo",
+              "rank": 172,
+              "score": 0.0377
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 182,
+          "score": 10.4375,
+          "indicators": [
+            {
+              "key": "cnd",
+              "rank": 199,
+              "score": 2.4242
+            },
+            {
+              "key": "pipu",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "bre",
+              "rank": 270,
+              "score": 2.3986
+            },
+            {
+              "key": "rat",
+              "rank": 330,
+              "score": 0.0771
+            },
+            {
+              "key": "chs",
+              "rank": 93,
+              "score": 0.1761
+            },
+            {
+              "key": "css",
+              "rank": 391,
+              "score": 0.0694
+            },
+            {
+              "key": "lgua",
+              "rank": 296,
+              "score": 0.0172
+            },
+            {
+              "key": "bpls",
+              "rank": 163,
+              "score": 2.4704
+            },
+            {
+              "key": "pao",
+              "rank": 210,
+              "score": 0.0263
+            },
+            {
+              "key": "sp",
+              "rank": 251,
+              "score": 0.2782
+            }
+          ]
+        },
+        {
+          "key": "in",
+          "rank": 247,
+          "score": 5.5605,
+          "indicators": [
+            {
+              "key": "road",
+              "rank": 289,
+              "score": 0.0006
+            },
+            {
+              "key": "dtp",
+              "rank": 38,
+              "score": 2.4981
+            },
+            {
+              "key": "abu",
+              "rank": 387,
+              "score": 1.9813
+            },
+            {
+              "key": "trans",
+              "rank": 19,
+              "score": 0.2229
+            },
+            {
+              "key": "edu",
+              "rank": 118,
+              "score": 0.1361
+            },
+            {
+              "key": "hea",
+              "rank": 159,
+              "score": 0.1868
+            },
+            {
+              "key": "inv",
+              "rank": 197,
+              "score": 0.1778
+            },
+            {
+              "key": "acc",
+              "rank": 173,
+              "score": 0.0074
+            },
+            {
+              "key": "ict",
+              "rank": 468,
+              "score": 0.1108
+            },
+            {
+              "key": "atm",
+              "rank": 84,
+              "score": 0.2389
+            }
+          ]
+        },
+        {
+          "key": "re",
+          "rank": 194,
+          "score": 16.9397,
+          "indicators": [
+            {
+              "key": "lup",
+              "rank": 151,
+              "score": 2.4744
+            },
+            {
+              "key": "drrp",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "add",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "ews",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "drrmp",
+              "rank": 260,
+              "score": 0.1304
+            },
+            {
+              "key": "lra",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "ei",
+              "rank": 344,
+              "score": 0.4797
+            },
+            {
+              "key": "util",
+              "rank": 262,
+              "score": 1.8771
+            },
+            {
+              "key": "ep",
+              "rank": 242,
+              "score": 0.0196
+            },
+            {
+              "key": "ss",
+              "rank": 290,
+              "score": 1.9585
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "cohortSize": 508,
+      "overallRank": 242,
+      "overallScore": 32.053,
+      "pillarWeight": 25,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 336,
+          "score": 4.2291,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 190,
+              "score": 0.0279
+            },
+            {
+              "key": "leg",
+              "rank": 248,
+              "score": 0.0026
+            },
+            {
+              "key": "sle",
+              "rank": 213,
+              "score": 0.2589
+            },
+            {
+              "key": "scb",
+              "rank": 151,
+              "score": 0.2076
+            },
+            {
+              "key": "job",
+              "rank": 124,
+              "score": 0.1736
+            },
+            {
+              "key": "col",
+              "rank": 38,
+              "score": 0.7813
+            },
+            {
+              "key": "cdb",
+              "rank": 259,
+              "score": 2.1832
+            },
+            {
+              "key": "fd",
+              "rank": 72,
+              "score": 0.4524
+            },
+            {
+              "key": "pro",
+              "rank": 173,
+              "score": 0.1047
+            },
+            {
+              "key": "pbpo",
+              "rank": 244,
+              "score": 0.0369
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 186,
+          "score": 9.4363,
+          "indicators": [
+            {
+              "key": "cnd",
+              "rank": 5,
+              "score": 2.2619
+            },
+            {
+              "key": "pipu",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "bre",
+              "rank": 111,
+              "score": 2.1365
+            },
+            {
+              "key": "rat",
+              "rank": 302,
+              "score": 0.0102
+            },
+            {
+              "key": "chs",
+              "rank": 83,
+              "score": 0.2936
+            },
+            {
+              "key": "css",
+              "rank": 486,
+              "score": 0
+            },
+            {
+              "key": "lgua",
+              "rank": 60,
+              "score": 0.1075
+            },
+            {
+              "key": "bpls",
+              "rank": 183,
+              "score": 1.8181
+            },
+            {
+              "key": "pao",
+              "rank": 56,
+              "score": 0.0696
+            },
+            {
+              "key": "sp",
+              "rank": 254,
+              "score": 0.2389
+            }
+          ]
+        },
+        {
+          "key": "in",
+          "rank": 343,
+          "score": 5.0677,
+          "indicators": [
+            {
+              "key": "road",
+              "rank": 224,
+              "score": 0.0652
+            },
+            {
+              "key": "dtp",
+              "rank": 107,
+              "score": 2.4259
+            },
+            {
+              "key": "abu",
+              "rank": 287,
+              "score": 1.8751
+            },
+            {
+              "key": "trans",
+              "rank": 66,
+              "score": 0.0603
+            },
+            {
+              "key": "edu",
+              "rank": 67,
+              "score": 0.1799
+            },
+            {
+              "key": "hea",
+              "rank": 255,
+              "score": 0.1508
+            },
+            {
+              "key": "inv",
+              "rank": 174,
+              "score": 0.0235
+            },
+            {
+              "key": "acc",
+              "rank": 272,
+              "score": 0.0028
+            },
+            {
+              "key": "ict",
+              "rank": 30,
+              "score": 0.0455
+            },
+            {
+              "key": "atm",
+              "rank": 77,
+              "score": 0.2389
+            }
+          ]
+        },
+        {
+          "key": "re",
+          "rank": 244,
+          "score": 13.3198,
+          "indicators": [
+            {
+              "key": "lup",
+              "rank": 5,
+              "score": 2.4091
+            },
+            {
+              "key": "drrp",
+              "rank": 3,
+              "score": 2.4474
+            },
+            {
+              "key": "add",
+              "rank": 36,
+              "score": 1.2667
+            },
+            {
+              "key": "ews",
+              "rank": 73,
+              "score": 1.2591
+            },
+            {
+              "key": "drrmp",
+              "rank": 131,
+              "score": 0.0215
+            },
+            {
+              "key": "lra",
+              "rank": 1,
+              "score": 2.5
+            },
+            {
+              "key": "ei",
+              "rank": 213,
+              "score": 0.2744
+            },
+            {
+              "key": "util",
+              "rank": 355,
+              "score": 1.2575
+            },
+            {
+              "key": "ep",
+              "rank": 215,
+              "score": 0.009
+            },
+            {
+              "key": "ss",
+              "rank": 74,
+              "score": 1.8752
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "cohortSize": 511,
+      "overallRank": 192,
+      "overallScore": 29.9049,
+      "pillarWeight": 20,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 214,
+          "score": 4.3322,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 145,
+              "score": 0.0201
+            },
+            {
+              "key": "leg",
+              "rank": 19,
+              "score": 0
+            },
+            {
+              "key": "sle",
+              "rank": 248,
+              "score": 0.1809
+            },
+            {
+              "key": "scb",
+              "rank": 3,
+              "score": 0
+            },
+            {
+              "key": "job",
+              "rank": 260,
+              "score": 0.0683
+            },
+            {
+              "key": "col",
+              "rank": 57,
+              "score": 1.7308
+            },
+            {
+              "key": "cdb",
+              "rank": 259,
+              "score": 1.8426
+            },
+            {
+              "key": "fd",
+              "rank": 78,
+              "score": 0.4325
+            },
+            {
+              "key": "pro",
+              "rank": 210,
+              "score": 0.0514
+            },
+            {
+              "key": "pbpo",
+              "rank": 121,
+              "score": 0.0056
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 125,
+          "score": 7.8758,
+          "indicators": [
+            {
+              "key": "cnd",
+              "rank": 6,
+              "score": 1.8214
+            },
+            {
+              "key": "pipu",
+              "rank": 8,
+              "score": 1.8206
+            },
+            {
+              "key": "bre",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "rat",
+              "rank": 141,
+              "score": 0.0051
+            },
+            {
+              "key": "chs",
+              "rank": 44,
+              "score": 0.004
+            },
+            {
+              "key": "css",
+              "rank": 23,
+              "score": 0.1078
+            },
+            {
+              "key": "lgua",
+              "rank": 113,
+              "score": 0.1155
+            },
+            {
+              "key": "bpls",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "pao",
+              "rank": 121,
+              "score": 0.0001
+            },
+            {
+              "key": "sp",
+              "rank": 12,
+              "score": 0.0013
+            }
+          ]
+        },
+        {
+          "key": "in",
+          "rank": 108,
+          "score": 2.5696,
+          "indicators": [
+            {
+              "key": "road",
+              "rank": 53,
+              "score": 0.0003
+            },
+            {
+              "key": "dtp",
+              "rank": 58,
+              "score": 1.9405
+            },
+            {
+              "key": "abu",
+              "rank": 207,
+              "score": 0.0608
+            },
+            {
+              "key": "trans",
+              "rank": 55,
+              "score": 0.0623
+            },
+            {
+              "key": "edu",
+              "rank": 99,
+              "score": 0.1391
+            },
+            {
+              "key": "hea",
+              "rank": 156,
+              "score": 0.1882
+            },
+            {
+              "key": "inv",
+              "rank": 40,
+              "score": 0.0012
+            },
+            {
+              "key": "acc",
+              "rank": 192,
+              "score": 0.0038
+            },
+            {
+              "key": "ict",
+              "rank": 43,
+              "score": 0.0441
+            },
+            {
+              "key": "atm",
+              "rank": 33,
+              "score": 0.1293
+            }
+          ]
+        },
+        {
+          "key": "re",
+          "rank": 307,
+          "score": 11.3081,
+          "indicators": [
+            {
+              "key": "lup",
+              "rank": 6,
+              "score": 1.9242
+            },
+            {
+              "key": "drrp",
+              "rank": 2,
+              "score": 1.9998
+            },
+            {
+              "key": "add",
+              "rank": 46,
+              "score": 1.004
+            },
+            {
+              "key": "ews",
+              "rank": 87,
+              "score": 1.0087
+            },
+            {
+              "key": "drrmp",
+              "rank": 4,
+              "score": 0
+            },
+            {
+              "key": "lra",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "ei",
+              "rank": 330,
+              "score": 0.362
+            },
+            {
+              "key": "util",
+              "rank": 185,
+              "score": 1.5027
+            },
+            {
+              "key": "ep",
+              "rank": 226,
+              "score": 0.0065
+            },
+            {
+              "key": "ss",
+              "rank": 46,
+              "score": 1.5002
+            }
+          ]
+        },
+        {
+          "key": "iv",
+          "rank": 260,
+          "score": 3.8192,
+          "indicators": [
+            {
+              "key": "itp",
+              "rank": 3,
+              "score": 0.6667
+            },
+            {
+              "key": "ivf",
+              "rank": 100,
+              "score": 0
+            },
+            {
+              "key": "ebpls",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "opf",
+              "rank": 2,
+              "score": 0
+            },
+            {
+              "key": "stg",
+              "rank": 137,
+              "score": 0.0023
+            },
+            {
+              "key": "ipop",
+              "rank": 67,
+              "score": 0.048
+            },
+            {
+              "key": "intc",
+              "rank": 40,
+              "score": 1.0238
+            },
+            {
+              "key": "abis",
+              "rank": 162,
+              "score": 0
+            },
+            {
+              "key": "stup",
+              "rank": 104,
+              "score": 0.0784
+            },
+            {
+              "key": "newt",
+              "rank": 14,
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "cohortSize": 511,
+      "overallRank": 333,
+      "overallScore": 29.4493,
+      "pillarWeight": 20,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 241,
+          "score": 3.3014,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 169,
+              "score": 0.0219
+            },
+            {
+              "key": "leg",
+              "rank": 66,
+              "score": 0.0006
+            },
+            {
+              "key": "sle",
+              "rank": 118,
+              "score": 0.3323
+            },
+            {
+              "key": "scb",
+              "rank": 160,
+              "score": 0.1834
+            },
+            {
+              "key": "job",
+              "rank": 171,
+              "score": 0.1009
+            },
+            {
+              "key": "col",
+              "rank": 52,
+              "score": 0.6463
+            },
+            {
+              "key": "cdb",
+              "rank": 319,
+              "score": 1.5867
+            },
+            {
+              "key": "fd",
+              "rank": 132,
+              "score": 0.3686
+            },
+            {
+              "key": "pro",
+              "rank": 216,
+              "score": 0.0549
+            },
+            {
+              "key": "pbpo",
+              "rank": 124,
+              "score": 0.0058
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 372,
+          "score": 8.2217,
+          "indicators": [
+            {
+              "key": "cnd",
+              "rank": 7,
+              "score": 1.7391
+            },
+            {
+              "key": "pipu",
+              "rank": 9,
+              "score": 1.7949
+            },
+            {
+              "key": "bre",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "rat",
+              "rank": 168,
+              "score": 0.0404
+            },
+            {
+              "key": "chs",
+              "rank": 117,
+              "score": 0.2245
+            },
+            {
+              "key": "css",
+              "rank": 67,
+              "score": 0.1301
+            },
+            {
+              "key": "lgua",
+              "rank": 120,
+              "score": 0.1614
+            },
+            {
+              "key": "bpls",
+              "rank": 2,
+              "score": 1.5
+            },
+            {
+              "key": "pao",
+              "rank": 35,
+              "score": 0.2857
+            },
+            {
+              "key": "sp",
+              "rank": 418,
+              "score": 0.3456
+            }
+          ]
+        },
+        {
+          "key": "in",
+          "rank": 161,
+          "score": 2.8398,
+          "indicators": [
+            {
+              "key": "road",
+              "rank": 55,
+              "score": 0.0003
+            },
+            {
+              "key": "dtp",
+              "rank": 67,
+              "score": 1.8975
+            },
+            {
+              "key": "abu",
+              "rank": 306,
+              "score": 0.4995
+            },
+            {
+              "key": "trans",
+              "rank": 139,
+              "score": 0.0562
+            },
+            {
+              "key": "edu",
+              "rank": 78,
+              "score": 0.1269
+            },
+            {
+              "key": "hea",
+              "rank": 258,
+              "score": 0.0707
+            },
+            {
+              "key": "inv",
+              "rank": 55,
+              "score": 0.002
+            },
+            {
+              "key": "acc",
+              "rank": 242,
+              "score": 0
+            },
+            {
+              "key": "ict",
+              "rank": 51,
+              "score": 0.0793
+            },
+            {
+              "key": "atm",
+              "rank": 47,
+              "score": 0.1074
+            }
+          ]
+        },
+        {
+          "key": "re",
+          "rank": 339,
+          "score": 11.1983,
+          "indicators": [
+            {
+              "key": "lup",
+              "rank": 7,
+              "score": 1.9118
+            },
+            {
+              "key": "drrp",
+              "rank": 4,
+              "score": 1.875
+            },
+            {
+              "key": "add",
+              "rank": 71,
+              "score": 1.0032
+            },
+            {
+              "key": "ews",
+              "rank": 118,
+              "score": 1.0007
+            },
+            {
+              "key": "drrmp",
+              "rank": 82,
+              "score": 0.0355
+            },
+            {
+              "key": "lra",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "ei",
+              "rank": 336,
+              "score": 0.3627
+            },
+            {
+              "key": "util",
+              "rank": 166,
+              "score": 1.5017
+            },
+            {
+              "key": "ep",
+              "rank": 243,
+              "score": 0.007
+            },
+            {
+              "key": "ss",
+              "rank": 80,
+              "score": 1.5007
+            }
+          ]
+        },
+        {
+          "key": "iv",
+          "rank": 327,
+          "score": 3.8881,
+          "indicators": [
+            {
+              "key": "itp",
+              "rank": 3,
+              "score": 0.6667
+            },
+            {
+              "key": "ivf",
+              "rank": 74,
+              "score": 0
+            },
+            {
+              "key": "ebpls",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "opf",
+              "rank": 2,
+              "score": 0
+            },
+            {
+              "key": "stg",
+              "rank": 71,
+              "score": 0.0487
+            },
+            {
+              "key": "ipop",
+              "rank": 98,
+              "score": 0.0259
+            },
+            {
+              "key": "intc",
+              "rank": 55,
+              "score": 1.045
+            },
+            {
+              "key": "abis",
+              "rank": 335,
+              "score": 0
+            },
+            {
+              "key": "stup",
+              "rank": 118,
+              "score": 0.1018
+            },
+            {
+              "key": "newt",
+              "rank": 20,
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "cohortSize": 509,
+      "overallRank": 322,
+      "overallScore": 29.4233,
+      "pillarWeight": 20,
+      "pillars": [
+        {
+          "key": "ed",
+          "rank": 103,
+          "score": 3.9471,
+          "indicators": [
+            {
+              "key": "les",
+              "rank": 180,
+              "score": 0.009
+            },
+            {
+              "key": "leg",
+              "rank": 66,
+              "score": 0.0006
+            },
+            {
+              "key": "sle",
+              "rank": 161,
+              "score": 0.2284
+            },
+            {
+              "key": "scb",
+              "rank": 7,
+              "score": 0.8584
+            },
+            {
+              "key": "job",
+              "rank": 192,
+              "score": 0.0899
+            },
+            {
+              "key": "col",
+              "rank": 43,
+              "score": 0.9899
+            },
+            {
+              "key": "cdb",
+              "rank": 313,
+              "score": 1.4939
+            },
+            {
+              "key": "fd",
+              "rank": 176,
+              "score": 0.2042
+            },
+            {
+              "key": "pro",
+              "rank": 179,
+              "score": 0.0611
+            },
+            {
+              "key": "pbpo",
+              "rank": 146,
+              "score": 0.0117
+            }
+          ]
+        },
+        {
+          "key": "ge",
+          "rank": 362,
+          "score": 7.8808,
+          "indicators": [
+            {
+              "key": "cnd",
+              "rank": 8,
+              "score": 1.72
+            },
+            {
+              "key": "pipu",
+              "rank": 10,
+              "score": 1.7858
+            },
+            {
+              "key": "bre",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "rat",
+              "rank": 362,
+              "score": 0.0209
+            },
+            {
+              "key": "chs",
+              "rank": 370,
+              "score": 0.0061
+            },
+            {
+              "key": "css",
+              "rank": 99,
+              "score": 0.0905
+            },
+            {
+              "key": "lgua",
+              "rank": 137,
+              "score": 0.1493
+            },
+            {
+              "key": "bpls",
+              "rank": 2,
+              "score": 1.5
+            },
+            {
+              "key": "pao",
+              "rank": 46,
+              "score": 0.0928
+            },
+            {
+              "key": "sp",
+              "rank": 175,
+              "score": 0.5154
+            }
+          ]
+        },
+        {
+          "key": "in",
+          "rank": 147,
+          "score": 2.6046,
+          "indicators": [
+            {
+              "key": "road",
+              "rank": 53,
+              "score": 0.0005
+            },
+            {
+              "key": "dtp",
+              "rank": 32,
+              "score": 1.9733
+            },
+            {
+              "key": "abu",
+              "rank": 311,
+              "score": 0.2371
+            },
+            {
+              "key": "trans",
+              "rank": 153,
+              "score": 0.0351
+            },
+            {
+              "key": "edu",
+              "rank": 105,
+              "score": 0.106
+            },
+            {
+              "key": "hea",
+              "rank": 247,
+              "score": 0.1129
+            },
+            {
+              "key": "inv",
+              "rank": 75,
+              "score": 0.0055
+            },
+            {
+              "key": "acc",
+              "rank": 205,
+              "score": 0.0044
+            },
+            {
+              "key": "ict",
+              "rank": 55,
+              "score": 0.0048
+            },
+            {
+              "key": "atm",
+              "rank": 49,
+              "score": 0.125
+            }
+          ]
+        },
+        {
+          "key": "re",
+          "rank": 369,
+          "score": 11.2245,
+          "indicators": [
+            {
+              "key": "lup",
+              "rank": 8,
+              "score": 1.9
+            },
+            {
+              "key": "drrp",
+              "rank": 5,
+              "score": 1.913
+            },
+            {
+              "key": "add",
+              "rank": 103,
+              "score": 1.0034
+            },
+            {
+              "key": "ews",
+              "rank": 66,
+              "score": 1.03
+            },
+            {
+              "key": "drrmp",
+              "rank": 45,
+              "score": 0.002
+            },
+            {
+              "key": "lra",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "ei",
+              "rank": 351,
+              "score": 0.3584
+            },
+            {
+              "key": "util",
+              "rank": 162,
+              "score": 1.5017
+            },
+            {
+              "key": "ep",
+              "rank": 245,
+              "score": 0.016
+            },
+            {
+              "key": "ss",
+              "rank": 22,
+              "score": 1.5
+            }
+          ]
+        },
+        {
+          "key": "iv",
+          "rank": 379,
+          "score": 3.7663,
+          "indicators": [
+            {
+              "key": "itp",
+              "rank": 3,
+              "score": 0.6667
+            },
+            {
+              "key": "ivf",
+              "rank": 43,
+              "score": 0
+            },
+            {
+              "key": "ebpls",
+              "rank": 1,
+              "score": 2
+            },
+            {
+              "key": "opf",
+              "rank": 2,
+              "score": 0
+            },
+            {
+              "key": "stg",
+              "rank": 83,
+              "score": 0.0625
+            },
+            {
+              "key": "ipop",
+              "rank": 120,
+              "score": 0.0243
+            },
+            {
+              "key": "intc",
+              "rank": 71,
+              "score": 1.0013
+            },
+            {
+              "key": "abis",
+              "rank": 371,
+              "score": 0
+            },
+            {
+              "key": "stup",
+              "rank": 142,
+              "score": 0.0115
+            },
+            {
+              "key": "newt",
+              "rank": 32,
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "peerComparison": [
+    {
+      "year": 2024,
+      "lgus": [
+        {
+          "lgu": "Gattaran",
+          "rank": 202,
+          "score": 31.6195,
+          "pillars": {
+            "ed": {
+              "rank": 187,
+              "score": 3.5841
+            },
+            "ge": {
+              "rank": 256,
+              "score": 8.4865
+            },
+            "in": {
+              "rank": 255,
+              "score": 2.4255
+            },
+            "re": {
+              "rank": 323,
+              "score": 11.2784
+            },
+            "iv": {
+              "rank": 196,
+              "score": 5.845
+            }
+          }
+        },
+        {
+          "lgu": "Baggao",
+          "rank": 249,
+          "score": 30.6402,
+          "pillars": {
+            "ed": {
+              "rank": 164,
+              "score": 3.6554
+            },
+            "ge": {
+              "rank": 395,
+              "score": 7.6272
+            },
+            "in": {
+              "rank": 65,
+              "score": 2.8867
+            },
+            "re": {
+              "rank": 162,
+              "score": 11.427
+            },
+            "iv": {
+              "rank": 271,
+              "score": 5.0439
+            }
+          }
+        },
+        {
+          "lgu": "Gonzaga",
+          "rank": 266,
+          "score": 30.3357,
+          "pillars": {
+            "ed": {
+              "rank": 309,
+              "score": 3.1301
+            },
+            "ge": {
+              "rank": 240,
+              "score": 8.5513
+            },
+            "in": {
+              "rank": 167,
+              "score": 2.5686
+            },
+            "re": {
+              "rank": 376,
+              "score": 11.2118
+            },
+            "iv": {
+              "rank": 284,
+              "score": 4.8739
+            }
+          }
+        },
+        {
+          "lgu": "Lal-lo",
+          "rank": 307,
+          "score": 29.7213,
+          "pillars": {
+            "ed": {
+              "rank": 285,
+              "score": 3.2041
+            },
+            "ge": {
+              "rank": 158,
+              "score": 8.823
+            },
+            "in": {
+              "rank": 198,
+              "score": 2.5149
+            },
+            "re": {
+              "rank": 138,
+              "score": 11.4737
+            },
+            "iv": {
+              "rank": 387,
+              "score": 3.7056
+            }
+          }
+        },
+        {
+          "lgu": "Aparri",
+          "rank": 322,
+          "score": 29.4233,
+          "pillars": {
+            "ed": {
+              "rank": 103,
+              "score": 3.9471
+            },
+            "ge": {
+              "rank": 362,
+              "score": 7.8808
+            },
+            "in": {
+              "rank": 147,
+              "score": 2.6046
+            },
+            "re": {
+              "rank": 369,
+              "score": 11.2245
+            },
+            "iv": {
+              "rank": 379,
+              "score": 3.7663
+            }
+          }
+        }
+      ]
+    }
+  ],
   "sourceLinks": [
     {
-      "label": "CMCI Aparri profile",
-      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri"
+      "label": "CMCI rankings: 1st–2nd class municipalities",
+      "href": "https://cmci.dti.gov.ph/rankings-data.php?unit=1st%20to%202nd%20Class%20Municipalities"
+    },
+    {
+      "label": "Aparri profile 2024",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2024"
+    },
+    {
+      "label": "Aparri profile 2023",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2023"
+    },
+    {
+      "label": "Aparri profile 2022",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2022"
+    },
+    {
+      "label": "Aparri profile 2021",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2021"
+    },
+    {
+      "label": "Aparri profile 2020",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2020"
+    },
+    {
+      "label": "Aparri profile 2019",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2019"
+    },
+    {
+      "label": "Aparri profile 2018",
+      "href": "https://cmci.dti.gov.ph/lgu-profile.php?lgu=Aparri&year=2018"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Statistics",
       "title": "Competitiveness",
-      "description": "Aparri's Cities and Municipalities Competitiveness Index results, including overall placement and pillar performance."
+      "description": "How Aparri compares with other towns of the same size in the national Cities and Municipalities Competitiveness Index (CMCI), year by year and topic by topic."
     },
-    "guidance": {
-      "title": "What You Need to Know",
-      "description": "A plain-language summary of the competitiveness indicators below."
-    },
+    "intro": "Every year, the Department of Trade and Industry (DTI) scores cities and towns on five areas: the local economy, government services, infrastructure, disaster readiness, and innovation. Aparri is compared with other 1st and 2nd class municipalities across the country. A lower rank number is better: 1st is the best.",
     "sections": {
-      "cmciPerformance": {
-        "eyebrow": "Competitiveness",
-        "title": "CMCI 2024 Performance",
-        "description": "The Cities and Municipalities Competitiveness Index scores LGUs across economic dynamism, government efficiency, infrastructure, resiliency, and innovation."
-      }
-    },
-    "cards": {
-      "rankProfile": {
-        "title": "Rank Profile",
-        "description": "Lower CMCI rank numbers indicate stronger relative placement"
+      "overview": {
+        "eyebrow": "At a Glance",
+        "title": "How Aparri Did",
+        "description": "Pick a year to see Aparri's overall placement and how it changed from the year before."
       },
-      "pillarScores": {
-        "title": "Pillar Scores",
-        "description": "CMCI 2024 score and rank by pillar"
+      "pillars": {
+        "eyebrow": "Five Areas",
+        "title": "What the Score Is Made Of",
+        "description": "The overall score adds up five areas. Tap an area to see the 10 measures behind it."
+      },
+      "trend": {
+        "eyebrow": "Over Time",
+        "title": "Aparri's Rank, 2018-2024",
+        "description": "A rising line means Aparri moved up or down the rankings. Rank 1st is at the top."
+      },
+      "peers": {
+        "eyebrow": "Nearby Towns",
+        "title": "Compared with Nearby 1st Class Towns",
+        "description": "How Aparri placed in other nearby 1st class municipalities."
       }
     },
     "terms": [
       {
         "term": "CMCI",
-        "description": "The Cities and Municipalities Competitiveness Index is a DTI-led ranking that compares local economies across several pillars."
+        "description": "The Cities and Municipalities Competitiveness Index, a yearly DTI ranking of how ready Philippine cities and towns are for business, jobs and growth."
       },
       {
-        "term": "Pillar Score",
-        "description": "A score for one CMCI dimension, such as economic dynamism, government efficiency, infrastructure, resiliency, or innovation."
+        "term": "Rank",
+        "description": "Aparri's place among 1st and 2nd class municipalities nationwide. 1st is the best; a smaller number is better."
+      },
+      {
+        "term": "Score",
+        "description": "Points earned in each area. The overall score is the five area scores added together; a higher score is better."
+      },
+      {
+        "term": "Ahead of",
+        "description": "The share of similar towns that placed below Aparri. For example, 'ahead of 37%' means Aparri ranked higher than 37 out of every 100 similar towns."
+      },
+      {
+        "term": "Shared ranks",
+        "description": "For some measures, many towns get the same score, such as all towns with an approved plan. These towns share a rank, so a rank like 2nd can be held by many towns."
+      },
+      {
+        "term": "Comparing years",
+        "description": "From 2018 to 2021, the index had four areas worth 25% each. Innovation was added in 2022, making five areas worth 20% each, and some measures were renamed. Ranks are the fairest way to compare years."
       }
     ],
-    "sourceNote": "CMCI figures are based on the latest source file included in this page. Update this JSON data file when DTI publishes a new profile."
-  }
+    "sourceNote": "All figures come from the DTI CMCI website. DTI did not publish 2018 scores, or 2018 measure details for government services, infrastructure and disaster readiness, so only ranks are shown for those."
+  },
+  "peerGroupLabel": "nearby 1st class towns",
+  "peerGroupDescription": "Lal-lo, Gonzaga, Gattaran and Baggao: the 1st class municipalities closest to Aparri in northern Cagayan."
 }

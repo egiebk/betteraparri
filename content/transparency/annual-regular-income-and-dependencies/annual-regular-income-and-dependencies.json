@@ -1,232 +1,260 @@
 {
-  "highlightStats": [
-    {
-      "label": "Annual Regular Income",
-      "value": "PHP 378.75M",
-      "detail": "FY 2025 (preliminary) annual regular income",
-      "icon": "ri-funds-line",
-      "tone": "primary"
-    },
-    {
-      "label": "NTA Dependency",
-      "value": "87.5%",
-      "detail": "National Tax Allotment as share of regular income",
-      "icon": "ri-government-line",
-      "tone": "success"
-    },
-    {
-      "label": "LSR Dependency",
-      "value": "12.5%",
-      "detail": "Locally sourced revenue as share of regular income",
-      "icon": "ri-store-2-line",
-      "tone": "accent"
-    }
-  ],
-  "revenueSources": [
-    {
-      "label": "Locally Sourced Revenue",
-      "value": 47.38,
-      "percent": 12.5,
-      "tone": "bg-primary-500",
-      "color": "#0066eb"
-    },
-    {
-      "label": "National Tax Allotment",
-      "value": 331.31,
-      "percent": 87.5,
-      "tone": "bg-primary-500",
-      "color": "#0066eb"
-    },
-    {
-      "label": "Other National Tax Shares",
-      "value": 0.06,
-      "percent": 0.0,
-      "tone": "bg-violet-600",
-      "color": "#facc15"
-    }
-  ],
-  "localRevenueBreakdown": [
-    {
-      "label": "Tax revenue",
-      "value": 28.09,
-      "detail": "Real property, business, and other local taxes",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Non-tax revenue",
-      "value": 19.29,
-      "detail": "Fees, charges, and economic enterprises",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Interest income",
-      "value": 0.0,
-      "detail": "No interest income reported in the FY 2025 data",
-      "tone": "bg-gray-500"
-    }
-  ],
-  "taxRevenueLines": [
-    {
-      "label": "Business taxes",
-      "value": 21.87,
-      "detail": "Largest local tax revenue item",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Real property tax",
-      "value": 4.67,
-      "detail": "General fund real property tax collections",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Other taxes",
-      "value": 1.55,
-      "detail": "Other local tax revenue",
-      "tone": "bg-violet-600"
-    }
-  ],
-  "nonTaxRevenueLines": [
-    {
-      "label": "Economic enterprises",
-      "value": 9.37,
-      "detail": "Receipts from economic enterprises",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Regulatory fees",
-      "value": 8.27,
-      "detail": "Permits, licenses, and similar fees",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Service/user charges",
-      "value": 1.64,
-      "detail": "Service and user charge collections",
-      "tone": "bg-violet-600"
-    }
-  ],
-  "yearlyTrend": [
+  "lgu": "Aparri",
+  "years": [
     {
       "year": 2018,
-      "lsr": 35.87,
-      "nta": 170.84,
-      "ari": 207.73
+      "status": "final",
+      "population": 67589,
+      "rptGeneral": 3593252.82,
+      "businessTax": 17539747.08,
+      "otherTaxes": 738694.81,
+      "totalTax": 21871694.71,
+      "regulatoryFees": 5769634.16,
+      "userCharges": 729240,
+      "economicEnterprises": 7500355.79,
+      "totalNonTax": 13999229.95,
+      "lsr": 35870924.66,
+      "interestIncome": 311724.49,
+      "nta": 170839619.04,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 1200,
+      "sharePagcorPcsoLotto": 706192.58,
+      "shareTobacco": 0,
+      "shareOthers": 0,
+      "totalOtherShares": 707392.58,
+      "ari": 207729660.77
     },
     {
       "year": 2019,
-      "lsr": 41.63,
-      "nta": 187.45,
-      "ari": 229.32
+      "status": "final",
+      "population": 68267,
+      "rptGeneral": 3799427.13,
+      "businessTax": 21866597.86,
+      "otherTaxes": 757294.8,
+      "totalTax": 26423319.79,
+      "regulatoryFees": 5977755.81,
+      "userCharges": 817879,
+      "economicEnterprises": 8413316.95,
+      "totalNonTax": 15208951.76,
+      "lsr": 41632271.55,
+      "interestIncome": 0,
+      "nta": 187448254,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 1400,
+      "sharePagcorPcsoLotto": 236126.71,
+      "shareTobacco": 0,
+      "shareOthers": 0,
+      "totalOtherShares": 237526.71,
+      "ari": 229318052.26
     },
     {
       "year": 2020,
-      "lsr": 41.47,
-      "nta": 210.91,
-      "ari": 252.43
+      "status": "final",
+      "population": 68820,
+      "rptGeneral": 2915497.59,
+      "businessTax": 21777846.21,
+      "otherTaxes": 842856,
+      "totalTax": 25536199.8,
+      "regulatoryFees": 7832128.96,
+      "userCharges": 1054322.38,
+      "economicEnterprises": 7046218.71,
+      "totalNonTax": 15932670.05,
+      "lsr": 41468869.85,
+      "interestIncome": 0,
+      "nta": 210908982.96,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 0,
+      "sharePagcorPcsoLotto": 55056.2,
+      "shareTobacco": 0,
+      "shareOthers": 0,
+      "totalOtherShares": 55056.2,
+      "ari": 252432909.01
     },
     {
       "year": 2021,
-      "lsr": 40.23,
-      "nta": 226.05,
-      "ari": 266.28
+      "status": "final",
+      "population": 68707,
+      "rptGeneral": 3490925.31,
+      "businessTax": 18488789.3,
+      "otherTaxes": 760963.6,
+      "totalTax": 22740678.21,
+      "regulatoryFees": 9315450.44,
+      "userCharges": 1025540,
+      "economicEnterprises": 7152769,
+      "totalNonTax": 17493759.44,
+      "lsr": 40234437.65,
+      "interestIncome": 0,
+      "nta": 226045407.96,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 0,
+      "sharePagcorPcsoLotto": 0,
+      "shareTobacco": 0,
+      "shareOthers": 0,
+      "totalOtherShares": 0,
+      "ari": 266279845.61
     },
     {
       "year": 2022,
-      "lsr": 41.28,
-      "nta": 307.14,
-      "ari": 348.8
+      "status": "final",
+      "population": 68594,
+      "rptGeneral": 3633915.32,
+      "businessTax": 19520486,
+      "otherTaxes": 1093484,
+      "totalTax": 24247885.32,
+      "regulatoryFees": 8567622.03,
+      "userCharges": 998055,
+      "economicEnterprises": 7466943.16,
+      "totalNonTax": 17032620.19,
+      "lsr": 41280505.51,
+      "interestIncome": 0,
+      "nta": 307137303.96,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 9780,
+      "sharePagcorPcsoLotto": 372874.72,
+      "shareTobacco": 0,
+      "shareOthers": 0,
+      "totalOtherShares": 382654.72,
+      "ari": 348800464.19
     },
     {
       "year": 2023,
-      "lsr": 44.64,
-      "nta": 262.63,
-      "ari": 307.6
+      "status": "final",
+      "population": 68481,
+      "rptGeneral": 4321213.77,
+      "businessTax": 20335568.8,
+      "otherTaxes": 1375003.65,
+      "totalTax": 26031786.22,
+      "regulatoryFees": 8286185.37,
+      "userCharges": 1724299,
+      "economicEnterprises": 8595064.7,
+      "totalNonTax": 18605549.07,
+      "lsr": 44637335.29,
+      "interestIncome": 0,
+      "nta": 262631600.04,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 0,
+      "sharePagcorPcsoLotto": 320057.13,
+      "shareTobacco": 0,
+      "shareOthers": 13680,
+      "totalOtherShares": 333737.13,
+      "ari": 307602672.46
     },
     {
       "year": 2024,
-      "lsr": 46.96,
-      "nta": 279.08,
-      "ari": 326.24
+      "status": "final",
+      "population": 68368,
+      "rptGeneral": 4968672.62,
+      "businessTax": 24153060.29,
+      "otherTaxes": 1552541.84,
+      "totalTax": 30674274.75,
+      "regulatoryFees": 6689051.44,
+      "userCharges": 1235735.07,
+      "economicEnterprises": 8357755.92,
+      "totalNonTax": 16282542.43,
+      "lsr": 46956817.18,
+      "interestIncome": 0,
+      "nta": 279076872,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 0,
+      "sharePagcorPcsoLotto": 195369.47,
+      "shareTobacco": 0,
+      "shareOthers": 7500,
+      "totalOtherShares": 202869.47,
+      "ari": 326236558.65
     },
     {
       "year": 2025,
-      "lsr": 47.38,
-      "nta": 331.31,
-      "ari": 378.75
+      "status": "preliminary",
+      "population": 68256,
+      "rptGeneral": 4669172.76,
+      "businessTax": 21871054.91,
+      "otherTaxes": 1551258.32,
+      "totalTax": 28091485.99,
+      "regulatoryFees": 8271560.02,
+      "userCharges": 1644388.57,
+      "economicEnterprises": 9370930.18,
+      "totalNonTax": 19286878.77,
+      "lsr": 47378364.76,
+      "interestIncome": 0,
+      "nta": 331309638,
+      "shareEcozone": 0,
+      "shareEvat": 0,
+      "shareNationalWealth": 0,
+      "sharePagcorPcsoLotto": 59588.8,
+      "shareTobacco": 0,
+      "shareOthers": 2160,
+      "totalOtherShares": 61748.8,
+      "ari": 378749751.56
     }
   ],
+  "populationNote": "Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts.",
   "sourceLinks": [
     {
-      "label": "BLGF LGU Fiscal Data",
+      "label": "BLGF LGU Fiscal Data (annual files by LGU)",
       "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    },
+    {
+      "label": "BLGF: ARI and Dependencies by LGU, FY 2025 (preliminary)",
+      "href": "https://blgf.gov.ph/wp-content/uploads/2026/05/By-LGU-ARI-and-Dependencies-2025Preliminary.xlsx"
+    },
+    {
+      "label": "PSA census counts (for per-resident figures)",
+      "href": "https://psa.gov.ph/classification/psgc/barangays/0201505000"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Financial Stewardship",
-      "title": "Annual Regular Income (ARI) and Dependencies",
-      "description": "This page explains where Aparri's FY 2025 (preliminary) annual regular income came from and how much of it depended on national tax transfers, with an 8-year trend."
+      "title": "Regular Income and Dependence on National Funds",
+      "description": "Where Aparri's regular yearly income comes from, and how much of it depends on money from the national government."
     },
-    "guidance": {
-      "title": "What You Need to Know",
-      "description": "A quick reading table for the main FY 2025 income and dependency figures."
-    },
+    "intro": "Aparri's regular income has two main sources: money the town collects itself (local taxes, fees and earnings from public markets and other town-run businesses) and its share of national taxes, called the National Tax Allotment (NTA). The more a town relies on the NTA, the less control it has over its own budget.",
     "sections": {
-      "revenueComposition": {
-        "eyebrow": "Revenue Composition",
-        "title": "Where the FY 2025 Income Came From",
-        "description": "The charts show the share of national transfers and local collections in Aparri's annual regular income."
+      "overview": {
+        "eyebrow": "At a Glance",
+        "title": "Regular Income",
+        "description": "Total regular income for the selected year and where it came from."
       },
-      "localCollections": {
+      "local": {
         "eyebrow": "Local Collections",
-        "title": "Tax and Non-Tax Revenue Details",
-        "description": "These details show which local collections contributed most to Aparri's own-source revenue."
+        "title": "What the Town Collects Itself",
+        "description": "Taxes, fees and earnings collected by the municipal government."
       },
-      "yearlyTrend": {
-        "eyebrow": "Multi-Year Trend",
-        "title": "Income and Dependency, FY 2018-2025",
-        "description": "Locally sourced revenue and National Tax Allotment side by side over eight fiscal years."
-      }
-    },
-    "cards": {
-      "annualRegularIncome": {
-        "title": "Annual Regular Income",
-        "description": "Share of FY 2025 annual regular income by source",
-        "chartLabel": "ARI"
-      },
-      "localRevenueMix": {
-        "title": "Local Revenue Mix",
-        "description": "Tax and non-tax components of locally sourced revenue"
-      },
-      "taxRevenue": {
-        "title": "Tax Revenue"
-      },
-      "nonTaxRevenue": {
-        "title": "Non-Tax Revenue"
-      },
-      "yearlyTrend": {
-        "title": "LSR vs. NTA, FY 2018-2025",
-        "description": "Locally sourced revenue compared with National Tax Allotment, in PHP million"
+      "trend": {
+        "eyebrow": "Over Time",
+        "title": "Income by Year",
+        "description": "Money collected locally and money from the national government, year by year. Select a bar to view that year."
       }
     },
     "terms": [
       {
-        "term": "Annual Regular Income",
-        "description": "The regular income available to the local government during the fiscal year, excluding one-time or special receipts."
+        "term": "Annual Regular Income (ARI)",
+        "description": "Money the town receives every year that it can count on: local collections, the NTA, and other shares of national taxes. It leaves out one-time grants and loans."
       },
       {
-        "term": "Locally Sourced Revenue",
-        "description": "Revenue raised within Aparri, such as local taxes, permits, fees, service charges, and local economic enterprise income."
+        "term": "National Tax Allotment (NTA)",
+        "description": "The town's share of national taxes, sent by the national government. It was called the Internal Revenue Allotment (IRA) before 2022."
       },
       {
-        "term": "National Tax Allotment",
-        "description": "The share of national taxes released to local governments. It is often the largest income source for municipalities."
+        "term": "Locally sourced revenue",
+        "description": "Money the town collects itself: real property tax, business tax, other taxes, regulatory fees, service charges, and earnings from town-run businesses."
       },
       {
-        "term": "Dependency",
-        "description": "The share of income that comes from a source such as the National Tax Allotment or locally sourced revenue."
+        "term": "Dependence on national funds",
+        "description": "The share of regular income that comes from the NTA and other national tax shares. A high share means the town relies heavily on the national government."
+      },
+      {
+        "term": "Per resident",
+        "description": "The amount divided by Aparri's estimated population that year, to show what it means for each person."
       }
     ],
-    "sourceNote": "Figures are based on the BLGF LGU Fiscal Data \"ARI and Dependencies by Year\" export (FY2025 preliminary, extracted November 27, 2025) and should be checked against the latest BLGF posting before formal use."
+    "sourceNote": "Figures are from the Bureau of Local Government Finance (BLGF) annual \"ARI and Dependencies\" files by LGU. FY 2025 figures are preliminary and may change. Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts."
   }
 }

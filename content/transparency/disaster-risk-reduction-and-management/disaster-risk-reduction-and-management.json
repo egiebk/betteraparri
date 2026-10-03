@@ -1,172 +1,156 @@
 {
-  "highlightStats": [
-    {
-      "label": "Total LDRRMF Appropriation",
-      "value": "PHP 24.78M",
-      "detail": "FY 2025 (preliminary) total disaster risk reduction and management fund appropriation",
-      "icon": "ri-shield-check-line",
-      "tone": "primary"
-    },
-    {
-      "label": "Total LDRRMF Expenditures",
-      "value": "PHP 6.8M",
-      "detail": "FY 2025 (preliminary) expenditures charged to LDRRMF",
-      "icon": "ri-funds-box-line",
-      "tone": "success"
-    },
-    {
-      "label": "Total Utilization",
-      "value": "27.4%",
-      "detail": "Expenditures as share of total LDRRMF appropriation",
-      "icon": "ri-pie-chart-2-line",
-      "tone": "accent"
-    }
-  ],
-  "ldrrmfSources": [
-    {
-      "label": "70% LDRRMF",
-      "appropriation": 19145730,
-      "expenditure": 6798305,
-      "utilization": 35.5,
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "30% Quick Response Fund",
-      "appropriation": 5633890,
-      "expenditure": 0,
-      "utilization": 0.0,
-      "tone": "bg-violet-600"
-    }
-  ],
-  "yearlyTrend": [
+  "lgu": "Aparri",
+  "years": [
     {
       "year": 2018,
-      "appropriation": 23.38,
-      "expenditure": 9.73
+      "status": "final",
+      "population": 67589,
+      "mitigationBudget": 20017652,
+      "mitigationSpent": 8415970.82,
+      "qrfBudget": 3364708,
+      "qrfSpent": 1309450,
+      "totalBudget": 23382360,
+      "totalSpent": 9725420.82
     },
     {
       "year": 2019,
-      "appropriation": 26.66,
-      "expenditure": 2.06
+      "status": "final",
+      "population": 68267,
+      "mitigationBudget": 23863790,
+      "mitigationSpent": 2058745.63,
+      "qrfBudget": 2800000,
+      "qrfSpent": 0,
+      "totalBudget": 26663790,
+      "totalSpent": 2058745.63
     },
     {
       "year": 2020,
-      "appropriation": 51.7,
-      "expenditure": 33.07
+      "status": "final",
+      "population": 68820,
+      "mitigationBudget": 48106337,
+      "mitigationSpent": 33068082.19,
+      "qrfBudget": 3592370,
+      "qrfSpent": 0,
+      "totalBudget": 51698707,
+      "totalSpent": 33068082.19
     },
     {
       "year": 2021,
-      "appropriation": 60.15,
-      "expenditure": 14.3
+      "status": "final",
+      "population": 68707,
+      "mitigationBudget": 50033848,
+      "mitigationSpent": 14302761.1,
+      "qrfBudget": 10114580,
+      "qrfSpent": 0,
+      "totalBudget": 60148428,
+      "totalSpent": 14302761.1
     },
     {
       "year": 2022,
-      "appropriation": 31.92,
-      "expenditure": 8.61
+      "status": "final",
+      "population": 68594,
+      "mitigationBudget": 26660996,
+      "mitigationSpent": 8613105.63,
+      "qrfBudget": 5263284,
+      "qrfSpent": 0,
+      "totalBudget": 31924280,
+      "totalSpent": 8613105.63
     },
     {
       "year": 2023,
-      "appropriation": 21.87,
-      "expenditure": 10.21
+      "status": "final",
+      "population": 68481,
+      "mitigationBudget": 17369545,
+      "mitigationSpent": 10034708.4,
+      "qrfBudget": 4501850,
+      "qrfSpent": 175582,
+      "totalBudget": 21871395,
+      "totalSpent": 10210290.4
     },
     {
       "year": 2024,
-      "appropriation": 67.47,
-      "expenditure": 11.34
+      "status": "final",
+      "population": 68368,
+      "mitigationBudget": 62700950,
+      "mitigationSpent": 11336144.25,
+      "qrfBudget": 4772400,
+      "qrfSpent": 0,
+      "totalBudget": 67473350,
+      "totalSpent": 11336144.25
     },
     {
       "year": 2025,
-      "appropriation": 24.78,
-      "expenditure": 6.8
+      "status": "preliminary",
+      "population": 68256,
+      "mitigationBudget": 19145730,
+      "mitigationSpent": 6798305.01,
+      "qrfBudget": 5633890,
+      "qrfSpent": 0,
+      "totalBudget": 24779620,
+      "totalSpent": 6798305.01
     }
   ],
+  "populationNote": "Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts.",
   "sourceLinks": [
     {
-      "label": "BLGF LGU Fiscal Data",
+      "label": "BLGF LGU Fiscal Data (annual files by LGU)",
       "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    },
+    {
+      "label": "BLGF: LDRRMF by LGU, FY 2025 (preliminary)",
+      "href": "https://blgf.gov.ph/wp-content/uploads/2026/06/FY2025-LDRRMF-by-LGU.xlsx"
+    },
+    {
+      "label": "Republic Act No. 10121 (Philippine DRRM Act of 2010)",
+      "href": "https://www.officialgazette.gov.ph/2010/05/27/republic-act-no-10121/"
+    },
+    {
+      "label": "PSA census counts (for per-resident figures)",
+      "href": "https://psa.gov.ph/classification/psgc/barangays/0201505000"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Financial Stewardship",
-      "title": "Local Disaster Risk Reduction and Management Fund",
-      "description": "This page shows Aparri's FY 2025 (preliminary) Local Disaster Risk Reduction and Management Fund appropriation, expenditures, and utilization, with an 8-year trend."
+      "title": "Disaster Fund",
+      "description": "How much Aparri set aside each year for disasters, and how much of it was spent."
     },
-    "guidance": {
-      "title": "What You Need to Know",
-      "description": "A quick reading table for the FY 2025 LDRRMF figures."
-    },
+    "intro": "By law (Republic Act 10121), every town must set aside at least 5% of its regular income as a Local Disaster Risk Reduction and Management Fund (LDRRMF). Most of it (70%) is for preparing for and reducing the impact of disasters. The rest (30%) is a Quick Response Fund kept ready for relief and recovery when a disaster strikes.",
     "sections": {
-      "receiptsAndExpenditures": {
-        "eyebrow": "Disaster Risk Reduction",
-        "title": "LDRRMF Utilization (FY 2025)",
-        "description": "The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response."
+      "overview": {
+        "eyebrow": "At a Glance",
+        "title": "Disaster Fund",
+        "description": "How much was set aside for the selected year and how much was spent."
       },
-      "disasterRiskReduction": {
-        "eyebrow": "Disaster Risk Reduction",
-        "title": "LDRRMF Utilization (FY 2025)",
-        "description": "The Local Disaster Risk Reduction and Management Fund data shows how much was appropriated and spent for disaster preparedness and quick response."
+      "parts": {
+        "eyebrow": "Two Parts",
+        "title": "Preparedness and Quick Response",
+        "description": "The fund is split between preparing for disasters and responding when one happens."
       },
-      "yearlyTrend": {
-        "eyebrow": "Multi-Year Trend",
-        "title": "Appropriation and Expenditure, FY 2018-2025",
-        "description": "Total LDRRMF appropriation compared with total expenditures over eight fiscal years."
-      }
-    },
-    "cards": {
-      "operatingPosition": {
-        "title": "Total Utilization",
-        "description": "Expenditure against total appropriation"
-      },
-      "incomeSources": {
-        "title": "Fund Components",
-        "description": "Utilization by LDRRMF component",
-        "chartLabel": "LDRRMF"
-      },
-      "operatingExpenditures": {
-        "title": "Fund Components",
-        "description": "Utilization by LDRRMF component"
-      },
-      "q1IncomeDetails": {
-        "title": "Fund Components"
-      },
-      "socialServicesDetails": {
-        "title": "Fund Components",
-        "description": "Utilization by LDRRMF component"
-      },
-      "totalUtilization": {
-        "title": "Total Utilization",
-        "description": "Expenditure against total appropriation",
-        "appropriationLabel": "Total appropriation",
-        "expenditureLabel": "Total expenditures"
-      },
-      "fundComponents": {
-        "title": "Fund Components",
-        "description": "Utilization by LDRRMF component"
-      },
-      "yearlyTrend": {
-        "title": "Appropriation vs. Expenditure, FY 2018-2025",
-        "description": "Total LDRRMF appropriation and expenditure, in PHP million"
+      "trend": {
+        "eyebrow": "Over Time",
+        "title": "Set Aside vs. Spent by Year",
+        "description": "Budget and spending for each year. Select a year to view it."
       }
     },
     "terms": [
       {
         "term": "LDRRMF",
-        "description": "The Local Disaster Risk Reduction and Management Fund used for disaster preparedness, mitigation, response, rehabilitation, and recovery."
+        "description": "The Local Disaster Risk Reduction and Management Fund: money the town must set aside each year for disasters, at least 5% of its regular income."
       },
       {
-        "term": "70% LDRRMF",
-        "description": "The portion generally used for disaster prevention, mitigation, preparedness, rehabilitation, and recovery programs."
+        "term": "Preparedness fund (70%)",
+        "description": "For training, equipment, early warning systems, drills and other work that reduces disaster risks before they happen."
       },
       {
-        "term": "30% Quick Response Fund",
-        "description": "The standby portion intended for urgent disaster response and recovery needs."
+        "term": "Quick Response Fund (30%)",
+        "description": "Kept ready for relief and recovery when a disaster or calamity happens."
       },
       {
-        "term": "Utilization",
-        "description": "The share of appropriation that has been spent."
+        "term": "Share spent",
+        "description": "How much of the money set aside for the year was actually spent that year. Unspent money is not lost: the law keeps it in a trust fund for disaster use in the next five years."
       }
     ],
-    "sourceNote": "Figures are based on the BLGF LGU Fiscal Data \"LDRRMF by Year\" export (FY2025 preliminary, extracted March 3, 2026) and should be checked against the latest BLGF posting before formal use."
+    "sourceNote": "Figures are from the Bureau of Local Government Finance (BLGF) annual \"LDRRMF by LGU\" files. FY 2025 figures are preliminary and may change. Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts."
   }
 }

@@ -5,12 +5,16 @@
  * rounded data-end markers, a legend when there are 2 series, native
  * <title> tooltips on each point, and a visually-available data table
  * as a fallback for screen readers / non-visual access.
+ *
+ * Optional props:
+ * - `invertY`: plot lower values higher (useful for ranks, where 1st is best).
+ * - `null` values: rendered as gaps (no point, line breaks) and "—" in the table.
  */
 
 interface TrendSeries {
   label: string;
   color: string;
-  values: number[];
+  values: (number | null)[];
 }
 
 interface TrendChartProps {
@@ -19,6 +23,8 @@ interface TrendChartProps {
   unit?: string;
   formatValue?: (value: number) => string;
   className?: string;
+  invertY?: boolean;
+  ariaLabel?: string;
 }
 
 const WIDTH = 640;
@@ -31,11 +37,17 @@ export default function TrendChart({
   unit = 'PHP M',
   formatValue,
   className = '',
+  invertY = false,
+  ariaLabel,
 }: TrendChartProps) {
   const format = formatValue ?? (v => v.toLocaleString());
-  const allValues = series.flatMap(s => s.values);
+  const allValues = series.flatMap(s =>
+    s.values.filter((v): v is number => v !== null)
+  );
   const maxValue = Math.max(...allValues, 0);
-  const niceMax = maxValue === 0 ? 1 : Math.ceil(maxValue / 10) * 10;
+  const niceStep = invertY && maxValue > 200 ? 100 : 10;
+  const niceMax =
+    maxValue === 0 ? 1 : Math.ceil(maxValue / niceStep) * niceStep;
 
   const plotWidth = WIDTH - PADDING.left - PADDING.right;
   const plotHeight = HEIGHT - PADDING.top - PADDING.bottom;
@@ -44,7 +56,9 @@ export default function TrendChart({
     PADDING.left +
     (years.length <= 1 ? 0 : (plotWidth * index) / (years.length - 1));
   const yFor = (value: number) =>
-    PADDING.top + plotHeight - (plotHeight * value) / niceMax;
+    invertY
+      ? PADDING.top + (plotHeight * value) / niceMax
+      : PADDING.top + plotHeight - (plotHeight * value) / niceMax;
 
   const gridLines = [0, 0.25, 0.5, 0.75, 1];
 
@@ -53,7 +67,10 @@ export default function TrendChart({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Line chart showing ${series.map(s => s.label).join(' and ')} by year, in ${unit}`}
+        aria-label={
+          ariaLabel ??
+          `Line chart showing ${series.map(s => s.label).join(' and ')} by year, in ${unit}`
+        }
         className="w-full h-auto"
       >
         {/* Recessive gridlines */}
@@ -74,7 +91,7 @@ export default function TrendChart({
 
         {/* Y-axis labels */}
         {gridLines.map(fraction => {
-          const value = niceMax * fraction;
+          const value = invertY ? niceMax * (1 - fraction) : niceMax * fraction;
           const y = PADDING.top + plotHeight * (1 - fraction);
           return (
             <text
@@ -106,32 +123,48 @@ export default function TrendChart({
 
         {/* Series lines + points */}
         {series.map(s => {
-          const points = s.values.map((v, i) => `${xFor(i)},${yFor(v)}`);
+          // Split into contiguous runs so null values render as gaps.
+          const runs: string[][] = [];
+          let current: string[] = [];
+          s.values.forEach((v, i) => {
+            if (v === null) {
+              if (current.length > 0) runs.push(current);
+              current = [];
+            } else {
+              current.push(`${xFor(i)},${yFor(v)}`);
+            }
+          });
+          if (current.length > 0) runs.push(current);
           return (
             <g key={s.label}>
-              <polyline
-                points={points.join(' ')}
-                fill="none"
-                stroke={s.color}
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              {s.values.map((v, i) => (
-                <circle
-                  key={i}
-                  cx={xFor(i)}
-                  cy={yFor(v)}
-                  r={4}
-                  fill={s.color}
-                  stroke="#ffffff"
-                  strokeWidth={1.5}
-                >
-                  <title>
-                    {s.label}, {years[i]}: {format(v)} {unit}
-                  </title>
-                </circle>
+              {runs.map(run => (
+                <polyline
+                  key={run[0]}
+                  points={run.join(' ')}
+                  fill="none"
+                  stroke={s.color}
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               ))}
+              {s.values.map((v, i) =>
+                v === null ? null : (
+                  <circle
+                    key={i}
+                    cx={xFor(i)}
+                    cy={yFor(v)}
+                    r={4}
+                    fill={s.color}
+                    stroke="#ffffff"
+                    strokeWidth={1.5}
+                  >
+                    <title>
+                      {s.label}, {years[i]}: {format(v)} {unit}
+                    </title>
+                  </circle>
+                )
+              )}
             </g>
           );
         })}
@@ -185,7 +218,9 @@ export default function TrendChart({
                       key={s.label}
                       className="text-right py-1 pl-4 border-b border-gray-100"
                     >
-                      {format(s.values[i])}
+                      {s.values[i] === null || s.values[i] === undefined
+                        ? '—'
+                        : format(s.values[i] as number)}
                     </td>
                   ))}
                 </tr>
