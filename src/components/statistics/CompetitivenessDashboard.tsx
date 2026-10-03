@@ -320,21 +320,18 @@ function OverviewSection({
         )}
       >
         <StatTile
-          valueClassName="font-mono"
           icon="ri-trophy-line"
           label="Overall rank"
           value={ordinal(yearData.overallRank)}
           detail={`out of ${yearData.cohortSize} ${data.categoryPlain}`}
         />
         <StatTile
-          valueClassName="font-mono"
           icon="ri-bar-chart-horizontal-line"
           label="Ahead of"
           value={`${ahead}%`}
           detail="of similar towns nationwide"
         />
         <StatTile
-          valueClassName="font-mono"
           icon="ri-arrow-up-down-line"
           label={previous ? `Change since ${previous.year}` : 'Change'}
           value={
@@ -353,7 +350,6 @@ function OverviewSection({
         />
         {peerRank && (
           <StatTile
-            valueClassName="font-mono"
             icon="ri-map-pin-line"
             label="Among nearby 1st class towns"
             value={ordinal(peerRank.position)}

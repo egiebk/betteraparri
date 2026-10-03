@@ -130,6 +130,7 @@ function OverviewSection({ data }: { data: DemographicsData }) {
           icon="ri-home-4-line"
           label="Most populous barangay"
           value={largest.name}
+          valueClassName="font-sans"
           detail={`${formatNumber(largest.pop2024 ?? 0)} residents, ${(
             ((largest.pop2024 ?? 0) / latest.population) *
             100

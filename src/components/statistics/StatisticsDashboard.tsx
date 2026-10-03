@@ -136,7 +136,7 @@ export function StatTile({
         </div>
         <p
           className={cn(
-            'text-3xl font-bold leading-none text-gray-900',
+            'font-mono text-3xl font-bold leading-none text-gray-900',
             valueClassName
           )}
         >
