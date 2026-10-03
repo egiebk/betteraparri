@@ -1,0 +1,83 @@
+# Plain-language guide. Source: ATOP Citizen's Charter page (see `source`).
+slug: marriage-license-application
+category: civil-registry
+icon: ri-hearts-line
+title: Apply for a Marriage License
+officialName: Application for Marriage License
+summary: >-
+  Most couples need a marriage license before a civil or church wedding.
+  You apply at the Civil Registrar of the town where either of you
+  lives. The license is released after a 10-day posting period.
+whoCanApply: Couples where at least one partner lives in Aparri
+office: Office of the Municipal Civil Registrar (MCR)
+location: Municipal Building, J.P. de Carreon Street, Aparri
+fee:
+  label: ₱72
+  detail: ₱50 application fee + ₱20 secretary's fee + ₱2 license fee, paid at the Municipal Treasurer's Office.
+time:
+  label: About 25 minutes to apply
+  detail: >-
+    After you apply, your notice is posted publicly for 10 days. You can
+    claim the license after that, so apply at least two weeks before
+    the wedding.
+beforeYouGo:
+  - Both of you should attend the Family Planning and Pre-Marriage Counseling at the Municipal Health Office first. You need its certificate.
+  - If either of you is 18 to 25 years old, bring a parent or guardian (see step 3).
+  - If either of you was married before, bring proof that the previous marriage has ended.
+  - Apply at least two weeks before your wedding date because of the 10-day posting.
+requirements:
+  - item: Proof that at least one of you lives in Aparri
+    from: You
+  - item: Proof of age of both applicants (birth certificate, baptismal certificate, or similar)
+    from: Civil Registrar or your church
+  - item: Family Planning and Pre-Marriage Counseling Certificate
+    from: Municipal Health Office
+  - item: Community Tax Certificate (cedula) of both applicants
+    from: Barangay hall or Municipal Treasurer's Office
+  - item: Tree Planting Certificate
+    from: Barangay hall or Municipal Treasurer's Office
+  - item: Proof the previous marriage has ended
+    from: Civil Registrar, Regional Trial Court, or PSA
+    note: Only if married before. For example, a death certificate, an annulment or nullity decree, or a decree of presumptive death.
+    optional: true
+  - item: Certificate of Legal Capacity to Contract Marriage
+    from: The foreign applicant's embassy
+    note: Only for foreign nationals.
+    optional: true
+steps:
+  - title: Present your requirements
+    detail: Civil Registrar staff check that you live in Aparri and are legally able to marry.
+    where: Civil Registrar, Municipal Hall
+    time: About 10 minutes
+  - title: Sign the Application for Marriage License
+    detail: Staff fill out the form with you and check your ages and any legal impediments.
+    where: Civil Registrar, Municipal Hall
+    time: About 5 minutes
+  - title: Parental consent or advice, if needed
+    detail: >-
+      Ages 18 to 20 need written consent from a parent or guardian.
+      Ages 21 to 25 need written advice from a parent. Your
+      application is then recorded and posted for 10 days.
+    where: Civil Registrar, Municipal Hall
+    time: About 4 minutes
+  - title: Pay ₱72 and wait for the posting period to end
+    detail: Pay at the Treasurer's Office. The license is released once the 10-day posting is done and all requirements are complete.
+    where: Municipal Treasurer's Office
+    time: About 5 minutes
+afterward:
+  - Your marriage license is valid for 120 days anywhere in the Philippines. Schedule your wedding within that period.
+  - After the wedding, the solemnizing officer registers your marriage with the Civil Registrar.
+terms:
+  - term: Posting period
+    description: Your application is displayed publicly for 10 days so anyone who knows a legal reason the marriage cannot happen can report it.
+  - term: Parental consent / parental advice
+    description: Consent is required at ages 18 to 20. Advice is required at ages 21 to 25. Without advice, the license is held for 3 extra months.
+  - term: Legal capacity
+    description: Being legally free to marry. You must be 18 or older and not currently married to someone else.
+  - term: CENOMAR
+    description: Certificate of No Marriage from the PSA. It shows whether a person has a marriage on record.
+source:
+  label: ATOP - Application for Marriage License
+  url: https://www.aparri.org.ph/marriagelicense
+  checked: '2026-10-03'
+keywords: [kasal, wedding, marriage, pre-marriage counseling, seminar, CENOMAR]

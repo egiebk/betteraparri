@@ -36,13 +36,17 @@ export function SectionHeading({
   );
 }
 
-export function TermsCard({ terms }: { terms: Term[] }) {
+export function TermsCard({
+  terms,
+  title = 'How to Read This Page',
+}: {
+  terms: Term[];
+  title?: string;
+}) {
   return (
     <Card className="border-primary-100 bg-gray-50">
       <CardContent className="p-6">
-        <h3 className="text-lg font-semibold text-gray-900">
-          How to Read This Page
-        </h3>
+        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           {terms.map(term => (
             <div key={term.term} className="rounded-xl bg-white p-4 shadow-sm">
@@ -110,11 +114,13 @@ export function StatTile({
   value,
   detail,
   icon,
+  valueClassName,
 }: {
   label: string;
   value: string;
   detail: ReactNode;
   icon: string;
+  valueClassName?: string;
 }) {
   return (
     <Card className="h-full border-primary-100">
@@ -128,7 +134,14 @@ export function StatTile({
             <i className={cn(icon, 'text-lg')} />
           </span>
         </div>
-        <p className="text-3xl font-bold leading-none text-gray-900">{value}</p>
+        <p
+          className={cn(
+            'font-mono text-3xl font-bold leading-none text-gray-900',
+            valueClassName
+          )}
+        >
+          {value}
+        </p>
         <div className="mt-auto text-sm leading-relaxed text-gray-600">
           {detail}
         </div>

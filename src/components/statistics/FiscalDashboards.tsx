@@ -1356,6 +1356,7 @@ export function SpecialEducationFundDashboard() {
             icon="ri-graduation-cap-line"
             label="Spent"
             value={notYetReported ? 'Not yet reported' : money(y.spent)}
+            valueClassName={notYetReported ? 'font-sans' : undefined}
             detail="Paid from the school fund this year"
           />
           <StatTile

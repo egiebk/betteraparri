@@ -1,0 +1,114 @@
+# Services grouped by life event for the /services landing page.
+# Each item either points to a guide (`guide: <guide slug>`) or to an
+# official ATOP page (`url:`). Replace `url` with `guide` once a
+# plain-language guide is written for that service.
+events:
+  - slug: having-a-baby
+    title: Having a baby
+    description: Register your child's birth and get care for mother and baby.
+    icon: ri-parent-line
+    items:
+      - guide: birth-certificate-registration
+      - label: Late registration of birth (after 30 days)
+        url: https://www.aparri.org.ph/delaybirth
+      - label: Late registration for a birth outside Aparri
+        url: https://www.aparri.org.ph/outoftown
+      - label: Immunization for babies and children
+        url: https://www.aparri.org.ph/immunization
+      - label: Maternal and child health care
+        url: https://www.aparri.org.ph/maternal
+
+  - slug: getting-married
+    title: Getting married
+    description: Apply for a marriage license and register your marriage.
+    icon: ri-hearts-line
+    items:
+      - guide: marriage-license-application
+      - label: Register a marriage
+        url: https://www.aparri.org.ph/timelyregistration
+      - label: Late registration of marriage
+        url: https://www.aparri.org.ph/delayedregistration
+
+  - slug: starting-a-business
+    title: Starting or running a business
+    description: Permits and clearances to open or renew a business.
+    icon: ri-store-2-line
+    items:
+      - guide: business-permit
+      - label: Locational clearance for a business permit
+        url: https://www.aparri.org.ph/locationalclearance
+      - label: Zoning certification for land
+        url: https://www.aparri.org.ph/zoningcertification
+      - label: Sanitary permit
+        url: https://www.aparri.org.ph/sanitary
+
+  - slug: work-and-transport
+    title: Working or driving a tricycle
+    description: Clearances and permits for jobs and tricycle operators.
+    icon: ri-briefcase-4-line
+    items:
+      - guide: mayors-clearance
+      - label: Working permit
+        url: https://www.aparri.org.ph/bplo/workingperm
+      - label: Tricycle operator's permit (MTOP)
+        url: https://www.aparri.org.ph/bplo/mtop
+
+  - slug: loss-of-a-loved-one
+    title: When a loved one dies
+    description: Death certificates and registering a death.
+    icon: ri-hand-heart-line
+    items:
+      - label: Medical or death certificate
+        url: https://www.aparri.org.ph/meddeathcertificate
+      - label: Register a death
+        url: https://www.aparri.org.ph/timelyregdeath
+      - label: Late registration of death
+        url: https://www.aparri.org.ph/delayregdeath
+
+  - slug: records
+    title: Getting or fixing your records
+    description: Copies of civil registry records and corrections to them.
+    icon: ri-file-edit-line
+    items:
+      - label: Copy or certification of a birth record
+        url: https://www.aparri.org.ph/birthavailable
+      - label: Copy or certification of a marriage record
+        url: https://www.aparri.org.ph/marriageavailable
+      - label: Copy or certification of a death record
+        url: https://www.aparri.org.ph/deathavailable
+      - label: Correct a clerical error or change a first name
+        url: https://www.aparri.org.ph/fillingpetition
+      - label: Register a court order
+        url: https://www.aparri.org.ph/courtorder
+      - label: Register a legal instrument
+        url: https://www.aparri.org.ph/legalinstrument
+      - label: File a supplemental report (add missing details)
+        url: https://www.aparri.org.ph/supplementalreport
+
+  - slug: health
+    title: Seeing a doctor or nurse
+    description: Check-ups, tests and treatment at the Municipal Health Office.
+    icon: ri-stethoscope-line
+    items:
+      - label: Out-patient consultation
+        url: https://www.aparri.org.ph/outpatient
+      - label: Dental services
+        url: https://www.aparri.org.ph/dental
+      - label: Laboratory tests
+        url: https://www.aparri.org.ph/laboratoryservices
+      - label: Anti-rabies vaccine (dog or cat bite)
+        url: https://www.aparri.org.ph/antirabies
+      - label: Tuberculosis (TB) medicines
+        url: https://www.aparri.org.ph/antitb
+      - label: STD/STI services
+        url: https://www.aparri.org.ph/stdsti
+
+  - slug: verify
+    title: Checking if a certificate is real
+    description: Verify certificates issued by a barangay or by ATOP.
+    icon: ri-shield-check-line
+    items:
+      - label: Verify a barangay certificate
+        url: https://www.aparri.org.ph/certificate-verification
+      - label: Verify an ATOP certificate
+        url: https://www.aparri.org.ph/certificate-verifications

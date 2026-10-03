@@ -429,7 +429,7 @@ function PillarCards({
               {info.plainName}
             </p>
             <p className="text-xs text-gray-500">{info.officialName}</p>
-            <p className="mt-4 text-3xl font-bold leading-none text-gray-900">
+            <p className="mt-4 font-mono text-3xl font-bold leading-none text-gray-900">
               {ordinal(result.rank)}
             </p>
             <p className="mt-1 text-sm text-gray-600">

@@ -1,0 +1,91 @@
+# Plain-language guide. Source: ATOP Citizen's Charter page (see `source`).
+slug: business-permit
+category: business
+icon: ri-store-2-line
+title: Get or Renew a Business Permit
+officialName: Issuance of Business Permit (New / Renewal)
+summary: >-
+  Every business operating in Aparri, from a sari-sari store to a
+  hardware store, needs a Mayor's Business Permit. You apply once when
+  you start, then renew it every year.
+whoCanApply: Business owners, or someone they authorize
+office: Business Permit and Licensing Office (BPLO), Office of the Mayor
+location: Municipal Building, J.P. de Carreon Street, Aparri
+fee:
+  label: Depends on your business
+  detail: >-
+    The BPLO computes your taxes and fees based on your type and size of
+    business. You pay everything at once at the Treasurer's Office.
+time:
+  label: About 37 minutes at the counter
+  detail: >-
+    That is the time at the Municipal Hall once your papers are
+    complete. Getting the requirements from other offices (DTI, BFP,
+    BIR and others) can take several days, so start early.
+beforeYouGo:
+  - Start with your Barangay Clearance. Most other offices will ask for it.
+  - Bring originals and at least one photocopy of every document.
+  - Not every business needs all 11 requirements. Ask the BPLO which apply to you before visiting other agencies.
+  - Renewing? Do it in January. Late renewals can be charged penalties.
+requirements:
+  - item: Barangay Clearance
+    from: Your barangay hall
+  - item: Community Tax Certificate (cedula)
+    from: Municipal Treasurer's Office
+  - item: Business permit application form, filled out
+    from: BPLO, Municipal Hall
+  - item: Business Name Registration
+    from: DTI (Department of Trade and Industry)
+    note: For sole owners. Corporations and cooperatives should ask the BPLO what to bring instead.
+  - item: Zoning Clearance
+    from: Municipal Planning and Development Office (MPDO)
+    note: Confirms your business is allowed at that location.
+  - item: Sanitary / Health Clearance
+    from: Municipal Health Office
+  - item: Occupancy Permit
+    from: Municipal Engineering Office
+  - item: Fire Safety Inspection Certificate (FSIC)
+    from: Bureau of Fire Protection (BFP)
+  - item: BIR Registration
+    from: Bureau of Internal Revenue (BIR)
+  - item: SSS Registration
+    from: Social Security System (SSS)
+  - item: Pag-IBIG Certification
+    from: Pag-IBIG Fund
+steps:
+  - title: Gather your requirements
+    detail: Get the clearances and registrations on the checklist from each office. This is the longest part.
+  - title: Submit your form and requirements at the BPLO
+    detail: Staff check your papers, compute your taxes and fees, and give you a payment slip.
+    where: BPLO, Municipal Hall
+    time: About 7 minutes
+  - title: Pay your taxes and fees
+    detail: Pay the full amount in one go and keep the official receipt.
+    where: Municipal Treasurer's Office
+    time: About 10 minutes
+  - title: Return to the BPLO and claim your permit
+    detail: Show your official receipt. The BPLO processes and releases your Mayor's Business Permit.
+    where: BPLO, Municipal Hall
+    time: About 20 minutes
+afterward:
+  - Display your Business Permit where customers can see it.
+  - Renew every January. You will need updated clearances, so keep copies of this year's documents.
+terms:
+  - term: BPLO
+    description: Business Permit and Licensing Office. The office in the Municipal Hall that handles business permits.
+  - term: Cedula (Community Tax Certificate)
+    description: A receipt for the yearly community tax. Many government offices ask for it as a basic ID document.
+  - term: Zoning Clearance
+    description: Proof from the Planning Office that your type of business is allowed in that area of town.
+  - term: FSIC
+    description: Fire Safety Inspection Certificate, issued by the BFP after it checks that your place is safe from fire hazards.
+notices:
+  - tone: info
+    text: >-
+      The official Citizen's Charter lists the fee only as "depending on
+      computed amount". Ask the BPLO for an estimate if you need to budget.
+source:
+  label: ATOP - Issuance of Business Permit
+  url: https://www.aparri.org.ph/bplo/businesspermit
+  checked: '2026-10-03'
+keywords: [mayor's permit, negosyo, sari-sari, renewal, BPLO, DTI]

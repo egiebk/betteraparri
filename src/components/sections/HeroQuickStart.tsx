@@ -9,9 +9,9 @@ interface QuickStartItem {
 
 const quickStartItems: QuickStartItem[] = [
   {
-    label: 'Civil Registry Services',
-    description: 'Birth, marriage & death records',
-    href: '/services/civil-registry',
+    label: 'Service Guides',
+    description: 'What to bring, fees & processing time',
+    href: '/services',
     icon: 'ri-file-list-3-line',
   },
   {

@@ -8,6 +8,7 @@ import ScrollToTop from './components/ui/ScrollToTop';
 import CardFadeInObserver from './components/ui/CardFadeInObserver';
 import Services from './pages/Services';
 import Document from './pages/Document';
+import ServiceDocument from './pages/ServiceDocument';
 import Government from './pages/Government';
 import Updates from './pages/Updates';
 import Search from './pages/Search';
@@ -29,7 +30,7 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route
                 path="/services/:category/:documentSlug"
-                element={<Document categoryType="service" />}
+                element={<ServiceDocument />}
               />
               <Route
                 path="/transparency"

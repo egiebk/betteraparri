@@ -1,0 +1,60 @@
+# Plain-language guide. Source: ATOP Citizen's Charter page (see `source`).
+slug: mayors-clearance
+category: business
+icon: ri-file-shield-2-line
+title: Get a Mayor's Clearance
+officialName: Mayor's Clearance / Certification
+summary: >-
+  A Mayor's Clearance is a certificate from the Office of the Mayor.
+  Employers and some offices ask for it as proof of good standing in
+  Aparri.
+whoCanApply: Aparri residents only
+office: Business Permit and Licensing Office (BPLO), Office of the Mayor
+location: Municipal Building, J.P. de Carreon Street, Aparri
+fee:
+  label: ₱80
+  detail: Paid at the Municipal Treasurer's Office.
+time:
+  label: About 45 minutes
+  detail: Once you have all your clearances. The clearances themselves come from other offices and may take longer.
+beforeYouGo:
+  - Get your four clearances first (barangay, police, court and prosecutor). They come from different offices.
+  - Bring your cedula for the current year.
+  - Prepare ₱80 for the fee.
+requirements:
+  - item: Barangay Clearance
+    from: Your barangay hall
+  - item: Community Tax Certificate (cedula)
+    from: Municipal Treasurer's Office
+  - item: Police Clearance
+    from: Police (PNP)
+    note: The Citizen's Charter lists the BPLO here. Ask the BPLO if you are unsure where to get it.
+  - item: Municipal Trial Court (MTC) Clearance
+    from: Municipal Trial Court
+  - item: Prosecutor's Clearance
+    from: Office of the Prosecutor
+steps:
+  - title: Present your requirements
+    detail: Staff receive and check your documents.
+    where: BPLO, Municipal Hall
+    time: About 5 minutes
+  - title: Pay ₱80
+    detail: Pay at the Treasurer's Office and keep the official receipt.
+    where: Municipal Treasurer's Office
+    time: About 5 minutes
+  - title: Wait while your clearance is prepared and signed
+    detail: The clearance is prepared and approved by the Mayor.
+    time: About 5 minutes
+  - title: Claim your Mayor's Clearance
+    where: BPLO, Municipal Hall
+    time: About 5 minutes
+terms:
+  - term: MTC Clearance
+    description: Proof from the Municipal Trial Court that you have no pending case there.
+  - term: Prosecutor's Clearance
+    description: Proof from the Prosecutor's Office that you have no pending complaint filed against you.
+source:
+  label: ATOP - Mayor's Clearance / Certification
+  url: https://www.aparri.org.ph/bplo/mayorclearance
+  checked: '2026-10-03'
+keywords: [clearance, employment, trabaho, good moral, certification]

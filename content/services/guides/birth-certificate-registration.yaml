@@ -1,0 +1,82 @@
+# Plain-language guide. Source: ATOP Citizen's Charter page (see `source`).
+slug: birth-certificate-registration
+category: civil-registry
+icon: ri-parent-line
+title: Register a Baby's Birth
+officialName: Timely Registration of Birth
+summary: >-
+  Register your baby's birth with the Municipal Civil Registrar so your
+  child has an official birth record. Do it within 30 days of the birth.
+  After that it becomes a late registration, which needs more documents.
+whoCanApply: Parents, or the person who attended the birth
+office: Office of the Municipal Civil Registrar (MCR)
+location: Municipal Building, J.P. de Carreon Street, Aparri
+fee:
+  label: Free
+  detail: No fee for timely registration.
+time:
+  label: About 19 minutes
+  detail: If you bring everything on the checklist.
+beforeYouGo:
+  - Register within 30 days of the birth.
+  - Bring the details of the birth (date, time, place, weight, and who attended), usually from the hospital, clinic, or midwife.
+  - Both parents should bring their cedula.
+  - If the parents are not married and the father will recognize the child, both parents should come so the Affidavit of Acknowledgment can be signed.
+requirements:
+  - item: Facts of birth (date, place, attendant, and the baby's and parents' details)
+    from: You, or the hospital, clinic, or midwife
+  - item: Community Tax Certificate (cedula) of both parents
+    from: Barangay hall or Municipal Treasurer's Office
+  - item: Parents' Certificate of Marriage
+    from: Civil Registrar or PSA
+    note: Only if the parents are married.
+    optional: true
+steps:
+  - title: Present the facts of birth and your documents
+    detail: Staff review your supporting documents.
+    where: Civil Registrar, Municipal Hall
+    time: About 5 minutes
+  - title: Give the information for the birth certificate
+    detail: >-
+      Staff prepare the Certificate of Live Birth (Form 102) in four
+      copies. For parents who are not married, they also prepare an
+      Affidavit of Acknowledgment, which is how the father recognizes
+      the child.
+    time: About 10 minutes
+  - title: Check every entry, then sign
+    detail: Read the names, dates and spelling carefully before signing. Mistakes are much harder to fix later. A registry number is then assigned.
+    time: About 2 minutes
+  - title: Receive your copies
+    detail: You are given your copy or copies of the registered Certificate of Live Birth.
+    time: About 2 minutes
+afterward:
+  - Keep your copy of the Certificate of Live Birth in a safe place.
+  - The record is forwarded to the PSA. Schools, passports and many other transactions ask for a PSA-printed copy, which you can request once it is on file.
+  - Missed the 30 days? Follow the delayed registration process instead.
+terms:
+  - term: COLB (Form 102)
+    description: Certificate of Live Birth. The form that becomes your child's birth certificate.
+  - term: Timely vs. delayed registration
+    description: Timely means registered within 30 days of birth. After that it is a delayed registration, which needs more documents.
+  - term: Affidavit of Acknowledgment
+    description: A sworn statement where the father recognizes the child. It is used when the parents are not married.
+  - term: PSA
+    description: Philippine Statistics Authority. It keeps the national copy of civil registry records.
+notices:
+  - tone: warning
+    text: >-
+      ATOP has separate pages for children of married and unmarried
+      parents. The married-parents page currently shows the steps for an
+      anti-rabies vaccine instead, so this guide follows the
+      unmarried-parents page. If your situation is different, confirm the
+      requirements with the Civil Registrar.
+source:
+  label: ATOP - Timely Registration of Birth
+  url: https://www.aparri.org.ph/illegitimatechild
+  checked: '2026-10-03'
+relatedLinks:
+  - label: Delayed registration of birth (ATOP)
+    url: https://www.aparri.org.ph/delaybirth
+  - label: Out-of-town delayed registration of birth (ATOP)
+    url: https://www.aparri.org.ph/outoftown
+keywords: [birth certificate, baby, newborn, panganganak, COLB, PSA]
