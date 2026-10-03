@@ -12,20 +12,7 @@ export interface StatisticsData {
   municipalityClass?: string;
   cmciPopulationBasis?: number;
   cmciProfile?: CmciProfile;
-  yearlyTrend?: CmciTrendPoint[];
   sourceLinks?: SourceLink[];
-}
-
-export interface CmciTrendPoint {
-  year: number;
-  overallRank: number;
-  overallScore: number | null;
-  pillarCount: number;
-  economicDynamism: number | null;
-  governmentEfficiency: number | null;
-  infrastructure: number | null;
-  resiliency: number | null;
-  innovation: number | null;
 }
 
 export interface TransparencyData {
@@ -173,28 +160,28 @@ export interface DisasterFund {
 /**
  * Load demographics data from JSON file
  */
-export async function loadDemographicsData(): Promise<StatisticsData> {
+export async function loadDemographicsData(): Promise<DemographicsData | null> {
   try {
     const module =
       await import('../../content/statistics/demographics/demographics.json');
-    return module.default;
+    return module.default as DemographicsData;
   } catch (error) {
     console.error('Failed to load demographics data:', error);
-    return { highlightStats: [] };
+    return null;
   }
 }
 
 /**
- * Load competitiveness data from JSON file
+ * Load competitiveness (CMCI) data from JSON file
  */
-export async function loadCompetitivenessData(): Promise<StatisticsData> {
+export async function loadCompetitivenessData(): Promise<CompetitivenessData | null> {
   try {
     const module =
       await import('../../content/statistics/competitiveness/competitiveness.json');
-    return module.default;
+    return module.default as CompetitivenessData;
   } catch (error) {
     console.error('Failed to load competitiveness data:', error);
-    return { highlightStats: [] };
+    return null;
   }
 }
 
@@ -280,4 +267,121 @@ export async function loadSpecialEducationFundData(): Promise<SefData> {
     console.error('Failed to load special education fund data:', error);
     return { highlightStats: [] };
   }
+}
+
+export type CmciPillarKey = 'ed' | 'ge' | 'in' | 're' | 'iv';
+
+export interface CmciPillarInfo {
+  key: CmciPillarKey;
+  officialName: string;
+  plainName: string;
+  description: string;
+}
+
+export interface CmciIndicatorInfo {
+  key: string;
+  pillar: CmciPillarKey;
+  officialName: string;
+  formerNames: string[];
+  plainName: string;
+  description: string;
+}
+
+export interface CmciIndicatorResult {
+  key: string;
+  rank: number | null;
+  score: number | null;
+}
+
+export interface CmciPillarResult {
+  key: CmciPillarKey;
+  rank: number;
+  score: number | null;
+  indicators: CmciIndicatorResult[];
+}
+
+export interface CmciYear {
+  year: number;
+  cohortSize: number;
+  overallRank: number;
+  overallScore: number | null;
+  pillarWeight: number;
+  pillars: CmciPillarResult[];
+}
+
+export interface CmciPeerLgu {
+  lgu: string;
+  rank: number;
+  score: number | null;
+  pillars: Partial<
+    Record<CmciPillarKey, { rank: number; score: number | null }>
+  >;
+}
+
+export interface CmciPeerYear {
+  year: number;
+  lgus: CmciPeerLgu[];
+}
+
+export interface CompetitivenessContent {
+  hero: { eyebrow: string; title: string; description: string };
+  intro: string;
+  sections: Record<
+    'overview' | 'pillars' | 'trend' | 'peers',
+    { eyebrow: string; title: string; description: string }
+  >;
+  terms: { term: string; description: string }[];
+  sourceNote: string;
+}
+
+export interface CompetitivenessData {
+  lgu: string;
+  province: string;
+  category: string;
+  categoryPlain: string;
+  municipalityClass: string;
+  cmciPopulationBasis: number;
+  pillarInfo: CmciPillarInfo[];
+  indicatorInfo: CmciIndicatorInfo[];
+  years: CmciYear[];
+  peerComparison: CmciPeerYear[];
+  peerGroupLabel: string;
+  peerGroupDescription: string;
+  sourceLinks: SourceLink[];
+  content: CompetitivenessContent;
+}
+
+export interface PopulationCount {
+  year: number;
+  date: string;
+  population: number;
+}
+
+export interface BarangayPopulation {
+  name: string;
+  slug: string;
+  pop2015: number;
+  pop2020: number;
+  pop2024: number | null;
+}
+
+export interface DemographicsContent {
+  hero: { eyebrow: string; title: string; description: string };
+  intro: string;
+  sections: Record<
+    'overview' | 'history' | 'barangays',
+    { eyebrow: string; title: string; description: string }
+  >;
+  terms: { term: string; description: string }[];
+  sourceNote: string;
+}
+
+export interface DemographicsData {
+  lgu: string;
+  landAreaKm2: number;
+  latestCensus: { year: number; name: string; referenceDate: string };
+  populationHistory: PopulationCount[];
+  barangays: BarangayPopulation[];
+  sourceLinks: SourceLink[];
+  content: DemographicsContent;
 }

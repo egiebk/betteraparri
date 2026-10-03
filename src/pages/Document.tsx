@@ -22,11 +22,9 @@ import {
   type Subcategory,
   type CategoryIndex,
 } from '../data/yamlLoader';
+import { CompetitivenessDashboard } from '../components/statistics/CompetitivenessDashboard';
 import SEO from '../components/SEO';
-import {
-  CompetitivenessDashboard,
-  DemographicsDashboard,
-} from '../components/statistics/StatisticsDashboard';
+import { DemographicsDashboard } from '../components/statistics/DemographicsDashboard';
 import {
   DisasterRiskReductionDashboard,
   DpwhProjectsDashboard,

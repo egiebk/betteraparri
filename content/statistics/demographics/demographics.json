@@ -1,109 +1,449 @@
 {
-  "highlightStats": [
+  "lgu": "Aparri",
+  "landAreaKm2": 286.64,
+  "latestCensus": {
+    "year": 2024,
+    "name": "2024 Census of Population (POPCEN)",
+    "referenceDate": "2024-07-01"
+  },
+  "populationHistory": [
     {
-      "label": "Population",
-      "value": "68,368",
-      "detail": "2024 POPCEN official count",
-      "icon": "ri-group-line",
-      "tone": "primary"
+      "year": 1903,
+      "date": "1903-03-02",
+      "population": 18252
     },
     {
-      "label": "Annualized Growth",
-      "value": "-0.16%",
-      "detail": "Computed from 2020 to 2024 PSA counts",
-      "icon": "ri-line-chart-line",
-      "tone": "success"
-    }
-  ],
-  "populationTrend": [
+      "year": 1918,
+      "date": "1918-12-31",
+      "population": 20912
+    },
     {
-      "year": "2010",
-      "label": "2010 POPCEN",
+      "year": 1939,
+      "date": "1939-01-01",
+      "population": 26409
+    },
+    {
+      "year": 1948,
+      "date": "1948-10-01",
+      "population": 24974
+    },
+    {
+      "year": 1960,
+      "date": "1960-02-15",
+      "population": 33424
+    },
+    {
+      "year": 1970,
+      "date": "1970-05-06",
+      "population": 40307
+    },
+    {
+      "year": 1975,
+      "date": "1975-05-01",
+      "population": 42419
+    },
+    {
+      "year": 1980,
+      "date": "1980-05-01",
+      "population": 45070
+    },
+    {
+      "year": 1990,
+      "date": "1990-05-01",
+      "population": 51635
+    },
+    {
+      "year": 1995,
+      "date": "1995-09-01",
+      "population": 53639
+    },
+    {
+      "year": 2000,
+      "date": "2000-05-01",
+      "population": 59046
+    },
+    {
+      "year": 2007,
+      "date": "2007-08-01",
+      "population": 61024
+    },
+    {
+      "year": 2010,
+      "date": "2010-05-01",
       "population": 61199
     },
     {
-      "year": "2015",
-      "label": "2015 POPCEN",
+      "year": 2015,
+      "date": "2015-08-01",
       "population": 65649
     },
     {
-      "year": "2020",
-      "label": "2020 CPH",
+      "year": 2020,
+      "date": "2020-05-01",
       "population": 68839
     },
     {
-      "year": "2024",
-      "label": "2024 POPCEN",
+      "year": 2024,
+      "date": "2024-07-01",
       "population": 68368
     }
   ],
-  "growthIntervals": [
+  "barangays": [
     {
-      "label": "2010 to 2015",
-      "value": 7.27,
-      "detail": "+4,450 residents",
-      "tone": "bg-success-500"
+      "name": "Backiling",
+      "slug": "backiling",
+      "pop2015": 1208,
+      "pop2020": 1247,
+      "pop2024": 1259
     },
     {
-      "label": "2015 to 2020",
-      "value": 4.84,
-      "detail": "+3,190 residents",
-      "tone": "bg-success-500"
+      "name": "Bangag",
+      "slug": "bangag",
+      "pop2015": 1716,
+      "pop2020": 1834,
+      "pop2024": 1762
     },
     {
-      "label": "2020 to 2024",
-      "value": -0.16,
-      "detail": "-471 residents",
-      "tone": "bg-secondary-500"
+      "name": "Binalan",
+      "slug": "binalan",
+      "pop2015": 2122,
+      "pop2020": 2356,
+      "pop2024": 2282
+    },
+    {
+      "name": "Bisagu",
+      "slug": "bisagu",
+      "pop2015": 1708,
+      "pop2020": 1780,
+      "pop2024": 1846
+    },
+    {
+      "name": "Bukig",
+      "slug": "bukig",
+      "pop2015": 788,
+      "pop2020": 854,
+      "pop2024": 879
+    },
+    {
+      "name": "Bulala Norte",
+      "slug": "bulala-norte",
+      "pop2015": 763,
+      "pop2020": 779,
+      "pop2024": 753
+    },
+    {
+      "name": "Bulala Sur",
+      "slug": "bulala-sur",
+      "pop2015": 765,
+      "pop2020": 836,
+      "pop2024": 845
+    },
+    {
+      "name": "Caagaman",
+      "slug": "caagaman",
+      "pop2015": 1547,
+      "pop2020": 1684,
+      "pop2024": 1712
+    },
+    {
+      "name": "Centro 1",
+      "slug": "centro-1",
+      "pop2015": 911,
+      "pop2020": 875,
+      "pop2024": 729
+    },
+    {
+      "name": "Centro 2",
+      "slug": "centro-2",
+      "pop2015": 418,
+      "pop2020": 516,
+      "pop2024": 765
+    },
+    {
+      "name": "Centro 3",
+      "slug": "centro-3",
+      "pop2015": 58,
+      "pop2020": 52,
+      "pop2024": 38
+    },
+    {
+      "name": "Centro 4",
+      "slug": "centro-4",
+      "pop2015": 82,
+      "pop2020": 99,
+      "pop2024": 117
+    },
+    {
+      "name": "Centro 5",
+      "slug": "centro-5",
+      "pop2015": 149,
+      "pop2020": 160,
+      "pop2024": 170
+    },
+    {
+      "name": "Centro 6",
+      "slug": "centro-6",
+      "pop2015": 164,
+      "pop2020": 226,
+      "pop2024": 225
+    },
+    {
+      "name": "Centro 7",
+      "slug": "centro-7",
+      "pop2015": 279,
+      "pop2020": 296,
+      "pop2024": 297
+    },
+    {
+      "name": "Centro 8",
+      "slug": "centro-8",
+      "pop2015": 168,
+      "pop2020": 146,
+      "pop2024": 148
+    },
+    {
+      "name": "Centro 9",
+      "slug": "centro-9",
+      "pop2015": 1043,
+      "pop2020": 1015,
+      "pop2024": 1002
+    },
+    {
+      "name": "Centro 10",
+      "slug": "centro-10",
+      "pop2015": 125,
+      "pop2020": 125,
+      "pop2024": 109
+    },
+    {
+      "name": "Centro 11",
+      "slug": "centro-11",
+      "pop2015": 176,
+      "pop2020": 131,
+      "pop2024": 124
+    },
+    {
+      "name": "Centro 12",
+      "slug": "centro-12",
+      "pop2015": 95,
+      "pop2020": 99,
+      "pop2024": 106
+    },
+    {
+      "name": "Centro 13",
+      "slug": "centro-13",
+      "pop2015": 68,
+      "pop2020": 108,
+      "pop2024": 67
+    },
+    {
+      "name": "Centro 14",
+      "slug": "centro-14",
+      "pop2015": 273,
+      "pop2020": 254,
+      "pop2024": 92
+    },
+    {
+      "name": "Centro 15",
+      "slug": "centro-15",
+      "pop2015": 12,
+      "pop2020": 5,
+      "pop2024": null
+    },
+    {
+      "name": "Dodan",
+      "slug": "dodan",
+      "pop2015": 2699,
+      "pop2020": 2708,
+      "pop2024": 3122
+    },
+    {
+      "name": "Fuga Island",
+      "slug": "fuga-island",
+      "pop2015": 2015,
+      "pop2020": 1939,
+      "pop2024": 2257
+    },
+    {
+      "name": "Gaddang",
+      "slug": "gaddang",
+      "pop2015": 2893,
+      "pop2020": 3055,
+      "pop2024": 3174
+    },
+    {
+      "name": "Linao",
+      "slug": "linao",
+      "pop2015": 1747,
+      "pop2020": 1810,
+      "pop2024": 1812
+    },
+    {
+      "name": "Mabanguc",
+      "slug": "mabanguc",
+      "pop2015": 942,
+      "pop2020": 1021,
+      "pop2024": 1026
+    },
+    {
+      "name": "Macanaya",
+      "slug": "macanaya",
+      "pop2015": 5561,
+      "pop2020": 5553,
+      "pop2024": 5472
+    },
+    {
+      "name": "Maura",
+      "slug": "maura",
+      "pop2015": 7115,
+      "pop2020": 8094,
+      "pop2024": 7689
+    },
+    {
+      "name": "Minanga",
+      "slug": "minanga",
+      "pop2015": 1923,
+      "pop2020": 1856,
+      "pop2024": 1511
+    },
+    {
+      "name": "Navagan",
+      "slug": "navagan",
+      "pop2015": 900,
+      "pop2020": 1152,
+      "pop2024": 904
+    },
+    {
+      "name": "Paddaya",
+      "slug": "paddaya",
+      "pop2015": 3769,
+      "pop2020": 4087,
+      "pop2024": 3940
+    },
+    {
+      "name": "Paruddun Norte",
+      "slug": "paruddun-norte",
+      "pop2015": 1480,
+      "pop2020": 1391,
+      "pop2024": 1360
+    },
+    {
+      "name": "Paruddun Sur",
+      "slug": "paruddun-sur",
+      "pop2015": 1123,
+      "pop2020": 1245,
+      "pop2024": 1258
+    },
+    {
+      "name": "Plaza",
+      "slug": "plaza",
+      "pop2015": 809,
+      "pop2020": 748,
+      "pop2024": 752
+    },
+    {
+      "name": "Punta",
+      "slug": "punta",
+      "pop2015": 4665,
+      "pop2020": 4841,
+      "pop2024": 4860
+    },
+    {
+      "name": "San Antonio",
+      "slug": "san-antonio",
+      "pop2015": 3877,
+      "pop2020": 3972,
+      "pop2024": 3915
+    },
+    {
+      "name": "Sanja",
+      "slug": "sanja",
+      "pop2015": 1620,
+      "pop2020": 1778,
+      "pop2024": 1839
+    },
+    {
+      "name": "Tallungan",
+      "slug": "tallungan",
+      "pop2015": 3329,
+      "pop2020": 3421,
+      "pop2024": 3437
+    },
+    {
+      "name": "Toran",
+      "slug": "toran",
+      "pop2015": 3433,
+      "pop2020": 3668,
+      "pop2024": 3605
+    },
+    {
+      "name": "Zinarag",
+      "slug": "zinarag",
+      "pop2015": 1111,
+      "pop2020": 1023,
+      "pop2024": 1108
     }
   ],
   "sourceLinks": [
     {
-      "label": "PSA PSGC Aparri 2024 POPCEN",
+      "label": "PSA PSGC: Aparri barangays (2024 POPCEN)",
       "href": "https://psa.gov.ph/classification/psgc/barangays/0201505000"
     },
     {
-      "label": "PSA 2010-2015-2020 population density table",
+      "label": "PSA 2010–2020 population density table",
       "href": "https://psa.gov.ph/system/files/phcd/2022-12/2010-2015-2020%2520Population%2520Density_Table%2520A_Using%25202013%2520Land%2520Areas_12%2520July%25202021.pdf"
+    },
+    {
+      "label": "PhilAtlas: Aparri (2015 & 2020 barangay counts, census history)",
+      "href": "https://www.philatlas.com/luzon/r02/cagayan/aparri.html"
+    },
+    {
+      "label": "Wikipedia: Aparri census history (citing PSA)",
+      "href": "https://en.wikipedia.org/wiki/Aparri"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Statistics",
       "title": "Demographics",
-      "description": "Aparri population counts from PSA datasets, including recent census movement and growth indicators."
+      "description": "How many people live in Aparri, how that number has changed since 1903, and which barangays they live in."
     },
-    "guidance": {
-      "title": "What You Need to Know",
-      "description": "A plain-language summary of the demographic figures below."
-    },
+    "intro": "These figures come from the national census run by the Philippine Statistics Authority (PSA). The census counts everyone living in Aparri on a set date, about every five years. The latest count was taken in 2024.",
     "sections": {
-      "populationAndGrowth": {
-        "eyebrow": "Population and Growth",
-        "title": "Population Trend and Count Changes",
-        "description": "Aparri's latest PSA population count is shown alongside recent census points and count-to-count movement."
-      }
-    },
-    "cards": {
-      "populationTrend": {
-        "title": "Population Trend",
-        "description": "Census counts based on available PSA datasets"
+      "overview": {
+        "eyebrow": "At a Glance",
+        "title": "Aparri's Population Today",
+        "description": "The latest official count and how it compares with the census before it."
       },
-      "countChanges": {
-        "title": "Change Between Counts",
-        "description": "Percent change between available PSA population counts"
+      "history": {
+        "eyebrow": "Over Time",
+        "title": "Population Since 1903",
+        "description": "Every official census count for Aparri. Switch between the number of people and how fast the population grew each year."
+      },
+      "barangays": {
+        "eyebrow": "Where People Live",
+        "title": "Population by Barangay",
+        "description": "All 42 barangays, from the 2020 and 2024 census counts. Tap a column title to sort, or search for a barangay."
       }
     },
     "terms": [
       {
-        "term": "POPCEN",
-        "description": "The Census of Population conducted by the Philippine Statistics Authority to count residents and update population benchmarks."
+        "term": "Census",
+        "description": "An official count of everyone living in a place on a set date, done by the Philippine Statistics Authority (PSA)."
       },
       {
-        "term": "Annualized Growth",
-        "description": "The average yearly rate of population change between two PSA population counts."
+        "term": "POPCEN and CPH",
+        "description": "Names of PSA censuses. POPCEN is the Census of Population (2015, 2024). CPH is the Census of Population and Housing (2010, 2020)."
+      },
+      {
+        "term": "Yearly growth rate",
+        "description": "How much the population grew, on average, each year between two census counts. A negative rate means the population got smaller."
+      },
+      {
+        "term": "Population density",
+        "description": "The average number of residents per square kilometer of land."
       }
     ],
-    "sourceNote": "Population figures are based on PSA published datasets."
+    "sourceNote": "Census counts are from the Philippine Statistics Authority. Barangay counts for 2024 are from the PSA's PSGC listing; 2015 and 2020 barangay counts and exact census dates are as compiled by PhilAtlas from PSA results. The 2024 count for Centro 15 is not listed by the PSA. Update this JSON data file when the PSA releases new census results."
   }
 }
