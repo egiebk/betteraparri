@@ -1,3 +1,4 @@
+import { cn } from '../../lib/utils';
 import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import type { Subcategory } from '../../data/yamlLoader';
 import legislativeIndexContent from '../../../content/government/leadership/legislative/index.yaml?raw';
@@ -113,18 +114,21 @@ function LeadOfficialCard({
             icon="ri-map-pin-line"
             label="Office Address"
             value={address || 'Address not yet available'}
+            isPlaceholder={!address}
           />
           <ContactRow
             href={email ? `mailto:${email}` : undefined}
             icon="ri-mail-line"
             label="Email Address"
             value={email || 'Email not yet available'}
+            isPlaceholder={!email}
           />
           <ContactRow
             href={phone ? `tel:${phone}` : undefined}
             icon="ri-phone-line"
             label="Phone Number"
             value={phone || 'Phone not yet available'}
+            isPlaceholder={!phone}
           />
         </div>
       </CardContent>
@@ -157,11 +161,14 @@ function ContactRow({
   label,
   value,
   href,
+  isPlaceholder = false,
 }: {
   icon: string;
   label: string;
   value: string;
   href?: string;
+  /** "Not yet available" text keeps the regular font. */
+  isPlaceholder?: boolean;
 }) {
   const content = href ? (
     <a className="text-primary-600 hover:underline" href={href}>
@@ -178,7 +185,12 @@ function ContactRow({
         <p className="text-xs font-semibold uppercase tracking-normal text-gray-500">
           {label}
         </p>
-        <p className="mt-1 break-words text-sm leading-relaxed text-gray-800">
+        <p
+          className={cn(
+            'mt-1 break-words text-sm leading-relaxed',
+            isPlaceholder ? 'text-gray-500' : 'font-mono text-gray-800'
+          )}
+        >
           {content}
         </p>
       </div>
