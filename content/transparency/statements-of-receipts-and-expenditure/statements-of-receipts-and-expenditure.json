@@ -1,263 +1,374 @@
 {
-  "highlightStats": [
-    {
-      "label": "Operating Income",
-      "value": "PHP 384.77M",
-      "detail": "FY 2025 (preliminary) current operating income",
-      "icon": "ri-arrow-down-circle-line",
-      "tone": "primary"
-    },
-    {
-      "label": "Operating Expenditures",
-      "value": "PHP 296.86M",
-      "detail": "FY 2025 (preliminary) current operating expenditures",
-      "icon": "ri-arrow-up-circle-line",
-      "tone": "success"
-    },
-    {
-      "label": "Net Operating Income",
-      "value": "PHP 87.91M",
-      "detail": "Income less operating expenditures",
-      "icon": "ri-line-chart-line",
-      "tone": "accent"
-    },
-    {
-      "label": "Ending Cash Balance",
-      "value": "PHP 238.11M",
-      "detail": "FY 2025 (preliminary) fund/cash balance, end",
-      "icon": "ri-safe-2-line",
-      "tone": "secondary"
-    }
-  ],
-  "q1IncomeSources": [
-    {
-      "label": "Local sources",
-      "value": 53.4,
-      "percent": 13.9,
-      "tone": "bg-primary-500",
-      "color": "#0066eb"
-    },
-    {
-      "label": "External sources",
-      "value": 331.37,
-      "percent": 86.1,
-      "tone": "bg-primary-500",
-      "color": "#0066eb"
-    }
-  ],
-  "q1ExpenditureSources": [
-    {
-      "label": "General public services",
-      "value": 199.21,
-      "percent": 67.1,
-      "tone": "bg-primary-500",
-      "color": "#0066eb"
-    },
-    {
-      "label": "Social services",
-      "value": 65.35,
-      "percent": 22.0,
-      "tone": "bg-primary-500",
-      "color": "#0066eb"
-    },
-    {
-      "label": "Economic services",
-      "value": 32.29,
-      "percent": 10.9,
-      "tone": "bg-violet-600",
-      "color": "#facc15"
-    }
-  ],
-  "q1FundPosition": [
-    {
-      "label": "Current operating income",
-      "value": 384.77,
-      "detail": "FY 2025 (preliminary) total current operating income",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Current operating expenditures",
-      "value": 296.86,
-      "detail": "FY 2025 (preliminary) total current operating expenditures",
-      "tone": "bg-primary-300"
-    },
-    {
-      "label": "Net operating income",
-      "value": 87.91,
-      "detail": "Operating income less operating expenditures",
-      "tone": "bg-success-500"
-    },
-    {
-      "label": "Ending cash balance",
-      "value": 238.11,
-      "detail": "Fund/cash balance at year end",
-      "tone": "bg-secondary-500"
-    }
-  ],
-  "q1LocalSourceBreakdown": [
-    {
-      "label": "Tax revenue",
-      "value": 28.09,
-      "detail": "Real property, business, and other local taxes",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Non-tax revenue",
-      "value": 19.29,
-      "detail": "Fees, charges, and economic enterprises",
-      "tone": "bg-primary-500"
-    }
-  ],
-  "q1SocialServicesBreakdown": [
-    {
-      "label": "General public services",
-      "value": 199.21,
-      "detail": "Largest FY2025 current operating expenditure category",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Social services",
-      "value": 65.35,
-      "detail": "Health, education, and other social services spending",
-      "tone": "bg-primary-500"
-    },
-    {
-      "label": "Economic services",
-      "value": 32.29,
-      "detail": "Agriculture, trade, and other economic services spending",
-      "tone": "bg-violet-600"
-    }
-  ],
-  "yearlyTrend": [
+  "lgu": "Aparri",
+  "years": [
     {
       "year": 2018,
-      "income": 214.51,
-      "expenditure": 108.25
+      "status": "final",
+      "population": 67589,
+      "rptGeneral": 3593252.82,
+      "rptSef": 4491566.04,
+      "rptTotal": 8084818.86,
+      "businessTax": 17539747.08,
+      "otherTaxes": 738694.81,
+      "totalTax": 26363260.75,
+      "regulatoryFees": 5769634.16,
+      "userCharges": 729240,
+      "economicEnterprises": 7500355.79,
+      "otherReceipts": 155341.5,
+      "totalNonTax": 14154571.45,
+      "totalLocal": 40517832.2,
+      "nta": 170839619.04,
+      "otherNationalShares": 707392.58,
+      "interLocalTransfers": 2400000,
+      "grantsAndAid": 50000,
+      "totalExternal": 173997011.62,
+      "totalIncome": 214514843.82,
+      "generalPublicServices": 74584076.76,
+      "education": 1823070.6,
+      "health": 12696381.16,
+      "labor": 0,
+      "housing": 1148807.34,
+      "socialWelfare": 4701444.29,
+      "totalSocial": 20369703.39,
+      "economicServices": 13296818.51,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 108250598.66,
+      "netOperatingIncome": 106264245.16,
+      "capitalOutlay": 36495963.22,
+      "cashEnd": 260371307.27
     },
     {
       "year": 2019,
-      "income": 240.68,
-      "expenditure": 113.93
+      "status": "final",
+      "population": 68267,
+      "rptGeneral": 3799427.13,
+      "rptSef": 4749283.91,
+      "rptTotal": 8548711.04,
+      "businessTax": 21866597.86,
+      "otherTaxes": 757294.8,
+      "totalTax": 31172603.7,
+      "regulatoryFees": 5977755.81,
+      "userCharges": 817879,
+      "economicEnterprises": 8413316.95,
+      "otherReceipts": 1328927.5,
+      "totalNonTax": 16537879.26,
+      "totalLocal": 47710482.96,
+      "nta": 187448254,
+      "otherNationalShares": 237526.71,
+      "interLocalTransfers": 5284000,
+      "grantsAndAid": 0,
+      "totalExternal": 192969780.71,
+      "totalIncome": 240680263.67,
+      "generalPublicServices": 82060165.06,
+      "education": 2394420.97,
+      "health": 11183182.85,
+      "labor": 0,
+      "housing": 1018208.86,
+      "socialWelfare": 4518358.01,
+      "totalSocial": 19114170.69,
+      "economicServices": 12759063.56,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 113933399.31,
+      "netOperatingIncome": 126746864.36,
+      "capitalOutlay": 16572481.26,
+      "cashEnd": 254777356.37
     },
     {
       "year": 2020,
-      "income": 329.7,
-      "expenditure": 180.51
+      "status": "final",
+      "population": 68820,
+      "rptGeneral": 2915497.59,
+      "rptSef": 3644372.04,
+      "rptTotal": 6559869.63,
+      "businessTax": 21777846.21,
+      "otherTaxes": 842856,
+      "totalTax": 29180571.84,
+      "regulatoryFees": 7832128.96,
+      "userCharges": 1054322.38,
+      "economicEnterprises": 7046218.71,
+      "otherReceipts": 294944.5,
+      "totalNonTax": 16227614.55,
+      "totalLocal": 45408186.39,
+      "nta": 210908982.96,
+      "otherNationalShares": 55056.2,
+      "interLocalTransfers": 55754500,
+      "grantsAndAid": 17575749,
+      "totalExternal": 284294288.16,
+      "totalIncome": 329702474.55,
+      "generalPublicServices": 134925911.85,
+      "education": 5120307.79,
+      "health": 19383766.17,
+      "labor": 0,
+      "housing": 1323144.17,
+      "socialWelfare": 3343867.04,
+      "totalSocial": 29171085.17,
+      "economicServices": 16408876.34,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 180505873.36,
+      "netOperatingIncome": 149196601.19,
+      "capitalOutlay": 39493032.2,
+      "cashEnd": 300009981.52
     },
     {
       "year": 2021,
-      "income": 272.27,
-      "expenditure": 164.42
+      "status": "final",
+      "population": 68707,
+      "rptGeneral": 3490925.31,
+      "rptSef": 4363656.65,
+      "rptTotal": 7854581.96,
+      "businessTax": 18488789.3,
+      "otherTaxes": 760963.6,
+      "totalTax": 27104334.86,
+      "regulatoryFees": 9315450.44,
+      "userCharges": 1025540,
+      "economicEnterprises": 7152769,
+      "otherReceipts": 426225,
+      "totalNonTax": 17919984.44,
+      "totalLocal": 45024319.3,
+      "nta": 226045407.96,
+      "otherNationalShares": 0,
+      "interLocalTransfers": 700000,
+      "grantsAndAid": 502800,
+      "totalExternal": 227248207.96,
+      "totalIncome": 272272527.26,
+      "generalPublicServices": 123563690.33,
+      "education": 3622073.57,
+      "health": 17628560.66,
+      "labor": 0,
+      "housing": 1287224.91,
+      "socialWelfare": 2768205.06,
+      "totalSocial": 25306064.2,
+      "economicServices": 15552848.17,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 164422602.7,
+      "netOperatingIncome": 107849924.56,
+      "capitalOutlay": 27484081.02,
+      "cashEnd": 331034709.61
     },
     {
       "year": 2022,
-      "income": 353.5,
-      "expenditure": 208.33
+      "status": "final",
+      "population": 68594,
+      "rptGeneral": 3633915.32,
+      "rptSef": 4542394.18,
+      "rptTotal": 8176309.5,
+      "businessTax": 19520486,
+      "otherTaxes": 1093484,
+      "totalTax": 28790279.5,
+      "regulatoryFees": 8567622.03,
+      "userCharges": 998055,
+      "economicEnterprises": 7466943.16,
+      "otherReceipts": 158330,
+      "totalNonTax": 17190950.19,
+      "totalLocal": 45981229.69,
+      "nta": 307137303.96,
+      "otherNationalShares": 382654.72,
+      "interLocalTransfers": 0,
+      "grantsAndAid": 0,
+      "totalExternal": 307519958.68,
+      "totalIncome": 353501188.37,
+      "generalPublicServices": 148475241.35,
+      "education": 6124582.02,
+      "health": 30043085.2,
+      "labor": 0,
+      "housing": 1023595.7,
+      "socialWelfare": 4317337.78,
+      "totalSocial": 41508600.7,
+      "economicServices": 18347574.39,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 208331416.44,
+      "netOperatingIncome": 145169771.93,
+      "capitalOutlay": 32913294.1,
+      "cashEnd": 355486174.38
     },
     {
       "year": 2023,
-      "income": 316.73,
-      "expenditure": 218.45
+      "status": "final",
+      "population": 68481,
+      "rptGeneral": 4321213.77,
+      "rptSef": 5401517.22,
+      "rptTotal": 9722730.99,
+      "businessTax": 20335568.8,
+      "otherTaxes": 1375003.65,
+      "totalTax": 31433303.44,
+      "regulatoryFees": 8286185.37,
+      "userCharges": 1724299,
+      "economicEnterprises": 8595064.7,
+      "otherReceipts": 73240,
+      "totalNonTax": 18678789.07,
+      "totalLocal": 50112092.51,
+      "nta": 262631600.04,
+      "otherNationalShares": 333737.13,
+      "interLocalTransfers": 3650000,
+      "grantsAndAid": 0,
+      "totalExternal": 266615337.17,
+      "totalIncome": 316727429.68,
+      "generalPublicServices": 139176594.56,
+      "education": 3886775.25,
+      "health": 28984637.14,
+      "labor": 0,
+      "housing": 1345458.36,
+      "socialWelfare": 20316962.22,
+      "totalSocial": 54533832.97,
+      "economicServices": 24738475.63,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 218448903.16,
+      "netOperatingIncome": 98278526.52,
+      "capitalOutlay": 12762681.17,
+      "cashEnd": 360871642.26
     },
     {
       "year": 2024,
-      "income": 332.51,
-      "expenditure": 236.59
+      "status": "final",
+      "population": 68368,
+      "rptGeneral": 4968672.62,
+      "rptSef": 6210840.76,
+      "rptTotal": 11179513.38,
+      "businessTax": 24153060.29,
+      "otherTaxes": 1552541.84,
+      "totalTax": 36885115.51,
+      "regulatoryFees": 6689051.44,
+      "userCharges": 1235735.07,
+      "economicEnterprises": 8357755.92,
+      "otherReceipts": 61716.19,
+      "totalNonTax": 16344258.62,
+      "totalLocal": 53229374.13,
+      "nta": 279076872,
+      "otherNationalShares": 202869.47,
+      "interLocalTransfers": 0,
+      "grantsAndAid": 0,
+      "totalExternal": 279279741.47,
+      "totalIncome": 332509115.6,
+      "generalPublicServices": 166822962.15,
+      "education": 552580,
+      "health": 28977423.98,
+      "labor": 0,
+      "housing": 1154481.78,
+      "socialWelfare": 16644156.64,
+      "totalSocial": 47328642.4,
+      "economicServices": 22439502.26,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 236591106.81,
+      "netOperatingIncome": 95918008.79,
+      "capitalOutlay": 39819426.47,
+      "cashEnd": 335613934.89
     },
     {
       "year": 2025,
-      "income": 384.77,
-      "expenditure": 296.86
+      "status": "preliminary",
+      "population": 68256,
+      "rptGeneral": 4669172.76,
+      "rptSef": 5762805.96,
+      "rptTotal": 10431978.72,
+      "businessTax": 21871054.91,
+      "otherTaxes": 1551258.32,
+      "totalTax": 33854291.95,
+      "regulatoryFees": 8271560.02,
+      "userCharges": 1644388.57,
+      "economicEnterprises": 9370930.18,
+      "otherReceipts": 254018,
+      "totalNonTax": 19540896.77,
+      "totalLocal": 53395188.72,
+      "nta": 331309638,
+      "otherNationalShares": 61748.8,
+      "interLocalTransfers": 0,
+      "grantsAndAid": 0,
+      "totalExternal": 331371386.8,
+      "totalIncome": 384766575.52,
+      "generalPublicServices": 199212664.76,
+      "education": 0,
+      "health": 39548263.17,
+      "labor": 0,
+      "housing": 1828923.11,
+      "socialWelfare": 23974617.04,
+      "totalSocial": 65351803.32,
+      "economicServices": 32292352.36,
+      "debtInterest": 0,
+      "totalOperatingExpenditure": 296856820.44,
+      "netOperatingIncome": 87909755.08,
+      "capitalOutlay": 92576751.71,
+      "cashEnd": 238105570.73
     }
   ],
+  "populationNote": "Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts.",
   "sourceLinks": [
     {
-      "label": "BLGF LGU Fiscal Data",
+      "label": "BLGF LGU Fiscal Data (annual files by LGU)",
       "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    },
+    {
+      "label": "BLGF: Statement of Receipts and Expenditures by LGU, FY 2025 (preliminary)",
+      "href": "https://blgf.gov.ph/wp-content/uploads/2026/05/By-LGU-SRE-2025.xlsx"
+    },
+    {
+      "label": "PSA census counts (for per-resident figures)",
+      "href": "https://psa.gov.ph/classification/psgc/barangays/0201505000"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Financial Stewardship",
-      "title": "Statements of Receipts and Expenditure",
-      "description": "This page shows Aparri's FY 2025 (preliminary) current operating income, expenditures, operating result, and fund balance, with an 8-year trend."
+      "title": "Receipts and Expenditures",
+      "description": "How much money came into the town each year, what it was spent on, and how much was left."
     },
-    "guidance": {
-      "title": "What You Need to Know",
-      "description": "A quick reading table for the main FY 2025 SRE figures."
-    },
+    "intro": "Every year, the town reports all the money it received and spent to the Bureau of Local Government Finance (BLGF). This page shows that report in simple terms: money in, money spent on day-to-day services, money spent on projects and equipment, and the cash left at the end of the year.",
     "sections": {
-      "receiptsAndExpenditures": {
-        "eyebrow": "Receipts and Expenditures",
-        "title": "FY 2025 Financial Position",
-        "description": "These charts show the year's income sources, spending categories, and operating result."
+      "overview": {
+        "eyebrow": "At a Glance",
+        "title": "Money In and Money Out",
+        "description": "The selected year's income, spending and cash balance."
       },
-      "disasterRiskReduction": {
-        "eyebrow": "Receipts and Expenditures",
-        "title": "FY 2025 Financial Position",
-        "description": "These charts show the year's income sources, spending categories, and operating result."
+      "moneyInOut": {
+        "eyebrow": "Details",
+        "title": "Where the Money Came From and Went",
+        "description": "Income by source and day-to-day spending by type of service for the selected year."
       },
-      "yearlyTrend": {
-        "eyebrow": "Multi-Year Trend",
-        "title": "Income and Expenditures, FY 2018-2025",
-        "description": "Current operating income compared with current operating expenditures over eight fiscal years."
-      }
-    },
-    "cards": {
-      "operatingPosition": {
-        "title": "Operating Position",
-        "description": "Income, expenditures, and net operating income"
+      "income": {
+        "eyebrow": "Money In",
+        "title": "Where the Money Came From",
+        "description": "Income from local collections and from outside sources such as the national government."
       },
-      "incomeSources": {
-        "title": "Income Sources",
-        "description": "Share of FY 2025 current operating income",
-        "chartLabel": "FY 2025 Income"
+      "spending": {
+        "eyebrow": "Money Out",
+        "title": "What the Money Was Spent On",
+        "description": "Day-to-day spending by type of service, plus spending on projects and equipment."
       },
-      "operatingExpenditures": {
-        "title": "Operating Expenditures",
-        "description": "Share of FY 2025 current operating expenditures"
-      },
-      "q1IncomeDetails": {
-        "title": "Income Details",
-        "description": "Tax and non-tax components of local source income"
-      },
-      "socialServicesDetails": {
-        "title": "Expenditure Categories",
-        "description": "Ranked FY2025 current operating expenditure categories"
-      },
-      "totalUtilization": {
-        "title": "Total Utilization",
-        "description": "Expenditure against total appropriation",
-        "appropriationLabel": "Total appropriation",
-        "expenditureLabel": "Total expenditures"
-      },
-      "fundComponents": {
-        "title": "Fund Components",
-        "description": "Utilization by component"
-      },
-      "yearlyTrend": {
-        "title": "Income vs. Expenditures, FY 2018-2025",
-        "description": "Current operating income and expenditures, in PHP million"
+      "trend": {
+        "eyebrow": "Over Time",
+        "title": "Income and Spending by Year",
+        "description": "Money received and money spent on day-to-day operations, year by year. Select a year to view it."
       }
     },
     "terms": [
       {
-        "term": "Current Operating Income",
-        "description": "Regular income from local and external (national transfer) sources during the fiscal year."
+        "term": "Current operating income",
+        "description": "Money received during the year from taxes, fees, the National Tax Allotment, grants and transfers. It does not include loans."
       },
       {
-        "term": "Current Operating Expenditures",
-        "description": "Regular spending on general public services, social services, economic services, and debt service."
+        "term": "Current operating expenditures",
+        "description": "Money spent on day-to-day services: salaries, supplies, utilities and programs."
       },
       {
-        "term": "Net Operating Income",
-        "description": "Current operating income less current operating expenditures."
+        "term": "Capital outlay",
+        "description": "Money spent on things that last, such as buildings, roads, vehicles and equipment."
       },
       {
-        "term": "Fund/Cash Balance",
-        "description": "The cash available to the local government at the end of the fiscal year."
+        "term": "General public services",
+        "description": "Running the town government itself: the mayor's office, council, treasury, assessor, and other administrative offices."
+      },
+      {
+        "term": "Economic services",
+        "description": "Programs that support livelihoods and the local economy, such as agriculture, fisheries, public markets and engineering."
+      },
+      {
+        "term": "Net operating income",
+        "description": "Money received minus day-to-day spending. A positive number means income covered the town's regular operations."
+      },
+      {
+        "term": "Cash at year end",
+        "description": "Money left in the town's funds after all payments and amounts set aside for ongoing projects."
       }
     ],
-    "sourceNote": "Figures are based on the BLGF LGU Fiscal Data \"Statement of Receipts and Expenditures (SRE) by Year\" export (FY2025 preliminary, extracted March 3, 2026) and should be checked against the latest BLGF posting before formal use."
+    "sourceNote": "Figures are from the Bureau of Local Government Finance (BLGF) annual \"Statement of Receipts and Expenditures (SRE)\" files by LGU. FY 2025 figures are preliminary and may change. Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts."
   }
 }

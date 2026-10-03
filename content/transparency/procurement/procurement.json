@@ -3,12 +3,31 @@
     "hero": {
       "eyebrow": "Transparency",
       "title": "Procurement",
-      "description": "Browse procurement records based on publicly available data."
+      "description": "Contracts the Municipality of Aparri awarded to suppliers and contractors, based on public procurement records."
     },
-    "sourceNote": "Data is based on the Transparency Dashboard by BetterGovPH, as of May 8, 2026.",
-    "dateLabel": "Awarded on"
+    "intro": "When the town buys goods or hires a contractor, the law (Republic Act 9184) generally requires an open bidding so that suppliers can compete. This page lists the contracts awarded by the Municipality of Aparri: what was bought or built, who won the contract, how much it cost, and when it was awarded.",
+    "sourceNote": "Data is from the Transparency Dashboard by BetterGovPH, as of May 8, 2026. It lists contracts with recorded award dates from February 2012 to March 2023. Verify details with the Municipal Bids and Awards Committee before formal use.",
+    "dateLabel": "Awarded on",
+    "terms": [
+      {
+        "term": "Procurement",
+        "description": "The process the government uses to buy goods, hire contractors and get services, usually through public bidding."
+      },
+      {
+        "term": "Contract amount",
+        "description": "The amount the town agreed to pay for the contract when it was awarded. The final amount paid can differ."
+      },
+      {
+        "term": "Contractor or supplier",
+        "description": "The business that won the bidding and was awarded the contract."
+      },
+      {
+        "term": "Award date",
+        "description": "The date the town officially gave the contract to the winning bidder."
+      }
+    ]
   },
-  "asOf": "20260508145005",
+  "asOf": "2026-05-08",
   "sourceLinks": [
     {
       "label": "Transparency Dashboard by BetterGovPH",

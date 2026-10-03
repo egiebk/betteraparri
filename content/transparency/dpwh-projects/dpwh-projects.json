@@ -3,10 +3,33 @@
     "hero": {
       "eyebrow": "Transparency",
       "title": "DPWH Projects in Aparri",
-      "description": "Browse infrastructure projects located in Aparri based on publicly available data."
+      "description": "National government infrastructure projects in and around Aparri, with their contractors, costs and progress."
     },
-    "sourceNote": "Data is based on the Transparency Dashboard by BetterGovPH for Aparri, as of August 27, 2026.",
-    "dateLabel": "Started on"
+    "sourceNote": "Data is from the Transparency Dashboard by BetterGovPH (search: Aparri, Cagayan), as of August 27, 2026. Some projects are located in nearby towns but were included because their road or project name mentions Aparri; these are labeled. Locations and barangays were read from project titles. Verify details with the DPWH Cagayan 1st District Engineering Office before formal use.",
+    "dateLabel": "Started on",
+    "intro": "The Department of Public Works and Highways (DPWH) builds and repairs national roads, bridges, flood control, school buildings and other public works. This page lists DPWH projects for Aparri: what is being built, which contractor is doing it, how much the contract is worth, and whether it is finished.",
+    "terms": [
+      {
+        "term": "DPWH",
+        "description": "The Department of Public Works and Highways, the national agency that plans and builds public works such as roads, bridges and flood control."
+      },
+      {
+        "term": "District Engineering Office (DEO)",
+        "description": "The local DPWH office that handles projects in an area. Most Aparri projects are handled by the Cagayan 1st District Engineering Office."
+      },
+      {
+        "term": "Status",
+        "description": "Completed means the work is finished. Ongoing means construction has started. Not yet started means the project is still being bid out (\"for procurement\")."
+      },
+      {
+        "term": "Contract amount",
+        "description": "The amount in the contract with the builder. Projects still being bid out do not have a contract amount yet."
+      },
+      {
+        "term": "Program year",
+        "description": "The year the project was funded or scheduled in the DPWH program."
+      }
+    ]
   },
   "asOf": "2026-08-27",
   "sourceLinks": [
@@ -53,7 +76,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-2",
@@ -72,7 +101,13 @@
       "year": "2025",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bangag",
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-3",
@@ -91,7 +126,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2022-06-26",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bulala Sur",
+      "type": "Buildings and facilities",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-4",
@@ -110,7 +151,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2019-07-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Maura",
+      "type": "Roads",
+      "contractorName": "E.V. INTERIOR CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-5",
@@ -129,7 +176,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-05-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Maura",
+      "type": "Buildings and facilities",
+      "contractorName": "ERICVONNE CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-6",
@@ -148,7 +201,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-7",
@@ -167,7 +226,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-04-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-8",
@@ -186,7 +251,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2017-12-27",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri and nearby towns",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Water supply",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-9",
@@ -205,7 +276,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-09-03",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-10",
@@ -224,7 +301,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-03-11",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-11",
@@ -243,7 +326,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-03-11",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-12",
@@ -262,7 +351,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2019-07-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Water supply",
+      "contractorName": "R.B. ALCAZAR CONSTRUCTION CORP. (FOR:R.B. ALCAZAR CONST. & DEV'T)",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-13",
@@ -281,7 +376,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2019-02-11",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "San Antonio",
+      "type": "Buildings and facilities",
+      "contractorName": "FOUR M BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-14",
@@ -300,7 +401,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2018-12-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Bridges",
+      "contractorName": "JLL PULSAR CONSTRUCTION CORPORATION",
+      "contractorFormerName": "PULSAR CONSTRUCTION"
     },
     {
       "id": "dpwh-15",
@@ -319,7 +426,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2022-01-17",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "JIRK CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-16",
@@ -338,7 +451,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2018-11-18",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Tallungan",
+      "type": "Buildings and facilities",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-17",
@@ -357,7 +476,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2019-03-18",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "San Antonio",
+      "type": "Buildings and facilities",
+      "contractorName": "FOUR M BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-18",
@@ -376,7 +501,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2024-03-11",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Lal-lo",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "NCL BUILDERS AND CONSTRUCTION SUPPLY",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-19",
@@ -395,7 +526,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2021-11-07",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "E. GUADIZ CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-20",
@@ -414,7 +551,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-07-19",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Lal-lo",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "WDC CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-21",
@@ -433,7 +576,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2018-12-03",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Lal-lo",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "EGB CONSTRUCTION CORPORATION",
+      "contractorFormerName": "EGB CONSTRUCTION"
     },
     {
       "id": "dpwh-22",
@@ -452,7 +601,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-05-06",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "FOUR M BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-23",
@@ -471,7 +626,13 @@
       "year": "2025",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-24",
@@ -490,7 +651,13 @@
       "year": "2025",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Fuga Island",
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-25",
@@ -509,7 +676,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-05-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Zinarag",
+      "type": "Buildings and facilities",
+      "contractorName": "D.J.D. CONSTRUCTION INC.",
+      "contractorFormerName": "D. J. D. CONSTRUCTION"
     },
     {
       "id": "dpwh-26",
@@ -528,7 +701,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-12-07",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Minanga",
+      "type": "Buildings and facilities",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-27",
@@ -547,7 +726,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-28",
@@ -566,7 +751,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-03-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Roads",
+      "contractorName": "CHELSEA BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-29",
@@ -585,7 +776,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-08-30",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paddaya",
+      "type": "Roads",
+      "contractorName": "FOUR M BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-30",
@@ -604,7 +801,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2017-12-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bisagu",
+      "type": "Roads",
+      "contractorName": "DEKM CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-31",
@@ -623,7 +826,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2017-12-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paddaya",
+      "type": "Roads",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-32",
@@ -642,7 +851,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2022-02-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Zinarag",
+      "type": "Buildings and facilities",
+      "contractorName": "REYROSE CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-33",
@@ -661,7 +876,13 @@
       "year": "2022",
       "progress": 100,
       "completionDate": "2023-08-27",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bangag",
+      "type": "Roads",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-34",
@@ -680,7 +901,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-09-30",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bangag",
+      "type": "Buildings and facilities",
+      "contractorName": "CAVAT CAPITOL MERCHANDISING & CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-35",
@@ -699,7 +926,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2020-02-03",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-36",
@@ -718,7 +951,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2022-02-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bukig",
+      "type": "Buildings and facilities",
+      "contractorName": "FOUR M BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-37",
@@ -737,7 +976,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2024-03-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Navagan",
+      "type": "Roads",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-38",
@@ -756,7 +1001,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2018-06-24",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paddaya",
+      "type": "Roads",
+      "contractorName": "R.C. TOLLO CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-39",
@@ -775,7 +1026,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2018-07-29",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "San Antonio",
+      "type": "Buildings and facilities",
+      "contractorName": "ORIENT STAR CONSTRUCTION, INC. (FORMERLY: ORIENT S",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-40",
@@ -794,7 +1051,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2022-08-04",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-41",
@@ -813,7 +1076,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2024-09-02",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bulala Sur",
+      "type": "Buildings and facilities",
+      "contractorName": "ZERO THREE CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-42",
@@ -832,7 +1101,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2025-05-05",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Toran",
+      "type": "Flood control and drainage",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-43",
@@ -851,7 +1126,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2024-04-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Toran",
+      "type": "Roads",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-44",
@@ -870,7 +1151,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2021-06-06",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-45",
@@ -889,7 +1176,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-10-16",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-46",
@@ -908,7 +1201,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2022-05-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "JIRK CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-47",
@@ -927,7 +1226,13 @@
       "year": "2022",
       "progress": 100,
       "completionDate": "2023-03-13",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-48",
@@ -946,7 +1251,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2021-07-26",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-49",
@@ -965,7 +1276,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-09-22",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Macanaya",
+      "type": "Flood control and drainage",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-50",
@@ -984,7 +1301,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2018-06-18",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Binalan",
+      "type": "Buildings and facilities",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-51",
@@ -1003,7 +1326,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-08-27",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Binalan",
+      "type": "Roads",
+      "contractorName": "JLL PULSAR CONSTRUCTION CORPORATION",
+      "contractorFormerName": "PULSAR CONSTRUCTION"
     },
     {
       "id": "dpwh-52",
@@ -1022,7 +1351,13 @@
       "year": "2025",
       "progress": 100,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Navagan",
+      "type": "Buildings and facilities",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-53",
@@ -1041,7 +1376,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-10-23",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paddaya",
+      "type": "Buildings and facilities",
+      "contractorName": "ZERO THREE CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-54",
@@ -1060,7 +1401,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-09-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-55",
@@ -1079,7 +1426,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-06-04",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Zinarag",
+      "type": "Roads",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-56",
@@ -1098,7 +1451,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2019-10-21",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Zinarag",
+      "type": "Buildings and facilities",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-57",
@@ -1117,7 +1476,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2024-07-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Water supply",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-58",
@@ -1136,7 +1501,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2019-09-23",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bukig",
+      "type": "Buildings and facilities",
+      "contractorName": "R.B. ALCAZAR CONSTRUCTION CORP. (FOR:R.B. ALCAZAR CONST. & DEV'T)",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-59",
@@ -1155,7 +1526,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2024-10-04",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bisagu",
+      "type": "Buildings and facilities",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-60",
@@ -1174,7 +1551,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2021-08-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-61",
@@ -1193,7 +1576,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2024-01-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Sanja",
+      "type": "Roads",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-62",
@@ -1212,7 +1601,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-10-23",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-63",
@@ -1231,7 +1626,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-10-27",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Abulug",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "OCP CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-64",
@@ -1250,7 +1651,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2021-05-17",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paruddun Sur",
+      "type": "Roads",
+      "contractorName": "OGL KONTRAKS CO.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-65",
@@ -1269,7 +1676,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2021-09-12",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-66",
@@ -1288,7 +1701,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-07-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bulala Sur",
+      "type": "Roads",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-67",
@@ -1307,7 +1726,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-11-18",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Binalan",
+      "type": "Buildings and facilities",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-68",
@@ -1326,7 +1751,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2020-06-07",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Abulug",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "JLL PULSAR CONSTRUCTION CORPORATION",
+      "contractorFormerName": "PULSAR CONSTRUCTION"
     },
     {
       "id": "dpwh-69",
@@ -1345,7 +1776,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2022-02-14",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "San Antonio",
+      "type": "Buildings and facilities",
+      "contractorName": "JIRK CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-70",
@@ -1364,7 +1801,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2020-05-22",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Ballesteros",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "EGB CONSTRUCTION CORPORATION",
+      "contractorFormerName": "EGB CONSTRUCTION"
     },
     {
       "id": "dpwh-71",
@@ -1383,7 +1826,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2022-03-14",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bukig",
+      "type": "Buildings and facilities",
+      "contractorName": "FOUR M BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-72",
@@ -1402,7 +1851,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-05-17",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paddaya",
+      "type": "Roads",
+      "contractorName": "MILESTONE 888 CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-73",
@@ -1421,7 +1876,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-12-16",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-74",
@@ -1440,7 +1901,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-12-18",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-75",
@@ -1459,7 +1926,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-04-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bangag",
+      "type": "Roads",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-76",
@@ -1478,7 +1951,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2024-10-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Macanaya",
+      "type": "Roads",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-77",
@@ -1497,7 +1976,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-06-06",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Backiling",
+      "type": "Roads",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-78",
@@ -1516,7 +2001,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-12-23",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bulala Sur",
+      "type": "Roads",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-79",
@@ -1535,7 +2026,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-01-11",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "CMG JR. BUILDERS (41683) / W.D. NAVARRO CONSTRUCTION CO.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-80",
@@ -1554,7 +2051,13 @@
       "year": "2025",
       "progress": 88.08,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Paddaya",
+      "type": "Flood control and drainage",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-81",
@@ -1573,7 +2076,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-01-11",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bangag",
+      "type": "Roads",
+      "contractorName": "CMG JR. BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-82",
@@ -1592,7 +2101,13 @@
       "year": "2025",
       "progress": 100,
       "completionDate": "2025-10-07",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Tallungan",
+      "type": "Buildings and facilities",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-83",
@@ -1611,7 +2126,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2022-01-10",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "APS CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-84",
@@ -1630,7 +2151,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2024-09-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bulala Norte",
+      "type": "Buildings and facilities",
+      "contractorName": "ZERO THREE CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-85",
@@ -1649,7 +2176,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2024-01-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Sanja",
+      "type": "Roads",
+      "contractorName": "APS CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-86",
@@ -1668,7 +2201,13 @@
       "year": "2022",
       "progress": 100,
       "completionDate": "2023-06-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-87",
@@ -1687,7 +2226,13 @@
       "year": "2025",
       "progress": 89.88,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-88",
@@ -1706,7 +2251,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2018-05-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Bridges",
+      "contractorName": "ST. GERRARD CONSTRUCTION GEN. CONTRACTOR & DEVELOPMENT CORP.",
+      "contractorFormerName": "ST. GERRARD CONSTRUCTION) ([REVOKED] 31762"
     },
     {
       "id": "dpwh-89",
@@ -1725,7 +2276,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2019-03-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "NCL BUILDERS AND CONSTRUCTION SUPPLY",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-90",
@@ -1744,7 +2301,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-10-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "JOHN 6:51 BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-91",
@@ -1763,7 +2326,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-12-07",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "JOHN 6:51 BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-92",
@@ -1782,7 +2351,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-01-04",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri and nearby towns",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "JOHN 6:51 BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-93",
@@ -1801,7 +2376,13 @@
       "year": "2025",
       "progress": 86.3,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Punta",
+      "type": "Buildings and facilities",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-94",
@@ -1820,7 +2401,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-06-30",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Dodan",
+      "type": "Roads",
+      "contractorName": "W.D. NAVARRO CONSTRUCTION CO.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-95",
@@ -1839,7 +2426,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Bridges",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-96",
@@ -1858,7 +2451,13 @@
       "year": "2025",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Minanga",
+      "type": "Buildings and facilities",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-97",
@@ -1877,7 +2476,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bangag",
+      "type": "Roads",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-98",
@@ -1896,7 +2501,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-03-18",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri and nearby towns",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "W.D. NAVARRO CONSTRUCTION CO.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-99",
@@ -1915,7 +2526,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2017-07-02",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Bridges",
+      "contractorName": "DANDEX CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-100",
@@ -1934,7 +2551,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-12-17",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "ABULUG DEVELOPERS AND BUILDERS COMPANY INC.(FORMER",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-101",
@@ -1953,7 +2576,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2017-12-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-102",
@@ -1972,7 +2601,13 @@
       "year": "2025",
       "progress": 30.47,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Lal-lo and Camalaniugan",
+      "inAparri": false,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-103",
@@ -1991,7 +2626,13 @@
       "year": "2025",
       "progress": 79.61,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Backiling",
+      "type": "Buildings and facilities",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-104",
@@ -2010,7 +2651,13 @@
       "year": "2025",
       "progress": 100,
       "completionDate": "2025-09-15",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Mabanguc",
+      "type": "Buildings and facilities",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-105",
@@ -2029,7 +2676,13 @@
       "year": "2018",
       "progress": 100,
       "completionDate": "2019-11-30",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "VIKING CONSTRUCTION & SUPPLIES",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-106",
@@ -2048,7 +2701,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2024-05-06",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Toran",
+      "type": "Flood control and drainage",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-107",
@@ -2067,7 +2726,13 @@
       "year": "2022",
       "progress": 100,
       "completionDate": "2023-01-02",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Bukig",
+      "type": "Roads",
+      "contractorName": "E. GUADIZ CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-108",
@@ -2086,7 +2751,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2022-07-10",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "PERRC INC.",
+      "contractorFormerName": "P.E.R.R.C. CONSTRUCTION & DEVELOPMENT CORPORATION"
     },
     {
       "id": "dpwh-109",
@@ -2105,7 +2776,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "D.J.D. CONSTRUCTION INC.",
+      "contractorFormerName": "D. J. D. CONSTRUCTION"
     },
     {
       "id": "dpwh-110",
@@ -2124,7 +2801,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2017-12-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "E. GUADIZ CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-111",
@@ -2143,7 +2826,13 @@
       "year": "2024",
       "progress": 0,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": null,
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-112",
@@ -2162,7 +2851,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-10-23",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "F.P. TABBADA CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-113",
@@ -2181,7 +2876,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-04-12",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "NC RODRIGUEZ CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-114",
@@ -2200,7 +2901,13 @@
       "year": "2024",
       "progress": 100,
       "completionDate": "2024-08-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "SKYLINE CONSTRUCTION, EQUIPMENT AND DEVELOPMENT CORPORATION(FORMERLY: EDDIE G. GUILLEN BUILDERS INC.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-115",
@@ -2219,7 +2926,13 @@
       "year": "2023",
       "progress": 100,
       "completionDate": "2023-06-04",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": "Sanja",
+      "type": "Roads",
+      "contractorName": "PRIMITIVO P. ESLABON CONSTRUCTION AND HARDWARE",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-116",
@@ -2238,7 +2951,13 @@
       "year": "2021",
       "progress": 100,
       "completionDate": "2021-08-12",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "J. AURELLANO CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-117",
@@ -2257,7 +2976,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2020-10-26",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "PRIME MASTER CONST. AND DEV'T. CORP.",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-118",
@@ -2276,7 +3001,13 @@
       "year": "2025",
       "progress": 100,
       "completionDate": "2025-07-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "JEICCA BUILDERS",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-119",
@@ -2295,7 +3026,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2021-05-01",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "EGB CONSTRUCTION CORPORATION",
+      "contractorFormerName": "EGB CONSTRUCTION"
     },
     {
       "id": "dpwh-120",
@@ -2314,7 +3051,13 @@
       "year": "2019",
       "progress": 100,
       "completionDate": "2019-10-29",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "JDL5 CONSTRUCTION CORPORATION",
+      "contractorFormerName": "DEOJ CONSTRUCTION"
     },
     {
       "id": "dpwh-121",
@@ -2333,7 +3076,13 @@
       "year": "2020",
       "progress": 100,
       "completionDate": "2020-10-13",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "OLIVA DESIGN AND CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-122",
@@ -2352,7 +3101,13 @@
       "year": "2022",
       "progress": 100,
       "completionDate": "2022-06-05",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "NC RODRIGUEZ CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-123",
@@ -2371,7 +3126,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2018-04-08",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-124",
@@ -2390,7 +3151,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2017-07-31",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-125",
@@ -2409,7 +3176,13 @@
       "year": "2016",
       "progress": 100,
       "completionDate": "2016-12-28",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Water supply",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-126",
@@ -2428,7 +3201,13 @@
       "year": "2017",
       "progress": 100,
       "completionDate": "2019-07-30",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Roads",
+      "contractorName": "VERZONTAL INFRASTRUCTURE CORPORATION",
+      "contractorFormerName": "VERZONTAL BUILDERS, INC."
     },
     {
       "id": "dpwh-127",
@@ -2447,7 +3226,13 @@
       "year": "2022",
       "progress": 100,
       "completionDate": "2023-10-03",
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Flood control and drainage",
+      "contractorName": "E. GUADIZ CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-128",
@@ -2466,7 +3251,13 @@
       "year": "2024",
       "progress": 26.78,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "TJMT CONSTRUCTION",
+      "contractorFormerName": null
     },
     {
       "id": "dpwh-129",
@@ -2485,7 +3276,13 @@
       "year": "2024",
       "progress": 60.59,
       "completionDate": null,
-      "amountPaid": 0
+      "amountPaid": 0,
+      "location": "Aparri",
+      "inAparri": true,
+      "barangay": null,
+      "type": "Buildings and facilities",
+      "contractorName": "TIKA CONSTRUCTION INC.",
+      "contractorFormerName": null
     }
   ]
 }

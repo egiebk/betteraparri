@@ -25,14 +25,14 @@ import {
 import { CompetitivenessDashboard } from '../components/statistics/CompetitivenessDashboard';
 import SEO from '../components/SEO';
 import { DemographicsDashboard } from '../components/statistics/DemographicsDashboard';
+import { DpwhProjectsDashboard } from '../components/statistics/DpwhProjectsDashboard';
+import { ProcurementDashboard } from '../components/statistics/ProcurementDashboard';
 import {
   DisasterRiskReductionDashboard,
-  DpwhProjectsDashboard,
   IncomeDependencyDashboard,
-  ProcurementDashboard,
   SpecialEducationFundDashboard,
   StatementsReceiptsExpenditureDashboard,
-} from '../components/statistics/FiscalTransparencyPages';
+} from '../components/statistics/FiscalDashboards';
 
 interface DocumentProps {
   theme?: string;

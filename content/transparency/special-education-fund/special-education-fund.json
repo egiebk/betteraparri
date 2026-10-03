@@ -1,112 +1,111 @@
 {
-  "highlightStats": [
-    {
-      "label": "SEF Collections (RPT)",
-      "value": "PHP 5.76M",
-      "detail": "FY 2025 (preliminary) Special Education Fund real property tax collections",
-      "icon": "ri-book-open-line",
-      "tone": "primary"
-    },
-    {
-      "label": "SEF Expenditures",
-      "value": "PHP 0.0M",
-      "detail": "FY 2025 (preliminary) expenditures charged to the SEF",
-      "icon": "ri-graduation-cap-line",
-      "tone": "success"
-    },
-    {
-      "label": "Utilization",
-      "value": "0.0%",
-      "detail": "SEF expenditures as share of SEF collections",
-      "icon": "ri-pie-chart-2-line",
-      "tone": "accent"
-    }
-  ],
-  "yearlyTrend": [
+  "lgu": "Aparri",
+  "years": [
     {
       "year": 2018,
-      "income": 4.49,
-      "expenditure": 1.82
+      "status": "final",
+      "population": 67589,
+      "collected": 4491566.04,
+      "spent": 1823070.6
     },
     {
       "year": 2019,
-      "income": 4.75,
-      "expenditure": 2.39
+      "status": "final",
+      "population": 68267,
+      "collected": 4749283.91,
+      "spent": 2394420.97
     },
     {
       "year": 2020,
-      "income": 3.64,
-      "expenditure": 7.05
+      "status": "final",
+      "population": 68820,
+      "collected": 3644372.04,
+      "spent": 7051831.41
     },
     {
       "year": 2021,
-      "income": 4.36,
-      "expenditure": 4.37
+      "status": "final",
+      "population": 68707,
+      "collected": 4363656.65,
+      "spent": 4374294.37
     },
     {
       "year": 2022,
-      "income": 4.54,
-      "expenditure": 7.29
+      "status": "final",
+      "population": 68594,
+      "collected": 4542394.18,
+      "spent": 7285724.01
     },
     {
       "year": 2023,
-      "income": 5.4,
-      "expenditure": 3.89
+      "status": "final",
+      "population": 68481,
+      "collected": 5401517.22,
+      "spent": 3886775.25
     },
     {
       "year": 2024,
-      "income": 6.21,
-      "expenditure": 0.55
+      "status": "final",
+      "population": 68368,
+      "collected": 6210840.76,
+      "spent": 552580
     },
     {
       "year": 2025,
-      "income": 5.76,
-      "expenditure": 0.0
+      "status": "preliminary",
+      "population": 68256,
+      "collected": 5762805.96,
+      "spent": 0
     }
   ],
+  "populationNote": "Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts.",
   "sourceLinks": [
     {
-      "label": "BLGF LGU Fiscal Data",
+      "label": "BLGF LGU Fiscal Data (annual files by LGU)",
       "href": "https://blgf.gov.ph/lgu-fiscal-data/"
+    },
+    {
+      "label": "BLGF: SEF Income and Expenditures, FY 2025 (preliminary)",
+      "href": "https://blgf.gov.ph/wp-content/uploads/2026/06/FY2025-SEF-Income-and-Expenditures.xlsx"
+    },
+    {
+      "label": "PSA census counts (for per-resident figures)",
+      "href": "https://psa.gov.ph/classification/psgc/barangays/0201505000"
     }
   ],
   "content": {
     "hero": {
       "eyebrow": "Financial Stewardship",
-      "title": "Special Education Fund (SEF)",
-      "description": "This page shows Aparri's FY 2025 (preliminary) Special Education Fund real property tax collections and education-related expenditures, with an 8-year trend."
+      "title": "Special Education Fund",
+      "description": "How much Aparri collected for public schools each year, and how much was spent."
     },
-    "guidance": {
-      "title": "What You Need to Know",
-      "description": "A quick reading table for the FY 2025 SEF figures."
-    },
+    "intro": "The Special Education Fund (SEF) comes from an extra 1% tax on land and buildings, paid together with the regular real property tax. The money can only be used for public schools, such as building and repairing classrooms, school supplies, sports, and extra teachers. The Local School Board decides how it is spent.",
     "sections": {
-      "yearlyTrend": {
-        "eyebrow": "Multi-Year Trend",
-        "title": "Collections and Expenditures, FY 2018-2025",
-        "description": "SEF real property tax collections compared with SEF expenditures over eight fiscal years."
-      }
-    },
-    "cards": {
-      "yearlyTrend": {
-        "title": "Collections vs. Expenditures, FY 2018-2025",
-        "description": "SEF collections and expenditures, in PHP million"
+      "overview": {
+        "eyebrow": "At a Glance",
+        "title": "School Fund",
+        "description": "How much was collected for the selected year and how much was spent."
+      },
+      "trend": {
+        "eyebrow": "Over Time",
+        "title": "Collected vs. Spent by Year",
+        "description": "Money collected and money spent from the fund, year by year. Select a year to view it."
       }
     },
     "terms": [
       {
         "term": "Special Education Fund (SEF)",
-        "description": "A fund consisting of the additional 1% real property tax earmarked specifically for education, culture, and sports purposes."
+        "description": "Money from an extra 1% real property tax that can only be used for public schools."
       },
       {
-        "term": "RPT Collections (SEF)",
-        "description": "The additional real property tax collected for the Special Education Fund."
+        "term": "Local School Board",
+        "description": "The group that decides how the fund is used. It is led by the mayor and the schools division superintendent, with teachers, parents and other members."
       },
       {
-        "term": "Utilization",
-        "description": "The share of SEF collections that has been spent on education-related expenditures in the same year."
+        "term": "Share spent",
+        "description": "How much of the money collected in a year was spent in that same year. Money not spent stays in the fund for later use."
       }
     ],
-    "sourceNote": "Figures are based on the BLGF LGU Fiscal Data \"Income and Expenditures under the Special Education Fund (SEF)\" export (FY2025 preliminary, extracted March 3, 2026) and should be checked against the latest BLGF posting before formal use."
+    "sourceNote": "Figures are from the Bureau of Local Government Finance (BLGF) annual \"SEF Income and Expenditures\" files. FY 2025 figures are preliminary and may change. Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts."
   }
 }
