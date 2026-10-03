@@ -91,6 +91,26 @@ function categoryEntries(section, yamlFile) {
   return entries;
 }
 
+function serviceGuideEntries() {
+  const guidesDir = path.join(root, 'content', 'services', 'guides');
+
+  if (!fs.existsSync(guidesDir)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(guidesDir)
+    .filter(file => file.endsWith('.yaml'))
+    .map(file => readYaml(path.join(guidesDir, file)))
+    .filter(guide => guide?.slug && guide?.category)
+    .map(guide => ({
+      title: guide.title,
+      description: String(guide.summary ?? '').slice(0, 200),
+      url: `/services/${guide.category}/${guide.slug}`,
+      section: 'services',
+    }));
+}
+
 function indexSectionEntries(section) {
   const indexPath = path.join(root, 'content', section, 'index.yaml');
 
@@ -141,6 +161,7 @@ function updatesEntries() {
 }
 
 const entries = [
+  ...serviceGuideEntries(),
   ...categoryEntries('services', 'services.yaml'),
   ...categoryEntries('government', 'government.yaml'),
   ...indexSectionEntries('transparency'),
