@@ -5,6 +5,59 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-10-04
+
+### Added
+
+- Plain-language glossary tooltips (`src/data/glossary.ts`). Terms like
+  NTA, LDRRMF, BPLO, MSWDO, PSA and cedula get a dotted underline on data
+  page intros and section descriptions and on service and government
+  pages; hover or tap to see what they mean.
+- New `/hotlines` page: tap-to-call Aparri emergency responders, national
+  hotlines (911, Red Cross 143, 8888), the Municipal Hall, and a
+  searchable list of barangay hall numbers read from the barangay pages.
+  Includes copy buttons and "Save all numbers to my phone" (vCard). The
+  navbar "Hotlines" link and the homepage hotline strip now point to it.
+- Hotlines print layouts: a one-page full list (all barangay halls, with
+  blank lines for missing numbers) and a large-print home sheet with the
+  household's barangay, nearest evacuation center and family contacts.
+- Plain-language service guides (`content/services/guides/*.yaml`) based
+  on the ATOP Citizen's Charter: business permit, Mayor's clearance,
+  marriage license and birth registration. Each guide has quick facts,
+  before-you-go tips, a tickable requirements checklist, numbered steps,
+  terms and sources.
+- Print layouts for service guides: the full guide, or a one-page
+  checklist with tick boxes, steps and space for notes.
+- New `/services` landing page: featured guides, services grouped by life
+  event, browse by office, and search. Guides are in the site search.
+- Homepage "What do you need to do?" life-event shortcuts; the hero
+  quick-start links to the service guides.
+- Competitiveness page: CMCI 2018–2024 with a year selector, at-a-glance
+  tiles, the five areas in plain language with their measures and
+  rank-over-time sparklines, a comparison with nearby 1st class towns,
+  and a multi-year rank trend.
+- Demographics page: population since 1903 with a time-scaled chart and
+  table view, and a sortable, searchable table of all 42 barangays
+  (2020 vs 2024).
+
+### Changed
+
+- Fund pages (ARI, Receipts and Expenditures, Disaster Fund, SEF) rebuilt
+  from BLGF annual files for FY 2018–2025, with a year selector, a Total /
+  Per resident toggle, plain-language terms and clickable multi-year
+  charts.
+- Procurement and DPWH Projects pages redesigned: overview tiles,
+  contracts-by-year chart, top contractors, search with filters, sorting
+  and CSV download. DPWH projects show status, progress and barangay.
+- Numbers on dashboard stat cards and contact details use a monospace
+  font.
+
+### Fixed
+
+- Demographics no longer mixes total and yearly growth figures.
+- Special Education Fund shows "not yet reported" instead of PHP 0 for
+  preliminary spending.
+
 ## [1.4.2] - 2026-09-26
 
 ### Added

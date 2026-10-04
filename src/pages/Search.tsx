@@ -22,6 +22,7 @@ const sectionLabels: Record<string, string> = {
   transparency: 'Transparency',
   statistics: 'Statistics',
   updates: 'Updates',
+  hotlines: 'Hotlines',
 };
 
 /**

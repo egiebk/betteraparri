@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MUNICIPAL_HALL_PHONE } from '../../data/hotlines';
 
 type ContactCard = {
   label: string;
@@ -10,7 +11,7 @@ type ContactCard = {
 };
 
 const municipalContact = {
-  phone: '078-888-2001',
+  phone: MUNICIPAL_HALL_PHONE,
   email: 'lguaparriphil@yahoo.com',
   address: 'Municipal Building, J.P. de Carreon Street',
   mapLink: 'https://maps.app.goo.gl/cvEtDjsQxcFHqbtZ6',

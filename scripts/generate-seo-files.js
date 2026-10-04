@@ -71,6 +71,7 @@ function governmentRoutes() {
 const routes = [
   '/',
   '/updates',
+  '/hotlines',
   ...serviceRoutes(),
   ...governmentRoutes(),
   ...indexRoutes('transparency'),

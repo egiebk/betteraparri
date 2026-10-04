@@ -19,6 +19,7 @@ import {
   StatTile,
   TermsCard,
 } from './StatisticsDashboard';
+import { GlossaryText } from '../ui/Glossary';
 
 /* ------------------------------------------------------------------ */
 /* Helpers                                                             */
@@ -1003,7 +1004,7 @@ export function CompetitivenessDashboard() {
               className="ri-information-line mt-0.5 text-xl text-primary-700"
             />
             <p className="text-sm leading-relaxed text-gray-700">
-              {data.content.intro}
+              <GlossaryText text={data.content.intro} />
             </p>
           </CardContent>
         </Card>

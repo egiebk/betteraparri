@@ -13,6 +13,7 @@ import Government from './pages/Government';
 import Updates from './pages/Updates';
 import Search from './pages/Search';
 import Weather from './pages/Weather';
+import Hotlines from './pages/Hotlines';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
                 element={<Document categoryType="government" />}
               />
               <Route path="/weather" element={<Weather />} />
+              <Route path="/hotlines" element={<Hotlines />} />
               <Route path="/:lang/:documentSlug" element={<Document />} />
               <Route path="/:documentSlug" element={<Document />} />
               <Route path="/updates" element={<Updates />} />

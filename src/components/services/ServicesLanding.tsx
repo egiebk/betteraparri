@@ -213,7 +213,7 @@ export default function ServicesLanding() {
           />
           Citizen Services
         </Heading>
-        <Text className="mb-6 max-w-3xl text-gray-600">
+        <Text className="mb-6 max-w-7xl text-gray-600">
           What do you need to get done? Find out what to bring, where to go, how
           much it costs and how long it takes, before you go to the Municipal
           Hall.

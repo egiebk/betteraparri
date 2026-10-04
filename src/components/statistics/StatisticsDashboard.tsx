@@ -7,6 +7,7 @@ import { Card, CardContent } from '@bettergov/kapwa/card';
 import { cn } from '../../lib/utils';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
+import { GlossaryText } from '../ui/Glossary';
 import { type SourceLink } from '../../lib/dataLoader';
 
 type Term = {
@@ -31,7 +32,9 @@ export function SectionHeading({
       <Heading level={2} className="mb-2 text-2xl md:text-3xl">
         {title}
       </Heading>
-      <Text className="mb-4 text-gray-600">{description}</Text>
+      <Text className="mb-4 text-gray-600">
+        <GlossaryText text={description} />
+      </Text>
     </div>
   );
 }
@@ -70,7 +73,7 @@ export function SourcesCard({
   note: string;
 }) {
   return (
-    <Card className="border-primary-100 bg-gray-50">
+    <Card id="sources" className="scroll-mt-32 border-primary-100 bg-gray-50">
       <CardContent className="p-6">
         <h3 className="text-lg font-semibold text-gray-900">
           Sources and Update Notes

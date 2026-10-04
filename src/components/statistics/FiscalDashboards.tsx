@@ -30,6 +30,7 @@ import {
   StatTile,
   TermsCard,
 } from './StatisticsDashboard';
+import { GlossaryText } from '../ui/Glossary';
 
 /* ------------------------------------------------------------------ */
 /* Formatting                                                          */
@@ -147,7 +148,9 @@ function Intro({ text }: { text: string }) {
           aria-hidden="true"
           className="ri-information-line mt-0.5 text-xl text-primary-700"
         />
-        <p className="text-sm leading-relaxed text-gray-700">{text}</p>
+        <p className="text-sm leading-relaxed text-gray-700">
+          <GlossaryText text={text} />
+        </p>
       </CardContent>
     </Card>
   );
