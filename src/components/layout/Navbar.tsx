@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LANGUAGES } from '../../i18n/languages';
 import betterAparriLogo from '../../assets/betteraparri.webp';
-
-const GITHUB_REPO_URL = 'https://github.com/egiebk/betteraparri';
+import HotlineBar from './HotlineBar';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,34 +34,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm print:hidden">
-      <div className="border-b border-gray-200 bg-gray-50 text-gray-700">
-        <div className="container mx-auto px-4">
-          <div className="flex h-9 items-center justify-between text-xs">
-            <span className="flex items-center gap-1 font-medium text-gray-600">
-              <i className="ri-shield-star-line text-sm" aria-hidden="true" />
-              Volunteer-led initiative, not an official website.
-            </span>
-            <div className="flex items-center gap-4">
-              <a
-                href={GITHUB_REPO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 font-medium text-primary-700 hover:text-primary-800"
-              >
-                <i className="ri-github-fill text-sm" aria-hidden="true" />
-                Join Us
-              </a>
-              <Link
-                to="/hotlines"
-                className="flex items-center gap-1 font-medium text-red-700 hover:text-red-800"
-              >
-                <i className="ri-phone-line text-sm" aria-hidden="true" />
-                Hotlines
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HotlineBar />
 
       {/* Main navigation */}
       <div className="container mx-auto px-4">

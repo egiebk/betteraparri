@@ -22,12 +22,18 @@ This is a React 19 + TypeScript + Vite app for Philippine Local Government Units
 
 ### Routing
 
-`src/App.tsx` defines six routes:
+`src/App.tsx` defines these routes:
 
 - `/` — Home page
-- `/services` / `/services/:category` — Services listing
-- `/government` / `/government/:category` — Government section listing
-- `/:documentSlug` / `/:lang/:documentSlug` — Document viewer (markdown content, used by both services and government)
+- `/services` / `/services/:category` / `/services/:category/:documentSlug` — Services landing, category listing, and service pages (markdown or structured guides)
+- `/government` / `/government/:category` / `/government/:category/:documentSlug` — Government section (leadership, barangays)
+- `/transparency` / `/transparency/:documentSlug` — Transparency dashboards (BLGF fund pages, procurement, DPWH projects)
+- `/statistics` / `/statistics/:documentSlug` — Statistics dashboards (demographics, competitiveness)
+- `/updates` — Announcements, advisories and activities
+- `/hotlines` — Emergency, national, municipal and barangay hotlines (with print layouts)
+- `/weather` — 7-day forecast, sea conditions and rain radar
+- `/search` — Client-side search over `public/search-index.json`
+- `/:documentSlug` / `/:lang/:documentSlug` — Generic document viewer
 
 ### Content System
 
@@ -77,9 +83,17 @@ Example: `{MAYOR}` in the markdown is replaced with the `MAYOR` value from `exec
 
 The app uses `VITE_GOVERNMENT_NAME` (referenced in `Services.tsx`) for branding. Additional env vars are configured via the setup script.
 
+### Site-wide Data
+
+- **`src/data/hotlines.ts`** — Emergency, national and municipal numbers. `emergencyHotlines` feeds the red `HotlineBar` at the top of the sticky navbar (every page) and the `/hotlines` page. Barangay hall numbers are parsed from the `**Barangay Telephone:**` line of `content/government/barangays/*.md`.
+- **`src/data/updates.ts`** — Updates shown on `/updates`. Published updates with `severity: 'warning' | 'urgent'` appear in the homepage `AdvisoryBanner` until `expiresAt`, or for 7 days after `date` (`getActiveAdvisories()`).
+- **`src/data/glossary.ts`** — Plain-language definitions. `GlossaryText` / `glossarize()` (`src/components/ui/Glossary.tsx`, `src/lib/glossarize.tsx`) underline the first match per text block in dashboard intros, section descriptions and markdown `p`/`li`/`td`. Tooltips render in a portal with fixed positioning so cards with `overflow-hidden` can't clip them.
+
+See `CONTENT-MANAGEMENT.md` for the editor-facing instructions.
+
 ### UI Components
 
-Reusable primitives live in `src/components/ui/`: `Section`, `Heading`, `Text`, `Card`, `ListItem`, `Breadcrumbs`, `ScrollToTop`. Use these instead of raw HTML elements for consistency.
+Reusable primitives live in `src/components/ui/`: `Section`, `Heading`, `Text`, `Breadcrumbs`, `ScrollToTop`, `Glossary`. Cards come from `@bettergov/kapwa/card`. Use these instead of raw HTML elements for consistency.
 
 ### Code Style
 

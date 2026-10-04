@@ -28,7 +28,8 @@ export const updates: Update[] = [
     id: 'act-025',
     type: 'activity',
     title: 'Special Recruitment Activity',
-    description: 'The Public Employment Service Office (PESO) of LGU Aparri is inviting interested applicants to attend a Special Recruitment Activity (SRA) in partnership with Pacific Star International Employment Agency Corp.',
+    description:
+      'The Public Employment Service Office (PESO) of LGU Aparri is inviting interested applicants to attend a Special Recruitment Activity (SRA) in partnership with Pacific Star International Employment Agency Corp.',
     date: '2026-08-19',
     time: '09:00 AM - 04:00 PM',
     venue: 'PESO LGU Aparri',
@@ -528,3 +529,28 @@ export const publishedUpdates = updates
 export const archivedUpdates = updates
   .filter(update => update.status === 'archived')
   .sort(sortUpdates);
+
+const ADVISORY_WINDOW_DAYS = 7;
+
+/**
+ * Published updates marked `severity: 'warning'` or `'urgent'` that are
+ * still current, for the homepage advisory banner. An update stays active
+ * until its `expiresAt` date if it has one; otherwise for 7 days after its
+ * `date`. Urgent ones come first. Returns an empty list most of the time.
+ */
+export function getActiveAdvisories(now = new Date()): Update[] {
+  const windowMs = ADVISORY_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+  return publishedUpdates
+    .filter(update => {
+      if (update.severity !== 'warning' && update.severity !== 'urgent') {
+        return false;
+      }
+      if (update.expiresAt) {
+        return now.getTime() <= new Date(update.expiresAt).getTime();
+      }
+      return now.getTime() - new Date(update.date).getTime() <= windowMs;
+    })
+    .sort((a, b) =>
+      a.severity === b.severity ? 0 : a.severity === 'urgent' ? -1 : 1
+    );
+}
