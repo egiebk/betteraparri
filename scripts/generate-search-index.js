@@ -160,7 +160,18 @@ function updatesEntries() {
   return entries;
 }
 
+const staticEntries = [
+  {
+    title: 'Emergency Hotlines',
+    description:
+      'Tap-to-call numbers for MDRRMO, police, fire, coast guard, hospital, national hotlines and barangay halls in Aparri.',
+    url: '/hotlines',
+    section: 'hotlines',
+  },
+];
+
 const entries = [
+  ...staticEntries,
   ...serviceGuideEntries(),
   ...categoryEntries('services', 'services.yaml'),
   ...categoryEntries('government', 'government.yaml'),

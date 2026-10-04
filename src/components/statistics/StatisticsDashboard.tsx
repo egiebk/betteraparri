@@ -7,7 +7,8 @@ import { Card, CardContent } from '@bettergov/kapwa/card';
 import { cn } from '../../lib/utils';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
-import { type SourceLink } from '../../lib/dataLoader';
+import { GlossaryText } from '../ui/Glossary';
+import { type DataProvenance, type SourceLink } from '../../lib/dataLoader';
 
 type Term = {
   term: string;
@@ -31,7 +32,9 @@ export function SectionHeading({
       <Heading level={2} className="mb-2 text-2xl md:text-3xl">
         {title}
       </Heading>
-      <Text className="mb-4 text-gray-600">{description}</Text>
+      <Text className="mb-4 text-gray-600">
+        <GlossaryText text={description} />
+      </Text>
     </div>
   );
 }
@@ -70,7 +73,7 @@ export function SourcesCard({
   note: string;
 }) {
   return (
-    <Card className="border-primary-100 bg-gray-50">
+    <Card id="sources" className="scroll-mt-32 border-primary-100 bg-gray-50">
       <CardContent className="p-6">
         <h3 className="text-lg font-semibold text-gray-900">
           Sources and Update Notes
@@ -98,6 +101,88 @@ export function SourcesCard({
         </ul>
       </CardContent>
     </Card>
+  );
+}
+
+function formatProvenanceDate(value: string) {
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString('en-PH', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+/**
+ * Compact "where is this from and how fresh is it" badges shown under a
+ * data page's title, so readers can judge the numbers before scrolling.
+ * Links down to the full Sources card at the bottom of the page.
+ */
+export function ProvenanceBar({
+  provenance,
+  coverage,
+  asOf,
+}: {
+  provenance?: DataProvenance;
+  /** What period the data covers, e.g. "2018–2024". */
+  coverage?: string;
+  /** Snapshot date (YYYY-MM-DD); takes priority over lastUpdated. */
+  asOf?: string;
+}) {
+  const updated = asOf ?? provenance?.lastUpdated;
+  if (!provenance && !coverage && !updated) return null;
+
+  const badge =
+    'inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-700';
+
+  return (
+    <ul
+      aria-label="About this data"
+      className="mb-5 flex flex-wrap items-center gap-2"
+    >
+      {provenance?.source && (
+        <li className={badge}>
+          <i
+            aria-hidden="true"
+            className="ri-database-2-line text-primary-700"
+          />
+          <span className="text-gray-500">Source:</span>
+          <span className="font-semibold text-gray-900">
+            <GlossaryText text={provenance.source} />
+          </span>
+        </li>
+      )}
+      {coverage && (
+        <li className={badge}>
+          <i aria-hidden="true" className="ri-calendar-line text-primary-700" />
+          <span className="text-gray-500">Covers:</span>
+          <span className="font-mono font-semibold text-gray-900">
+            {coverage}
+          </span>
+        </li>
+      )}
+      {updated && (
+        <li className={badge}>
+          <i aria-hidden="true" className="ri-refresh-line text-primary-700" />
+          <span className="text-gray-500">
+            {asOf ? 'Data as of:' : 'Last updated:'}
+          </span>
+          <time dateTime={updated} className="font-semibold text-gray-900">
+            {formatProvenanceDate(updated)}
+          </time>
+        </li>
+      )}
+      <li>
+        <a
+          href="#sources"
+          className="inline-flex items-center gap-1 px-1 text-xs font-medium text-primary-700 underline-offset-4 hover:underline print:hidden"
+        >
+          See all sources
+          <i aria-hidden="true" className="ri-arrow-down-line" />
+        </a>
+      </li>
+    </ul>
   );
 }
 

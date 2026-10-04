@@ -25,11 +25,13 @@ import {
 } from '../../lib/dataLoader';
 import {
   LoadingState,
+  ProvenanceBar,
   SectionHeading,
   SourcesCard,
   StatTile,
   TermsCard,
 } from './StatisticsDashboard';
+import { GlossaryText } from '../ui/Glossary';
 
 /* ------------------------------------------------------------------ */
 /* Formatting                                                          */
@@ -147,7 +149,9 @@ function Intro({ text }: { text: string }) {
           aria-hidden="true"
           className="ri-information-line mt-0.5 text-xl text-primary-700"
         />
-        <p className="text-sm leading-relaxed text-gray-700">{text}</p>
+        <p className="text-sm leading-relaxed text-gray-700">
+          <GlossaryText text={text} />
+        </p>
       </CardContent>
     </Card>
   );
@@ -699,6 +703,10 @@ function PageShell<Y extends FiscalYearBase>({
           title={data.content.hero.title}
           description={data.content.hero.description}
         />
+        <ProvenanceBar
+          provenance={data.provenance}
+          coverage={fiscalCoverage(data.years)}
+        />
         <Intro text={data.content.intro} />
       </section>
       <div className="-mt-4">
@@ -720,6 +728,17 @@ function PageShell<Y extends FiscalYearBase>({
       />
     </div>
   );
+}
+
+function fiscalCoverage(years: FiscalYearBase[]) {
+  if (years.length === 0) return undefined;
+  const sorted = [...years].sort((a, b) => a.year - b.year);
+  const first = sorted[0];
+  const last = sorted[sorted.length - 1];
+  const range = `FY ${first.year}–${last.year}`;
+  return last.status === 'preliminary'
+    ? `${range} (${last.year} preliminary)`
+    : range;
 }
 
 function section(data: FiscalPageData<FiscalYearBase>, key: string) {

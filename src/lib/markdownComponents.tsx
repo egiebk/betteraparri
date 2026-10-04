@@ -5,6 +5,7 @@
 import { type TypographyTheme } from './typographyThemes';
 import { type ReactNode, type HTMLAttributes } from 'react';
 import { TableWithToggle } from './TableWithToggle';
+import { glossarize } from './glossarize';
 
 // Extended theme type to include dynamic component keys
 type ExtendedTheme = TypographyTheme & {
@@ -72,7 +73,7 @@ export function createMarkdownComponents(theme: TypographyTheme) {
       ...props
     }: { children?: ReactNode } & HTMLAttributes<HTMLParagraphElement>) => (
       <p className={theme.components.p} {...props}>
-        {children}
+        {glossarize(children)}
       </p>
     ),
     small: ({
@@ -188,7 +189,7 @@ export function createMarkdownComponents(theme: TypographyTheme) {
           className={`${finalClassName} ${isNested ? 'ml-4' : ''}`}
           {...props}
         >
-          {children}
+          {glossarize(children)}
         </li>
       );
     },
@@ -318,7 +319,7 @@ export function createMarkdownComponents(theme: TypographyTheme) {
       ...props
     }: { children?: ReactNode } & HTMLAttributes<HTMLTableDataCellElement>) => (
       <td className={theme.components.td} {...props}>
-        {children}
+        {glossarize(children)}
       </td>
     ),
   };

@@ -10,11 +10,13 @@ import {
 } from '../../lib/dataLoader';
 import {
   LoadingState,
+  ProvenanceBar,
   SectionHeading,
   SourcesCard,
   StatTile,
   TermsCard,
 } from './StatisticsDashboard';
+import { GlossaryText } from '../ui/Glossary';
 
 /* ------------------------------------------------------------------ */
 /* Helpers                                                             */
@@ -823,6 +825,12 @@ export function DemographicsDashboard() {
           title={data.content.hero.title}
           description={data.content.hero.description}
         />
+        <ProvenanceBar
+          provenance={data.provenance}
+          coverage={`${Math.min(
+            ...data.populationHistory.map(p => p.year)
+          )}–${data.latestCensus.year}`}
+        />
         <Card className="border-primary-100 bg-gray-50">
           <CardContent className="flex gap-4 p-5">
             <i
@@ -830,7 +838,7 @@ export function DemographicsDashboard() {
               className="ri-information-line mt-0.5 text-xl text-primary-700"
             />
             <p className="text-sm leading-relaxed text-gray-700">
-              {data.content.intro}
+              <GlossaryText text={data.content.intro} />
             </p>
           </CardContent>
         </Card>

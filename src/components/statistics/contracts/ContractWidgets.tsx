@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { Card, CardContent, CardHeader } from '@bettergov/kapwa/card';
 import { cn } from '../../../lib/utils';
 import { formatPeso } from '../../../lib/contracts';
+import { GlossaryText } from '../../ui/Glossary';
 
 type Amounted = { budget: number };
 
@@ -275,7 +276,9 @@ export function IntroCard({ text }: { text: string }) {
           aria-hidden="true"
           className="ri-information-line mt-0.5 text-xl text-primary-700"
         />
-        <p className="text-sm leading-relaxed text-gray-700">{text}</p>
+        <p className="text-sm leading-relaxed text-gray-700">
+          <GlossaryText text={text} />
+        </p>
       </CardContent>
     </Card>
   );

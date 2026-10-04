@@ -52,14 +52,13 @@ const Navbar: React.FC = () => {
                 <i className="ri-github-fill text-sm" aria-hidden="true" />
                 Join Us
               </a>
-              <a
-                href="https://hotlines.bettergov.ph/?city=aparri&province=cagayan"
-                target="_blank"
+              <Link
+                to="/hotlines"
                 className="flex items-center gap-1 font-medium text-red-700 hover:text-red-800"
               >
                 <i className="ri-phone-line text-sm" aria-hidden="true" />
                 Hotlines
-              </a>
+              </Link>
             </div>
           </div>
         </div>

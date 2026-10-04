@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Source and freshness badges at the top of every Statistics and
+  Transparency data page: data source, period covered, and when the data
+  was last updated (or the "as of" date for DPWH and Procurement), with a
+  "See all sources" link to the Sources card. Set per page through a new
+  `provenance` field in each page's JSON.
+- Plain-language glossary tooltips (`src/data/glossary.ts`). Terms like
+  NTA, LDRRMF, BPLO, MSWDO, PSA and cedula get a dotted underline on data
+  page intros and section descriptions and on service and government
+  pages; hover or tap to see what they mean.
+- New `/hotlines` page: tap-to-call Aparri emergency responders, national
+  hotlines (911, Red Cross 143, 8888), the Municipal Hall, and a
+  searchable list of barangay hall numbers read from the barangay pages.
+  Includes copy buttons, "Save all numbers to my phone" (vCard), and a
+  print-friendly layout. The navbar "Hotlines" link and the homepage
+  hotline strip now point to it.
+
 ## [1.4.2] - 2026-09-26
 
 ### Added
