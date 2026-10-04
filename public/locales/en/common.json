@@ -1,6 +1,6 @@
 {
   "site_name": "BetterAparri.org",
-  "site_description": "Public information made simple and accessible.",
+  "site_description": "Access government information and services quickly and easily.",
   "hero": {
     "welcome": "Welcome to BetterAparri.org",
     "title": "BetterAparri.org",
@@ -38,8 +38,8 @@
   },
   "footer": {
     "copyright": "2026 BetterAparri.org ",
-    "cc": "All content is public domain unless otherwise specified.",
-    "cc2": "This website is a volunteer-led initiative and not an official website of the Local Government Unit of Aparri."
+    "cc2": "All content is public domain unless otherwise specified.",
+    "cc": "This website is a volunteer-led initiative and not an official website of LGU Aparri."
   },
   "navbar": {
     "government": "Government",
