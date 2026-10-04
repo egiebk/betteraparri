@@ -1,10 +1,14 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Section from '../components/ui/Section';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import { Heading } from '../components/ui/Heading';
 import { Text } from '../components/ui/Text';
+import HotlinesPrintView, {
+  type HotlinesPrintMode,
+} from '../components/hotlines/HotlinesPrintView';
 import {
   barangayHotlines,
   emergencyHotlines,
@@ -14,8 +18,6 @@ import {
   telHref,
   type Hotline,
 } from '../data/hotlines';
-
-const REPORT_URL = 'https://github.com/egiebk/betteraparri/issues/new';
 
 function CopyButton({ number, label }: { number: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -175,6 +177,22 @@ export default function Hotlines() {
     );
   }, [query]);
   const withNumbers = barangayHotlines.filter(b => b.number).length;
+  const [printMode, setPrintMode] = useState<HotlinesPrintMode>('list');
+  const [homeBarangay, setHomeBarangay] = useState('');
+  const selectedBarangay = barangayHotlines.find(b => b.slug === homeBarangay);
+
+  const printAs = (mode: HotlinesPrintMode) => {
+    // Render the chosen print layout before the print dialog opens.
+    flushSync(() => setPrintMode(mode));
+    window.print();
+  };
+
+  // Ctrl/Cmd+P from the browser should always print the full list.
+  useEffect(() => {
+    const reset = () => setPrintMode('list');
+    window.addEventListener('afterprint', reset);
+    return () => window.removeEventListener('afterprint', reset);
+  }, []);
 
   return (
     <>
@@ -189,160 +207,184 @@ export default function Hotlines() {
       />
 
       <Section className="mb-12 p-3">
-        <Breadcrumbs className="mb-8" />
+        <HotlinesPrintView mode={printMode} barangay={selectedBarangay} />
+        <div className="print:hidden">
+          <Breadcrumbs className="mb-8" />
 
-        <Heading className="mb-2">Emergency Hotlines</Heading>
-        <Text className="mb-6 max-w-3xl text-slate-600">
-          Tap a number to call it from your phone. Save these numbers before
-          typhoon season: mobile data can go down during storms, but calls and
-          texts often still work.
-        </Text>
+          <Heading className="mb-2">Emergency Hotlines</Heading>
+          <Text className="mb-6 max-w-7xl text-slate-600">
+            Tap a number to call it from your phone. Save these numbers before
+            typhoon season: mobile data can go down during storms, but calls and
+            texts often still work.
+          </Text>
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center print:hidden">
-          <button
-            type="button"
-            onClick={downloadContacts}
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-primary-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-800"
-          >
-            <i aria-hidden="true" className="ri-contacts-book-download-line" />
-            Save all numbers to my phone
-          </button>
-          <button
-            type="button"
-            onClick={() => window.print()}
-            className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50"
-          >
-            <i aria-hidden="true" className="ri-printer-line" />
-            Print this list
-          </button>
-        </div>
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-stretch">
+            <button
+              type="button"
+              onClick={downloadContacts}
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-800"
+            >
+              <i
+                aria-hidden="true"
+                className="ri-contacts-book-download-line"
+              />
+              Save all numbers to my phone
+            </button>
 
-        <HotlineGroup
-          id="aparri-emergency"
-          title="Aparri emergency responders"
-          description="Call these first for emergencies in Aparri. Open 24 hours."
-          hotlines={emergencyHotlines}
-          tone="emergency"
-        />
-
-        <HotlineGroup
-          id="national"
-          title="National hotlines"
-          description="Free short numbers that work from any phone in the Philippines."
-          hotlines={nationalHotlines}
-        />
-
-        <HotlineGroup
-          id="municipal"
-          title="Municipal Hall"
-          description="For questions about town services, permits and documents."
-          hotlines={municipalHotlines}
-        />
-
-        <section aria-labelledby="barangays" className="mt-10">
-          <h2 id="barangays" className="text-xl font-bold text-gray-900">
-            Barangay halls
-          </h2>
-          <p className="mt-1 text-sm text-gray-600">
-            {withNumbers} of {barangayHotlines.length} barangays have a listed
-            number. For the others, visit the barangay hall or call the
-            Municipal Hall.
-          </p>
-
-          <label className="relative mt-4 block max-w-md print:hidden">
-            <span className="sr-only">Search barangays</span>
-            <i
-              aria-hidden="true"
-              className="ri-search-line pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-            />
-            <input
-              type="search"
-              value={query}
-              onChange={event => setQuery(event.target.value)}
-              placeholder="Search by barangay or captain"
-              className="w-full rounded-md border border-gray-300 bg-white py-2.5 pl-9 pr-3 text-sm text-gray-900"
-            />
-          </label>
-
-          <div className="mt-4 overflow-hidden rounded-lg border border-gray-200 bg-white">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-stone-100 text-xs uppercase tracking-wide text-gray-600">
-                <tr>
-                  <th scope="col" className="px-4 py-3">
-                    Barangay
-                  </th>
-                  <th scope="col" className="hidden px-4 py-3 sm:table-cell">
-                    Punong Barangay
-                  </th>
-                  <th scope="col" className="px-4 py-3 text-right">
-                    Number
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {barangays.map(barangay => (
-                  <tr key={barangay.slug}>
-                    <td className="px-4 py-3">
-                      <Link
-                        to={`/government/barangays/${barangay.slug}`}
-                        className="font-medium text-primary-700 underline-offset-4 hover:underline"
-                      >
-                        {barangay.name}
-                      </Link>
-                      {barangay.captain && (
-                        <span className="block text-xs text-gray-500 sm:hidden">
-                          {barangay.captain}
-                        </span>
-                      )}
-                    </td>
-                    <td className="hidden px-4 py-3 text-gray-700 sm:table-cell">
-                      {barangay.captain ?? '—'}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      {barangay.number ? (
-                        <a
-                          href={telHref(barangay.number)}
-                          className="inline-flex items-center gap-1.5 font-mono font-semibold text-primary-700 hover:text-primary-900"
-                        >
-                          <i aria-hidden="true" className="ri-phone-line" />
-                          {formatPhone(barangay.number)}
-                        </a>
-                      ) : (
-                        <span className="text-xs text-gray-400">
-                          Not listed
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-                {barangays.length === 0 && (
-                  <tr>
-                    <td
-                      colSpan={3}
-                      className="px-4 py-6 text-center text-gray-500"
-                    >
-                      No barangay matches “{query}”.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+            <div className="flex flex-col gap-3 rounded-md border border-gray-200 bg-gray-50 p-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <span className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                <i aria-hidden="true" className="ri-printer-line" />
+                Print
+              </span>
+              <button
+                type="button"
+                onClick={() => printAs('list')}
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100"
+                title="All numbers, including every barangay hall, on one page"
+              >
+                <i aria-hidden="true" className="ri-file-list-3-line" />
+                Full list
+              </button>
+              <button
+                type="button"
+                onClick={() => printAs('fridge')}
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100"
+                title="Large-print sheet to post at home, with space for family contacts"
+              >
+                <i aria-hidden="true" className="ri-home-heart-line" />
+                Home sheet
+              </button>
+              <label className="flex items-center gap-2 text-sm text-gray-600">
+                <span className="shrink-0">for</span>
+                <select
+                  value={homeBarangay}
+                  onChange={event => setHomeBarangay(event.target.value)}
+                  className="min-w-0 flex-1 rounded-md border border-gray-300 bg-white px-2 py-2 text-sm text-gray-900"
+                  aria-label="Your barangay, shown on the home sheet"
+                >
+                  <option value="">Any barangay (write it in)</option>
+                  {barangayHotlines.map(b => (
+                    <option key={b.slug} value={b.slug}>
+                      {b.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
           </div>
-        </section>
 
-        <p className="mt-10 text-xs leading-5 text-slate-500">
-          Numbers can change. If a number is wrong or missing,{' '}
-          <a
-            href={REPORT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-primary-700 underline"
-          >
-            let us know
-          </a>
-          . This is a volunteer-run list; in a life-threatening emergency, call
-          911.
-        </p>
+          <HotlineGroup
+            id="aparri-emergency"
+            title="Aparri emergency responders"
+            description="Call these first for emergencies in Aparri. Open 24 hours."
+            hotlines={emergencyHotlines}
+            tone="emergency"
+          />
+
+          <HotlineGroup
+            id="national"
+            title="National hotlines"
+            description="Free short numbers that work from any phone in the Philippines."
+            hotlines={nationalHotlines}
+          />
+
+          <HotlineGroup
+            id="municipal"
+            title="Municipal Hall"
+            description="For questions about town services, permits and documents."
+            hotlines={municipalHotlines}
+          />
+
+          <section aria-labelledby="barangays" className="mt-10">
+            <h2 id="barangays" className="text-xl font-bold text-gray-900">
+              Barangay halls
+            </h2>
+            <p className="mt-1 text-sm text-gray-600">
+              {withNumbers} of {barangayHotlines.length} barangays have a listed
+              number.
+            </p>
+
+            <label className="relative mt-4 block max-w-md print:hidden">
+              <span className="sr-only">Search barangays</span>
+              <i
+                aria-hidden="true"
+                className="ri-search-line pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+              <input
+                type="search"
+                value={query}
+                onChange={event => setQuery(event.target.value)}
+                placeholder="Search by barangay or captain"
+                className="w-full rounded-md border border-gray-300 bg-white py-2.5 pl-9 pr-3 text-sm text-gray-900"
+              />
+            </label>
+
+            <div className="mt-4 overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-stone-100 text-xs uppercase tracking-wide text-gray-600">
+                  <tr>
+                    <th scope="col" className="px-4 py-3">
+                      Barangay
+                    </th>
+                    <th scope="col" className="hidden px-4 py-3 sm:table-cell">
+                      Punong Barangay
+                    </th>
+                    <th scope="col" className="px-4 py-3 text-right">
+                      Number
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {barangays.map(barangay => (
+                    <tr key={barangay.slug}>
+                      <td className="px-4 py-3">
+                        <Link
+                          to={`/government/barangays/${barangay.slug}`}
+                          className="font-medium text-primary-700 underline-offset-4 hover:underline"
+                        >
+                          {barangay.name}
+                        </Link>
+                        {barangay.captain && (
+                          <span className="block text-xs text-gray-500 sm:hidden">
+                            {barangay.captain}
+                          </span>
+                        )}
+                      </td>
+                      <td className="hidden px-4 py-3 text-gray-700 sm:table-cell">
+                        {barangay.captain ?? '—'}
+                      </td>
+                      <td className="px-4 py-3 text-right">
+                        {barangay.number ? (
+                          <a
+                            href={telHref(barangay.number)}
+                            className="inline-flex items-center gap-1.5 font-mono font-semibold text-primary-700 hover:text-primary-900"
+                          >
+                            <i aria-hidden="true" className="ri-phone-line" />
+                            {formatPhone(barangay.number)}
+                          </a>
+                        ) : (
+                          <span className="text-xs text-gray-400">
+                            Not listed
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  {barangays.length === 0 && (
+                    <tr>
+                      <td
+                        colSpan={3}
+                        className="px-4 py-6 text-center text-gray-500"
+                      >
+                        No barangay matches “{query}”.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </Section>
     </>
   );
