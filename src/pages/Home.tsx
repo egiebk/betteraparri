@@ -1,10 +1,9 @@
 import Hero from '../components/sections/Hero';
-import EmergencyHotlinesSection from '../components/home/EmergencyHotlinesSection';
 import ServicesSection from '../components/home/ServicesSection';
 import WeatherLocationSection from '../components/home/WeatherLocationSection';
 import ContactSection from '../components/home/ContactSection';
 import SEO from '../components/SEO';
-import UpdatesSection from '../components/home/UpdatesSection';
+import AdvisoryBanner from '../components/home/AdvisoryBanner';
 
 const Home: React.FC = () => {
   return (
@@ -16,9 +15,8 @@ const Home: React.FC = () => {
         pageType="WebSite"
       />
       <main className="flex-grow">
+        <AdvisoryBanner />
         <Hero />
-        <EmergencyHotlinesSection />
-        <UpdatesSection />
         <ServicesSection />
         <WeatherLocationSection />
         <ContactSection />

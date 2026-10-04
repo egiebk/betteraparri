@@ -102,7 +102,11 @@ function UpdateCard({ update }: { update: Update }) {
   const timing = getUpdateTiming(update.date);
 
   return (
-    <Card hoverable className="h-full border-primary-100 hover:bg-blue-50">
+    <Card
+      id={update.id}
+      hoverable
+      className="h-full scroll-mt-32 border-primary-100 hover:bg-blue-50"
+    >
       <CardContent className="flex h-full flex-col p-4">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           {update.isPinned && (
