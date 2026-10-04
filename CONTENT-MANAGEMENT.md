@@ -10,9 +10,12 @@ This guide will help you edit and manage content for the Better Local Government
 4. [Adding New Services](#adding-new-services)
 5. [Adding Government Department Pages](#adding-government-department-pages)
 6. [Updating Statistics and Transparency Dashboards](#updating-statistics-and-transparency-dashboards)
-7. [Markdown Formatting Guide](#markdown-formatting-guide)
-8. [Best Practices](#best-practices)
-9. [Troubleshooting](#troubleshooting)
+7. [Posting Updates and Advisories](#posting-updates-and-advisories)
+8. [Updating Hotlines](#updating-hotlines)
+9. [Adding Glossary Terms](#adding-glossary-terms)
+10. [Markdown Formatting Guide](#markdown-formatting-guide)
+11. [Best Practices](#best-practices)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -253,6 +256,124 @@ Use the JSON file to update:
 - Keep keys unchanged, such as `highlightStats`, `content`, `hero`, and `sourceLinks`.
 - Use plain numbers for chart values and formatted text only for display values like `"68,368"` or `"PHP 110.1M"`.
 - Update source links whenever figures are refreshed from PSA, CMCI, BLGF, or another official dataset.
+
+---
+
+## Posting Updates and Advisories
+
+Announcements, public advisories and activities are kept in
+`src/data/updates.ts`. They appear on the **Updates** page (`/updates`),
+which is linked from the main navigation.
+
+### Adding an Update
+
+Copy an existing entry at the top of the `updates` list and change its
+values. Each entry looks like this:
+
+```ts
+{
+  id: 'adv-026',
+  type: 'advisory',
+  title: 'No Face-to-Face Classes',
+  description: 'Pre-school to college, public and private.',
+  date: '2026-10-05',
+  time: 'Whole day',
+  venue: '',
+  tags: ['Suspension', 'WalangPasok'],
+  source: 'Aparri LGU - Public Information Office Facebook Page',
+  link: 'https://www.facebook.com/...',
+  severity: 'urgent',
+  expiresAt: '2026-10-06',
+  isPinned: false,
+  status: 'published',
+  createdAt: '2026-10-04',
+  items: false,
+},
+```
+
+- `id` must be unique. It is also used in links, e.g. `/updates#adv-026`.
+- `type` is `announcement`, `advisory` or `activity`.
+- `status` is `published` (shown), `draft` (hidden) or `archived` (shown in
+  the archive section of the Updates page).
+- `isPinned: true` keeps an update at the top of the Updates page.
+
+### Showing an Advisory Banner on the Homepage
+
+Add a `severity` to a **published** update to show it as a banner at the
+very top of the homepage:
+
+| `severity` | Banner                      | Use for                                                    |
+| ---------- | --------------------------- | ---------------------------------------------------------- |
+| `urgent`   | Dark red, "Urgent advisory" | Typhoon signals, evacuations, class suspensions            |
+| `warning`  | Amber, "Advisory"           | Water or power interruptions, road closures, gale warnings |
+| `info`     | No banner                   | Everything else (same as leaving it out)                   |
+
+How long the banner stays:
+
+- If the update has `expiresAt` (a `YYYY-MM-DD` date), the banner shows
+  until the end of that date.
+- If not, it shows for **7 days** after the update's `date`.
+
+Up to two banners show at a time, urgent ones first. When there is no
+active advisory, nothing is shown. Each banner has a "Read more" link to the
+update on the Updates page.
+
+**Tip:** set `expiresAt` for anything that has a clear end, such as a class
+suspension for one day, so the banner disappears on time.
+
+---
+
+## Updating Hotlines
+
+Hotline numbers are kept in `src/data/hotlines.ts`:
+
+- `emergencyHotlines`: Aparri responders (MDRRMO, police, fire, coast
+  guard, hospital). These appear in the red hotline bar at the top of every
+  page and on the `/hotlines` page.
+- `nationalHotlines`: nationwide numbers such as 911.
+- `municipalHotlines`: the Municipal Hall (`MUNICIPAL_HALL_PHONE`, also
+  used in the homepage contact section and printed guides).
+
+Write mobile numbers as 11 digits without spaces (e.g. `09171234567`).
+They are formatted as `0917 123 4567` automatically.
+
+**Barangay hall numbers** are not in `hotlines.ts`. They are read from the
+`**Barangay Telephone:**` line of each barangay page in
+`content/government/barangays/`. To add or fix a number, edit that line,
+for example:
+
+```markdown
+- **Barangay Telephone:** 09171234567
+```
+
+Leave it as `No data provided` if there is no number. The `/hotlines` page
+shows "Not listed", and the printed list leaves a blank line to write it in.
+
+---
+
+## Adding Glossary Terms
+
+Terms such as NTA, LDRRMF and BPLO get a dotted underline with a
+plain-language explanation on hover or tap. They are defined in
+`src/data/glossary.ts`:
+
+```ts
+{
+  term: 'Rural Health Unit (RHU)',
+  definition:
+    'The town health center. It offers check-ups, vaccines, prenatal care and basic medicines, mostly for free.',
+  match: ['RHU'],
+},
+```
+
+- `term`: the full name, shown in bold at the top of the tooltip.
+- `definition`: one or two short sentences written for residents.
+- `match`: the exact spellings to underline. Matching is case-sensitive and
+  whole-word, so list each variant (e.g. `['LGU', 'LGUs']`).
+
+Tooltips are added automatically to service and government pages and to
+the introductions and section descriptions of the data pages. Only the
+first mention of a term in each paragraph is underlined.
 
 ---
 
