@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-10-04
+
+### Added
+
+- Homepage advisory banner: published updates with `severity: 'warning'`
+  or `'urgent'` show as a banner at the very top of the homepage until
+  their `expiresAt` date, or for 7 days after their `date` if none is set.
+  Hidden when there are no active advisories. Links to the update's card
+  on `/updates` (cards now have anchor ids).
+- `CONTENT-MANAGEMENT.md`: new sections on posting updates and
+  advisories, updating hotlines (including barangay hall numbers), and
+  adding glossary terms.
+- `CLAUDE.md` / `AGENTS.md`: current route list and a "Site-wide Data"
+  section (hotlines, updates and advisories, glossary).
+
+### Changed
+
+- Emergency hotlines moved into the sticky navbar as a red bar with
+  tap-to-call chips (they scroll sideways on phones) and a link to
+  `/hotlines`, so the numbers stay visible on every page while
+  scrolling. It replaces the gray top strip; the homepage hotline
+  section below the hero is removed.
+- The navbar's "Volunteer-led initiative" note and "Join Us" link are
+  removed with the gray strip. The footer's bottom line now carries the
+  volunteer-led notice (shortened to "LGU Aparri"), with the public-domain
+  note under the site description; the GitHub link stays in the footer.
+- New site description: "Access government information and services
+  quickly and easily."
+
+### Removed
+
+- Homepage Updates section. Updates stay in the main navigation.
+
 ## [1.5.0] - 2026-10-04
 
 ### Added
