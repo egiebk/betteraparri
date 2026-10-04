@@ -2,13 +2,11 @@ import { Link } from 'react-router-dom';
 import Section from '../ui/Section';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
-import GuideCard from '../services/GuideCard';
 import { cn } from '../../lib/utils';
-import { lifeEvents, serviceGuides } from '../../data/serviceGuides';
+import { lifeEvents } from '../../data/serviceGuides';
 
 /**
- * Homepage services block: life-event shortcuts into /services, plus the
- * plain-language step-by-step guides.
+ * Homepage services block: life-event shortcuts into /services.
  */
 export default function ServicesSection() {
   return (
@@ -29,10 +27,6 @@ export default function ServicesSection() {
           <i aria-hidden="true" className="ri-arrow-right-line ml-1" />
         </Link>
       </div>
-
-      <h3 className="mb-3 text-lg font-semibold text-gray-900">
-        What do you need to do?
-      </h3>
       <ul className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {lifeEvents.map(event => {
           const guideCount = event.items.filter(item => item.guide).length;
@@ -68,19 +62,6 @@ export default function ServicesSection() {
           );
         })}
       </ul>
-
-      {serviceGuides.length > 0 && (
-        <>
-          <h3 className="mb-3 text-lg font-semibold text-gray-900">
-            Step-by-step guides
-          </h3>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {serviceGuides.map(guide => (
-              <GuideCard key={guide.slug} guide={guide} />
-            ))}
-          </div>
-        </>
-      )}
     </Section>
   );
 }

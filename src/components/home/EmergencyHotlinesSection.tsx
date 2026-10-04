@@ -23,12 +23,11 @@ const EmergencyHotlinesSection: React.FC = () => {
             Emergency Hotlines
           </h2>
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-red-200/80">
-            Tap a number to call directly from your phone.
             <Link
               to="/hotlines"
               className="inline-flex items-center gap-1 font-semibold text-white underline-offset-4 hover:underline"
             >
-              All hotlines, incl. barangays
+              View all hotlines
               <i className="ri-arrow-right-line" aria-hidden="true" />
             </Link>
           </p>
