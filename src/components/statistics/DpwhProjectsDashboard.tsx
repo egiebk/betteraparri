@@ -28,7 +28,6 @@ import {
 } from './contracts/ContractWidgets';
 import {
   LoadingState,
-  ProvenanceBar,
   SectionHeading,
   SourcesCard,
   StatTile,
@@ -413,15 +412,6 @@ export function DpwhProjectsDashboard() {
           eyebrow={content?.hero.eyebrow ?? 'Transparency'}
           title={content?.hero.title ?? 'DPWH Projects'}
           description={content?.hero.description ?? ''}
-        />
-        <ProvenanceBar
-          provenance={data.provenance}
-          coverage={
-            years.length > 0
-              ? `Program years ${years[years.length - 1]}–${years[0]}`
-              : undefined
-          }
-          asOf={data.asOf}
         />
         {content?.intro && <IntroCard text={content.intro} />}
       </section>

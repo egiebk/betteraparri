@@ -25,7 +25,6 @@ import {
 } from '../../lib/dataLoader';
 import {
   LoadingState,
-  ProvenanceBar,
   SectionHeading,
   SourcesCard,
   StatTile,
@@ -703,10 +702,6 @@ function PageShell<Y extends FiscalYearBase>({
           title={data.content.hero.title}
           description={data.content.hero.description}
         />
-        <ProvenanceBar
-          provenance={data.provenance}
-          coverage={fiscalCoverage(data.years)}
-        />
         <Intro text={data.content.intro} />
       </section>
       <div className="-mt-4">
@@ -728,17 +723,6 @@ function PageShell<Y extends FiscalYearBase>({
       />
     </div>
   );
-}
-
-function fiscalCoverage(years: FiscalYearBase[]) {
-  if (years.length === 0) return undefined;
-  const sorted = [...years].sort((a, b) => a.year - b.year);
-  const first = sorted[0];
-  const last = sorted[sorted.length - 1];
-  const range = `FY ${first.year}–${last.year}`;
-  return last.status === 'preliminary'
-    ? `${range} (${last.year} preliminary)`
-    : range;
 }
 
 function section(data: FiscalPageData<FiscalYearBase>, key: string) {

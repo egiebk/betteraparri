@@ -10,7 +10,6 @@ import {
 } from '../../lib/dataLoader';
 import {
   LoadingState,
-  ProvenanceBar,
   SectionHeading,
   SourcesCard,
   StatTile,
@@ -824,12 +823,6 @@ export function DemographicsDashboard() {
           eyebrow={data.content.hero.eyebrow}
           title={data.content.hero.title}
           description={data.content.hero.description}
-        />
-        <ProvenanceBar
-          provenance={data.provenance}
-          coverage={`${Math.min(
-            ...data.populationHistory.map(p => p.year)
-          )}–${data.latestCensus.year}`}
         />
         <Card className="border-primary-100 bg-gray-50">
           <CardContent className="flex gap-4 p-5">

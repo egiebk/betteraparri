@@ -45,7 +45,6 @@ export interface SefData {
 export interface ProcurementData {
   content?: ProcurementContent;
   asOf: string;
-  provenance?: DataProvenance;
   sourceLinks?: SourceLink[];
   summary: ProcurementSummary;
   categories: string[];
@@ -135,17 +134,6 @@ export interface CmciProfile {
 export interface SourceLink {
   label: string;
   href: string;
-}
-
-/**
- * Short "where is this from and how fresh is it" summary shown as badges
- * at the top of each data page. `lastUpdated` is the date (YYYY-MM-DD)
- * the data on this site was last refreshed; pages with an `asOf` field
- * use that instead.
- */
-export interface DataProvenance {
-  source: string;
-  lastUpdated?: string;
 }
 
 export interface RevenueSource {
@@ -361,7 +349,6 @@ export interface CompetitivenessData {
   peerComparison: CmciPeerYear[];
   peerGroupLabel: string;
   peerGroupDescription: string;
-  provenance?: DataProvenance;
   sourceLinks: SourceLink[];
   content: CompetitivenessContent;
 }
@@ -397,7 +384,6 @@ export interface DemographicsData {
   latestCensus: { year: number; name: string; referenceDate: string };
   populationHistory: PopulationCount[];
   barangays: BarangayPopulation[];
-  provenance?: DataProvenance;
   sourceLinks: SourceLink[];
   content: DemographicsContent;
 }
@@ -496,7 +482,6 @@ export interface FiscalPageData<Y extends FiscalYearBase> {
   lgu: string;
   years: Y[];
   populationNote: string;
-  provenance?: DataProvenance;
   sourceLinks: SourceLink[];
   content: FiscalPageContent;
 }

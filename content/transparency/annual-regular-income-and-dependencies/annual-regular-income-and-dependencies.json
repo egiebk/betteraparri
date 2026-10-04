@@ -195,10 +195,6 @@
     }
   ],
   "populationNote": "Per-resident amounts use mid-year population estimates between the 2015, 2020 and 2024 census counts.",
-  "provenance": {
-    "source": "BLGF",
-    "lastUpdated": "2026-09-25"
-  },
   "sourceLinks": [
     {
       "label": "BLGF LGU Fiscal Data (annual files by LGU)",
