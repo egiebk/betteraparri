@@ -25,6 +25,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: 'rosal-2026-01',
+    type: 'advisory',
+    title: 'Super Typhoon Rosal',
+    description:
+      'Residents are advised to prepare for heavy rainfall, strong winds, and possible flooding. Monitor official LGU and PAGASA announcements.',
+    date: '2026-10-20',
+    time: '11:00 AM',
+    venue: 'Aparri',
+    tags: ['RosalPH', 'Typhoon'],
+    source: 'DOST-PAGASA',
+    link: 'https://www.pagasa.dost.gov.ph/tropical-cyclone/severe-weather-bulletin',
+    isPinned: true,
+    severity: 'warning',
+    status: 'published',
+    expiresAt: '2026-10-22',
+    createdAt: '2026-10-20',
+    items: false,
+  },
+  {
     id: 'act-025',
     type: 'activity',
     title: 'Special Recruitment Activity',
