@@ -540,29 +540,29 @@
   },
   {
     "id": 77,
+    "title": "Super Typhoon Rosal",
+    "description": "Residents are advised to prepare for heavy rainfall, strong winds, and possible flooding. Monitor official LGU and PAGASA announcements.",
+    "url": "/updates",
+    "section": "updates"
+  },
+  {
+    "id": 78,
     "title": "Special Recruitment Activity",
     "description": "The Public Employment Service Office (PESO) of LGU Aparri is inviting interested applicants to attend a Special Recruitment Activity (SRA) in partnership with Pacific Star International Employment Age",
     "url": "/updates",
     "section": "updates"
   },
   {
-    "id": 78,
+    "id": 79,
     "title": "No Face-to-Face Classes",
     "description": "Pre-School to College (Public and Private) due to NGCP Scheduled Power Interruption",
     "url": "/updates",
     "section": "updates"
   },
   {
-    "id": 79,
+    "id": 80,
     "title": "Distribution of Social Pension Stipend to Indigent Senior Citizens",
     "description": "June 8-11: Eastern Barangays; June 10-11: Western Barangays; June 15: All Brangays (Unpaid)",
-    "url": "/updates",
-    "section": "updates"
-  },
-  {
-    "id": 80,
-    "title": "Application for National ID",
-    "description": "",
     "url": "/updates",
     "section": "updates"
   },
@@ -575,8 +575,8 @@
   },
   {
     "id": 82,
-    "title": "2026 Gas Subsidy Distribution",
-    "description": "Drivers are encouraged to bring MTOP and Official Receipt",
+    "title": "Application for National ID",
+    "description": "",
     "url": "/updates",
     "section": "updates"
   },
@@ -589,6 +589,13 @@
   },
   {
     "id": 84,
+    "title": "2026 Gas Subsidy Distribution",
+    "description": "Drivers are encouraged to bring MTOP and Official Receipt",
+    "url": "/updates",
+    "section": "updates"
+  },
+  {
+    "id": 85,
     "title": "Scheduled Power Interruption",
     "description": "To conduct maintenance works along the power line.",
     "url": "/updates",
